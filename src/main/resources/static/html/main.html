@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ">
+    <title>Bootstrap Main</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/commons.css">
+</head>  
+<body >
+    <div class="container">
+        <nav class="navbar navbar-expand">
+             <div class="navbar-brand">
+                    PET 
+                </div>
+                <div class="navbar-nav me-auto"> <!--m:마진, e:end(오른쪽)-->
+                    <a href="" class="nav-link">간식</a>
+                    <a href="" class="nav-link">카페</a>
+                    <a href="" class="nav-link">용품</a>
+                    <a href="" class="nav-link">병원</a>                    
+                </div>
+
+            <div class="dropdown nav-item">
+                        <button class="btn btn-drak dropdown-toggle" data-bs-toggle="dropdown">회원관리</button><!--버튼 버튼색 버튼화살표토글 / 토글효과 : 드롭다운-->
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item">
+                                 <a class="nav-link" href="login.html">로그인</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a class="nav-link" href="mypage.html">마이페이지</a>
+                            </li> 
+                            <li class="dropdown-item">
+                                <a class="nav-link" href="checkout.html">회원가입</a>
+                            </li>
+                            <li class="dropdown-divider"></li> <!--drowdown메뉴안에서 라인으로 나누기 -->
+                              <li class="dropdown-item">로그아웃</li>
+                        </ul>
+                    </div>
+        </nav>
+    </div>
+
+    <div class="container py-5"><!--carousel container-->
+        <div id="controlsId" class="carousel slide" data-bs-ride="carousel">   
+            <div class="carousel-inner"><!-- 슬라이드 쇼 -->
+                <div class="carousel-item active"><!-- 이미지의 개수만큼 item을 만듬-->
+                    <img class="w-100" src="images/pet1.jpg" alt=""><!--w-100 : width 100%-->
+                </div>               
+                <div class="carousel-item">
+                    <img class="w-100" src="images/pet2.jpg" alt="">
+                </div>  
+                <div class="carousel-item">
+                    <img  class="w-100" src="images/pet3.jpg" alt="">
+                </div>
+            <button data-bs-slide="prev" data-bs-target="#controlsId" class="carousel-control-prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button> <!--이전 화살표 버튼-->
+                
+            <button data-bs-slide="next"data-bs-target="#controlsId" class="carousel-control-next"> 
+                 <span class="carousel-control-next-icon"></span>
+                </button> <!--다음 화살표 버튼-->
+            </div>   
+        </div>
+    </div>
+
+    <div class="container">
+      
+            <form action="index.html">  
+            <div class="row">
+                <div class="card col-6">
+                    <div class="card-header bg-light">
+                        반려동물 이름
+                    </div>
+                    <div class="card-body">
+                        <div class="m-3 w-75">
+                            <lable class="form-label" for="">  <input class="form-control"type="text"></lable>
+                        </div>
+                    </div>
+                </div> 
+    
+                <div class="card col-6">
+                    <div class="card-header bg-light">
+                        반려동물 나이
+                    </div>
+                    <div class="card-body">
+                        <div class="m-3 form-check"> <!--선택1-->
+                            <input type="radio" name="animal-age1" value="0-3" class="form-check-input">
+                            <lable for="" class="form-check-label">0-3</lable>
+                        </div>
+                        <div class="m-3 form-check"> <!--선택2--> 
+                            <input type="radio" name="animal-age2" value="4-6" class="form-check-input">
+                            <lable for="" class="form-check-label">4-6</lable>
+                        </div>
+                        <div class="m-3 form-check">  <!--선택3-->
+                            <input type="radio" name="animal-age3" value="7-10" class="form-check-input">
+                            <lable for="" class="form-check-label">7-10</lable>
+                        </div>
+                        <div class="m-3 form-check">  <!--선택4-->
+                            <input type="radio" name="animal-age3" value="11-100" class="form-check-input">
+                            <lable for="" class="form-check-label">11-100</lable>
+                        </div>
+                    </div>
+                </div> 
+    
+                <div class="card col-6">
+                    <div class="card-header bg-light">
+                        반려동물 종류
+                    </div>
+                    <div class="card-body">
+                        <div class="m-3 form-check"> <!--선택1-->
+                            <input type="radio" name="animal-1" value="dog" class="form-check-input">
+                            <lable for="" class="form-check-label">dog</lable>
+                        </div>
+                        <div class="m-3 form-check"> <!--선택2--> 
+                            <input type="radio" name="animal-2" value="cat" class="form-check-input">
+                            <lable for="" class="form-check-label">cat</lable>
+                        </div>
+                        <div class="m-3 form-check">  <!--선택3-->
+                            <input type="radio" name="animal-3" value="reptile" class="form-check-input">
+                            <lable for="" class="form-check-label">reptile</lable>
+                        </div>
+                        <div class="m-3 form-check">  <!--선택4-->
+                            <input type="radio" name="animal-4" value="etc" class="form-check-input">
+                            <lable for="" class="form-check-label">etc</lable>
+                        </div>
+                    </div>
+                </div> 
+    
+                <div class="card col-6">
+                    <div class="card-header bg-light">
+                        귀여움정도
+                    </div>
+                    <div class="card-body">
+                        <div class="m-3 form-check"> <!--선택1-->
+                            <input type="radio" name="animal-c" value="♥" class="form-check-input">
+                            <lable for="" class="form-check-label">♥</lable>
+                        </div>
+                        <div class="m-3 form-check"> <!--선택2--> 
+                            <input type="radio" name="animal-u" value="♥♥♥♥" class="form-check-input">
+                            <lable for="" class="form-check-label">♥♥♥♥</lable>
+                        </div>
+                        <div class="m-3 form-check">  <!--선택3-->
+                            <input type="radio" name="animal-t" value="♥♥♥♥♥♥♥♥♥" class="form-check-input">
+                            <lable for="" class="form-check-label">♥♥♥♥♥♥♥♥♥</lable>
+                        </div>
+                        <div class="m-3 form-check">  <!--선택3-->
+                            <input type="radio" name="animal-e" value="♥♥♥♥♥♥♥♥♥♥♥♥" class="form-check-input">
+                            <lable for="" class="form-check-label">♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥</lable>
+                        </div>
+                    </div>
+                </div> 
+    
+                <div class="py-2 text-center">
+                    <button type="submit" class=" w-75 btn btn-dark">제출</button> <!--값 전송 버튼-->
+                </div>
+            </div>
+             </form>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</html>
