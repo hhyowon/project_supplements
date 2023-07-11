@@ -9,9 +9,11 @@
 <body>
     <div class="container">
         <nav class="navbar navbar-expand">
-             <div class="navbar-brand">
-                 Diet_0124
+            <div class="navbar-brand">
+                <div>
+                   <img  class="mb-4" src="img/logo.PNG" alt width="200" height="90" >
                 </div>
+           </div>
                 <div class="navbar-nav me-auto"> <!--m:마진, e:end(오른쪽)-->
                     <a class="nav-link" href="mainnavs.html">홈</a>
                     <a class="nav-link" href="mainsurvey.html">설문조사</a>
@@ -40,24 +42,25 @@
     </div>
 
     <div class="container">
-        <form action="/optionInforsServlet">
+        <form action="/optionInforsServlet" style="text-align: left;">
             <label for="">검색</label>
-            <input type="text" name="search">
-            <button>검색 하기</button>
+            <input type="text" namse="search">
+              <buttonbtn class="btn btn-outline-dark ">검색 하기</button>
         </form>
     </div>
+    <br>
     <div class="container">
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>OPTION_INFOR_ID</th> 
-                    <th>OPTION_NAME</th>
+                    <th>다이어트</th> 
+                    <th>약!</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>OI001</td>
-                    <td>네비게이션</td>
+                    <td>제지방</td>
+                    <td>살빼자</td>
                 </tr>
             </tbody>
         </table>
