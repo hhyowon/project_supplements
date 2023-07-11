@@ -1,0 +1,16 @@
+
+    .modal-dialog {
+        height: 500px; /* 원하는 높이 값으로 조정 */
+        max-height: 80vh; /* 원하는 최대 높이 값으로 조정 */
+        margin: auto;
+    }
+    .modal-header {
+        word-spacing: -10px;
+    }
+    .form-check-label {
+        margin-right: -10px;
+    }
+      .modal-body input[type="text"] {
+        width: 300px; /* 원하는 너비 값으로 조정 */
+        height: 100%;
+    }
