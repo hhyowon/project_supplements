@@ -7,73 +7,52 @@
     <title>복용하지 않은 자 폼</title>
 </head>
 <body>
-
-    <div style="text-align: center;">
+    <div class="top-margin text-center">
         <img class="mb-4" src="img/logo.PNG" alt width="240" height="100" style="display: block; margin-left: auto; margin-right: auto;">
-          <H1>나 안먹어봤찌롱 폼</H1>
-        <form>
-        <div class="container mx-auto" style="border: 1px solid black; padding: 20px; border-radius: 10px;">
-            
+        <H1>나 먹어본사람 설문조사 폼</H1>  
+    </div>
+    <form method= "get" action="" >
+        <div class= "container mx-auto" style="border: 2px solid rgb(91, 155, 213); padding: 20px; border-radius: 10px;">
+            <div style="padding-top: 10px;">
                 <label for="idname">이름을 알려주세요</label>
                 <div>
                     <input type="text" maxlength="10" placeholder="이름" name="name" id="idname">
                 </div>
-          
+            </div>
 
-            <br>
-            <p>1. 어떤 이유로 다이어트를 결심하게 되었나요?</p>
-            <input type="radio" name="q1" value="건강"> 건강
-            <input type="radio" name="q1" value="미용"> 미용
-            <input type="radio" name="q3" value="주변권유"> 주변권유
-            <input type="radio" name="q4" value="대회출전"> 대회출전
-            <input type="radio" name="q5" value="바디프로필"> 바디프로필
-            <br><br>
+            1. 어떤 이유로 다이어트를 결심하게 되었나요? </br>
+            <input type="radio" name="Q1" value="Health"> 건강
+            <input type="radio" name="Q1" value="Beauty"> 미용
+            <input type="radio" name="Q1" value="Photos"> 사진 
+            <input type="radio" name="Q1" value="Invitations"> 주변권유
+            <input type="radio" name="Q1" value="etc"> 기타 </br>
 
-            <p>2. 관심있는 다이어트 보조제 종류가 무엇인가요?</p>
-            <input type="radio" name="q1" value="한약 환"> 한약 환
-            <input type="radio" name="q2" value="나비약"> 나비약
-            <input type="radio" name="q3" value="물"> 물
-            <input type="radio" name="q4" value="효소"> 효소
-            <input type="radio" name="q5" value="젤리"> 젤리
+            <br>2. 관심있는 다이어트 보조제 종류가 무엇인가요?  </br>
+            <input type="radio" name="Q2" value="Before meals" > 식전 
+            <input type="radio" name="Q2" value="After meals" > 식후 
+            <input type="radio" name="Q2" value="Throughout the day" > 수시로 </br>
 
-            <br><br>
+            <br>3. 당신의 나이는?</br>
+            <input type="radio" name="Q3" value="Less than 6 months" > 6개월 이하 
+            <input type="radio" name="Q3" value="6 months to 1 year" > 6개월 ~ 1년 사이  
+            <input type="radio" name="Q3" value="1 year to 3 years" > 1년 ~ 3년 사이  
+            <input type="radio" name="Q3" value="More than 3 years" > 3년 이상 </br>
 
-            <p>3. 당신의 나이는?</p>
-            <input type="radio" name="q1" value="10대"> 10대
-            <input type="radio" name="q2" value="20대"> 20대
-            <input type="radio" name="q3" value="30대"> 30대
-            <input type="radio" name="q4" value="40대"> 40대
-            <input type="radio" name="q5" value="50대 이상"> 50대 이상
-            <br><br>
-
-            <p>4.복용하지 않은 자의 질문은 뭐가 있을까용?</p>
-            <input type="radio" name="q1" value="매우 높음"> 도
-            <input type="radio" name="q2" value="다소 높음"> 와
-            <input type="radio" name="q3" value="다소 높음"> 주
-            <input type="radio" name="q4" value="다소 높음"> 세
-            <input type="radio" name="q5" value="다소 높음"> 요
-            <br><br>
-
-            <p>4. 다이어트 성공하고 싶어용</p>
-            <input type="radio" name="q1" value="매우 높음"> 응원
-            <input type="radio" name="q2" value="다소 높음"> 해요
-            <input type="radio" name="q3" value="매우 높음"> 저도
-            <input type="radio" name="q4" value="다소 높음"> 원해요
-            <input type="radio" name="q5" value="매우 높음"> 제발
-            <br><br>
+            <br>4.복용하지 않은 자의 질문은 뭐가 있을까용? </br>
+            <input type="radio" name="Q4" value=" weight loss" > 체중 감량을 위한 도움 
+            <input type="radio" name="Q4" value="self-care " > 자기 관리와 건강 관리
+            <input type="radio" name="Q4" value=" rapid weight loss" > 신속한 체중 감량을 위함  
+            <input type="radio" name="Q4" value="Other reasons" > 기타 원인  </br>
+            <br>5. 다이어트 성공하고 싶어용</br> 
+            <input type="radio" name="Q5" value="Yes" > 네 
+            <input type="radio" name="Q5" value="No" > 아니오 </br> 
         </div>
-            <!-- Add three more questions here -->
+        <div class="container bg-white fs-6 py-6 row mx-auto my-3">
             <div class="text-center d-flex justify-content-center py-2">
                 <button type="submit" formaction="mainnavs.html" class="btn btn-white mx-2 btn-outline-dark" style="border-color: black; color: black;">닫기</button>
                 <button type="submit" formaction="mainnavs.html" class="btn btn-white btn-outline-dark" style="background-color: #5B9BD5; color: white; border-color: transparent;">설문제출</button>
             </div>
-            
-            
-            
-        </form>
-    </div>
-</body>
-</html>
-
+        </div>
+    </form>
 </body>
 </html>
