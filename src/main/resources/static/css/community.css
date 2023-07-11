@@ -10,6 +10,6 @@
         margin-right: -10px;
     }
       .modal-body input[type="text"] {
-        width: 300px; /* 원하는 너비 값으로 조정 */
+        width: 3000px; /* 원하는 너비 값으로 조정 */
         height: 100%;
     }
