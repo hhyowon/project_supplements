@@ -9,15 +9,16 @@
 <body>
 
     <div style="text-align: center;">
-        <img class="mb-4" src="img/logo.PNG" alt width="220" height="100" style="display: block; margin-left: auto; margin-right: auto;">
+        <img class="mb-4" src="img/logo.PNG" alt width="240" height="100" style="display: block; margin-left: auto; margin-right: auto;">
           <H1>나 안먹어봤찌롱 폼</H1>
         <form>
-            <div style="padding-top: 10px;">
+        <div class="container mx-auto" style="border: 1px solid black; padding: 20px; border-radius: 10px;">
+            
                 <label for="idname">이름을 알려주세요</label>
                 <div>
                     <input type="text" maxlength="10" placeholder="이름" name="name" id="idname">
                 </div>
-            </div>
+          
 
             <br>
             <p>1. 어떤 이유로 다이어트를 결심하게 되었나요?</p>
@@ -60,10 +61,15 @@
             <input type="radio" name="q4" value="다소 높음"> 원해요
             <input type="radio" name="q5" value="매우 높음"> 제발
             <br><br>
-
+        </div>
             <!-- Add three more questions here -->
-
-            <input type="submit" class="btn btn-outline-dark mt-3"  value="제출">
+            <div class="text-center d-flex justify-content-center py-2">
+                <button type="submit" formaction="mainnavs.html" class="btn btn-white mx-2 btn-outline-dark" style="border-color: black; color: black;">닫기</button>
+                <button type="submit" formaction="mainnavs.html" class="btn btn-white btn-outline-dark" style="background-color: #5B9BD5; color: white; border-color: transparent;">설문제출</button>
+            </div>
+            
+            
+            
         </form>
     </div>
 </body>
