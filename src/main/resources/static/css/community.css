@@ -2,7 +2,6 @@
     .modal-dialog {
         height: 500px; /* 원하는 높이 값으로 조정 */
         max-height: 80vh; /* 원하는 최대 높이 값으로 조정 */
-        margin: auto;
     }
     .modal-header {
         word-spacing: -10px;
