@@ -46,7 +46,7 @@
       </div>
     
 
-<div class="ui middle aligned center aligned grid">
+<div class="ui middle aligned center aligned grid container mx-auto">
     <div class="column">
         <h2 class="ui teal image header">
             커뮤니티
@@ -54,27 +54,44 @@
         <br>
         <div class="ui large form">
             <div class="ui stacked segment">
-            
-                <a data-bs-toggle="modal" href="#modalTarget-center"><button class="btn btn-white btn-outline-dark" style="background-color: #5B9BD5; color: white; border-color: transparent;">작성하기</button></a>
-             
+                <a data-bs-toggle="modal" href="#modalTarget-center"><button class="btn mx-2  mb-2 submit" style="background-color: #5B9BD5; color: white; border-color: transparent;">작성하기</button></a>
                 <!-- 모달 창 -->
                 <div class="modal" id="modalTarget-center">
                     <div class="modal-dialog modal-dialog-centered">
-                        <!-- 팝업창 가운데 배치하는 것 -->
                         <div class="modal-content">
                             <div class="modal-header" > 
-                                <input type="radio" name="카테고리" id="Q&A"> 질문
-                                <input type="radio" name="카테고리" id="review"> 후기
-                                <input type="radio" name="카테고리" id="recommend"> 추천
-                                <a class="nav-link" href="bmi.html" style="color: #5B9BD5;">BMI</a>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="카테고리" id="Q&A">
+                                    <label class="form-check-label" for="Q&A">
+                                      질문
+                                    </label>
+                                  </div>
+                                  
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="카테고리" id="review">
+                                    <label class="form-check-label" for="review">
+                                      후기
+                                    </label>
+                                  </div>
+                                  
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="카테고리" id="recommend">
+                                    <label class="form-check-label" for="recommend">
+                                      추천
+                                    </label>
+                                  </div>
+
                             </div>
-                            <div class="modal-body"> <input type="text" placeholder="이곳에 내용을 입력하세요."> </div>
+                            <div class="modal-body form-group">
+                                제목 : <input type="text" class="form-control" style="width: 100%;" > </br>
+                                내용 : <input type="text" placeholder="이곳에 내용을 입력하세요." style="height: 100%;" class="form-control" > </div>
                             <div class="modal-footer">
-                                <button class="btn btn-secondary" data-bs-dismiss="modal">입력</button>
+                                <button class="btn btn-white btn-outline-dark" style="background-color: #5B9BD5; color: white; border-color: transparent;" data-bs-dismiss="modal">입력</button>
                             </div>
                         </div>
                     </div>
                 </div>
+                </br>
                 <table class="ui celled table">
                     <thead>
                         <tr>
