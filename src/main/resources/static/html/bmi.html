@@ -55,40 +55,44 @@
   <br>
   <h3 style="color: #5B9BD5; font-weight: bold;">신체질량지수(BMI) 계산</h2>
 
-   <div class="box bg text_center bmi"><!--긁어왔어요 조효원이 담당할게요..디비랑 자바까지-->
-	<form id="bmiForm" name="bmiForm" action="/health/contents.do?key=1691" method="get">
-        <fieldset style="border: 1px solid lightgray; padding: 10px; border-radius: 10px;">
-			<legend style="font-weight: bold;" >비만도 계산</legend>
-			<input type="hidden" name="avlVal" value="">
-			<input type="hidden" name="bmiVal" value="">
-            <div class="p-form-inline">
-				<div class="checkbox_form" style="margin-top: 10px; margin-bottom: 10px;">
-					<span class="p-form-radio"><span class="p-form__label">성별</span></span>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <span class="p-form-radio">
-						<input type="radio" id="gender1" class="p-form-radio__input" name="gender" value="M">
-						<label for="gender1" class="p-form-radio__label">남성</label>
-					</span>&nbsp;&nbsp;
-					<span class="p-form-radio">
-						<input type="radio" id="gender2" class="p-form-radio__input" name="gender" value="F">
-						<label for="gender2" class="p-form-radio__label">여성</label>
-					</span>
-                </div>
-                <div>
-                    <span class="hw_wrap n1">
-                        <label for="height" class="p-form__label">신장</label>
-                        <input type="text" name="height" id="height" class="p-input p-input--auto" title="" value=""> cm
-                    </span>
-                    <span class="hw_wrap n2">
-                        <label for="weight" class="p-form__label">체중</label>
-                        <input type="text" name="weight" id="weight" class="p-input p-input--auto" value=""> kg
-                    </span>
-                    <span class="bmi_button">
-                        <button class="btn btn-main" type="submit" onclick="return calcBMI()">계산하기</button>
-                    </span>
-                </div>    
-			</div>
-		</fieldset>
-	</form>
+  <div class="box bg text_center bmi"><!--긁어왔어요 조효원이 담당할게요..디비랑 자바까지-->
+    <form id="bmiForm" name="bmiForm" action="/health/contents.do?key=1691" method="get">
+      <fieldset class="border rounded p-3">
+        <legend style="font-weight: bold;">비만도 계산</legend>
+        <input type="hidden" name="avlVal" value="">
+        <input type="hidden" name="bmiVal" value="">
+        <div class="form-inline">
+          <div class="form-group" style="margin-top: 10px; margin-bottom: 10px;">
+            <span class="mr-3"><strong>성별</strong></span>
+            <div class="form-check form-check-inline">
+              <input type="radio" id="gender1" class="form-check-input" name="gender" value="M">
+              <label for="gender1" class="form-check-label">남성</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input type="radio" id="gender2" class="form-check-input" name="gender" value="F">
+              <label for="gender2" class="form-check-label">여성</label>
+            </div>
+          </div>
+
+            <div class="form-group">
+              <label for="height"><strong>신장</strong></label>
+              <div class="input-group" style="max-width: 200px;">
+                <input type="text" name="height" id="height" class="form-control" placeholder="신장" title="" value=""> cm
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="weight"><strong>체중</strong></label>
+              <div class="input-group"  style="max-width: 200px;">
+                <input type="text" name="weight" id="weight" class="form-control" placeholder="체중" value="">kg
+              </div>
+            <div class="form-group">
+              <button class="btn btn-main " type="submit" onclick="return calcBMI()">계산하기</button>
+            </div>
+
+
+      </fieldset>
+    </form>
+
 
     	<!-- <div id="result">
 		<div class="text">

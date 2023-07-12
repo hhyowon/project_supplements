@@ -48,12 +48,15 @@
 
     <div class="container">
       <h2 class="ui teal image header text-center">
-        다이어트 보조제 검색   <hr class='hr-solid'/>
+        다이어트 보조제 검색   
     </h2>
     <br>
-        <form action="/optionInforsServlet" style="text-align:center;">
-            <input type="text" namse="search">
-              <buttonbtn class="btn btn-white btn-outline-dark btn-main">검색</button>
+    <br>
+        <form action="" style="text-align:center;"> <!-- form actio냅뒀어요-->
+          <div class="input-group mb-3" style="max-width: 500px; margin: 0 auto;">
+            <input type="text" name="words" value="" class="form-control" placeholder="원하는 제품 및 성분 검색하기" id="keydownEnter">
+            <button class="btn btn-main" type="submit" formaction="" formmethod="get">검색</button>
+          </div>
         </form>
     </div>
     <br>
