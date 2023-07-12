@@ -23,7 +23,7 @@
             <a class="nav-link" href="search.html">검색</a>
             <a class="nav-link" href="community.html">커뮤니티</a>
             <a class="nav-link" href="rank.html">랭킹</a>
-            <a class="nav-link" href="bmi.html">BMI</a>
+            <a class="nav-link" href="bmi.html" style="color: #5B9BD5;">BMI</a>
           </div>
           <div>
             <a class="nav-link" href="login.html">로그인</a>
@@ -47,11 +47,13 @@
     
 
 <div class="ui middle aligned center aligned grid container mx-auto">
-    <div class="column">
-        <h2 class="ui teal image header">
+  
+        <h2 class="ui teal image header text-center">
             커뮤니티
         </h2>
         <br>
+      
+       
         <div class="ui large form">
             <div class="ui stacked segment">
                 <a data-bs-toggle="modal" href="#modalTarget-center"><button class="btn mx-2  mb-2 float-end submit" style="background-color: #5B9BD5; color: white; border-color: transparent;">작성하기</button></a>
@@ -95,6 +97,7 @@
                 <table class="ui celled table">
                     <thead>
                         <tr>
+                            <th>번호</th>
                             <th>카테고리</th>
                             <th>제목</th>
                             <th>등록자</th>
@@ -103,18 +106,21 @@
                     </thead>
                     <tbody id="list">
                         <tr>
+                            <td>1</td>
                             <td>질문</td>
                             <td>다이어트 보조제 부작용 중에 변비도 있나요?</td>
                             <td>효원</td>
                             <td>2023.07.10.</td>
                         </tr>
                         <tr>
+                            <td>2</td>
                             <td>질문</td>
                             <td>다이어트 성공 가능할까요..?</td>
                             <td>효원</td>
                             <td>2023.07.10.</td>
                         </tr>
                         <tr>
+                            <td>3</td>
                             <td>질문</td>
                             <td>워터밤에 가려고 하는데 효과 직빵인 다이어트 보조제 있나요:?</td>
                             <td>효원</td>
@@ -127,6 +133,25 @@
             <div class="ui error message"></div>
 
         </div>
+        
+        <ul class="pagination justify-content-center">
+          <li class="page-item">
+            <a class="page-link" href="" aria-label="Previous"><span aria-hidden="true"><</span></a>
+          </li>
+        <li class="page-item">
+          <a class="page-link" href="">1</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="">2</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="">3</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="" aria-label="Next"><span aria-hidden="true">></span></a>
+        </li>
+      </ul>
+
     </div>
 </div>
 
@@ -147,6 +172,7 @@
         </div>
     </div>
 </div>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </html>
