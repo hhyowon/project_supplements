@@ -10,100 +10,153 @@
     <link rel="stylesheet" href="../css/maintool.css">
 </head>  
 <body>
-<div class="container">
-  <nav class="navbar navbar-expand">
-    <div class="navbar-brand">
-      <div>
-        <a href="mainnavs.html">
-          <img class="mb-4" src="img/logo.PNG" alt width="220" height="90">
-        </a>
+    
+    <div class="container">
+        <nav class="navbar navbar-expand">
+          <div class="navbar-brand">
+            <div>
+              <a href="mainnavs.html">
+                <img class="mb-4" src="img/logo.PNG" alt width="220" height="90">
+              </a>
+            </div>
+          </div>
+          <div class="navbar-nav me-auto"> <!--m:마진, e:end(오른쪽)-->
+            <a class="nav-link" href="survey.html">설문조사</a>
+            <a class="nav-link" href="search.html">검색</a>
+            <a class="nav-link" href="community.html">커뮤니티</a>
+            <a class="nav-link" href="rank.html">랭킹</a>
+            <a class="nav-link" href="bmi.html" style="color: #5B9BD5;">BMI</a>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap checkout</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../toy_publishings/css/commons.css">
+  <link rel="stylesheet" href="../css/maintool.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <nav class="navbar navbar-expand">
+      <div class="navbar-brand">
+        <div>
+          <a href="mainnavs.html">
+            <img class="mb-4" src="img/logo.PNG" alt width="200" height="90">
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="navbar-nav me-auto"> <!--m:마진, e:end(오른쪽)-->
-      <a class="nav-link" href="survey.html">설문조사</a>
-      <a class="nav-link" href="search.html">검색</a>
-      <a class="nav-link" href="community.html">커뮤니티</a>
-      <a class="nav-link" href="rank.html">랭킹</a>
-      <a class="nav-link" href="bmi.html" style="color: #5B9BD5;">BMI</a>
-    </div>
-    <div>
-      <a class="nav-link" href="login.html">로그인</a>
-    </div>
-    <div class="dropdown nav-item">
-      <button class="btn btn-drak dropdown-toggle"
-        data-bs-toggle="dropdown">회원관리</button><!--버튼 버튼색 버튼화살표토글 / 토글효과 : 드롭다운-->
-      <ul class="dropdown-menu">
-        <li class="dropdown-item">
-          <a class="nav-link" href="mypage.html">마이페이지</a>
-        </li>
-        <li class="dropdown-item">
-          <a class="nav-link" href="signup.html">회원가입</a>
-        </li>
-        <li class="dropdown-divider"></li> <!--drowdown메뉴안에서 라인으로 나누기 -->
-        <li class="dropdown-item">
-          <a class="nav-link" href="mainnavs.html">로그아웃</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</div>
+      <div class="navbar-nav me-auto"> <!--m:마진, e:end(오른쪽)-->
+        <a class="nav-link" href="survey.html">설문조사</a>
+        <a class="nav-link" href="search.html">검색</a>
+        <a class="nav-link" href="community.html">커뮤니티</a>
+        <a class="nav-link" href="rank.html">랭킹</a>
+        <a class="nav-link" href="bmi.html" style="color: #5B9BD5;">BMI</a>
+
+      </div>
+      <div>
+        <a class="nav-link" href="login.html">로그인</a>
+      </div>
+      <div class="dropdown nav-item">
+        <button class="btn btn-drak dropdown-toggle"
+          data-bs-toggle="dropdown">회원관리</button><!--버튼 버튼색 버튼화살표토글 / 토글효과 : 드롭다운-->
+        <ul class="dropdown-menu">
+          <li class="dropdown-item">
+            <a class="nav-link" href="mypage.html">마이페이지</a>
+          </li>
+          <li class="dropdown-item">
+            <a class="nav-link" href="signup.html">회원가입</a>
+          </li>
+          <li class="dropdown-divider"></li> <!--drowdown메뉴안에서 라인으로 나누기 -->
+          <li class="dropdown-item">
+            <a class="nav-link" href="mainnavs.html">로그아웃</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
 
-    <div class="container py-5 text-center">
-        <img  src="img/logo2.PNG" alt width="270" height="100" >
-        <p></p>
-    
-    </div>
-          
-    <div class="container pb-5 px-5">
-                    <form action="index.html "> <!-- 폼-->    
-                        <div class="px-5">
-                            <div class="py-2">
-                                <lable class="form-label" for="idusername">이름</lable>
-                                <input class="form-control" type="text" placeholder="name" name="name" id="idname" >
-                            </div>
-                    
-                            <div class="py-2">
-                              <label class="form-label">성별</label>
-                              <div>
-                                <input type="radio" name="sex" value="남자" id="male">
-                                <label for="male">남자</label>
+  <div class="container py-5 text-center">
+    <img src="img/logo2.PNG" alt width="270" height="100">
+    <p></p>
 
-                                <input type="radio" name="sex" value="여자" id="female">
-                                <label for="female">여자</label>
-                              </div>
-                          <div> 
+  </div>
 
-                            <div class="py-2"><!--아이디 작성-->
-                              <label class="form-label" for="idid">아이디 </label>
-                              <input class="form-control" type="id" name="id" id="idid" placeholder="hyowon0605"> 
-                          </div>
+  <div class="container pb-5 px-5" style="width: 700px;">
+    <form action="index.html "> <!-- 폼-->
+      <div class="px-5">
+        <div class="py-2">
+          <lable class="form-label" for="idusername">이름</lable>
+          <input class="form-control" type="text" placeholder="name" name="name" id="idname" style="width: 500px;">
+        </div>
 
-                          <div class="py-2"><!--비밀번호 작성-->
-                              <label class="form-label" for="idpw">비밀번호 </label>
-                              <input class="form-control" type="password" name="password" id="idpassword" placeholder="123456"> 
-                          </div>
+        <div class="py-2">
+          <label class="form-label">성별</label>
+          <div>
+            <input type="radio" name="sex" value="남자" id="male">
+            <label for="male">남자</label>
 
-                           
+            <input type="radio" name="sex" value="여자" id="female">
+            <label for="female">여자</label>
+          </div>
+          <div>
 
-                            <div class="py-2"><!--Address-->
-                                <label class="form-label" for="idaddress">주소</label>
-                                <input class="form-control" type="text" name="address"  value="" placeholder="우리집비밀" id="idaddress"> 
-                            </div>       
-                         
-                            <div class="py-2"><!--이메일 작성-->
-                              <label class="form-label" for="idemail">Email </label>
-                              <input class="form-control" type="email" name="emailAddress" id="idemail" placeholder="otter@yojulab.com"> 
-                          </div>
-                        </div>
+            <div class="py-2"><!--아이디 작성-->
+              <label class="form-label" for="idid">아이디 </label>
+              <input class="form-control" type="id" name="id" id="idid" placeholder="hyowon0605" style="width: 500px;">
+            </div>
 
-                        <P></P>
-                        <div>
-                            <button type="submit" class="btn btn-main" >회원가입</button>
-                        </div>
-                    </form>
-    </div>
-    
+            <div class="py-2"><!--비밀번호 작성-->
+              <label class="form-label" for="idpw">비밀번호 </label>
+              <input class="form-control" type="password" name="password" id="idpassword" placeholder="123456"
+                style="width: 500px;">
+            </div>
+
+            <div class="py-2"><!--비밀번호 확인란 작성-->
+              <label class="form-label" for="idpw">비밀번호 확인</label>
+              <input class="form-control" type="password" name="passwordck" id="idpasswordck"
+                style="width: 500px;">
+            </div>
+
+
+            <div class="py-2"><!--Address-->
+              <label class="form-label" for="idaddress">주소</label>
+              <input class="form-control" type="text" name="address" value="" placeholder="우리집비밀" id="idaddress"
+                style="width: 500px;">
+            </div>
+
+            <div class="py-2"><!--이메일 작성-->
+              <label class="form-label" for="idemail">Email </label>
+              <input class="form-control" type="email" name="emailAddress" id="idemail" placeholder="otter@yojulab.com"
+                style="width: 500px;">
+            </div>
+          </div>
+          <!-- Ad receive check -->
+          <div class="form-group row mt-3">
+            <div class="col-sm-3">광고수신여부 :</div>
+            <div class="col-sm-9">
+              SMS <input type="checkbox" name="SMS_AD" class="" id="" /> /
+              Email <input type="checkbox" name="EMAIL_AD" id="" /> 로
+              수신하겠습니다
+            </div>
+          </div>
+
+          <hr class="mb-4" />
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="aggrement" name="PRIVACY_INFO" required />
+            <label class="custom-control-label" for="aggrement">개인정보 수집 및 이용에 동의합니다.</label>
+          </div>
+          <P></P>
+          <div>
+            <button type="submit" class="btn btn-main float-end">회원가입</button>
+          </div>
+    </form>
+  </div>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </html>
