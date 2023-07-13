@@ -48,17 +48,25 @@
 
 
     <div class="container">
-      <h2 class="ui teal image header text-center">
-        다이어트 보조제 검색   
-    </h2>
-    <br>
-    <br>
-        <form action="" style="text-align:center;"> <!-- form actio냅뒀어요-->
-          <div class="input-group mb-3" style="max-width: 500px; margin: 0 auto;">
-            <input type="text" name="words" value="" class="form-control" placeholder="원하는 제품 및 성분 검색하기" id="keydownEnter">
-            <button class="btn btn-main" type="submit" formaction="" formmethod="get">검색</button>
-          </div>
-        </form>
+        <h2 class="ui teal image header text-center">
+          다이어트 보조제 검색   
+      </h2>
+      <br>
+      <br>
+      <div class="input-group mb-3">
+          <select class="form-select" name="search">
+            <option>카테고리검색</option>
+            <option value="name">이름</option>
+            <option value="ingredient" >성분</option>
+            <option value="form" >제형</option>
+          </select>
+            <form action="" style="text-align:center;"> <!-- form actio냅뒀어요-->
+              <div class="" style="max-width: 500px; margin: 0 auto;">
+                <input type="text" name="words" value="" class="form-control" placeholder="원하는 제품 및 성분 검색하기" id="keydownEnter">
+                <button class="btn btn-main" type="submit" formaction="" formmethod="get">검색</button>
+              </div>
+            </form>
+      </div>
     </div>
     <br>
     <div class="container text-center">
