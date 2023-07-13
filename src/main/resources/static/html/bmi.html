@@ -59,51 +59,37 @@
   <div class="box bg text_center bmi"><!--긁어왔어요 조효원이 담당할게요..디비랑 자바까지-->
     <form id="bmiForm" name="bmiForm" action="/health/contents.do?key=1691" method="get">
       <fieldset class="border rounded p-3">
-        <legend style="font-weight: bold;">비만도 계산</legend>
-        <input type="hidden" name="avlVal" value="">
-        <input type="hidden" name="bmiVal" value="">
-        <div class="form-inline">
-          <div class="form-group" style="margin-top: 10px; margin-bottom: 10px;">
-            <span class="mr-3"><strong>성별</strong></span>
-            <div class="form-check form-check-inline">
-              <input type="radio" id="gender1" class="form-check-input" name="gender" value="M">
-              <label for="gender1" class="form-check-label">남성</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input type="radio" id="gender2" class="form-check-input" name="gender" value="F">
-              <label for="gender2" class="form-check-label">여성</label>
-            </div>
+        <div class="cal"> 
+          <ul> 
+          <divclass="style3"> 
+            <input type="radio" id="sex_m" value="M" name="sex" class="input_radio" onclick="" checked=""> 
+            <label for="sex_m" class="space">남자</label> 
+            <input type="radio" id="sex_f" value="F" name="sex" class="input_radio" onclick=""> 
+            <label for="sex_f">여자</label>
+          </div> 
+           <div class="style4"> 
+            <label for="input_height_obesity">신장</label> 
+            <span class="s4">
+              <input type="text" title="신장" id="input_height_obesity" class="input_text end" maxlength="6" style="width:104px;ime-mode:disabled;">
+            </span> 
+              <label for="input_weight_obesity">체중</label> 
+            <span class="s5"><input type="text" title="체중" id="input_weight_obesity" class="input_text end" maxlength="6" style="width:104px;ime-mode:disabled;">
+            </span> 
+            <label for="input_old_obesity">나이</label> 
+            <span class="s7">
+              <input type="text" title="나이" id="input_age_obesity" class="input_text end" maxlength="6" style="width:76px;ime-mode:disabled;">
+            </span> 
+            <button type="button" class="bmi_account_btn" onclick="">계산</button> 
+          </div> 
+        </ul> 
+        <div class="desc desc2"> <div class="obesity" style="display: block;">
+             <h5> 나의 신체질량지수(BMI) 
+            
+          </div> 
           </div>
-
-            <div class="form-group">
-              <label for="height"><strong>신장</strong></label>
-              <div class="input-group" style="max-width: 200px;">
-                <input type="text" name="height" id="height" class="form-control" placeholder="신장" title="" value=""> cm
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="weight"><strong>체중</strong></label>
-              <div class="input-group"  style="max-width: 200px;">
-                <input type="text" name="weight" id="weight" class="form-control" placeholder="체중" value="">kg
-              </div>
-            <div class="form-group">
-              <button class="btn btn-main " type="submit" onclick="return calcBMI()">계산하기</button>
-            </div>
-
 
       </fieldset>
     </form>
-
-
-    	<!-- <div id="result">
-		<div class="text">
-			당신의 <em class="em_blue">신체질량지수(BMI)</em>는 <strong id="guide_bmi1" class="red"></strong> (으)로 <strong id="guide_sttus"></strong>입니다.
-			<span>평균체중은 <strong id="average_kg"></strong> kg 입니다.</span>
-		</div>
-		<div class="bmichart">
-			<strong>BMI Chart</strong>
-
-		</div> -->
 	</div>
   
   <h3 style="color: #5B9BD5; font-weight: bold; margin-top: 30px;">신체질량지수(BMI) 계산법</h2>
