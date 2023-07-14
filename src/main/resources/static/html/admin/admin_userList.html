@@ -45,7 +45,7 @@
                   </div>
                 </nav>
             </div>
-         <!-- 본 페이지 content -->
+ <!-- 관리자페이지 옆-->
   <div class="row g-0 vh-100">
     <nav class="p-5 navbar-light bg-light d-md-block col-2">
       <div>
@@ -54,27 +54,27 @@
             <div class="text-decoration-none nav-link fs-5 fw-bold">관리자페이지</div>
           </li>
           <li class="d-flex align-items-center">
-            <a href="./userList.html" class="text-decoration-none nav-link"
+            <a href="./admin_userList.html" class="text-decoration-none nav-link"
               >회원 관리</a
             >
           </li>
           <li class="d-flex align-items-center">
             <a
-              href="./search_data.html"
+              href="./admin_search.html"
               class="text-decoration-none nav-link"
               >보조제 관리</a
             >
           </li>
           <li class="d-flex align-items-center">
             <a
-              href="./admin_events.html"
+              href="./admin_community.html"
               class="text-decoration-none nav-link"
               >커뮤니티 관리</a
             >
           </li>
           <li class="d-flex align-items-center">
             <a
-              href="./admin_stores.html"
+              href="./admin_survey.html"
               class="text-decoration-none nav-link"
               >설문조사 관리</a
             >
@@ -92,62 +92,79 @@
     </nav>
     <div class="col-9 p-0 mb-5 ms-5">
             <div style="text-align:center;">
-                <h1 class="h3 mb-3 fw-normal">회원정보</h1> 
-            </div>
-            <div class="container">
-                <form action="">
-                    <div class="d-flex justify-content-between align-items-center input-group mb-3" >
-                      <div class="d-flex align-items-center">
-                        <div>
-                          <div class="input-group">
-                            <select class="form-select" name="keyField" id="">
-                              <option>선택</option>
-                              <option value="ID">아이디</option>
-                              <option value="NAME">이름</option>
-                            </select>
-                            <input type="text"  placeholder="회원검색" class="form-control w-50" />
-                            <button class="btn btn-main">검색 하기</button> 
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-
+                <h1 class="h3 mb-3 fw-normal">회원 관리</h1> 
             </div>
             <br>
             <div class="container">
-                <table class="table table-bordered table-hover">
-                    <thead>
+              <form action="">
+                <div class="d-flex justify-content-center align-items-center input-group mb-3">
+                  <div class="d-flex align-items-center">
+                    <div class="input-group">
+                      <select class="form-select" name="keyField" id="" style="width: 100px;">
+                        <option>선택</option>
+                        <option value="name">이름</option>
+                        <option value="ID">아이디</option>
+                      </select>
+                      <input type="text" placeholder="검색어를 입력하세요" class="form-control"style="width: 300px;" />
+                      <button class="btn btn-main" type="submit" formaction="" formmethod="get">검색</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+          </div>
+          
+
+            <br>
+            <div class="container">
+                <table class="table text-center table-bordered table-hover">
+                    <thead class="bg-secondary bg-opacity-10">
                         <tr>
+                            <th class="col-1">번호</th>
                             <th>user_ID</th>
                             <th>NAME</th>
+                            <th>관리</th>
                             <th>상세정보</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td>1</td>
                             <td>R001</td>
                             <td>조흥민</td>
                             <td>
-                                <button class="btn btn-main" type="submit" formaction="userdetail.html">
+                              <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="">수정</button>
+                              <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="">삭제</button>
+                            </td>
+                            <td>
+                                <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="./admin_userdetail.html">
                                     상세정보
                                 </button>
                             </td>
                         </tr>
                         <tr>
+                            <td>2</td>
                             <td>R002</td>
                             <td>손흥민</td>
                             <td>
-                                <button class="btn btn-main"type="submit" formaction="userdetail.html">
+                              <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="./admin_userdetail.html">수정</button>
+                              <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="./admin_userdetail.html">삭제</button>
+                            </td>
+                            <td>
+                                <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="./admin_userdetail.html">
                                     상세정보
                                 </button>
                             </td>
                         </tr>
                         <tr>
+                            <td>3</td>
                             <td>R003</td>
                             <td>발흥민</td>
                             <td>
-                                <button class="btn btn-main"type="submit" formaction="userdetail.html">
+                              <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="./admin_userdetail.html">수정</button>
+                              <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="./admin_userdetail.html">삭제</button>
+                            </td>
+                            <td>
+                                <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="./admin_userdetail.html">
                                     상세정보
                                 </button>
                             </td>
@@ -157,7 +174,6 @@
             </div>
         </body>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
         </html>
 <!--jsp참고용
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
