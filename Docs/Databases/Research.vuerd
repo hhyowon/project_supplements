@@ -93,8 +93,8 @@
             "id": "1afe29fc-560c-42a9-97bb-9c6f8bd6bb26"
           },
           {
-            "name": "COMPANY",
-            "comment": "업소명",
+            "name": "COMPANYNAME_UID",
+            "comment": "회사명UID",
             "dataType": "VARCHAR(100)",
             "default": "",
             "option": {
@@ -106,14 +106,14 @@
             "ui": {
               "active": false,
               "pk": false,
-              "fk": false,
+              "fk": true,
               "pfk": false,
-              "widthName": 66.76513671875,
-              "widthComment": 60,
+              "widthName": 133.9423828125,
+              "widthComment": 63.38818359375,
               "widthDataType": 94.94873046875,
               "widthDefault": 60
             },
-            "id": "9a4578ce-4458-4e0c-a273-e9d701ea97a2"
+            "id": "ea81a633-5a6e-41fc-8941-f667f8cf4acf"
           },
           {
             "name": "URL",
@@ -143,12 +143,74 @@
           "active": false,
           "left": 71,
           "top": 193,
-          "zIndex": 1,
+          "zIndex": 30,
           "widthName": 74.236328125,
           "widthComment": 60
         },
         "visible": true,
         "id": "cdb87023-9162-4dd4-a3f1-12b8e0337358"
+      },
+      {
+        "name": "COMPANYNAME",
+        "comment": "회사명",
+        "columns": [
+          {
+            "name": "COMPANYNAME_UID",
+            "comment": "회사명UID",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 133.9423828125,
+              "widthComment": 63.38818359375,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "8878bf7f-cb85-4b0a-a95b-b87b6959f1b2"
+          },
+          {
+            "name": "COMPANYNAME",
+            "comment": "회사명",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 104.32421875,
+              "widthComment": 60,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "c9e53de7-4538-4899-99fc-079e6a53af14"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 158,
+          "top": 489,
+          "zIndex": 29,
+          "widthName": 104.32421875,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "286a0cbe-bc09-41ad-ad3f-5bfcfe75f518"
       }
     ],
     "indexes": []
@@ -157,6 +219,33 @@
     "memos": []
   },
   "relationship": {
-    "relationships": []
+    "relationships": [
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "286a0cbe-bc09-41ad-ad3f-5bfcfe75f518",
+          "columnIds": [
+            "8878bf7f-cb85-4b0a-a95b-b87b6959f1b2"
+          ],
+          "x": 387.6396484375,
+          "y": 489,
+          "direction": "top"
+        },
+        "end": {
+          "tableId": "cdb87023-9162-4dd4-a3f1-12b8e0337358",
+          "columnIds": [
+            "ea81a633-5a6e-41fc-8941-f667f8cf4acf"
+          ],
+          "x": 300.6396484375,
+          "y": 344,
+          "direction": "bottom"
+        },
+        "constraintName": "fk_companyname_to_research",
+        "visible": true,
+        "id": "734fe261-1b2d-4cd2-aaa8-b70ebbdc742e"
+      }
+    ]
   }
 }
