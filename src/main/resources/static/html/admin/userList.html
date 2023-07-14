@@ -45,18 +45,74 @@
                   </div>
                 </nav>
             </div>
-        
+         <!-- 본 페이지 content -->
+  <div class="row g-0 vh-100">
+    <nav class="p-5 navbar-light bg-light d-md-block col-2">
+      <div>
+        <ul class="list-unstyled navbar-nav">
+          <li class="d-flex align-items-center">
+            <div class="text-decoration-none nav-link fs-5 fw-bold">관리자페이지</div>
+          </li>
+          <li class="d-flex align-items-center">
+            <a href="./userList.html" class="text-decoration-none nav-link"
+              >회원 관리</a
+            >
+          </li>
+          <li class="d-flex align-items-center">
+            <a
+              href="./search_data.html"
+              class="text-decoration-none nav-link"
+              >보조제 관리</a
+            >
+          </li>
+          <li class="d-flex align-items-center">
+            <a
+              href="./admin_events.html"
+              class="text-decoration-none nav-link"
+              >커뮤니티 관리</a
+            >
+          </li>
+          <li class="d-flex align-items-center">
+            <a
+              href="./admin_stores.html"
+              class="text-decoration-none nav-link"
+              >설문조사 관리</a
+            >
+          </li>
+          <br>
+          <li class="d-flex align-items-center">
+            <a
+              href="../mainnavs.html"
+              class="text-decoration-none nav-link fw-bold"
+              >로그아웃</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="col-9 p-0 mb-5 ms-5">
             <div style="text-align:center;">
                 <h1 class="h3 mb-3 fw-normal">회원정보</h1> 
             </div>
             <div class="container">
                 <form action="">
-                    <div class="input-group mb-3" style="max-width: 500px; margin: 0 auto;">    
-                       
-                        <input type="text" class="form-control" name="search" value="" placeholder="회원검색" id="keydownEnter">
-                        <button class="btn btn-main">검색 하기</button> 
+                    <div class="d-flex justify-content-between align-items-center input-group mb-3" >
+                      <div class="d-flex align-items-center">
+                        <div>
+                          <div class="input-group">
+                            <select class="form-select" name="keyField" id="">
+                              <option>선택</option>
+                              <option value="ID">아이디</option>
+                              <option value="NAME">이름</option>
+                            </select>
+                            <input type="text"  placeholder="회원검색" class="form-control w-50" />
+                            <button class="btn btn-main">검색 하기</button> 
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                </form>
+                  </form>
+
             </div>
             <br>
             <div class="container">
