@@ -1,0 +1,320 @@
+-- gender
+INSERT INTO gender(GENDER, GENDER_UID)
+VALUES
+('남성', 'G-01')
+, ('여성', 'G-02');
+
+DELETE FROM gender
+WHERE GENDER_UID LIKE 'G%';
+
+-- members 
+INSERT INTO members (USER_ID, NAME, GENDER_UID, PASSWORD, PHONENUMBER, ADDRESS, EMAIL)
+VALUES
+('honggd123', '홍길동', 'G-01', '12345678', '010-1234-5678', '서울시 강남구', 'honggd123@email.com'),
+('kimeh456', '김영희', 'G-02', '98765432', '010-5678-1234', '경기도 고양시', 'kimeh456@email.com'),
+('lee_cs', '이철수', 'G-01', 'cs123456', '010-9876-5432', '인천광역시 부평구', 'lee_cs@email.com'),
+('parkjy789', '박지영', 'G-02', '65432198', '010-4321-9876', '대구광역시 동구', 'parkjy789@email.com'),
+('choimh123', '최민호', 'G-01', '87654321', '010-1234-5678', '부산광역시 해운대구', 'choimh123@email.com'),
+('lee_jw', '이지원', 'G-01', 'jw123456', '010-5678-1234', '경기도 성남시 분당구', 'lee_jw@email.com'),
+('kimje456', '김지은', 'G-02', '32198765', '010-9876-5432', '서울시 마포구', 'kimje456@email.com'),
+('parkcm789', '박철민', 'G-01', '67891234', '010-4321-9876', '경기도 안양시', 'parkcm789@email.com'),
+('songmr123', '송미라', 'G-02', '34567891', '010-1234-5678', '경상북도 포항시', 'songmr123@email.com'),
+('limdh123', '임동현', 'G-01', '91929394', '010-5678-1234', '서울시 종로구', 'limdh123@email.com');
+
+SELECT *
+FROM members;
+
+-- bmi 
+INSERT INTO bmi(BMI_UID, USER_ID, GENDER_UID, HEIGHT, WEIGHT, BMI_RESULT)
+VALUES
+('B-01', 'honggd123', 'G-01', '180', '75', '23.15'),
+('B-02', 'kimeh456', 'G-02', '165', '55', '20.2'),
+('B-03', 'lee_cs', 'G-01', '175', '70', '22.86'),
+('B-04', 'parkjy789', 'G-02', '160', '50', '19.53'),
+('B-05', 'choimh123', 'G-01', '185', '80', '23.37'),
+('B-06', 'lee_jw', 'G-02', '155', '45', '18.75'),
+('B-07', 'kimje456', 'G-01', '170', '65', '22.49'),
+('B-08', 'parkcm789', 'G-02', '175', '60', '19.59'),
+('B-09', 'songmr123', 'G-01', '190', '90', '24.93'),
+('B-10', 'limdh123', 'G-02', '165', '55', '20.2'),
+('B-11', 'honggd123', 'G-01', '175', '75', '24.49'),
+('B-12', 'honggd123', 'G-02', '160', '50', '19.53'),
+('B-13', 'lee_cs', 'G-01', '180', '85', '26.23'),
+('B-14', 'lee_cs', 'G-02', '155', '45', '18.75'),
+('B-15', 'choimh123', 'G-01', '170', '70', '24.22'),
+('B-16', 'parkcm789', 'G-02', '165', '60', '22.04'),
+('B-17', 'songmr123', 'G-01', '185', '80', '23.37'),
+('B-18', 'songmr123', 'G-02', '160', '50', '19.53'),
+('B-19', 'limdh123', 'G-01', '175', '75', '24.49'),
+('B-20', 'limdh123', 'G-02', '165', '55', '20.2')
+;
+
+SELECT *
+FROM bmi;
+
+-- category 
+INSERT INTO category(CATEGORY_ID, CATEGORY)
+VALUES
+('C_01', '질문')
+,('C_02', '후기')
+,('C_03', '추천')
+;
+
+SELECT *
+FROM category;
+
+-- community 
+INSERT INTO community (COMMUNITY_ID, CATEGORY_ID, COMMUNITY_TITLE, COMMUNITY_CONTENT, COMMUNITY_DATE, USER_ID)
+VALUES
+('CU_01', 'C_01', '다이어트 보조제는 장기간 사용하기에 안전한가요?', '장기간 다이어트 보조제의 안전성이 궁금하십니까? 당신의 생각과 경험을 공유하십시오.', '2023-07-16', 'honggd123'),
+('CU_02', 'C_01', '다이어트 보조제에서 찾아야 할 주요 성분은 무엇입니까?', '다이어트 보조제를 선택할 때 고려해야 할 필수 성분에 대한 조언을 찾고 계십니까? 상의하자!', '2023-07-15', 'kimeh456'),
+('CU_03', 'C_02', '다이어트 보조제를 사용한 개인 여행: 리뷰', '내가 겪었던 이점과 어려움을 포함하여 다이어트 보조제에 대한 개인적인 경험을 공유합니다.', '2023-07-14', 'lee_cs'),
+('CU_04', 'C_02', '정직한 리뷰: 다이어트 보조제가 체중 감량에 정말 도움이 됩니까?', '다이어트 보조제를 사용한 체중 감량 여정에 대한 편견 없는 리뷰를 제공하고, 체중 감량이 진행 상황에 미치는 영향을 강조합니다.', '2023-07-14', 'parkjy789'),
+('CU_05', 'C_03', '효과적인 체중 관리를 위한 5가지 다이어트 보조제', '체중 관리에 효과적인 것으로 입증된 상위 5가지 다이어트 보조제 추천 목록을 공유합니다.', '2023-07-13', 'choimh123'),
+('CU_06', 'C_03', '에너지 수준을 높이는 최고의 다이어트 보조제', '에너지를 강화할 보충제를 찾고 계십니까? 사용 가능한 최상의 옵션에 대한 권장 사항을 확인하십시오.', '2023-07-13', 'lee_jw'),
+('CU_07', 'C_01', '다이어트 보조제는 약물과 상호 작용합니까?', '다이어트 보조제와 약물 간의 잠재적인 상호 작용에 대해 질문이 있습니까? 토론하고 통찰력을 공유합시다.', '2023-07-13', 'kimje456'),
+('CU_08', 'C_01', '다이어트 보조제로 결과를 보는 데 얼마나 걸립니까?', '다이어트 보조제를 일상에 통합할 때 눈에 띄는 결과를 보기 위한 기간에 대한 통찰력을 구합니다.', '2023-07-12', 'parkcm789'),
+('CU_09', 'C_02', '제품 검토: XYZ 다이어트 보조제', '효과, 부작용 및 전반적인 경험을 포함하여 XYZ 다이어트 보조제에 대한 심층적인 리뷰를 공유합니다.', '2023-07-11', 'songmr123'),
+('CU_10', 'C_03', '초보자를 위한 필수 다이어트 보조제: 종합 가이드', '초보자를 위한 포괄적인 가이드를 제공하고 안전하고 효과적이며 보충제의 세계에 처음 입문하는 사람들에게 적합한 다이어트 보조제를 추천합니다.', '2023-07-11', 'limdh123');
+
+SELECT *
+FROM community;
+
+-- companyname
+INSERT INTO companyname (COMPANYNAME_UID, COMPANYNAME)
+VALUES
+('CO-01', '엔피케이(주) 2공장'),
+('CO-02', '(주)빈스힐'),
+('CO-03', '(주)비오팜'),
+('CO-04', '우리바이오(주)'),
+('CO-05', '(주)네이처텍'),
+('CO-06', '우리바이오(주)'),
+('CO-07', '콜마비앤에이치(주)음성공장'),
+('CO-08', '(주)빈스힐'),
+('CO-09', '코스맥스바이오(주)'),
+('CO-10', '주식회사 한국바이오건강'),
+('CO-11', '(주)뉴팜'),
+('CO-12', '한국바이오팜(주)2공장'),
+('CO-13', '(주)비오팜'),
+('CO-14', '(주)한국씨엔에스팜'),
+('CO-15', '주식회사 해나눔 청운지점'),
+('CO-16', '주식회사웰파인'),
+('CO-17', '엔에이치바이오'),
+('CO-18', '주식회사 노바렉스'),
+('CO-19', '(주)서흥헬스케어'),
+('CO-20', '(주)서흥헬스케어'),
+('CO-21', '한국바이오팜(주)2공장'),
+('CO-22', '경성제약주식회사'),
+('CO-23', '우리바이오팜(주)'),
+('CO-24', '엔에이치바이오'),
+('CO-25', '에프엔바이오(주)'),
+('CO-26', '에프엔바이오(주)'),
+('CO-27', '상아생명과학주식회사F2'),
+('CO-28', '(주)알피바이오'),
+('CO-29', '(주)서흥'),
+('CO-30', '엔피케이(주)');
+
+SELECT *
+FROM companyname ;
+
+-- research
+INSERT INTO research (PRODUCT_UID, PRODUCT, COMPANYNAME_UID, URL, USER_ID)
+VALUES
+('P_01', '다이어트 젤리젤리', 'CO-01', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000295687&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'honggd123'),
+('P_02', '김소형원방 다이어트카페 리얼 MUKAVE', 'CO-02', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000296048&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'kimeh456'),
+('P_03', '김소형 원방 유산균 & 다이어트 가르시니아', 'CO-03', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000293561&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'lee_cs'),
+('P_04', '머슬 맨즈 내추럴 다이어트', 'CO-04', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000293552&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'parkjy789'),
+('P_05', '다이어트 티-톡(TEA-TOK)', 'CO-05', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000293093&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'choimh123'),
+('P_06', '혈행개선 다이어트 컨트롤', 'CO-06', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000290587&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'lee_jw'),
+('P_07', '우리 사삼 다이어트', 'CO-07', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000287591&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'kimje456'),
+('P_08', '원데이 마이너스 원다이어트', 'CO-08', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000286180&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'parkcm789'),
+('P_09', '시서스 다이어트 슬림핏', 'CO-09', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000283605&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'songmr123'),
+('P_10', '버블리 파인 다이어트(Bubbly Fine Diet)', 'CO-10', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000281335&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'limdh123'),
+('P_11', '벨기에 유산균+다이어트 트리플러스', 'CO-11', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000279222&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'honggd123'),
+('P_12', '미러 다이어트', 'CO-12', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000275899&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'kimeh456'),
+('P_13', '모던풀 다이어트', 'CO-13', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000276532&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'lee_cs'),
+('P_14', '슬림플래닛 트리플 슬림다이어트', 'CO-14', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000273232&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'parkjy789'),
+('P_15', '루니 워터 다이어트 Water Diet', 'CO-15', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000274089&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'choimh123'),
+('P_16', '애플페논 팻아웃 다이어트 젤리', 'CO-16', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000273804&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'lee_jw'),
+('P_17', '김소형원방 클린톡스(Talk''s) 슬림 다이어트', 'CO-17', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000268718&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'kimje456'),
+('P_18', '프리벤트라 쾌변 다이어트엔 가르시니아 차전자피', 'CO-18', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000265689&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'parkcm789'),
+('P_19', '서흥 다이어트 유산균', 'CO-19', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000255368&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'songmr123'),
+('P_20', '케어프리 유산균 다이어트', 'CO-20', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000255580&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'limdh123'),
+('P_21', '프로바이오틱스(유산균)다이어트', 'CO-21', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000251871&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'honggd123'),
+('P_22', '경성 다이어트', 'CO-22', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000251658&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'kimeh456'),
+('P_23', '다이어트카페&다이어트바 우리꿀별맛다이어트', 'CO-23', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000250689&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'lee_cs'),
+('P_24', '바로환 다이어트', 'CO-24', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000250510&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'parkjy789'),
+('P_25', '다이어트 츄잉', 'CO-25', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000246097&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'choimh123'),
+('P_26', '퍼펙트 애플컷 다이어트', 'CO-26', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000246095&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'lee_jw'),
+('P_27', '메타그린슬림다이어트', 'CO-27', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000244077&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'kimje456'),
+('P_28', '락티브 익스텐션 날씬해질 다이어트 유산균', 'CO-28', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000243506&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'parkcm789'),
+('P_29', '잠백이 다이어트 유산균', 'CO-29', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000242522&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'songmr123'),
+('P_30', '혈당컷 녹차다이어트', 'CO-30', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000242804&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'limdh123');
+
+SELECT *
+FROM research ;
+
+-- survey_type
+INSERT INTO 
+survey_type (SURVEY_TYPE, SURVEY_TYPE_ID)
+VALUES 
+('복용 경험 없는 자', 'F-01'),
+('복용 경험 있는 자', 'F-02');
+
+-- survey_question
+INSERT INTO 
+survey_question (SURVEY_QUESTION, SURVEY_QUESTION_ID)
+VALUES
+('1. 어떤 이유로 다이어트를 결심하게 되었나요?', 'Q-01'),
+('2. 관심있는 다이어트 보조제 종류가 무엇인가요?', 'Q-02'),
+('3. 다이어트 보조제에 대해 얼마나 잘 알고 있습니까?', 'Q-03'),
+('4. 다이어트 보조제를 고려하는 주요 목표 또는 이유?', 'Q-04'),
+('5. 다이어트 보조제를 선택할 때 고려하는 요소는 무엇인가요?', 'Q-05'),
+('1. 복용하신 보조제는 무엇인가요?', 'Q-06'),
+('2. 보조제 복용한 시기는 언제인가요?', 'Q-07'),
+('3. 보조제 복용기간은 얼마나 되셨나요?', 'Q-08'),
+('4. 보조제를 복용하신 원인은 무엇인가요?', 'Q-09'),
+('5. 보조제를 복용시 운동을 병행 하셨나요?', 'Q-10'),
+('6. 광고에 나온 효과를 체험 하였습니까?','Q-11'),
+('7. 가장 크게 효과를 본 작용은 무엇인가요?', 'Q-12'),
+('8. 보조제를 복용 후 얼마나 체중 감량이 되셨나요?', 'Q-13'),
+('9. 복용 후 부작용이 있으셨나요?', 'Q-14');
+
+-- survey_opt
+INSERT INTO 
+survey_opt (SURVEY_OPT, SURVEY_OPT_ID)
+VALUES
+("개인 목표", 'O-01'),
+("건강", 'O-02'),
+("미용", 'O-03'),
+("정신건강", 'O-04'),
+("주변권유", 'O-05'),
+("캡슐", 'O-06'),
+("소프트젤", 'O-07'),
+("분말", 'O-08'),
+("젤리", 'O-09'),
+("정제", 'O-10'),
+("잘 모른다", 'O-11'),
+("모른다", 'O-12'),
+("조금 안다", 'O-13'),
+("잘안다", 'O-14'),
+("신진대사 개선", 'O-15'),
+("식욕 억제", 'O-16'),
+("영양지원", 'O-17'),
+("기타", 'O-18'),
+("가격", 'O-19'),
+("보조제 제형", 'O-20'),
+("사용자 리뷰/증언", 'O-21'),
+("성분", 'O-22'),
+("맛", 'O-23'),
+("다이어트 젤리젤리", 'O-24'),
+("우리 사삼 다이어트", 'O-25'),
+("시서스 다이어트 슬림핏", 'O-26'),
+("미러 다이어트", 'O-27'),
+("모던풀 다이어트", 'O-28'),
+("서흥 다이어트 유산균", 'O-29'),
+("경성 다이어트", 'O-30'),
+("바로환 다이어트", 'O-31'),
+("다이어트 츄잉", 'O-32'),
+("혈당컷 녹차다이어트", 'O-33'),
+("식전", 'O-34'),
+("식후", 'O-35'),
+("수시로", 'O-36'),
+("6개월 이하", 'O-37'),
+("6개월 ~ 1년 사이", 'O-38'),
+("1년 ~ 3년 사이", 'O-39'),
+("3년 이상", 'O-40'),
+("체중 감량을 위한 도움", 'O-41'),
+("자기 관리와 건강 관리", 'O-42'),
+("신속한 체중 감량을 위함", 'O-43'),
+("기타 원인", 'O-44'),
+("네", 'O-45'),
+("아니오", 'O-46'),
+("포만감", 'O-47'),
+("체온상승", 'O-48'),
+("배변활동 증가", 'O-49'),
+("해당사항 없음", 'O-50'),
+("효과 없음", 'O-51'),
+("5kg 이하", 'O-52'),
+("10kg 이하", 'O-53'),
+("15kg 이하", 'O-54'),
+("수면장애", 'O-55'),
+("폭식", 'O-56'),
+("컨디션 저하", 'O-57'),
+("환각", 'O-58'),
+("변비", 'O-59');
+
+-- survey 
+INSERT INTO 
+survey (SURVEY_TYPE_ID, SURVEY_QUESTION_ID, SURVEY_ID, USER_ID, SURVEY_OPT_ID)
+VALUES 
+('F-01', 'Q-01', 'SU-01', 'honggd123', 'O-01'),
+('F-01', 'Q-01', 'SU-02', 'kimeh456', 'O-02'),
+('F-01', 'Q-01', 'SU-03', 'lee_cs', 'O-03'),
+('F-01', 'Q-01', 'SU-04', 'parkjy789', 'O-04'),
+('F-01', 'Q-01', 'SU-05', 'choimh123', 'O-05'),
+('F-01', 'Q-02', 'SU-06', 'honggd123', 'O-06'),
+('F-01', 'Q-02', 'SU-07', 'kimeh456', 'O-07'),
+('F-01', 'Q-02', 'SU-08', 'lee_cs', 'O-08'),
+('F-01', 'Q-02', 'SU-09', 'parkjy789', 'O-09'),
+('F-01', 'Q-02', 'SU-10', 'choimh123', 'O-10'),
+('F-01', 'Q-03', 'SU-11', 'honggd123', 'O-11'),
+('F-01', 'Q-03', 'SU-12', 'kimeh456', 'O-12'),
+('F-01', 'Q-03', 'SU-13', 'lee_cs', 'O-13'),
+('F-01', 'Q-03', 'SU-14', 'parkjy789', 'O-14'),
+('F-01', 'Q-03', 'SU-15', 'choimh123', 'O-11'),
+('F-01', 'Q-04', 'SU-16', 'honggd123', 'O-15'),
+('F-01', 'Q-04', 'SU-17', 'kimeh456', 'O-16'),
+('F-01', 'Q-04', 'SU-18', 'lee_cs', 'O-17'),
+('F-01', 'Q-04', 'SU-19', 'parkjy789', 'O-18'),
+('F-01', 'Q-04', 'SU-20', 'choimh123', 'O-16'),
+('F-01', 'Q-05', 'SU-21', 'honggd123', 'O-19'),
+('F-01', 'Q-05', 'SU-22', 'kimeh456', 'O-20'),
+('F-01', 'Q-05', 'SU-23', 'lee_cs', 'O-21'),
+('F-01', 'Q-05', 'SU-24', 'parkjy789', 'O-22'),
+('F-01', 'Q-05', 'SU-25', 'choimh123', 'O-23'),
+('F-02', 'Q-06', 'SU-26', 'lee_jw', 'O-24'),
+('F-02', 'Q-06', 'SU-27', 'kimje456', 'O-25'),
+('F-02', 'Q-06', 'SU-28', 'parkcm789', 'O-26'),
+('F-02', 'Q-06', 'SU-29', 'songmr123', 'O-27'),
+('F-02', 'Q-06', 'SU-30', 'limdh123', 'O-28'),
+('F-02', 'Q-07', 'SU-31', 'lee_jw', 'O-34'),
+('F-02', 'Q-07', 'SU-32', 'kimje456', 'O-35'),
+('F-02', 'Q-07', 'SU-33', 'parkcm789', 'O-36'),
+('F-02', 'Q-07', 'SU-34', 'songmr123', 'O-35'),
+('F-02', 'Q-07', 'SU-35', 'limdh123', 'O-36'),
+('F-02', 'Q-08', 'SU-36', 'lee_jw', 'O-37'),
+('F-02', 'Q-08', 'SU-37', 'kimje456', 'O-38'),
+('F-02', 'Q-08', 'SU-38', 'parkcm789', 'O-39'),
+('F-02', 'Q-08', 'SU-39', 'songmr123', 'O-40'),
+('F-02', 'Q-08', 'SU-40', 'limdh123', 'O-39'),
+('F-02', 'Q-09', 'SU-41', 'lee_jw', 'O-41'),
+('F-02', 'Q-09', 'SU-42', 'kimje456', 'O-42'),
+('F-02', 'Q-09', 'SU-43', 'parkcm789', 'O-43'),
+('F-02', 'Q-09', 'SU-44', 'songmr123', 'O-44'),
+('F-02', 'Q-09', 'SU-45', 'limdh123', 'O-42'),
+('F-02', 'Q-10', 'SU-46', 'lee_jw', 'O-45'),
+('F-02', 'Q-10', 'SU-47', 'kimje456', 'O-46'),
+('F-02', 'Q-10', 'SU-48', 'parkcm789', 'O-45'),
+('F-02', 'Q-10', 'SU-49', 'songmr123', 'O-46'),
+('F-02', 'Q-10', 'SU-50', 'limdh123', 'O-46'),
+('F-02', 'Q-11', 'SU-51', 'lee_jw', 'O-45'),
+('F-02', 'Q-11', 'SU-52', 'kimje456', 'O-46'),
+('F-02', 'Q-11', 'SU-53', 'parkcm789', 'O-45'),
+('F-02', 'Q-11', 'SU-54', 'songmr123', 'O-46'),
+('F-02', 'Q-11', 'SU-55', 'limdh123', 'O-45'),
+('F-02', 'Q-12', 'SU-56', 'lee_jw', 'O-47'),
+('F-02', 'Q-12', 'SU-57', 'kimje456', 'O-48'),
+('F-02', 'Q-12', 'SU-58', 'parkcm789', 'O-49'),
+('F-02', 'Q-12', 'SU-59', 'songmr123', 'O-50'),
+('F-02', 'Q-12', 'SU-60', 'limdh123', 'O-49'),
+('F-02', 'Q-13', 'SU-61', 'lee_jw', 'O-51'),
+('F-02', 'Q-13', 'SU-62', 'kimje456', 'O-52'),
+('F-02', 'Q-13', 'SU-63', 'parkcm789', 'O-53'),
+('F-02', 'Q-13', 'SU-64', 'songmr123', 'O-54'),
+('F-02', 'Q-13', 'SU-65', 'limdh123', 'O-53'),
+('F-02', 'Q-14', 'SU-66', 'lee_jw', 'O-55'),
+('F-02', 'Q-14', 'SU-67', 'kimje456', 'O-56'),
+('F-02', 'Q-14', 'SU-68', 'parkcm789', 'O-57'),
+('F-02', 'Q-14', 'SU-69', 'songmr123', 'O-58'),
+('F-02', 'Q-14', 'SU-70', 'limdh123', 'O-59');
