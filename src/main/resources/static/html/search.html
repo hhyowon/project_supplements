@@ -53,27 +53,33 @@
       </h2>
       <br>
       <br>
-      <div class="input-group mb-3">
-          <select class="form-select" name="search">
-            <option>카테고리검색</option>
-            <option value="name">이름</option>
-            <option value="ingredient" >성분</option>
-            <option value="form" >제형</option>
-          </select>
-            <form action="" style="text-align:center;"> <!-- form actio냅뒀어요-->
-              <div class="" style="max-width: 500px; margin: 0 auto;">
-                <input type="text" name="words" value="" class="form-control" placeholder="원하는 제품 및 성분 검색하기" id="keydownEnter">
+      <div class="container">
+        <form action="">
+          <div class="d-flex justify-content-center align-items-center input-group mb-3">
+            <div class="d-flex align-items-center">
+              <div class="input-group">
+                <select class="form-select" name="keyField" id="" style="width: 150px;">
+                  <option>카테고리</option>
+                  <option value="name">상품명</option>
+                  <option value="ingredient">성분</option>
+                  <option value="form">제형</option>
+                </select>
+                <input type="text" placeholder="원하는 제품 및 성분 검색하기" class="form-control"style="width: 500px;" />
                 <button class="btn btn-main" type="submit" formaction="" formmethod="get">검색</button>
               </div>
-            </form>
-      </div>
+            </div>
+          </div>
+        </form>
+        
+    </div>
+
     </div>
     <br>
     <div class="container text-center">
-      <table class="table table-bordered table-hover">
+      <table class="table table-bordered table-hover" style="height: 800px;">
         <thead>
-          <tr style="background-color: #5B9BD5; color: white;">
-            <th>상품 이미지</th>
+          <tr>
+            <th style="width: 500px;">상품 이미지</th>
             <th>상품명</th>
             <th>업소명</th>
           </tr>

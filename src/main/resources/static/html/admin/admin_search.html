@@ -47,12 +47,38 @@
             </div>
         </nav>
     </div>
-   
+    <div class="row g-0 vh-100">
+        <nav class="p-5 navbar-light bg-light d-md-block col-2">
+            <div>
+                <ul class="list-unstyled navbar-nav">
+                    <li class="d-flex align-items-center">
+                        <div class="text-decoration-none nav-link fs-5 fw-bold">관리자페이지</div>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <a href="./admin_userList.html" class="text-decoration-none nav-link">회원 관리</a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <a href="./admin_search.html" class="text-decoration-none nav-link">보조제 관리</a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <a href="./admin_community.html" class="text-decoration-none nav-link">커뮤니티 관리</a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <a href="./admin_survey.html" class="text-decoration-none nav-link">설문조사 관리</a>
+                    </li>
+                    <br>
+                    <li class="d-flex align-items-center">
+                        <a href="../mainnavs.html" class="text-decoration-none nav-link fw-bold">로그아웃</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="col-9 p-0 mb-5 ms-5">
 
     <div class="container">
-        <h2 class="ui teal image header text-center">
-            보조제 검색 목록<hr class='hr-solid'/>
-        </h2>
+        <h3 class="ui teal image header text-center">
+            보조제 검색 목록
+        </h3>
         <br>
         <br>
         <form action="" style="text-align:center;"> <!-- form actio냅뒀어요-->
@@ -67,16 +93,14 @@
     <br>
     <br>
     <div class="container text-center">
-        <table class="table table-bordered table-hover">
+        <table class="ui celled table table text-center table-bordered table-hover">
             <thead>
-                <tr style="background-color: #5B9BD5; color: white;">
-
-                    <th>번호</th>
+                <tr>
+                    <th  style="width: 50px">번호</th>
                     <th>업소명</th>
                     <th>상품명</th>
-                    <th>상품 정보 url </th>
-                    <th>수정 </th>
-                    <th>삭제 </th>
+                    <th  style="width: 500px">상품 정보 url </th>
+                    <th style="width: 120px">관리</th>
                 </tr>
             </thead>
             <tbody>
@@ -94,10 +118,8 @@
                         <small>https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000297623</small>
                     </td>
                     <td>
-                        <a href="" class="btn btn-secondary">수정</a>
-                    </td>
-                    <td>
-                        <a href="" class="btn btn-secondary">삭제</a>
+                        <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="">수정</button>
+                        <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="">삭제</button>
                     </td>
                 </tr>
                 <tr>
@@ -114,10 +136,8 @@
                         <small>https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000286180&search_word=원데이&search_code=01&start_idx=1&show_cnt=10&menu_no=2823&menu_grp=MENU_NEW01</small>
                     </td>
                     <td>
-                        <a href="" class="btn btn-secondary">수정</a>
-                    </td>
-                    <td>
-                        <a href="" class="btn btn-secondary">삭제</a>
+                        <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="">수정</button>
+                        <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="">삭제</button>
                     </td>
                 </tr>
                 <tr>
@@ -134,10 +154,8 @@
                         <small>https://www.foodsafetykorea.go.kr/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000283605</small>
                     </td>
                     <td>
-                        <a href="" class="btn btn-secondary">수정</a>
-                    </td>
-                    <td>
-                        <a href="" class="btn btn-secondary">삭제</a>
+                        <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="">수정</button>
+                        <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="">삭제</button>
                     </td>
                 </tr>
 
