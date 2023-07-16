@@ -4,8 +4,6 @@ VALUES
 ('남성', 'G-01')
 , ('여성', 'G-02');
 
-DELETE FROM gender
-WHERE GENDER_UID LIKE 'G%';
 
 -- members 
 INSERT INTO members (USER_ID, NAME, GENDER_UID, PASSWORD, PHONENUMBER, ADDRESS, EMAIL)
