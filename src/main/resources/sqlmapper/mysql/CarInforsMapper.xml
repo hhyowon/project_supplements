@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Diet">
     <!-- 검색 -->
+   <!-- 검색 -->
 	
     <select id="search" parameterType="Map" resultType="Map">
         SELECT NAME, COMMON_CODE_ID, DESCRIPTION, PARENT_COMMON_CODE_ID
@@ -16,17 +17,11 @@
 	</select>
 
     <!-- 입력 -->
-    <insert id="insert" parameterType="Map">
-        INSERT INTO COMMONS_CODE 
-            (COMMON_CODE_ID, NAME, ORDER_NUMBER, 
-            ATTRIBUTION_1, ATTRIBUTION_2, DESCRIPTION, 
-            SYSTEM_CODE_YN, USE_YN, PARENT_COMMON_CODE_ID, 
-            REGISTER_SEQ, REGISTRY_DATE, MODIFIER_SEQ, MODIFY_DATE )
-        VALUES 
-            (#{COMMON_CODE_ID}, #{NAME}, #{ORDER_NUMBER}, #{ATTRIBUTION_1}, 
-            #{ATTRIBUTION_2}, #{DESCRIPTION}, #{SYSTEM_CODE_YN}, #{USE_YN}, 
-            #{PARENT_COMMON_CODE_ID}, #{REGISTER_SEQ}, #{REGISTRY_DATE}, 
-            #{MODIFIER_SEQ}, #{MODIFY_DATE})
+   <insert id="insert" parameterType="Map">
+    insert into MEMBERS
+    (USER_ID, NAME, GENDER_UID, PASSWORD, PHONENUMBER, ADDRESS, EMAIL)
+    values
+    (#{USER_ID}, #{NAME}, #{GENDER_UID}, #{PASSWORD}, #{PHONENUMBER}, #{ADDRESS}, #{EMAIL});
     </insert>
 
      <!-- 삭제 -->
@@ -49,10 +44,9 @@
     <!-- 상세 정보-->
    <select id="detail" parameterType="Map" resultType="Map">
     SELECT
-        NAME, COMMON_CODE_ID, DESCRIPTION,
-        SYSTEM_CODE_YN, USE_YN, PARENT_COMMON_CODE_ID
-    FROM db_cars.commons_code
-    WHERE COMMON_CODE_ID = #{COMMON_CODE_ID}
+       ID, NAME, PASSWORD, PHONENUMBER, ADDRESS, EMAIL
+    FROM db_cars.members
+    WHERE ID = #{ID}
     </select>
 
    <!-- 검색창 -->
@@ -61,5 +55,26 @@
         FROM project_nutrients.commons_code
         WHERE PARENT_COMMON_CODE_ID = #{PARENT_COMMON_CODE_ID}
 	</select>
+    
+    <!-- 검색창 리스트-->
+    <select id="list" parameterType="Map" resultType="Map">
+        select COMMON_CODE_ID, NAME, DESCRIPTION, PARENT_COMMON_CODE_ID 
+        from commons_code
+        where 1 = 1
+        <choose>
+            <when test="search == 'COMMON_CODE_ID'">
+            and COMMON_CODE_ID like CONCAT(#{words}, '%')
+            </when>
+            <when test="search == 'NAME'">
+            and NAME like CONCAT(#{words}, '%')
+            </when>
+            <when test="search == 'DESCRIPTION'">
+            and DESCRIPTION like CONCAT(#{words}, '%')
+            </when>
+            <when test="search == 'PARENT_COMMON_CODE_ID'">
+            and PARENT_COMMON_CODE_ID like CONCAT(#{words}, '%')
+            </when>
+        </choose>    
+    </select>
 </mapper>
 
