@@ -22,7 +22,7 @@ public class DietController {
     @Autowired
     DietService DietService;
 
-    @GetMapping({"", "/home"})
+    @GetMapping({" ", "/home"})
     public ModelAndView main(ModelAndView modelAndView){
         modelAndView.addObject("name", "Yojulab!");
         modelAndView.setViewName("/WEB-INF/views/main.jsp");
