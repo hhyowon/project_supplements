@@ -1,0 +1,64 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <title>복용하지 않은 자 폼</title>
+    <link rel="stylesheet" href="/css/maintool.css">
+</head>
+<body>
+    <div class="top-margin text-center">
+        <img class="mt-4 mb-4" src="/html/img/logo.PNG" alt width="240" height="100" style="display: block; margin-left: auto; margin-right: auto;">
+        <H3>다이어트 보조제 복용 경험이 없는 사람의 설문조사 </H3>  
+    </div>
+    <form method= "get" action="" >
+        <div class= "container mx-auto" style="border: 2px solid rgb(91, 155, 213); padding: 20px; border-radius: 10px; text-align: center; width: 50%;">
+           
+
+            1. 어떤 이유로 다이어트를 결심하게 되었나요? </br>
+            <input type="radio" name="Q1" value="Personal goal"> 개인 목표
+            <input type="radio" name="Q1" value="Health"> 건강
+            <input type="radio" name="Q1" value="Appearance"> 미용
+            <input type="radio" name="Q1" value="Mental well-being"> 정신건강
+            <input type="radio" name="Q1" value="Recommendation"> 주변권유 </br>
+
+            <br>2. 관심있는 다이어트 보조제 종류가 무엇인가요?  </br>
+            <input type="radio" name="Q2" value="Capsules" > 캡슐
+            <input type="radio" name="Q2" value="Softgels" > 소프트젤
+            <input type="radio" name="Q2" value="Powders" > 분말 
+            <input type="radio" name="Q2" value="Jellies" > 젤리 
+            <input type="radio" name="Q2" value="Tablets" > 정제 </br>
+       
+            <br>3. 다이어트 보조제에 대해 얼마나 잘 알고 있습니까?</br>
+            <input type="radio" name="Q3" value="Less than 6 months" > 잘 모른다
+            <input type="radio" name="Q3" value="6 months to 1 year" > 모른다
+            <input type="radio" name="Q3" value="1 year to 3 years" > 조금 안다 
+            <input type="radio" name="Q3" value="More than 3 years" > 잘안다 </br>
+       
+            <br>4. 다이어트 보조제를 고려하는 주요 목표 또는 이유? </br>
+            <input type="radio" name="Q4" value="Weight loss" > 신진대사 개선
+            <input type="radio" name="Q4" value="Self-care " > 식욕 억제
+            <input type="radio" name="Q4" value="Rapid weight loss" > 영양지원 
+            <input type="radio" name="Q4" value="Other reasons" > 기타 </br>
+       
+            <br>5. 다이어트 보조제를 선택할 때 고려하는 요소는 무엇인가요?</br> 
+            <input type="radio" name="Q5" value="Price" > 가격
+            <input type="radio" name="Q5" value="Dosage form" > 보조제 제형
+            <input type="radio" name="Q5" value="User reviews/testimonials" > 사용자 리뷰/증언  
+            <input type="radio" name="Q5" value="Ingredients" > 성분
+            <input type="radio" name="Q5" value="Taste" > 맛 </br>
+        </div>
+
+        <div class="container bg-white fs-6 py-6 row mx-auto my-3">
+            <div class="text-center d-flex justify-content-center py-2">
+                <button type="submit" formaction="/main" class="btn btn-white mx-2 btn-outline-dark" style="border-color: black; color: black;">닫기</button>
+                <button type="submit" formaction="/survey/result_no" class="btn btn-white btn-outline-dark" style="background-color: #5B9BD5; color: white; border-color: transparent;">설문제출</button>
+            </div>
+        </div>
+    </form>
+
+
+</body>
+</html>

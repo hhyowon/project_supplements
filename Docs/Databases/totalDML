@@ -18,9 +18,6 @@ VALUES
 ('songmr123', '송미라', 'G-02', '34567891', '010-1234-5678', '경상북도 포항시', 'songmr123@email.com'),
 ('limdh123', '임동현', 'G-01', '91929394', '010-5678-1234', '서울시 종로구', 'limdh123@email.com');
 
-SELECT *
-FROM members;
-
 -- bmi 
 INSERT INTO bmi(BMI_UID, USER_ID, YEAR, HEIGHT, WEIGHT, BMI_RESULT)
 VALUES
@@ -45,9 +42,6 @@ VALUES
 ('B-19', 'limdh123', '2022', '175', '75', '24.49'),
 ('B-20', 'limdh123', '2023', '165', '55', '20.2');
 
-SELECT *
-FROM bmi;
-
 -- category 
 INSERT INTO category(CATEGORY_ID, CATEGORY)
 VALUES
@@ -55,9 +49,6 @@ VALUES
 ,('C_02', '후기')
 ,('C_03', '추천')
 ;
-
-SELECT *
-FROM category;
 
 -- community 
 INSERT INTO community (COMMUNITY_ID, CATEGORY_ID, COMMUNITY_TITLE, COMMUNITY_CONTENT, COMMUNITY_DATE, USER_ID)
@@ -73,8 +64,6 @@ VALUES
 ('9', 'C_02', '제품 검토: XYZ 다이어트 보조제', '효과, 부작용 및 전반적인 경험을 포함하여 XYZ 다이어트 보조제에 대한 심층적인 리뷰를 공유합니다.', '2023-07-11', 'songmr123'),
 ('10', 'C_03', '초보자를 위한 필수 다이어트 보조제: 종합 가이드', '초보자를 위한 포괄적인 가이드를 제공하고 안전하고 효과적이며 보충제의 세계에 처음 입문하는 사람들에게 적합한 다이어트 보조제를 추천합니다.', '2023-07-11', 'limdh123');
 
-SELECT *
-FROM community;
 
 -- companyname
 INSERT INTO companyname (COMPANYNAME_UID, COMPANYNAME)
@@ -110,9 +99,6 @@ VALUES
 ('CO-29', '(주)서흥'),
 ('CO-30', '엔피케이(주)');
 
-SELECT *
-FROM companyname ;
-
 -- research
 INSERT INTO research (PRODUCT_UID, PRODUCT, COMPANYNAME_UID, URL, USER_ID)
 VALUES
@@ -146,9 +132,6 @@ VALUES
 ('P_28', '락티브 익스텐션 날씬해질 다이어트 유산균', 'CO-28', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000243506&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'parkcm789'),
 ('P_29', '잠백이 다이어트 유산균', 'CO-29', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000242522&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'songmr123'),
 ('P_30', '혈당컷 녹차다이어트', 'CO-30', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000242804&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'limdh123');
-
-SELECT *
-FROM research ;
 
 -- survey_type
 INSERT INTO 

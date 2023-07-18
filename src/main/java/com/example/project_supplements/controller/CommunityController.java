@@ -23,7 +23,7 @@ public class CommunityController {
     DietService DietService;
 
     @GetMapping({" "})
-      public ModelAndView community(@RequestParam Map<String, String> params, ModelAndView modelAndView) {
+    public ModelAndView community(@RequestParam Map<String, String> params, ModelAndView modelAndView) {
         // Map<String, String>으로 타입을 지정했으며, 파라미터의 이름과 값은 모두 문자열(String)로 처리
         Object result = DietService.selectCommunitySearch(params); // params 맵을 인자로 전달하여 검색 결과를 가져 옴
 

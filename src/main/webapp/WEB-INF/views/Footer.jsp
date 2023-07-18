@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="row">
-      <img src="html/img/logo2.png" alt="logo" height="130rem" />
+      <img src="/html/img/logo2.PNG" alt="logo" height="130rem" />
     </div>
     </footer>
 </body>
