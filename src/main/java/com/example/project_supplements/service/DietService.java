@@ -16,6 +16,14 @@ public class DietService {
     @Autowired
     SharedDao sharedDao;
 
+        public Map selectCommunitySearch(Map dataMap) {
+        // Object getOne(String sqlMapId, Object dataMap)
+        String sqlMapId = "Diet.community";
+        HashMap result = new HashMap<>();
+        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+        return result;
+    }
+
     public Map selectSearch(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
         String sqlMapId = "Diet.search";

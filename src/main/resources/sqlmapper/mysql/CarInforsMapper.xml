@@ -6,7 +6,7 @@
 	
     <select id="search" parameterType="Map" resultType="Map">
         SELECT NAME, COMMON_CODE_ID, DESCRIPTION, PARENT_COMMON_CODE_ID
-        FROM db_cars.commons_code
+        FROM project_diet.commons_code
         ORDER BY PARENT_COMMON_CODE_ID DESC;
         <choose>
             <when test="search == 'NAME'">
@@ -52,10 +52,17 @@
    <!-- 검색창 -->
 	<select id="select" parameterType="Map" resultType="Map">
         SELECT NAME, COMMON_CODE_ID, PARENT_COMMON_CODE_ID
-        FROM project_nutrients.commons_code
+        FROM .commons_code
         WHERE PARENT_COMMON_CODE_ID = #{PARENT_COMMON_CODE_ID}
 	</select>
     
+    <!-- 검색창 -->
+
+	<select id="community" parameterType="Map" resultType="Map">
+        SELECT COMMUNITY_ID, CATEGORY_ID,COMMUNITY_TITLE,COMMUNITY_CONTENT,USER_ID
+        FROM db_cars.community;
+	</select>
+
     <!-- 검색창 리스트-->
     <select id="list" parameterType="Map" resultType="Map">
         select COMMON_CODE_ID, NAME, DESCRIPTION, PARENT_COMMON_CODE_ID 
