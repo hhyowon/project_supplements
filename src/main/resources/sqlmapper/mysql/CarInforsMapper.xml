@@ -45,7 +45,7 @@
    <select id="detail" parameterType="Map" resultType="Map">
     SELECT
        ID, NAME, PASSWORD, PHONENUMBER, ADDRESS, EMAIL
-    FROM db_cars.members
+    FROM  project_diet.members
     WHERE ID = #{ID}
     </select>
 
@@ -60,7 +60,7 @@
 
 	<select id="community" parameterType="Map" resultType="Map">
         SELECT COMMUNITY_ID, CATEGORY_ID,COMMUNITY_TITLE,COMMUNITY_CONTENT,USER_ID
-        FROM db_cars.community;
+        FROM  project_diet.community;
 	</select>
 
     <!-- 검색창 리스트-->
