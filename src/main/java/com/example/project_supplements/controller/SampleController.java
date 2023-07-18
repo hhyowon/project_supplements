@@ -18,7 +18,7 @@ import com.example.project_supplements.service.DietService;
 
 @RequestMapping("/main")
 
-public class DietController {
+public class SampleController {
     @Autowired
     DietService DietService;
 
