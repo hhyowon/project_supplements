@@ -3,9 +3,9 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -451,
-    "scrollLeft": -450,
-    "zoomLevel": 1,
+    "scrollTop": -396,
+    "scrollLeft": -346,
+    "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
       "columnComment": true,
@@ -649,13 +649,36 @@
               "widthDefault": 60
             },
             "id": "e6db0604-ef4c-40ec-a90c-6c27871431ea"
+          },
+          {
+            "name": "",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "8589e7c5-63a1-4971-84c0-d5d21ea307df"
           }
         ],
         "ui": {
           "active": false,
           "left": 917.3611,
           "top": 628.5574,
-          "zIndex": 5,
+          "zIndex": 16,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1774,7 +1797,7 @@
             "e6db0604-ef4c-40ec-a90c-6c27871431ea"
           ],
           "x": 1133.0359046875,
-          "y": 738.5574,
+          "y": 759.0574,
           "direction": "bottom"
         },
         "constraintName": "fk_auth_names_to_auths",
