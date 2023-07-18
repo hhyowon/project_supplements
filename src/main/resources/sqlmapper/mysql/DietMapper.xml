@@ -52,7 +52,7 @@
    <!-- 검색창 -->
 	<select id="select" parameterType="Map" resultType="Map">
         SELECT NAME, COMMON_CODE_ID, PARENT_COMMON_CODE_ID
-        FROM .commons_code
+        FROM  project_diet.commons_code
         WHERE PARENT_COMMON_CODE_ID = #{PARENT_COMMON_CODE_ID}
 	</select>
     
