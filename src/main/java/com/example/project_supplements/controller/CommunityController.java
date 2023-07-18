@@ -29,7 +29,7 @@ public class CommunityController {
 
         modelAndView.addObject("params", params); // params 맵을 "params"라는 이름으로 모델에 추가합니다. 이를 통해 JSP 페이지에서 해당 데이터에 접근
         modelAndView.addObject("result", result);// 검색 결과(result)를 "result"라는 이름으로 모델에 추가합니다. 마찬가지로 JSP 페이지에서 해당 데이터에 접근
-        modelAndView.setViewName("/WEB-INF/views/Community.jsp"); // 모델과 뷰 정보를 포함한 ModelAndView 객체를 반환
+        modelAndView.setViewName("/WEB-INF/views/community.jsp"); // 모델과 뷰 정보를 포함한 ModelAndView 객체를 반환
         return modelAndView;
     }
 
