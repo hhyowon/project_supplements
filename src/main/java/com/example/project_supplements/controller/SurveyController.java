@@ -24,10 +24,37 @@ public class SurveyController {
 
     @GetMapping({" "})
     public ModelAndView main(ModelAndView modelAndView){
-        modelAndView.setViewName("/WEB-INF/views/bmi.jsp");
+        modelAndView.setViewName("/WEB-INF/views/survey.jsp");
         return modelAndView;
     }
+
+     @GetMapping({"/no"})
+    public ModelAndView surveyno(ModelAndView modelAndView){
+        modelAndView.setViewName("/WEB-INF/views/survey_no.jsp");
+        return modelAndView;
+    }
+
+     @GetMapping({"/yes"})
+    public ModelAndView surveyyes(ModelAndView modelAndView){
+        modelAndView.setViewName("/WEB-INF/views/survey_yes.jsp");
+        return modelAndView;
+    }
+
+    @GetMapping({"/result_yes"})
+    public ModelAndView result_yes(ModelAndView modelAndView){
+        modelAndView.setViewName("/WEB-INF/views/result_survey_yes.jsp");
+        return modelAndView;
+    }
+
+    @GetMapping({"/result_no"})
+    public ModelAndView result_no(ModelAndView modelAndView){
+        modelAndView.setViewName("/WEB-INF/views/result_survey_no.jsp");
+        return modelAndView;
+    }
+
+
 }
+
 
 
 
