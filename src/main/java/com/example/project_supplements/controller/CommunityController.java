@@ -24,7 +24,6 @@ public class CommunityController {
 
     @GetMapping({" "})
     public ModelAndView main(ModelAndView modelAndView){
-        modelAndView.addObject("name", "Yojulab!");
         modelAndView.setViewName("/WEB-INF/views/community.jsp");
         return modelAndView;
     }

@@ -24,7 +24,6 @@ public class BMIController {
 
     @GetMapping({" "})
     public ModelAndView main(ModelAndView modelAndView){
-        modelAndView.addObject("name", "Yojulab!");
         modelAndView.setViewName("/WEB-INF/views/bmi.jsp");
         return modelAndView;
     }

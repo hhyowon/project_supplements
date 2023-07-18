@@ -16,15 +16,15 @@ import com.example.project_supplements.service.DietService;
 
 @Controller
 
-@RequestMapping("/search")
+@RequestMapping("/survey")
 
-public class SearchController {
+public class SurveyController {
     @Autowired
     DietService DietService;
 
     @GetMapping({" "})
     public ModelAndView main(ModelAndView modelAndView){
-        modelAndView.setViewName("/WEB-INF/views/search.jsp");
+        modelAndView.setViewName("/WEB-INF/views/bmi.jsp");
         return modelAndView;
     }
 }

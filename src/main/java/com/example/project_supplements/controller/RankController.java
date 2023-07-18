@@ -24,7 +24,6 @@ public class RankController {
 
     @GetMapping({" "})
     public ModelAndView main(ModelAndView modelAndView){
-        modelAndView.addObject("name", "Yojulab!");
         modelAndView.setViewName("/WEB-INF/views/rank.jsp");
         return modelAndView;
     }
