@@ -62,7 +62,7 @@
                                               
                         <!-- Insert Form --> 
                         <div class="col-md-8">
-                            <button id="insertButton" class="btn btn-primary" formaction="/carInfor/insertForm" formmethod="post">InsertForm</button>
+                            <button id="insertButton" class="btn btn-primary" formaction="/main/insertForm" formmethod="get">InsertForm</button>
                         </div>
                        
                         <h2>Table</h2>

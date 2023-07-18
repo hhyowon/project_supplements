@@ -7,7 +7,7 @@
     <!-- Menu -->
 
     <div style="position: relative;">
-        <img class="w-100" src="img/다.PNG" alt="" height="700">
+        <img class="w-100" src="/html/img/다.PNG" alt="" height="700">
         <div style="position: absolute; top: 55%; left: 25%; transform: translate(-50%, -50%);">
             <p style="font-size: 26px; font-weight: bold; color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); white-space: nowrap;">
                 다이어트를 원하는 당신</p>
