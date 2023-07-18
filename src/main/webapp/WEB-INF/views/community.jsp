@@ -32,7 +32,7 @@
                                         HashMap record=(HashMap)resultList.get(i); %>
                             <tr>
                                 <td><%= record.get("COMMUNITY_ID") %></td>
-                                <td><%= record.get("CATEGORY_ID") %></td>
+                                <td><%= record.get("CATEGORY") %></td>
                                 <td><%= record.get("COMMUNITY_TITLE") %></td>
                                 <td><%= record.get("USER_ID") %></td>
                                 <td><%= record.get("COMMUNITY_DATE") %></td>
