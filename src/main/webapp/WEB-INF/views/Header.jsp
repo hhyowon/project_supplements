@@ -9,23 +9,23 @@
                 <div class="navbar-brand">
                     <div>
                         <a href="mainnavs.html">
-                            <img class="mb-4" src="img/logo.PNG" alt width="220" height="90">
+                            <img class="mb-4" src="html/img/logo.PNG" alt width="220" height="90">
                         </a>
                     </div>
                 </div>
 
                 <div class="navbar-nav me-auto"> <!--m:마진, e:end(오른쪽)-->
-                    <a class="nav-link" href="survey.html">설문조사</a>
-                    <a class="nav-link" href="search.html">검색</a>
-                    <a class="nav-link" href="community.html">커뮤니티</a>
-                    <a class="nav-link" href="rank.html">랭킹</a>
+                    <a class="nav-link" href="survey.html" style="color:#858688;">설문조사</a>
+                    <a class="nav-link" href="search.html" style="color:#858688;">검색</a>
+                    <a class="nav-link" href="community.html" style="color:#858688;">커뮤니티</a>
+                    <a class="nav-link" href="rank.html" style="color:#858688;">랭킹</a>
                     <a class="nav-link" href="bmi.html" style="color: #5B9BD5;">BMI</a>
                 </div>
                 <div>
-                    <a class="nav-link" href="./admin/userList.html">관리자전용</a>
+                    <a class="nav-link" href="./admin/userList.html" style="color:black">관리자전용</a>
                 </div>
                 <div>
-                    <a class="nav-link" href="login.html">로그인</a>
+                    <a class="nav-link" href="login.html" style="color:black">로그인</a>
                 </div>
                
                 <div class="dropdown nav-item">

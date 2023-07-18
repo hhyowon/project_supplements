@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/maintool.css">
+    <title>상품 상세정보 및 수정 창</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand">
+            <div class="navbar-brand">
+                <div>
+                    <a href="mainnavs.html">
+                        <img class="mb-4" src="../img/logo.PNG" alt width="220" height="90">
+                    </a>
+                </div>
+            </div>
+            <div class="navbar-nav me-auto"> <!--m:마진, e:end(오른쪽)-->
+                <a class="nav-link" href="survey.html">설문조사</a>
+                <a class="nav-link" href="search.html">검색</a>
+                <a class="nav-link" href="community.html">커뮤니티</a>
+                <a class="nav-link" href="rank.html">랭킹</a>
+                <a class="nav-link" href="bmi.html" style="color: #5B9BD5;">BMI</a>
+            </div>
+            <div>
+                <a class="nav-link" href="login.html">로그인</a>
+            </div>
+            <div class="dropdown nav-item">
+                <button class="btn btn-drak dropdown-toggle"
+                    data-bs-toggle="dropdown">회원관리</button><!--버튼 버튼색 버튼화살표토글 / 토글효과 : 드롭다운-->
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item">
+                        <a class="nav-link" href="mypage.html">마이페이지</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a class="nav-link" href="signup.html">회원가입</a>
+                    </li>
+                    <li class="dropdown-divider"></li> <!--drowdown메뉴안에서 라인으로 나누기 -->
+                    <li class="dropdown-item">
+                        <a class="nav-link" href="mainnavs.html">로그아웃</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="row g-0 vh-100">
+        <nav class="p-5 navbar-light bg-light d-md-block col-2">
+            <div>
+                <ul class="list-unstyled navbar-nav">
+                    <li class="d-flex align-items-center">
+                        <div class="text-decoration-none nav-link fs-5 fw-bold">관리자페이지</div>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <a href="./admin_userList.html" class="text-decoration-none nav-link">회원 관리</a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <a href="./admin_search.html" class="text-decoration-none nav-link">보조제 관리</a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <a href="./admin_community.html" class="text-decoration-none nav-link">커뮤니티 관리</a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <a href="./admin_survey.html" class="text-decoration-none nav-link">설문조사 관리</a>
+                    </li>
+                    <br>
+                    <li class="d-flex align-items-center">
+                        <a href="../mainnavs.html" class="text-decoration-none nav-link fw-bold">로그아웃</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="col-9 p-0 mb-5 ms-5">
+        
+    <!-- 상품에 대한 상세정보 및 수정 기능-->
+    <div class="container">
+        <h3 class="ui teal image header text-center">
+            상품의 상세정보 <hr class='hr-solid' />
+        </h3>
+        <br>
+    </div>
+    <br>
+    <br>
+    <div class="container text-center">
+        <img src="상품이미지경로" alt="상품이미지">
+        <table class="table table-bordered table-hover" style="vertical-align: middle;">
+            <thead>
+              <tr>
+                <th>상품명</th>
+                <td>바이탈슬림 다이어트 올인원 유산균</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  업소명
+                </td>
+                <td>
+                  (주)알피바이오
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        <h2>가격: 10,000원</h2>
+        <p>상세설명:</p>
+        <ul>
+            <li>상세설명1</li>
+            <li>상세설명2</li>
+            <li>상세설명3</li>
+        </ul> 
+    </div>
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-expand">
+      <div class="navbar-brand">
+        <div>
+          <a href="mainnavs.html">
+            <img class="mb-4" src="../img/logo.PNG" alt width="220" height="90">
+          </a>
+        </div>
+      </div>
+      <div class="navbar-nav me-auto"> <!--m:마진, e:end(오른쪽)-->
+        <a class="nav-link" href="survey.html">설문조사</a>
+        <a class="nav-link" href="search.html">검색</a>
+        <a class="nav-link" href="community.html">커뮤니티</a>
+        <a class="nav-link" href="rank.html">랭킹</a>
+        <a class="nav-link" href="bmi.html" style="color: #5B9BD5;">BMI</a>
+      </div>
+      <div>
+        <a class="nav-link" href="login.html">로그인</a>
+      </div>
+      <div class="dropdown nav-item">
+        <button class="btn btn-drak dropdown-toggle"
+          data-bs-toggle="dropdown">회원관리</button><!--버튼 버튼색 버튼화살표토글 / 토글효과 : 드롭다운-->
+        <ul class="dropdown-menu">
+          <li class="dropdown-item">
+            <a class="nav-link" href="mypage.html">마이페이지</a>
+          </li>
+          <li class="dropdown-item">
+            <a class="nav-link" href="signup.html">회원가입</a>
+          </li>
+          <li class="dropdown-divider"></li> <!--drowdown메뉴안에서 라인으로 나누기 -->
+          <li class="dropdown-item">
+            <a class="nav-link" href="mainnavs.html">로그아웃</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+
+  <div class="container ">
+    <h2 class="ui teal image header text-center">
+      커뮤니티 관리 
+    </h2>
+    <br>
+    <div class="container mx-auto" style="padding: 20px; border-radius: 10px ; width: 50%;">
+      <table class="table table-bordered">
+        <tbody>
+
+          <tr style="background-color: #afb5bb; color: white;">
+            <td class="text-left">
+              <p class="small">번호: 1 ㅣ 카테고리: 질문 ㅣ 등록자: 효원 ㅣ 등록일: 2023.07.10.</p><hr>
+              제목: 다이어트 보조제 부작용 중에 변비도 있나요?
+            </td>
+          </tr>
+
+          <tr class="table-default">
+            <td>
+              <p class="small">
+              다이어트 보조제 복용 후 변비가 생겼어요 ㅠㅠ
+              이것도 부작용에 속하는 건가요?
+              변비 너무 고통스럽네요
+              해결책이 있을까요...? <br>
+              도와주세요 ㅠㅠㅠ
+              도와주세요 ㅠㅠㅠ
+              도와주세요 ㅠㅠㅠ
+              도와주세요 ㅠㅠㅠ
+              도와주세요 ㅠㅠㅠ
+            </p>
+          </tr>
+        </tbody>
+      </table>
+        <form>
+          <textarea name="comment" rows="8" cols="79" style="background-color: #d1e8fd;"  placeholder="해당 내용에 대해 답변해주세요"></textarea><br>
+          <button class="btn mx-2  mb-2 float-end submit " style="background-color: #5B9BD5; color: white; border-color: transparent;">답변하기</button>
+      </form>
+      
+      <a href="./admin_community.html"><button class="btn mx-2  mb-2 float-start submit " style="background-color: #5B9BD5; color: white; border-color: transparent;">목록</button></a> 
+    </div>
+    
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</html>
