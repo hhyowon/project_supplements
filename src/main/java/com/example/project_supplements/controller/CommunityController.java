@@ -32,6 +32,7 @@ public class CommunityController {
         modelAndView.setViewName("/WEB-INF/views/Community.jsp"); // 모델과 뷰 정보를 포함한 ModelAndView 객체를 반환
         return modelAndView;
     }
+
 }
 
 

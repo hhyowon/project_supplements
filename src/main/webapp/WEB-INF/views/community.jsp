@@ -3,6 +3,7 @@
     <html lang="en">
 
     <body>
+        <form action="" method="get">
         <%@ include file="Header.jsp" %>
 
         <% 
@@ -15,6 +16,8 @@
                     커뮤니티
                 </h2>
                 <br>
+                
+
                 <div class="container mx-auto" style="padding: 20px; border-radius: 10px ; width: 50%;">
                     <table class="table table-bordered">
                          <thead>
@@ -39,17 +42,52 @@
                             </tr>
                             <% } %>
                         </tbody>
-                    </table>
-
-                    <a href="community.html"><button class="btn mx-2  mb-2 float-end submit "
-                            style="background-color: #5B9BD5; color: white; border-color: transparent;">목록</button></a>
+                    </table>c
+                    <button class="btn mx-2  mb-2 float-end submit " style="background-color: #5B9BD5; color: white; border-color: transparent;">목록</button>
+                   
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                          <a class="page-link" href="" aria-label="Previous"><span aria-hidden="true"><</span></a>
+                        </li>
+                      <li class="page-item">
+                        <a class="page-link" href="">1</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="">2</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="">3</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="" aria-label="Next"><span aria-hidden="true">></span></a>
+                      </li>
+                    </ul>
+              
                 </div>
             </div>
-
+            
+            <div class="ui modal" id='view_modal'>
+                <i class="close">x</i>
+                <div class="header" id="b_title">
+                    
+                </div>
+                <div class="content">
+                    <div class="description">
+                        <p style = "text-align: right" id = "b_review"></p>
+                        <div id = 'b_content'></div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <div class="ui black deny button">
+                        닫기
+                    </div>
+                </div>
+            </div>
+            
 
             <%@ include file="Footer.jsp" %>
-
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        </form>
     </body>
 
     </html>

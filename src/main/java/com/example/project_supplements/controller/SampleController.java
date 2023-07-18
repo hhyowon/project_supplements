@@ -1,5 +1,6 @@
 package com.example.project_supplements.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.project_supplements.service.DietService;
+import com.example.project_supplements.utils.Paginations;
 
 
 @Controller
@@ -130,6 +132,8 @@ public class SampleController {
 
         return modelAndView;
     }
+    
+
 
     }
 
