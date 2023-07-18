@@ -17,7 +17,7 @@
                 <div class="navbar-nav me-auto"> <!--m:마진, e:end(오른쪽)-->
                     <a class="nav-link" href="survey.html" style="color:#858688;">설문조사</a>
                     <a class="nav-link" href="search.html" style="color:#858688;">검색</a>
-                    <a class="nav-link" href="community.html" style="color:#858688;">커뮤니티</a>
+                    <a class="nav-link" href="/community" style="color:#858688;">커뮤니티</a>
                     <a class="nav-link" href="rank.html" style="color:#858688;">랭킹</a>
                     <a class="nav-link" href="bmi.html" style="color: #5B9BD5;">BMI</a>
                 </div>
