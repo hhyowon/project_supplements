@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SurveyService">
+    
+    <!-- 검색창 -->
+	<select id="surveyno" parameterType="Map" resultType="Map">
+       <!-- 질문과 답항을 뽑아오는 쿼리  -->
+        SELECT Q.SURVEY_QUESTION, O.SURVEY_OPT, Q.SURVEY_QUESTION_ID 
+        FROM survey_type_for_question AS T
+        INNER JOIN survey_question AS Q 
+        ON T.SURVEY_QUESTION_ID = Q.SURVEY_QUESTION_ID
+        LEFT JOIN survey_opt AS O 
+        ON Q.SURVEY_QUESTION_ID = O.SURVEY_QUESTION_ID
+        WHERE T.SURVEY_TYPE_ID = 'F-01'
+        ORDER BY O.OPT_ORDER;
+
+	</select>
+
+    <!-- 검색창 리스트-->
+    <select id="list" parameterType="Map" resultType="Map">
+        select COMMON_CODE_ID, NAME, DESCRIPTION, PARENT_COMMON_CODE_ID 
+        from commons_code
+        where 1 = 1
+        <choose>
+            <when test="search == 'COMMON_CODE_ID'">
+            and COMMON_CODE_ID like CONCAT(#{words}, '%')
+            </when>
+            <when test="search == 'NAME'">
+            and NAME like CONCAT(#{words}, '%')
+            </when>
+            <when test="search == 'DESCRIPTION'">
+            and DESCRIPTION like CONCAT(#{words}, '%')
+            </when>
+            <when test="search == 'PARENT_COMMON_CODE_ID'">
+            and PARENT_COMMON_CODE_ID like CONCAT(#{words}, '%')
+            </when>
+        </choose>    
+    </select>
+</mapper>
+

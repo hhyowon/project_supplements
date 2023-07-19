@@ -1,3 +1,4 @@
+<%@ page import="java.util.HashMap, java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,13 +10,32 @@
     <link rel="stylesheet" href="/css/maintool.css"/>
 </head>
 <body>
+    <% 
+        HashMap params=(HashMap)request.getAttribute("params"); 
+        String searchStr=(String)params.getOrDefault("search", ""); 
+        HashMap result=(HashMap)request.getAttribute("result"); 
+    %>
     <div class="top-margin text-center">
         <img class="mt-4 mb-4" src="/html/img/logo.PNG" alt width="240" height="100" style="display: block; margin-left: auto; margin-right: auto;">
         <H3>다이어트 보조제 복용 경험이 없는 사람의 설문조사 </H3>  
     </div>
-    <form method= "get" action="" >
+    <form method= "get" action="/survey/survey_no" >
         <div class= "container mx-auto" style="border: 2px solid rgb(91, 155, 213); padding: 20px; border-radius: 10px; text-align: center; width: 50%;">
-           
+            <tbody id="surveyno">
+                <% for(int i=0; i<surveyList.size(); i++){
+                    HashMap survey = (HashMap) surveyList.get(i);
+                    String question = (String) survey.get("SURVEY_QUESTION");
+                    String questionId = (String) survey.get("SURVEY_QUESTION_ID");
+                    String choice = (String) survey.get("SURVEY_OPT");
+                    if(!compare.equals(questionId)){ //같지 않으면
+                        System.out.println(question);
+                        System.out.println(choice);
+                        compare = questionId;
+                    }else { 
+                        System.out.println(choice);
+                    }
+                } %>
+            </tbody>
 
             1. 어떤 이유로 다이어트를 결심하게 되었나요? </br>
             <input type="radio" name="Q1" value="Personal goal"> 개인 목표
