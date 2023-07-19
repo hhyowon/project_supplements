@@ -27,6 +27,8 @@ public class BMIController {
         modelAndView.setViewName("/WEB-INF/views/bmi/bmi.jsp");
         return modelAndView;
     }
+
+ 
 }
 
 
