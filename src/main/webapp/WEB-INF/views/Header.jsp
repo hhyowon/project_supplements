@@ -35,7 +35,7 @@
                     <ul class="dropdown-menu">
                         <!-- 필터 이용해야 될 것 같음-->
                         <li class="dropdown-item">
-                            <a class="nav-link" href="/selectDetail">마이페이지</a>
+                            <a class="nav-link" href="/mypage">마이페이지</a>
                         </li>
                         <li class="dropdown-item">
                             <a class="nav-link" href="/signup">회원가입</a>

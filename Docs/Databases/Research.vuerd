@@ -3,7 +3,7 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -30,
+    "scrollTop": -29,
     "scrollLeft": 0,
     "zoomLevel": 1,
     "show": {
@@ -137,13 +137,82 @@
               "widthDefault": 60
             },
             "id": "6484f317-1b0b-4321-8b4e-df54738969f5"
+          },
+          {
+            "name": "FORMULATION",
+            "comment": "제형",
+            "dataType": "VARCHAR(50)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 95.64697265625,
+              "widthComment": 60,
+              "widthDataType": 87.71875,
+              "widthDefault": 60
+            },
+            "id": "19e1caf3-77cb-49b3-a845-ecb47d9a7e05"
+          },
+          {
+            "name": "PROUDUCT_IMG",
+            "comment": "제품이미지",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 107.447265625,
+              "widthComment": 67,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "0be2a86a-7fee-4cca-a4ff-48398e620c04"
+          },
+          {
+            "name": "EFFECT",
+            "comment": "제품효과",
+            "dataType": "VARCHAR(50)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 87.71875,
+              "widthDefault": 60
+            },
+            "id": "c69e738b-711b-46b3-b817-da3108744f87"
           }
         ],
         "ui": {
           "active": false,
           "left": 71,
           "top": 193,
-          "zIndex": 30,
+          "zIndex": 36,
           "widthName": 74.236328125,
           "widthComment": 60
         },
@@ -205,7 +274,7 @@
           "active": false,
           "left": 158,
           "top": 489,
-          "zIndex": 29,
+          "zIndex": 1,
           "widthName": 104.32421875,
           "widthComment": 60
         },
@@ -238,8 +307,8 @@
           "columnIds": [
             "ea81a633-5a6e-41fc-8941-f667f8cf4acf"
           ],
-          "x": 300.6396484375,
-          "y": 344,
+          "x": 302.445556640625,
+          "y": 405.5,
           "direction": "bottom"
         },
         "constraintName": "fk_companyname_to_research",

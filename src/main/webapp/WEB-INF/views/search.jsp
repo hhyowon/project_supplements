@@ -11,8 +11,13 @@
 
   <body>
     <%@ include file="Header.jsp" %> <!-- Menu -->
+    <!-- <% 
+        HashMap params=(HashMap)request.getAttribute("params"); 
+        String searchStr=(String)params.getOrDefault("search", ""); 
+        HashMap result=(HashMap)request.getAttribute("result"); 
+        %> -->
 
-      <div class="container">
+    <div class="container">
         <h2 class="ui teal image header text-center">
           다이어트 보조제 검색
         </h2>
@@ -44,12 +49,24 @@
         <table class="table table-bordered table-hover" style="vertical-align: middle;">
           <thead>
             <tr style="background: #8cc1f3;">
-              <th style="width: 500px; ">상품 이미지</th>
+              <th style="width: 500px; "> 상품 이미지</th>
               <th>상품명</th>
               <th>업소명</th>
             </tr>
           </thead>
+          <!-- <tbody id="list">
+            <% ArrayList resultList=(ArrayList)result.get("resultList"); 
+                    for(int i=0; i < resultList.size(); i=i+1){
+                        HashMap record=(HashMap)resultList.get(i); %>
+            <tr>
+                <td><%= record.get("PRODUCT") %></td>
+                <td><%= record.get("PRODUCT_UID") %></td>
+                <td><%= record.get("COMPANYNAME_UID") %></td>
+            </tr>
+            <% } %>
+        </tbody> -->
           <tbody>
+            
             <tr>
               <td>
                 <div class="row justify-content-center">

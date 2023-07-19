@@ -3,9 +3,9 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -511,
-    "scrollLeft": -333,
-    "zoomLevel": 0.6,
+    "scrollTop": -155,
+    "scrollLeft": -1117,
+    "zoomLevel": 0.9,
     "show": {
       "tableComment": true,
       "columnComment": true,
@@ -655,7 +655,7 @@
           "active": false,
           "left": 917.3611,
           "top": 628.5574,
-          "zIndex": 16,
+          "zIndex": 15,
           "widthName": 60,
           "widthComment": 60
         },
@@ -780,13 +780,82 @@
               "widthDataType": 87.71875,
               "widthDefault": 60
             }
+          },
+          {
+            "name": "FORMULATION",
+            "comment": "제형",
+            "dataType": "VARCHAR(50)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 95.64697265625,
+              "widthComment": 60,
+              "widthDataType": 87.71875,
+              "widthDefault": 60
+            },
+            "id": "84ab30ad-bbbb-4a21-8daf-47d09f8a1cda"
+          },
+          {
+            "name": "PROUDUCT_IMG",
+            "comment": "제품이미지",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 107.447265625,
+              "widthComment": 67,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "a8c1d94f-2125-403b-8413-6ed8d11ab39f"
+          },
+          {
+            "name": "EFFECT",
+            "comment": "제품효과",
+            "dataType": "VARCHAR(50)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 87.71875,
+              "widthDefault": 60
+            },
+            "id": "1e9242f5-9520-4ab8-94af-2c2374bebea4"
           }
         ],
         "ui": {
-          "active": false,
-          "left": 1509.6089,
-          "top": 610.5516,
-          "zIndex": 12,
+          "active": true,
+          "left": 1399.9422,
+          "top": 518.5515,
+          "zIndex": 129,
           "widthName": 74.236328125,
           "widthComment": 60
         },
@@ -1427,7 +1496,7 @@
             "8b33f66e-6c34-402f-80c1-35ac5be724f2"
           ],
           "x": 1390.7947796875,
-          "y": 362.9569,
+          "y": 469.2069,
           "direction": "right"
         },
         "end": {
@@ -1539,8 +1608,8 @@
           "columnIds": [
             "f037ebeb-9be4-4ea4-97f2-65d38dd0827c"
           ],
-          "x": 1741.054456640625,
-          "y": 782.0516,
+          "x": 1631.387756640625,
+          "y": 751.5515,
           "direction": "bottom"
         },
         "constraintName": "",
@@ -1557,7 +1626,7 @@
             "8b33f66e-6c34-402f-80c1-35ac5be724f2"
           ],
           "x": 1390.7947796875,
-          "y": 469.2069,
+          "y": 362.9569,
           "direction": "right"
         },
         "end": {
@@ -1565,8 +1634,8 @@
           "columnIds": [
             "72ad5667-a06e-44e7-b896-33dccf5460bb"
           ],
-          "x": 1509.6089,
-          "y": 696.3016,
+          "x": 1399.9422,
+          "y": 635.0515,
           "direction": "left"
         },
         "constraintName": "",
