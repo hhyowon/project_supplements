@@ -25,7 +25,7 @@ public class RankController {
     @GetMapping({" "})
     public ModelAndView main(ModelAndView modelAndView){
         
-        modelAndView.setViewName("/WEB-INF/views/rank.jsp");
+        modelAndView.setViewName("/WEB-INF/views/rank/rank.jsp");
         return modelAndView;
     }
 }

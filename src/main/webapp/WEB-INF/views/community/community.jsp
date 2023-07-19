@@ -4,7 +4,7 @@
 
     <body>
         <form action="" method="get">
-        <%@ include file="Header.jsp" %>
+            <%@ include file= "/WEB-INF/views/etc/Header.jsp" %>
 
         <% 
         HashMap params=(HashMap)request.getAttribute("params"); 
@@ -85,7 +85,7 @@
             </div>
             
 
-            <%@ include file="Footer.jsp" %>
+            <%@ include file="/WEB-INF/views/etc/Footer.jsp" %> <!-- footer --> 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         </form>
     </body>

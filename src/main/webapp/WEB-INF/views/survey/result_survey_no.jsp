@@ -10,7 +10,7 @@
 </head>
     
     <body>
-      <%@ include file="Header.jsp" %> <!-- Menu -->
+        <%@ include file= "/WEB-INF/views/etc/Header.jsp" %> <!-- Menu -->
      
           <div class="container">
                 <div class=text-center><h2 style="color: #5B9BD5;">설문조사 결과</h2></div>

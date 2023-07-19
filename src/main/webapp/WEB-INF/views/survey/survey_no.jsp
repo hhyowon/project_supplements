@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <title>복용하지 않은 자 폼</title>
-    <link rel="stylesheet" href="/css/maintool.css">
+    <link rel="stylesheet" href="/css/maintool.css"/>
 </head>
 <body>
     <div class="top-margin text-center">

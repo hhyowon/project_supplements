@@ -8,19 +8,19 @@ import org.springframework.web.servlet.ModelAndView;
 public class MainController {
     @GetMapping({"/", "/home", "/main"})
     public ModelAndView main(ModelAndView modelAndView){
-        modelAndView.setViewName("/WEB-INF/views/main.jsp");
+        modelAndView.setViewName("/WEB-INF/views/mainpage/main.jsp");
         return modelAndView;
     }
 
     @GetMapping({"/login"})
     public ModelAndView login(ModelAndView modelAndView){
-        modelAndView.setViewName("/WEB-INF/views/login.jsp");
+        modelAndView.setViewName("/WEB-INF/views/login/login.jsp");
         return modelAndView;
     }
 
     @GetMapping({"/signup"})
     public ModelAndView signup(ModelAndView modelAndView){
-        modelAndView.setViewName("/WEB-INF/views/signup.jsp");
+        modelAndView.setViewName("/WEB-INF/views/login/signup.jsp");
         return modelAndView;
     }
 }

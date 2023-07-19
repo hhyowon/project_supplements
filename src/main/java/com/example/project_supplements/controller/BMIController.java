@@ -24,9 +24,11 @@ public class BMIController {
 
     @GetMapping({" "})
     public ModelAndView main(ModelAndView modelAndView){
-        modelAndView.setViewName("/WEB-INF/views/bmi.jsp");
+        modelAndView.setViewName("/WEB-INF/views/bmi/bmi.jsp");
         return modelAndView;
     }
+
+ 
 }
 
 

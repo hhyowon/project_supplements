@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Diet">
+    <!-- 검색 -->
+    <select id="search" parameterType="Map" resultType="Map">
+        SELECT NAME, COMMON_CODE_ID, DESCRIPTION, PARENT_COMMON_CODE_ID
+        FROM project_diet.commons_code
+        ORDER BY PARENT_COMMON_CODE_ID DESC;
+        <choose>
+            <when test="search == 'NAME'">
+            and NAME like CONCAT(#{words}, '%')
+            </when>
+        </choose>        
+        ;
+	</select>
+
+    <!-- 입력 -->
+   <insert id="insert" parameterType="Map">
+    insert into MEMBERS
+    (USER_ID, NAME, GENDER_UID, PASSWORD, PHONENUMBER, ADDRESS, EMAIL)
+    values
+    (#{USER_ID}, #{NAME}, #{GENDER_UID}, #{PASSWORD}, #{PHONENUMBER}, #{ADDRESS}, #{EMAIL});
+    </insert>
+
+     <!-- 삭제 -->
+	<delete id="delete" parameterType="Map">
+        delete from commons_code
+        where COMMON_CODE_ID = #{COMMON_CODE_ID}
+    </delete>
+
+    <!-- 수정 -->
+	<update id="update" parameterType="Map">
+        UPDATE COMMONS_CODE
+        SET
+        NAME = #{NAME},
+        ORDER_NUMBER = #{ORDER_NUMBER},
+        DESCRIPTION = #{DESCRIPTION},
+        MODIFY_DATE = NOW()
+        where COMMON_CODE_ID = #{COMMON_CODE_ID}
+    </update>
+
+    <!-- 상세 정보-->
+   <select id="detail" parameterType="Map" resultType="Map">
+    SELECT
+       USER_ID, NAME, GENDER_UID, PASSWORD, PHONENUMBER, ADDRESS, EMAIL
+    FROM  project_diet.members
+    WHERE USER_ID = '#{USER_ID}'
+    </select>
+
+   <!-- 검색창 -->
+	<select id="select" parameterType="Map" resultType="Map">
+        SELECT NAME, COMMON_CODE_ID, PARENT_COMMON_CODE_ID
+        FROM  project_diet.commons_code
+        WHERE PARENT_COMMON_CODE_ID = #{PARENT_COMMON_CODE_ID}
+	</select>
+    
+    <!-- 검색창 -->
+	<select id="community" parameterType="Map" resultType="Map">
+        SELECT comm.COMMUNITY_ID, ca.CATEGORY, comm.COMMUNITY_TITLE, comm.COMMUNITY_CONTENT, comm.USER_ID
+        FROM project_diet.community as comm
+        INNER JOIN category as ca
+        ON comm.CATEGORY_ID = ca.CATEGORY_ID
+        WHERE ca.CATEGORY_ID LIKE 'C%'
+        order by COMMUNITY_ID;
+	</select>
+
+    <!-- 검색창 리스트-->
+    <select id="list" parameterType="Map" resultType="Map">
+        select COMMON_CODE_ID, NAME, DESCRIPTION, PARENT_COMMON_CODE_ID 
+        from commons_code
+        where 1 = 1
+        <choose>
+            <when test="search == 'COMMON_CODE_ID'">
+            and COMMON_CODE_ID like CONCAT(#{words}, '%')
+            </when>
+            <when test="search == 'NAME'">
+            and NAME like CONCAT(#{words}, '%')
+            </when>
+            <when test="search == 'DESCRIPTION'">
+            and DESCRIPTION like CONCAT(#{words}, '%')
+            </when>
+            <when test="search == 'PARENT_COMMON_CODE_ID'">
+            and PARENT_COMMON_CODE_ID like CONCAT(#{words}, '%')
+            </when>
+        </choose>    
+    </select>
+</mapper>
+

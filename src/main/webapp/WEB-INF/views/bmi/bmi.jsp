@@ -7,12 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.css">
     
-    <link rel="stylesheet" href="/css/maintool.css">
+    <link rel="stylesheet" href="/css/maintool.css"> 
     <title>BMI</title>
 </head>
 
 <body>
-  <%@ include file="Header.jsp" %> <!-- Menu -->
+  <%@ include file= "/WEB-INF/views/etc/Header.jsp" %> <!-- Menu --> 
+
+ 
 
 <!--BMI 페이지-->
 <div class="container">
