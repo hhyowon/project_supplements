@@ -42,7 +42,7 @@
                             </tr>
                             <% } %>
                         </tbody>
-                    </table>c
+                    </table>
                     <button class="btn mx-2  mb-2 float-end submit " style="background-color: #5B9BD5; color: white; border-color: transparent;">목록</button>
                    
                     <ul class="pagination justify-content-center">
