@@ -109,6 +109,6 @@
     <br>
   </div>
 
-  <%@ include file="Footer.jsp" %> <!-- footer -->
+  <%@ include file="/WEB-INF/views/etc/Footer.jsp" %> <!-- footer --> 
 </body>
 </html>
