@@ -3,7 +3,7 @@
 <html lang="en">
 
 <body>
-    <%@ include file="Header.jsp" %>
+    <%@ include file= "/WEB-INF/views/etc/Header.jsp" %>
     
     <!-- 마이페이지 옆-->
     <div class="row g-0 vh-100">
@@ -112,7 +112,7 @@
                 </table>
             </div>
 
-    <%@ include file="Footer.jsp" %>
+            <%@ include file="/WEB-INF/views/etc/Footer.jsp" %>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

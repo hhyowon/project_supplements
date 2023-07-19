@@ -69,7 +69,7 @@ public class SampleController {
 
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
-        modelAndView.setViewName("/WEB-INF/views/main.jsp");
+        modelAndView.setViewName("/WEB-INF/views/mainpage/main.jsp");
         return modelAndView;
     }
 
