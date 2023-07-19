@@ -44,9 +44,9 @@
     <!-- 상세 정보-->
    <select id="detail" parameterType="Map" resultType="Map">
     SELECT
-       ID, NAME, PASSWORD, PHONENUMBER, ADDRESS, EMAIL
+       USER_ID, NAME, GENDER_UID, PASSWORD, PHONENUMBER, ADDRESS, EMAIL
     FROM  project_diet.members
-    WHERE ID = #{ID}
+    WHERE USER_ID = '#{USER_ID}'
     </select>
 
    <!-- 검색창 -->

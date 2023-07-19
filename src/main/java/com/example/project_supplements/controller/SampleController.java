@@ -1,6 +1,5 @@
 package com.example.project_supplements.controller;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.project_supplements.service.DietService;
-import com.example.project_supplements.utils.Paginations;
 
 
 @Controller
@@ -67,7 +65,10 @@ public class SampleController {
     // INSERT
     @PostMapping("/insert")
     public ModelAndView insert(@RequestParam Map params, ModelAndView modelAndView) {
+        Object result = DietService.insert(params);
 
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
         modelAndView.setViewName("/WEB-INF/views/main.jsp");
         return modelAndView;
     }
@@ -85,7 +86,7 @@ public class SampleController {
 
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
-        modelAndView.setViewName("/WEB-INF/views/list_map_ex.jsp");
+        modelAndView.setViewName("/WEB-INF/views/main.jsp");
 
         return modelAndView;
     }
@@ -111,10 +112,10 @@ public class SampleController {
     }
 
     // 상세정보
-    @GetMapping("/selectDetail/{ID}")
-    public ModelAndView selectDetail(@PathVariable String ID, @RequestParam Map params,
+    @GetMapping("/selectDetail")
+    public ModelAndView selectDetail(@PathVariable String USER_ID, @RequestParam Map params,
             ModelAndView modelAndView) {
-        Object result = DietService.selectDetail(ID, params);
+        Object result = DietService.selectDetail(USER_ID, params);
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
         modelAndView.setViewName("/WEB-INF/views/DetailForm.jsp");

@@ -78,10 +78,10 @@ public class DietService {
         return result;
     }
 
-    public Object selectDetail(String COMMON_CODE_ID, Map dataMap) {
+    public Object selectDetail(String USER_ID, Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
         String sqlMapId = "Diet.detail";
-        dataMap.put("COMMON_CODE_ID", COMMON_CODE_ID); 
+        dataMap.put("USER_ID", USER_ID); 
         Object result = sharedDao.getOne(sqlMapId, dataMap);
         return result;
     }

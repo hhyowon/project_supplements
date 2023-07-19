@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="/css/maintool.css">
 </head>  
 <body>
-  <%@ include file="Header.jsp" %> <!-- Menu -->
+  <%@ include file="Header.jsp" %> 
+  <!-- Menu -->
       <div class="container">
         <div class="container text-center">
           <h1 > 회원가입
@@ -20,57 +21,58 @@
         </div>
       </div>
     </br>
+
   <div class="container pb-5 px-5" style="width: 700px;">
-    <form action="index.html "> <!-- 폼-->
+    <form id="insertForm" action="" method="post"> <!-- 폼-->
       <div class="px-5">
         <div class="py-2">
-          <lable class="form-label" for="idusername">이름</lable>
-          <input class="form-control" type="text" placeholder="name" name="name" id="idname" style="width: 500px;">
+          <lable class="form-label" for="name">이름</lable>
+          <input class="form-control" type="text" placeholder="name" name="NAME" id="name" style="width: 500px;">
         </div>
 
         <div class="py-2">
           <label class="form-label">성별</label>
           <div>
-            <input type="radio" name="sex" value="G_01" id="male">
+            <input type="radio" name="GENDER_UID" value="G-01" id="male">
             <label for="male">남자</label>
 
-            <input type="radio" name="sex" value="G_02" id="female">
+            <input type="radio" name="GENDER_UID" value="G-02" id="female">
             <label for="female">여자</label>
           </div>
           <div>
 
             <div class="py-2"><!--아이디 작성-->
-              <label class="form-label" for="idid">아이디 </label>
-              <input class="form-control" type="id" name="id" id="idid" placeholder="hyowon0605" style="width: 500px;">
+              <label class="form-label" for="userid">아이디 </label>
+              <input class="form-control" type="id" name="USER_ID" id="userid" placeholder="hyowon0605" style="width: 500px;">
             </div>
 
             <div class="py-2"><!--비밀번호 작성-->
-              <label class="form-label" for="idpw">비밀번호 </label>
-              <input class="form-control" type="password" name="password" id="idpassword" placeholder="123456"
+              <label class="form-label" for="pw">비밀번호 </label>
+              <input class="form-control" type="password" name="PASSWORD" id="pw" placeholder="123456"
                 style="width: 500px;">
             </div>
 
             <div class="py-2"><!--비밀번호 확인란 작성-->
-              <label class="form-label" for="idpw">비밀번호 확인</label>
-              <input class="form-control" type="password" name="passwordck" id="idpasswordck"
+              <label class="form-label" for="chkpw">비밀번호 확인</label>
+              <input class="form-control" type="password" name="CHKPW" id="chkpw"
                 style="width: 500px;">
             </div>
 
             <div class="py-2"><!--연락처-->
-              <label class="form-label" for="idphonenumber">연락처</label>
-              <input class="form-control" type="text" name="phonenumber" value="" placeholder="010-****-****" id="idphonenumber"
+              <label class="form-label" for="phnum">연락처</label>
+              <input class="form-control" type="text" name="PHONENUMBER" value="" placeholder="010-****-****" id="phnum"
                 style="width: 500px;">
             </div>
 
             <div class="py-2"><!--Address-->
-              <label class="form-label" for="idaddress">주소</label>
-              <input class="form-control" type="text" name="address" value="" placeholder="우리집비밀" id="idaddress"
+              <label class="form-label" for="address">주소</label>
+              <input class="form-control" type="text" name="ADDRESS" value="" placeholder="우리집비밀" id="address"
                 style="width: 500px;">
             </div>
 
             <div class="py-2"><!--이메일 작성-->
-              <label class="form-label" for="idemail">Email </label>
-              <input class="form-control" type="email" name="emailAddress" id="idemail" placeholder="otter@yojulab.com"
+              <label class="form-label" for="email">Email </label>
+              <input class="form-control" type="email" name="EMAIL" id="email" placeholder="otter@yojulab.com"
                 style="width: 500px;">
             </div>
           </div>
@@ -91,7 +93,7 @@
           </div>
           <P></P>
           <div>
-            <button type="submit" class="btn btn-main float-end" formaction="/main">회원가입</button>
+            <button type="submit" class="btn btn-main float-end" formaction="/main/insert">회원가입</button>
           </div>
     </form>
   </div>

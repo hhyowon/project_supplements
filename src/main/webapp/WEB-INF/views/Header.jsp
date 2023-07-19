@@ -1,5 +1,7 @@
+<!-- <%@ page import="java.util.HashMap, java.util.ArrayList" %> -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <head>
+<head>
+  
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Bootstrap 5 Template</title>
@@ -13,11 +15,10 @@
                         </a>
                     </div>
                 </div>
-
                 <div class="navbar-nav me-auto"> <!--m:마진, e:end(오른쪽)-->
                     <a class="nav-link" href="/survey" style="color:#858688;">설문조사</a>
                     <a class="nav-link" href="/search" style="color:#858688;">검색</a>
-                    <a class="nav-link" href="community" style="color:#858688;">커뮤니티</a>
+                    <a class="nav-link" href="/community" style="color:#858688;">커뮤니티</a>
                     <a class="nav-link" href="/rank" style="color:#858688;">랭킹</a>
                     <a class="nav-link" href="/bmi" style="color: #5B9BD5;">BMI</a>
                 </div>
@@ -34,7 +35,7 @@
                     <ul class="dropdown-menu">
                         <!-- 필터 이용해야 될 것 같음-->
                         <li class="dropdown-item">
-                            <a class="nav-link" href="/main/selectDetail/{ID}">마이페이지</a>
+                            <a class="nav-link" href="/selectDetail">마이페이지</a>
                         </li>
                         <li class="dropdown-item">
                             <a class="nav-link" href="/signup">회원가입</a>
@@ -45,7 +46,7 @@
                         </li>
                     </ul>
                 </div>
-               
+
             </nav>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
