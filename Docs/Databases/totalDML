@@ -100,7 +100,7 @@ VALUES
 ('CO-30', '엔피케이(주)');
 
 -- research
-INSERT INTO research (PRODUCT_UID, PRODUCT, COMPANYNAME_UID, URL, USER_ID,FORMULATION,PROUDUCT_IMG,EFFECT)
+INSERT INTO PRODUCT (PRODUCT_UID, PRODUCT, COMPANYNAME_UID, URL, USER_ID,FORMULATION,PROUDUCT_IMG,EFFECT)
 VALUES
 ('P_01', '푸응 다이어트', 'CO-01', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000302002&search_word=다이어트&search_code=01&start_idx=1&show_cnt=10&menu_no=2823&menu_grp=MENU_NEW01', 'honggd123','가루','/src/main/resources/static/images/푸응 다이어트.jpg','배변활동 증가'),
 ('P_02', '김소형원방 다이어트카페 리얼 MUKAVE', 'CO-02', 'https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000296048&search_word=다이어트&search_code=01&start_idx=1&show_cnt=30&menu_no=2823&menu_grp=MENU_NEW01', 'kimeh456','환','/src/main/resources/static/images/김소형원방 다이어트카페 리얼.jpg','포만감'),

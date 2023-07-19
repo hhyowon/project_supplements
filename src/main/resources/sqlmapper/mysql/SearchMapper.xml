@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Diet">
+     <!-- 찐 커뮤니티 테이블 리스트 -->
+	<select id="community" parameterType="Map" resultType="Map">
+        SELECT comm.COMMUNITY_ID, ca.CATEGORY, comm.COMMUNITY_TITLE, comm.COMMUNITY_CONTENT, comm.USER_ID
+        FROM project_diet.community as comm
+        INNER JOIN category as ca
+        ON comm.CATEGORY_ID = ca.CATEGORY_ID
+        WHERE ca.CATEGORY_ID LIKE 'C%'
+        order by COMMUNITY_ID;
+	</select>
+
+    <!-- 찐 검색창 리스트-->
+    <select id="list" parameterType="Map" resultType="Map">
+        select COMMON_CODE_ID, NAME, DESCRIPTION, PARENT_COMMON_CODE_ID 
+        from commons_code
+        where 1 = 1
+        <choose>
+            <when test="search == 'COMMON_CODE_ID'">
+            and COMMON_CODE_ID like CONCAT(#{words}, '%')
+            </when>
+            <when test="search == 'NAME'">
+            and NAME like CONCAT(#{words}, '%')
+            </when>
+            <when test="search == 'DESCRIPTION'">
+            and DESCRIPTION like CONCAT(#{words}, '%')
+            </when>
+            <when test="search == 'PARENT_COMMON_CODE_ID'">
+            and PARENT_COMMON_CODE_ID like CONCAT(#{words}, '%')
+            </when>
+        </choose>    
+    </select>
+</mapper>
