@@ -22,7 +22,7 @@ public class CommunityController {
     @Autowired
     DietService DietService;
 
-    @GetMapping({" "})
+    @GetMapping({"/communityList"})
     public ModelAndView community(@RequestParam Map<String, String> params, ModelAndView modelAndView) {
         // Map<String, String>으로 타입을 지정했으며, 파라미터의 이름과 값은 모두 문자열(String)로 처리
         Object result = DietService.selectCommunitySearch(params); // params 맵을 인자로 전달하여 검색 결과를 가져 옴
@@ -32,6 +32,13 @@ public class CommunityController {
         modelAndView.setViewName("/WEB-INF/views/community/community.jsp"); // 모델과 뷰 정보를 포함한 ModelAndView 객체를 반환
         return modelAndView;
     }
+
+    @GetMapping({"/communityComment"})
+    public ModelAndView main(ModelAndView modelAndView){
+        modelAndView.setViewName("/WEB-INF/views/community/community_post_comment.jsp");
+        return modelAndView;
+    }
+
 
 }
 

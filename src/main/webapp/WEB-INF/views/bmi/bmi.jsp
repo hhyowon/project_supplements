@@ -62,7 +62,7 @@
             
               <div class="row">
                 <div class="col mt-3" style="font-weight: bold;">
-                  <div id="result"></div>
+                  <div id="result" style="font-size: 20px;"></div>
                 </div>
               </div>
             

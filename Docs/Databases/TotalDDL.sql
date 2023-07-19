@@ -38,7 +38,7 @@ CREATE TABLE COMMONS_CODE
   ATTRIBUTION_1         varchar(60)   NULL     COMMENT '속성_1',
   ATTRIBUTION_2         varchar(60)   NULL     COMMENT '속성_2',
   DESCRIPTION           varchar(1000) NULL     COMMENT '코드설명',
-  SYSTEM_CODE_YN        varchar(40)   NOT NULL DEFAULT N COMMENT '초기 시스템 코드 여부',
+  SYSTEM_CODE_YN        varchar(40)   NOT NULL COMMENT '초기 시스템 코드 여부',
   USE_YN                varchar(40)   NOT NULL COMMENT '사용 여부',
   PARENT_COMMON_CODE_ID varchar(40)   NULL     COMMENT '상위 공통 코드 ID',
   REGISTER_SEQ          varchar(50)   NOT NULL COMMENT '등록자SEQ',
@@ -93,7 +93,9 @@ CREATE TABLE PRODUCT
   COMPANYNAME_UID VARCHAR(100) NOT NULL COMMENT '회사명UID',
   URL             VARCHAR(500) NOT NULL COMMENT 'url',
   USER_ID         VARCHAR(50)  NOT NULL COMMENT '회원아이디',
-  EFFECT          VARCHAR(500) NOT NULL COMMENT '효과',
+  FORMULATION     VARCHAR(50)  NULL     COMMENT '제형',
+  PROUDUCT_IMG    VARCHAR(100) NULL     COMMENT '제품이미지',
+  EFFECT          VARCHAR(50)  NULL     COMMENT '제품효과',
   PRIMARY KEY (PRODUCT_UID)
 ) COMMENT '상품';
 
