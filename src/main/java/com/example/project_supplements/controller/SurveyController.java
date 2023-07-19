@@ -24,7 +24,7 @@ public class SurveyController {
 
     @GetMapping({" "})
     public ModelAndView main(ModelAndView modelAndView){
-        modelAndView.setViewName("/WEB-INF/views/survey.jsp");
+        modelAndView.setViewName("/WEB-INF/views/survey/survey.jsp");
         return modelAndView;
     }
 
@@ -37,19 +37,19 @@ public class SurveyController {
 
      @GetMapping({"/yes"})
     public ModelAndView surveyyes(ModelAndView modelAndView){
-        modelAndView.setViewName("/WEB-INF/views/survey_yes.jsp");
+        modelAndView.setViewName("/WEB-INF/views/survey/survey_yes.jsp");
         return modelAndView;
     }
 
     @GetMapping({"/result_yes"})
     public ModelAndView result_yes(ModelAndView modelAndView){
-        modelAndView.setViewName("/WEB-INF/views/result_survey_yes.jsp");
+        modelAndView.setViewName("/WEB-INF/views/survey/result_survey_yes.jsp");
         return modelAndView;
     }
 
     @GetMapping({"/result_no"})
     public ModelAndView result_no(ModelAndView modelAndView){
-        modelAndView.setViewName("/WEB-INF/views/result_survey_no.jsp");
+        modelAndView.setViewName("/WEB-INF/views/survey/result_survey_no.jsp");
         return modelAndView;
     }
 

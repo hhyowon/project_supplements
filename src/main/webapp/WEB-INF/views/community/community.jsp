@@ -4,7 +4,7 @@
 
     <body>
         <form action="" method="get">
-        <%@ include file="Header.jsp" %>
+            <%@ include file= "/WEB-INF/views/etc/Header.jsp" %>
 
         <% 
         HashMap params=(HashMap)request.getAttribute("params"); 

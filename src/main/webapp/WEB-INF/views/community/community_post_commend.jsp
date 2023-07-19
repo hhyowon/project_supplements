@@ -10,7 +10,8 @@
 </head>
 
 <body>
-  <%@ include file="Header.jsp" %> 
+
+  <%@ include file= "/WEB-INF/views/etc/Header.jsp" %>
 
   <div class="container ">
     <h2 class="ui teal image header text-center">

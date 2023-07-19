@@ -11,7 +11,7 @@
   <title>설문조사</title>
 </head>
 <body style="background-color:white" >
-  <%@ include file="Header.jsp" %> <!-- Menu -->
+  <%@ include file= "/WEB-INF/views/etc/Header.jsp" %> <!-- Menu -->
   
   <div class="container" >
     <div class="text-center">
