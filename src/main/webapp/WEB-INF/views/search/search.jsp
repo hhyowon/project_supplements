@@ -1,125 +1,93 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-      <link rel="stylesheet" href="/css/maintool.css"> 
-      <title>Document</title>
-  </head>
+<%@ page import="java.util.HashMap, java.util.ArrayList, com.example.project_supplements.utils.Paginations" %>
+<!DOCTYPE html>
+<html lang="en">
 
-  <body>
-    <%@ include file= "/WEB-INF/views/etc/Header.jsp" %> <!-- Menu -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/maintool.css">
+  <title>Document</title>
+</head>
 
+<body>
+  <%@ include file="/WEB-INF/views/etc/Header.jsp" %> <!-- Menu -->
+
+  <% HashMap params = (HashMap) request.getAttribute("params");
+     String searchStr = (String) params.getOrDefault("search", "");
+     HashMap result = (HashMap) request.getAttribute("result"); %>
+
+  <div class="container">
+    <h2 class="ui teal image header text-center">
+      다이어트 보조제 검색
+    </h2>
+    <br>
+    <br>
     <div class="container">
-        <h2 class="ui teal image header text-center">
-          다이어트 보조제 검색
-        </h2>
-        <br>
-        <br>
-        <div class="container">
-          <form action="">
-            <div class="d-flex justify-content-center align-items-center input-group mb-3">
-              <div class="d-flex align-items-center">
-                <div class="input-group">
-                  <select class="form-select" name="keyField" id="" style="width: 150px;">
-                    <option>카테고리</option>
-                    <option value="name">상품명</option>
-                    <option value="ingredient">성분</option>
-                    <option value="form">제형</option>
-                  </select>
-                  <input type="text" placeholder="원하는 제품 및 업소명 검색하기" class="form-control" style="width: 500px;" />
-                  <button class="btn btn-main" type="submit" formaction="" formmethod="get">검색</button>
-                </div>
-              </div>
+      <form action="" method="GET">
+        <div class="d-flex justify-content-center align-items-center input-group mb-3">
+          <div class="d-flex align-items-center">
+            <div class="input-group">
+              <select class="form-select" name="keyField" style="width: 150px;">
+                <option>카테고리</option>
+                <option value="name">상품명</option>
+                <option value="ingredient">효과</option>
+                <option value="form">제형</option>
+              </select>
+              <input type="text" name="words" value='<%= params.getOrDefault("words", "") %>'
+                                class="form-control" placeholder="원하는 상품명, 효과, 제형 검색하기..." id="keydownEnter"  style="width: 500px;"/>
+              <button  class="btn btn-main"  type="submit" formaction="/search/searchList"formmethod="get">검색</button>
+
             </div>
-          </form>
-
+          </div>
         </div>
+      </form>
+    </div>
+  </div>
+  <br>
 
+  <div class="container">
+    <div class="row">
+      <% ArrayList resultList = (ArrayList) result.get("resultList");
+         for (int i = 0; i < resultList.size(); i++) {
+           HashMap record = (HashMap) resultList.get(i); %>
+      <div class="col-md-4 mb-4">
+        <div class="card" style="text-align: center;">
+          <img src="<%= record.get("PROUDUCT_IMG") %>" class="card-img-top" alt="Image" style="height: 350px;">
+          <div class="card-body">
+            <h5 class="card-title" style="font-weight: bold;"><%= record.get("PRODUCT") %></h5>
+            <span class="badge" style="background-color: #5B9BD5;"><font size="4"><%= record.get("FORMULATION") %></font></span>
+            <span class="badge" style="background-color: #bccad6;"><font size="4"><%= record.get("EFFECT") %></font></span>
+          </div>
+          <div class="card-footer">
+            <a href="<%= record.get("URL") %>" target="_blank" style="color: inherit; text-decoration: none;">
+              상세보기
+            </a>
+          </div>
+        </div>
       </div>
-      <br>
-      <div class="container text-center">
-        <table class="table table-bordered table-hover" style="vertical-align: middle;">
-          <thead>
-            <tr style="background: #8cc1f3;">
-              <th style="width: 500px; "> 상품 이미지</th>
-              <th>상품명</th>
-              <th>업소명</th>
-            </tr>
-          </thead>
-          <!-- <tbody id="list">
-            <% ArrayList resultList=(ArrayList)result.get("resultList"); 
-                    for(int i=0; i < resultList.size(); i=i+1){
-                        HashMap record=(HashMap)resultList.get(i); %>
-            <tr>
-                <td><%= record.get("PRODUCT") %></td>
-                <td><%= record.get("PRODUCT_UID") %></td>
-                <td><%= record.get("COMPANYNAME_UID") %></td>
-            </tr>
-            <% } %>
-        </tbody> -->
-          <tbody>
-            
-            <tr>
-              <td>
-                <div class="row justify-content-center">
-                  <div class="col-5 text-center">
-                    <img src="/html/img/바이탈슬림 다이어트 올인원 유산균.png" alt="바이탈슬림 다이어트 올인원 유산균">
-                  </div>
-                </div>
-              </td>
-              <td class="text-center" style=" vertical-align: middle;">
-                <a
-                  href="https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000297623">바이탈슬림
-                  다이어트 올인원
-                  유산균</a>
-              </td>
-              <td class="text-center" style="vertical-align: middle;">
-                (주)알피바이오
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="row justify-content-center">
-                  <div class="col-5 text-center" style=" vertical-align: middle;">
-                    <img src="/html/img/원데이 마이너스 원다이어트.png" alt="원데이 마이너스 원다이어트">
-                  </div>
-                </div>
-              </td>
-              <td class="text-center" style="vertical-align: middle;">
-                <a
-                  href="https://www.foodsafetykorea.go.kr:443/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000286180">원데이
-                  마이너스 원다이어트</a>
-              </td>
-              <td class="text-center" style="vertical-align: middle;">
-                (주)빈스힐
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="row justify-content-center">
-                  <div class="col-10 text-center" style=" vertical-align: middle;">
-                    <img src="/html/img/시서스 다이어트 슬림핏.jpg" alt="	시서스 다이어트 슬림핏">
-                  </div>
-                </div>
-              </td>
-              <td class="text-center" style="vertical-align: middle;">
-                <a
-                  href="https://www.foodsafetykorea.go.kr/portal/healthyfoodlife/searchHomeHFDetail.do?prdlstReportLedgNo=2023021000283605">
-                  시서스 다이어트 슬림핏</a>
-              </td>
-              <td class="text-center" style="vertical-align: middle;">
-                코스맥스바이오(주)
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-
-  </body>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  </html>
+      <% } %>
+    </div>
+  </div>
+  
+  <nav aria-label="Card Pagination">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" id="previous-btn">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <li class="page-item" id="next-btn">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <%@ include file="/WEB-INF/views/etc/Footer.jsp" %>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</html>

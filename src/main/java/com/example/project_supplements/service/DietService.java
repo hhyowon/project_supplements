@@ -16,7 +16,8 @@ import com.example.project_supplements.utils.Paginations;
 public class DietService {
     @Autowired
     SharedDao sharedDao;
-
+    
+    //커뮤니티 테이블 리스트    
         public Map selectCommunitySearch(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
         String sqlMapId = "Diet.community";
@@ -25,6 +26,7 @@ public class DietService {
         return result;
     }
 
+    //샘플 테이블 리스트
     public Map selectSearch(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
         String sqlMapId = "Diet.search";
@@ -70,6 +72,7 @@ public class DietService {
         Object result = sharedDao.update(sqlMapId, dataMap);
         return result;
     }
+
     public Object updateAndSelectSearch(String UNIQUE_ID, Map dataMap) {
         dataMap.put("COMMON_CODE_ID", UNIQUE_ID); //유니크 아이디 받아와서 dataMap에 저장
         HashMap result = new HashMap<>();
@@ -86,7 +89,7 @@ public class DietService {
         return result;
     }
 
-        // 검색
+    // 페이지네이션
       public Map selectSearchWithPagination(Map dataMap) {
         // 페이지 형성을 위한 계산
         int totalCount = (int) this.selectTotal(dataMap);
@@ -106,7 +109,7 @@ public class DietService {
         return result;
     }
 
-    // 토탈
+    // 페이지네이션 토탈용 
     public Object selectTotal(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
         String sqlMapId = "CarInfors.selectTotal";
