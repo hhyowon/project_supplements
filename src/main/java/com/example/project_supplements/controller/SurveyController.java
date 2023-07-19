@@ -30,6 +30,7 @@ public class SurveyController {
 
      @GetMapping({"/no"})
     public ModelAndView surveyno(ModelAndView modelAndView){
+        
         modelAndView.setViewName("/WEB-INF/views/survey_no.jsp");
         return modelAndView;
     }
