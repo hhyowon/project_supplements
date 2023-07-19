@@ -163,7 +163,7 @@ function calculate() {
 
   document.getElementById("result").textContent = "나의 신체질량지수(BMI) : " + result.toFixed(2);
 
-  var imageSrc = "img/BMI.PNG"; // Default image source
+  var imageSrc = "/html/img/BMI.PNG"; // Default image source
 
   var imageHtml = "<img src='" + imageSrc + "' alt='Result Image' />";
   document.getElementById("imageContainer").innerHTML = imageHtml;
