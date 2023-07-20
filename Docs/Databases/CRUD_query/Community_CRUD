@@ -1,0 +1,8 @@
+SELECT * FROM project_diet.community;
+
+/*게시글 작성 insert */
+INSERT INTO community (COMMUNITY_ID, CATEGORY_ID, COMMUNITY_TITLE, COMMUNITY_CONTENT, COMMUNITY_DATE, USER_ID)
+    VALUES
+    ('20', 'C_03','그만할래', '다이어트든 뭐든 그만할래',CURRENT_TIMESTAMP() , 'honggd123');
+
+    
