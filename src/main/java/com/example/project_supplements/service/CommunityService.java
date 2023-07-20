@@ -20,7 +20,7 @@ public class CommunityService {
     //커뮤니티 테이블 리스트    
         public Map selectCommunity(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
-        String sqlMapId = "Diet.community";
+        String sqlMapId = "Commu.community";
         HashMap result = new HashMap<>();
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;
@@ -39,7 +39,7 @@ public class CommunityService {
         HashMap result = new HashMap<>(totalCount, currentPage);
         result.put("paginations", paginations);
         // Object getOne(String sqlMapId, Object dataMap)
-        String sqlMapId = "Diet.selectPagination";
+        String sqlMapId = "Community.selectPagination";
         dataMap.put("pageScale", paginations.getPageScale());
         dataMap.put("pageBegin", paginations.getPageBegin());
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
@@ -50,7 +50,7 @@ public class CommunityService {
     // 페이지네이션 토탈용 
     public Object cntTotal(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
-        String sqlMapId = "Diet.cntTotal";
+        String sqlMapId = "Community.cntTotal";
         Object result = sharedDao.getOne(sqlMapId, dataMap);
         return result;
     }
