@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.project_supplements.service.DietService;
 import com.example.project_supplements.service.SurveyService;
 
 
@@ -28,6 +29,7 @@ public class SurveyController {
         return modelAndView;
     }
 
+    //복용하지 않는자의 설문지 뽑아오기 
      @GetMapping({"/no"})
     public ModelAndView surveyno(@RequestParam Map params, ModelAndView modelAndView){
         Object result = surveyService.surveyno(params);
@@ -37,11 +39,28 @@ public class SurveyController {
         return modelAndView;
     }
 
+    //복용한자의 설문지 뽑아오기
      @GetMapping({"/yes"})
-    public ModelAndView surveyyes(ModelAndView modelAndView){
+    public ModelAndView surveyyes(@RequestParam Map params,ModelAndView modelAndView){
+        Object result = surveyService.surveyyes(params);
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
         modelAndView.setViewName("/WEB-INF/views/survey/survey_yes.jsp");
         return modelAndView;
     }
+
+    //설문 결과 INSERT
+    @GetMapping("/insertsurey")
+    public ModelAndView insertsurvey(@RequestParam Map params, ModelAndView modelAndView) {
+        Object result = surveyService.insertsurvey(params);
+
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
+        modelAndView.setViewName("/WEB-INF/views/mainpage/main.jsp");
+        return modelAndView;
+    }
+
+    
 
     @GetMapping({"/result_yes"})
     public ModelAndView result_yes(ModelAndView modelAndView){
