@@ -82,6 +82,19 @@
         ;
 	</select>
 
+<!-- 검색 with pagination 효원수정중--> 
+	<select id="selectSearchWithPagination" parameterType="Map" resultType="Map">
+        SELECT comm.COMMUNITY_ID, ca.CATEGORY, comm.COMMUNITY_TITLE, comm.COMMUNITY_CONTENT, comm.USER_ID 
+        FROM project_diet.community as comm
+        where 1 = 1 
+        INNER JOIN category as ca
+        ON comm.CATEGORY_ID = ca.CATEGORY_ID
+        WHERE ca.CATEGORY_ID LIKE 'C%'
+        order by COMMUNITY_ID
+         limit #{pageBegin}, #{pageScale} 
+        ;
+	</select>
+
     <!-- 찐 검색창 리스트-->
     <select id="list" parameterType="Map" resultType="Map">
         select COMMON_CODE_ID, NAME, DESCRIPTION, PARENT_COMMON_CODE_ID 
