@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BMI">
+    
+    <!-- 찐 입력(회원가입) -->
+   <insert id="insertBMI" parameterType="Map">
+   INSERT INTO bmi
+   (BMI_UID, USER_ID, YEAR, HEIGHT, WEIGHT, BMI_RESULT)
+    VALUES 
+    ('B-21', 'honggd123', '2024', '180', '80', '25.15');
+    </insert>
+    
+    <!-- insert into MEMBERS
+    (USER_ID, NAME, GENDER_UID, PASSWORD, PHONENUMBER, ADDRESS, EMAIL)
+    values
+    (#{USER_ID}, #{NAME}, #{GENDER_UID}, #{PASSWORD}, #{PHONENUMBER}, #{ADDRESS}, #{EMAIL});
+    </insert>     -->
+  
+
+</mapper>
+

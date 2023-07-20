@@ -13,7 +13,7 @@
               공휴일 휴무
             </li>
             <li class="pt-1">
-              <span class="pe-3">대표 : 0124 대표자 : 김상아</span>
+              <span class="pe-3">대표 : 0124 대표자 : 김상아 김하늘 나현탁 조아라</span>
               <span>주소 : 서울특별시 구로동 디지털로34길 27 대륭포스트타워 3차 1106호</span>
             </li>
             <li class="pt-1">
