@@ -9,6 +9,21 @@
 	</select>
 
 
+  <!--Pagination 레코드 갯수 -->
+    <select id="cntTotal" parameterType="Map" resultType="int">
+        select count(*) as cnt
+        from community
+        ;
+
+	</select>
+    <!--Pagination  -->
+    	<select id="selectPagination" parameterType="Map" resultType="Map">
+        select PRODUCT,URL,FORMULATION,PROUDUCT_IMG,EFFECT
+        From project_diet.product;
+        limit #{pageBegin}, #{pageScale} 
+        ;
+	</select>
+    
     <!-- 찐 검색창 리스트-->
     <select id="list" parameterType="Map" resultType="Map">
         SELECT PRODUCT, FORMULATION, EFFECT
@@ -26,4 +41,5 @@
             </when>
         </choose> 
     </select>
+
 </mapper>

@@ -1,6 +1,11 @@
 package com.example.project_supplements.utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Paginations {
+    private int cardsPerPage = 9; // 페이지당 표시할 카드 수 
+
 	private int pageScale = 5; // 페이지당 게시물 수
 	private int blockScale = 3; // 블록당 페이지수
 	private int currentPage; // 현재 페이지 번호
@@ -158,5 +163,4 @@ public class Paginations {
         this.blockEnd = blockEnd;
     }
 
-    
 }
