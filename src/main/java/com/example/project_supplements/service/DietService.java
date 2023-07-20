@@ -101,7 +101,7 @@ public class DietService {
         HashMap result = new HashMap<>(totalCount, currentPage);
         result.put("paginations", paginations);
         // Object getOne(String sqlMapId, Object dataMap)
-        String sqlMapId = "CarInfors.selectSearchWithPagination";
+        String sqlMapId = "Diet.selectSearchWithPagination";
         dataMap.put("pageScale", paginations.getPageScale());
         dataMap.put("pageBegin", paginations.getPageBegin());
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
@@ -112,7 +112,7 @@ public class DietService {
     // 페이지네이션 토탈용 
     public Object selectTotal(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
-        String sqlMapId = "CarInfors.selectTotal";
+        String sqlMapId = "Diet.selectTotal";
         Object result = sharedDao.getOne(sqlMapId, dataMap);
         return result;
     }

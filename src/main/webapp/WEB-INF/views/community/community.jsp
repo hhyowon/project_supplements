@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ page import="java.util.HashMap, java.util.ArrayList, com.example.project_supplements.utils.Paginations"%>
     <!DOCTYPE html>
     <html lang="en">
         <link href="" rel="stylesheet" type="text/css">
@@ -18,51 +18,33 @@
             </h2>
             <br>
             
-
-                <div class="container mx-auto" style="padding: 20px; border-radius: 10px ; width: 70%;">
-            
-                    <a href="" class="btn mx-2  mb-2 float-end" style="background-color: #5B9BD5; color: white; border-color: transparent;">글쓰기</a>
-                    <button class="btn mx-2  mb-2 float-end submit " style="background-color: #5B9BD5; color: white; border-color: transparent;">목록</button>
-                    <a data-bs-toggle="modal" href="#modalTarget-center"><button class="btn mx-2  mb-2 float-end submit" style="background-color: #5B9BD5; color: white; border-color: transparent;">작성하기</button></a>
+                <div class="container mx-auto" style="padding: 20px; border-radius: 10px ; width: 70%;">      
+                    <a data-bs-toggle="modal" href="#modalTarget-center"><button class="btn mx-2  mb-2 float-end submit btn-outline-secondary">작성하기</button></a>
                     <!-- 모달 창 -->
-                    <div class="modal" id="modalTarget-center">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header" > 
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="카테고리" id="Q&A">
-                                        <label class="form-check-label" for="Q&A">
-                                          질문
-                                        </label>
-                                      </div>
-                                      
-                                      <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="카테고리" id="review">
-                                        <label class="form-check-label" for="review">
-                                          후기
-                                        </label>
-                                      </div>
-                                      
-                                      <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="카테고리" id="recommend">
-                                        <label class="form-check-label" for="recommend">
-                                          추천
-                                        </label>
-                                      </div>
-    
-                                </div>
-                                <div class="modal-body form-group " style="background-color: #c0daf5">
+                    <form id="modalForm" method="GET" action=""> 
+                        <div class="modal" id="modalTarget-center">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <select class="form-select" name="commucategory" style="width: 150px;">
+                                            <option>카테고리</option>
+                                            <option value="C_01">질문</option>
+                                            <option value="C_02">후기</option>
+                                            <option value="C_03">추천</option>
+                                        </select>
+                                        <input type="text" class="form-control" name="title" style="width: 100%;" placeholder="제목을 입력하시오"> </br>
+                                    </div>
+                                    <div class="modal-body form-group ">
+                                        <textarea class="form-control" name="content" rows="15" placeholder="내용을 입력하세요"></textarea>
+                                    </div>
                     
-                                    제목 : <input type="text" class="form-control" style="width: 100%;" > </br>
-                                   
-                                    내용 :  <textarea class="form-control" rows="15"></textarea></div>
-                                 
-                                <div class="modal-footer">
-                                    <button class="btn btn-white btn-outline-dark" style="background-color: #5B9BD5; color: white; border-color: transparent;" data-bs-dismiss="modal">입력</button>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-white btn-outline-secondary" formaction="/community/communityModal">입력</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                     
                     <table class="table table-bordered" style="text-align: center;">
                          <thead>
@@ -88,24 +70,30 @@
                             <% } %>
                         </tbody>
                     </table>
-                
+                    <%
+                    Paginations paginations = (Paginations)result.get("paginations"); 
+                    %> 
+                   
+                <div>총 게시글 : <%= paginations.getTotalCount() %></div>
+                <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">
+                        <li class="page-item"><a class="page-link" href="/community?currentPage=<%=paginations.getPreviousPage()%>">Previous</a></li>
+
+                        <%
+                        for(int i=paginations.getBlockStart();i <= paginations.getBlockEnd(); i=i+1){
+                        %>
                         <li class="page-item">
-                          <a class="page-link" href="" aria-label="Previous"><span aria-hidden="true"><</span></a>
+                            <a class="page-link" href="/community?currentPage=<%= i %>"><%= i %></a>
                         </li>
+                        <%
+                        }
+                        %>
+
                         <li class="page-item">
-                        <a class="page-link" href="">1</a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="">2</a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="">3</a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="" aria-label="Next"><span aria-hidden="true">></span></a>
+                            <a class="page-link" href="/community?currentPage=<%= paginations.getNextPage() %>">Next</a>
                         </li>
                     </ul>
+                </nav>
             
             </div>
         </div>
@@ -127,10 +115,8 @@
                 </div>
             </div>
             
-
-            <%@ include file="/WEB-INF/views/etc/Footer.jsp" %> <!-- footer --> 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     </form>
+    <%@ include file="/WEB-INF/views/etc/Footer.jsp" %> <!-- footer --> 
 </body>
-
+    
 </html>
