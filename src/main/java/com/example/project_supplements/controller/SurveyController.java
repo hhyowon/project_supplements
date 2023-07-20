@@ -1,6 +1,7 @@
 package com.example.project_supplements.controller;
 
 import java.util.Map;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,7 +33,7 @@ public class SurveyController {
     //복용하지 않는자의 설문지 뽑아오기 
      @GetMapping({"/no"})
     public ModelAndView surveyno(@RequestParam Map params, ModelAndView modelAndView){
-        Object result = surveyService.surveyno(params);
+        Object result = surveyService.surveyno( params);
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
         modelAndView.setViewName("/WEB-INF/views/survey/survey_no.jsp");
@@ -50,17 +51,34 @@ public class SurveyController {
     }
 
     //설문 결과 INSERT
-    @GetMapping("/insertsurey")
-    public ModelAndView insertsurvey(@RequestParam Map params, ModelAndView modelAndView) {
-        Object result = surveyService.insertsurvey(params);
+    // @GetMapping("/insertsurvey")
+    // public ModelAndView insertsurvey(@RequestParam Map params, ModelAndView modelAndView) {
+    //     Object result = surveyService.insertsurvey(params);
+
+    //     modelAndView.addObject("params", params);
+    //     modelAndView.addObject("result", result);
+    //     modelAndView.setViewName("/WEB-INF/views/mainpage/main.jsp");
+    //     return modelAndView;
+    // }
+
+    @GetMapping("/insertsurveyAndSelectSearch/{}")
+    public ModelAndView insertsurveyAndSelectSearch(@RequestParam Map params,
+            ModelAndView modelAndView) {
+        Object result = surveyService.insertsurveyAndSelectSearch(params);
 
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
         modelAndView.setViewName("/WEB-INF/views/mainpage/main.jsp");
+
         return modelAndView;
     }
-
     
+    // uuid    
+    public String generateUUID() {
+        return UUID.randomUUID().toString();
+    }
+    
+
 
     @GetMapping({"/result_yes"})
     public ModelAndView result_yes(ModelAndView modelAndView){

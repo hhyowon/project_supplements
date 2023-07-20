@@ -25,6 +25,8 @@ public class MypageController {
         modelAndView.setViewName("/WEB-INF/views/mypage/mypage_BMI.jsp");
         return modelAndView;
     }
+
+    
     
     // @GetMapping("/mypageBMI")
     // public ModelAndView selectSearch(@RequestParam Map<String, String> params, ModelAndView modelAndView) {
