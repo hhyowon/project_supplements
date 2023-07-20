@@ -39,7 +39,6 @@ public class CommunityController {
         return modelAndView;
     }
 
-
 }
 
 
