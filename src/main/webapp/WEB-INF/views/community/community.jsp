@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ page import="java.util.HashMap, java.util.ArrayList, com.example.project_supplements.utils.Paginations"%>
     <!DOCTYPE html>
     <html lang="en">
         <link href="" rel="stylesheet" type="text/css">
@@ -88,24 +88,30 @@
                             <% } %>
                         </tbody>
                     </table>
-                
-                    <ul class="pagination justify-content-center">
+                    <%
+                    Paginations paginations = (Paginations)result.get("paginations"); 
+                    %> 
+                   
+                <div>총 갯수 : <%= paginations.getTotalCount() %></div>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+
+                        <%
+                        for(int i=paginations.getBlockStart();i <= paginations.getBlockEnd(); i=i+1){
+                        %>
                         <li class="page-item">
-                          <a class="page-link" href="" aria-label="Previous"><span aria-hidden="true"><</span></a>
+                            <a class="page-link" href="/community?currentPage=<%= i %>"><%= i %></a>
                         </li>
+                        <%
+                        }
+                        %>
+
                         <li class="page-item">
-                        <a class="page-link" href="">1</a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="">2</a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="">3</a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="" aria-label="Next"><span aria-hidden="true">></span></a>
+                            <a class="page-link" href="/community?currentPage=<%= paginations.getNextPage() %>">Next</a>
                         </li>
                     </ul>
+                </nav>
             
             </div>
         </div>

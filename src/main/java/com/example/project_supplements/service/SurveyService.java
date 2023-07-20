@@ -34,18 +34,18 @@ public class SurveyService {
     }
 
     // 설문 값 입력
-    public Object insertsurvey(Map dataMap ) {
+    public Object insertsurvey(Map dataMap) {
         String sqlMapId = "SurveyService.insertsurvey";
 
         // dataMap에 컬럼명과 아이디값을 하드코딩하여 추가
-        Map<String, Object> dataMap = new HashMap<>();
-        dataMap.put("SURVEY_ID", "SU-01");
-        dataMap.put("USER_ID", "honggd123");
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("SURVEY_ID", "SU-01");
+        resultMap.put("USER_ID", "honggd123");
     
         Object result = sharedDao.insert(sqlMapId, dataMap);
-        return result;
+        return resultMap;
     }
-
+    
     //sample
     public Object insert(Map dataMap) {
         String sqlMapId = "Diet.insert";
