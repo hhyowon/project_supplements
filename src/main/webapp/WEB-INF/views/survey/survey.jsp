@@ -1,3 +1,4 @@
+<%@ page import="java.util.HashMap, java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +40,7 @@
                 식품 보충제의 효과성 향상에 기여할 것입니다.
               </div>
               <div class="text-center mt-4 mb-4">
-                <a href="/survey" class="btn btn-main" >로그인시</a>
+                <a href="/survey/no" class="btn btn-main" >로그인시</a>
 
                 <!-- <button class="btn btn-main" formaction="/survey/no" >로그인시</button> -->
                 <button type="button" class="btn btn-main" data-bs-toggle="modal" data-bs-target="#myModal">

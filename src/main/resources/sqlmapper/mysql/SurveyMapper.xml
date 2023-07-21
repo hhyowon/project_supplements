@@ -30,9 +30,11 @@
     <!-- 설문조사 결과 입력-->
    <insert id="insertsurvey" parameterType="Map">
     INSERT INTO survey (SURVEY_TYPE_ID, SURVEY_QUESTION_ID, SURVEY_ID, USER_ID, SURVEY_OPT_ID)
-    VALUES 
-    (#{SURVEY_TYPE_ID}, #{SURVEY_QUESTION_ID}, #{SURVEY_ID}, #{USER_ID}, #{SURVEY_OPT_ID});
-    </insert>
+    VALUES   
+    <foreach collection="surveyMap" item="entry" index="key" separator=",">
+        (#{SURVEY_TYPE_ID}, #{key}, #{SURVEY_ID}, #{USER_ID}, #{entry})
+    </foreach>   
+   </insert>
     
 </mapper>
 

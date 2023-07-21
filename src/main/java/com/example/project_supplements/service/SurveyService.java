@@ -1,6 +1,7 @@
 package com.example.project_supplements.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.logging.log4j.util.StringMap;
@@ -35,23 +36,41 @@ public class SurveyService {
     }
 
     // 설문 값 DB로 입력
-    public Object insertsurvey( Map dataMap ) {
+    public Object insertsurvey( Map dataMap) {
         String sqlMapId = "SurveyService.insertsurvey";
 
         // dataMap에 컬럼명과 아이디값을 하드코딩하여 추가
-        //dataMap.put("SURVEY_ID", SURVEY_ID);
         String uuid = generateUUID();
+
+         dataMap.put("surveyMap", dataMap);
+
         dataMap.put("SURVEY_ID", uuid);
         dataMap.put("USER_ID", "honggd123");
         dataMap.put("SURVEY_TYPE_ID", "F-01");
+       
+        Object result = sharedDao.insert(sqlMapId, dataMap);
+        return result;
+        }
+        
+        
+        
+        
+    
+        // for (String key : dataMap.keySet()) {
+        //     if (key.equals(dataMap.get(key).toString())) {
+        //         return key;
+        //     }
+        
+    
+
+       
+        //dataMap.put("SURVEY_QUESTION_ID", requestget.mapkey)
         
         // dataMap.put("SURVEY_QUESTION_ID", SURVEY_QUESTION_ID);
         // dataMap.put("SURVEY_OPT_ID", SURVEY_OPT_ID);
     
-        Object result = sharedDao.insert(sqlMapId, dataMap);
-
-        return result;
-    }
+       
+    
 
      public Object insertsurveyAndSelectSearch( Map dataMap) {
         HashMap result = new HashMap<>();
@@ -66,6 +85,8 @@ public class SurveyService {
     private String generateUUID() {
         return null;
     }
+
+
 
     //  public Map selectSearchsurvey(Map dataMap) {
     //     String sqlMapId = "SurveyService.search";

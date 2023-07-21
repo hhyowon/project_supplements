@@ -51,17 +51,17 @@ public class SurveyController {
     }
 
     //설문 결과 INSERT
-    // @GetMapping("/insertsurvey")
-    // public ModelAndView insertsurvey(@RequestParam Map params, ModelAndView modelAndView) {
-    //     Object result = surveyService.insertsurvey(params);
+    @GetMapping("/insertsurvey")
+    public ModelAndView insertsurvey(@RequestParam Map params, ModelAndView modelAndView) {
+        Object result = surveyService.insertsurvey(params);
 
-    //     modelAndView.addObject("params", params);
-    //     modelAndView.addObject("result", result);
-    //     modelAndView.setViewName("/WEB-INF/views/mainpage/main.jsp");
-    //     return modelAndView;
-    // }
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
+        modelAndView.setViewName("/WEB-INF/views/mainpage/main.jsp");
+        return modelAndView;
+    }
 
-    @GetMapping("/insertsurveyAndSelectSearch/{}")
+    @GetMapping("/insertsurveyAndSelectSearch")
     public ModelAndView insertsurveyAndSelectSearch(@RequestParam Map params,
             ModelAndView modelAndView) {
         Object result = surveyService.insertsurveyAndSelectSearch(params);

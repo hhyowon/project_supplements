@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.project_supplements.service.DietService;
+import com.example.project_supplements.service.MypageService;
 
 
 @Controller
@@ -18,11 +19,22 @@ import com.example.project_supplements.service.DietService;
 
 public class MypageController {
     @Autowired
-    DietService DietService;
+    MypageService mypageService;
 
     @GetMapping({" "})
     public ModelAndView main(ModelAndView modelAndView){
         modelAndView.setViewName("/WEB-INF/views/mypage/mypage_BMI.jsp");
+        return modelAndView;
+    }
+
+    //개인정보 수정
+    @GetMapping({"/main"})
+    public ModelAndView result_yes(@RequestParam Map params,ModelAndView modelAndView){
+        
+        Object result = mypageService.mypagemain(params);
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
+        modelAndView.setViewName("/WEB-INF/views/mypage/mypageMain.jsp");
         return modelAndView;
     }
 

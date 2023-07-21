@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<%@ include file="../Header.jsp" %> 
+  <%@ include file= "/WEB-INF/views/etc/Header.jsp" %> <!-- Menu -->
 
   <!-- 마이페이지 옆-->
 <main>
@@ -24,7 +24,7 @@
             <div class="text-decoration-none nav-link fs-5 fw-bold">마이페이지</div>
           </li>
           <li class="d-flex align-items-center">
-            <a href="./mypage.html" class="text-decoration-none nav-link">개인정보 수정</a>
+            <a href="mypage/main" class="text-decoration-none nav-link">개인정보 수정</a>
           </li>
           <li class="d-flex align-items-center">
             <a href="./mypage_community.html" class="text-decoration-none nav-link">내가 작성한 글</a>

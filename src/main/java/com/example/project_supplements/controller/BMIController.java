@@ -25,10 +25,9 @@ public class BMIController {
 
     @GetMapping({"/insertBMI"})
     public ModelAndView main(ModelAndView modelAndView){
-        modelAndView.setViewName("/WEB-INF/views/bmi/bmi.jsp");
+        modelAndView.setViewName("/WEB-INF/views/bmi/bmi.jsp"); 
         return modelAndView;
     }
-
  
 }
 
