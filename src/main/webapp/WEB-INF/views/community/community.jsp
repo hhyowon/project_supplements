@@ -26,16 +26,16 @@
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <select class="form-select" name="commucategory" style="width: 150px;">
+                                        <select class="form-select" name="CATEGORY" style="width: 150px;">
                                             <option>카테고리</option>
                                             <option value="C_01">질문</option>
                                             <option value="C_02">후기</option>
                                             <option value="C_03">추천</option>
                                         </select>
-                                        <input type="text" class="form-control" name="title" style="width: 100%;" placeholder="제목을 입력하시오"> </br>
+                                        <input type="text" class="form-control" name="TITLE" style="width: 100%;" placeholder="제목을 입력하시오"> </br>
                                     </div>
                                     <div class="modal-body form-group ">
-                                        <textarea class="form-control" name="content" rows="15" placeholder="내용을 입력하세요"></textarea>
+                                        <textarea class="form-control" name="CONTENT" rows="15" placeholder="내용을 입력하세요"></textarea>
                                     </div>
                     
                                     <div class="modal-footer">

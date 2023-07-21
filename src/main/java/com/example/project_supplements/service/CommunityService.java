@@ -20,22 +20,18 @@ public class CommunityService {
 
     @Autowired
     Commons commons;
-
     //모달창 게시글 작성용
-        public Object insert(Map dataMap) {			
-            Object result = null;			
-            String sqlMapId = "Commu.insert";			
-            // if (!dataMap.get("COMMUNITY_ID").equals("")) {			
-            // result = sharedDao.insert(sqlMapId, dataMap);			
-            // } else if (dataMap.get("COMMUNITY_ID").equals("")) {			
-            // String uuid = commons.Commons();			
-            // dataMap.put("COMMUNITY_ID", uuid);			
-            result = sharedDao.insert(sqlMapId, dataMap);			
-            			
-            return result;			
-            }			
-        
-
+    public Object insert(Map dataMap) {
+        String sqlMapId = "Commu.insert";
+        if(dataMap.get("COMMUNITY_ID").equals("")){
+            String uuid = commons.generateUUID();
+            dataMap.put("COMMUNITY_ID", uuid);
+        } else{
+        }
+        Object result = sharedDao.insert(sqlMapId, dataMap);
+        return result;
+    }    
+            
     //커뮤니티 테이블 리스트    
         public Map selectCommunity(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)

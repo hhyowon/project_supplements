@@ -20,7 +20,7 @@
                     <a class="nav-link" href="/search/searchList" style="color:#858688;">검색</a>
                     <a class="nav-link" href="/community" style="color:#858688;">커뮤니티</a>
                     <a class="nav-link" href="/rank" style="color:#858688;">랭킹</a>
-                    <a class="nav-link" href="/bmi" style="color: #5B9BD5;">BMI</a>
+                    <a class="nav-link" href="/bmi/insertBMI" style="color: #5B9BD5;">BMI</a>
                 </div>
                 <div>
                     <a class="nav-link" href="./admin/userList.html" style="color:black">관리자전용</a>

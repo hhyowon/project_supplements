@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Paginations {
-    private int cardsPerPage = 9; // 페이지당 표시할 카드 수 
 
-	private int pageScale = 5; // 페이지당 게시물 수
+	private int pageScale = 9; // 페이지당 게시물 수
 	private int blockScale = 3; // 블록당 페이지수
 	private int currentPage; // 현재 페이지 번호
 	private int previousPage; // 이전 페이지
@@ -54,6 +53,8 @@ public class Paginations {
 			nextPage = totalPage;
 		}
 	}
+  
+    //옛코드
     public void setPageRange(){
         // pageBegin = (this.currentPage - 1) * this.pageScale + 1;
         pageBegin = (this.currentPage - 1) * this.pageScale;
@@ -70,6 +71,8 @@ public class Paginations {
     public void setPageScale(int pageScale) {
         this.pageScale = pageScale;
     }
+
+    //
 
     public int getCurrentPage() {
         return currentPage;
@@ -162,5 +165,9 @@ public class Paginations {
     public void setBlockEnd(int blockEnd) {
         this.blockEnd = blockEnd;
     }
+
+
+    //카드
+    
 
 }
