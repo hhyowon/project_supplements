@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Commons {
     @Bean
-    public String Commons() {
+    public String generateUUID(){
         String uuid = UUID.randomUUID().toString();
         return uuid;
     }

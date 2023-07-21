@@ -36,10 +36,10 @@ public class SearchService  {
     }
 
 
-        // 페이지네이션
-        public Map selectSearchWithPagination(Map dataMap) {
+                // 페이지네이션
+        public Map selectWithPagination(Map dataMap) {
             // 페이지 형성을 위한 계산
-            int totalCount = (int) this.selectTotal(dataMap);
+            int totalCount = (int) this.cntTotal(dataMap);
             int currentPage = 1;
             if(dataMap.get("currentPage") != null) {
                 currentPage = Integer.parseInt((String)dataMap.get("currentPage"));    // from client in param
@@ -48,7 +48,7 @@ public class SearchService  {
             HashMap result = new HashMap<>(totalCount, currentPage);
             result.put("paginations", paginations);
             // Object getOne(String sqlMapId, Object dataMap)
-            String sqlMapId = "CarInfors.selectSearchWithPagination";
+            String sqlMapId = "Search.selectPagination";
             dataMap.put("pageScale", paginations.getPageScale());
             dataMap.put("pageBegin", paginations.getPageBegin());
             result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
@@ -56,11 +56,11 @@ public class SearchService  {
             return result;
         }
 
-         // 페이지네이션 토탈용 
-        public Object selectTotal(Map dataMap) {
-            // Object getOne(String sqlMapId, Object dataMap)
-            String sqlMapId = "CarInfors.selectTotal";
-            Object result = sharedDao.getOne(sqlMapId, dataMap);
-            return result;
-        }
+           // 페이지네이션 토탈용 
+    public Object cntTotal(Map dataMap) {
+        // Object getOne(String sqlMapId, Object dataMap)
+        String sqlMapId = "Search.cntTotal";
+        Object result = sharedDao.getOne(sqlMapId, dataMap);
+        return result;
+    }
 }
