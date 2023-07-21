@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="/css/maintool.css">
+  <link rel="stylesheet" href="/css/maintool.css"/>
   <title>설문조사</title>
 </head>
 <body style="background-color:white" >
@@ -39,7 +39,9 @@
                 식품 보충제의 효과성 향상에 기여할 것입니다.
               </div>
               <div class="text-center mt-4 mb-4">
-                <a href="/survey/no" class="btn btn-main">로그인시</a>
+                <a href="/survey" class="btn btn-main" >로그인시</a>
+
+                <!-- <button class="btn btn-main" formaction="/survey/no" >로그인시</button> -->
                 <button type="button" class="btn btn-main" data-bs-toggle="modal" data-bs-target="#myModal">
                   시작하기
                 </button>
