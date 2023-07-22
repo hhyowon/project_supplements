@@ -5,11 +5,14 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.project_supplements.service.DietService;
+import com.example.project_supplements.service.MypageService;
 
 
 @Controller
@@ -18,13 +21,57 @@ import com.example.project_supplements.service.DietService;
 
 public class MypageController {
     @Autowired
-    DietService DietService;
+    MypageService mypageService;
 
     @GetMapping({" "})
     public ModelAndView main(ModelAndView modelAndView){
         modelAndView.setViewName("/WEB-INF/views/mypage/mypage_BMI.jsp");
         return modelAndView;
     }
+
+    //개인정보 db에서 가져오기 
+    @GetMapping({"/main"})
+    public ModelAndView mypagemain(@RequestParam Map params,ModelAndView modelAndView){
+        
+        Object result = mypageService.mypagemain(params);
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
+        modelAndView.setViewName("/WEB-INF/views/mypage/mypageMain.jsp");
+        return modelAndView;
+    }
+
+    //개인정보 수정
+    @GetMapping("/update")
+    public ModelAndView updateForm( @RequestParam Map params,
+            ModelAndView modelAndView) {
+        modelAndView.setViewName("/WEB-INF/views/mypage/mypageMain.jsp");
+        return modelAndView;
+    }
+
+    @GetMapping("/updateAndSelectSearch")
+    public ModelAndView updateAndSelectSearch( @RequestParam Map params,
+            ModelAndView modelAndView) {
+        Object result = mypageService.updateAndSelectSearch(params);
+
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
+        modelAndView.setViewName("/WEB-INF/views/mypage/mypageMain.jsp");
+
+        return modelAndView;
+    }
+
+     // 내글 관리
+    @GetMapping({"/community"})
+    public ModelAndView community(@RequestParam Map params,ModelAndView modelAndView){
+        
+        Object result = mypageService.mypagecommunity(params);
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
+        modelAndView.setViewName("/WEB-INF/views/mypage/mypage_community.jsp");
+        return modelAndView;
+    }
+
+    
     
     // @GetMapping("/mypageBMI")
     // public ModelAndView selectSearch(@RequestParam Map<String, String> params, ModelAndView modelAndView) {

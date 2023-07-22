@@ -26,7 +26,7 @@ public class SearchController {
     @GetMapping({"/searchList"})
     public ModelAndView search(@RequestParam Map<String, String> params, ModelAndView modelAndView){
         // Map<String, String>으로 타입을 지정했으며, 파라미터의 이름과 값은 모두 문자열(String)로 처리
-        Object result = searchService.selectCommunitySearch(params); // params 맵을 인자로 전달하여 검색 결과를 가져 옴
+        Object result = searchService.selectWithPagination(params); // params 맵을 인자로 전달하여 검색 결과를 가져 옴
 
         modelAndView.addObject("params", params); // params 맵을 "params"라는 이름으로 모델에 추가합니다. 이를 통해 JSP 페이지에서 해당 데이터에 접근
         modelAndView.addObject("result", result);// 검색 결과(result)를 "result"라는 이름으로 모델에 추가합니다. 마찬가지로 JSP 페이지에서 해당 데이터에 접근

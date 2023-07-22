@@ -20,7 +20,7 @@
         <img class="mt-4 mb-4" src="/html/img/logo.PNG" alt width="240" height="100" style="display: block; margin-left: auto; margin-right: auto;">
         <H3>다이어트 보조제 복용 경험이 없는 사람의 설문조사 </H3>  
     </div>
-    <form method= "get" action="/survey/survey_no" >
+    <form  method= "get" action="/survey/survey_no" >
         <div class= "container mx-auto" style="border: 2px solid rgb(91, 155, 213); padding: 20px; border-radius: 10px; text-align: center; width: 50%;">
             <tbody id="surveyno">
 
@@ -31,17 +31,20 @@
                     String surveyQuestionId = (String) record.get("SURVEY_QUESTION_ID");
                     String surveyQuestion = (String) record.get("SURVEY_QUESTION");
                     String surveyOpt = (String) record.get("SURVEY_OPT");
+                    String surveyOptId = (String) record.get("SURVEY_OPT_ID");
 
                     if (!surveyQuestionId.equals(compare)) { // 이전 질문 ID와 다르면 (새로운 질문)
                         compare = surveyQuestionId; // 이전 질문 ID 업데이트
                     %>
                             
-                        </br></br><%= surveyQuestion %> </br>
-                        <input type="radio"> <%= surveyOpt %>
-                            
+                        </br></br>
+                    <div>
+                        <label name="SURVEY_QUESTION_ID" value="<%= surveyQuestionId %>" ><%= surveyQuestion %> </label>
+                    </div>
+                        <label><input type="radio"  name="<%= surveyQuestionId %>" value="<%= surveyOptId %>" > <%= surveyOpt %> </label>
                     <%     } else {
                     %> 
-                        <input type="radio">  <%= surveyOpt %>
+                    <label><input type="radio"  name="<%= surveyQuestionId %>" value="<%= surveyOptId %>" > <%= surveyOpt %> </label>
                     <%     }  }
                     %>
                 
@@ -51,7 +54,7 @@
         <div class="container bg-white fs-6 py-6 row mx-auto my-3">
             <div class="text-center d-flex justify-content-center py-2">
                 <button type="submit" formaction="/main" class="btn btn-white mx-2 btn-outline-dark" style="border-color: black; color: black;">닫기</button>
-                <button type="submit" formaction="/survey/insertsurvey" class="btn btn-white btn-outline-dark" style="background-color: #5B9BD5; color: white; border-color: transparent;">설문제출</button>
+                <button type="submit" formaction="/survey/insertsurveyAndSelectSearch" class="btn btn-white btn-outline-dark" style="background-color: #5B9BD5; color: white; border-color: transparent;">설문제출</button>
             </div>
         </div>
     </form>

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
   <%@ page import="java.util.HashMap, java.util.ArrayList, com.example.project_supplements.utils.Paginations" %>
     <!DOCTYPE html>
-    <html lang="en">
 
     <head>
       <meta charset="UTF-8">
@@ -12,6 +11,7 @@
     </head>
 
     <body>
+
       <%@ include file="/WEB-INF/views/etc/Header.jsp" %> <!-- Menu -->
 
         <% HashMap params=(HashMap) request.getAttribute("params"); String searchStr=(String)
@@ -54,7 +54,7 @@
                 HashMap record=(HashMap) resultList.get(i); %>
                 <div class="col-md-4 mb-4">
                   <div class="card" style="text-align: center;">
-                    <img src="<%= record.get(" PROUDUCT_IMG") %>" class="card-img-top" alt="Image" style="height:
+                    <img src="<%= record.get("PROUDUCT_IMG") %>" class="card-img-top" alt="Image" style="height:
                     350px;">
                     <div class="card-body">
                       <h5 class="card-title" style="font-weight: bold;">
@@ -72,10 +72,8 @@
                       </span>
                     </div>
                     <div class="card-footer">
-                      <a href="<%= record.get(" URL") %>" target="_blank" style="color: inherit; text-decoration:
-                        none;">
-                        상세보기
-                      </a>
+                      <a href="<%= record.get("URL") %>" target="_blank" style="color: inherit; text-decoration:
+                        none;">상세보기</a>
                     </div>
                   </div>
                 </div>
@@ -83,23 +81,29 @@
             </div>
           </div>
 
-          <nav aria-label="Card Pagination">
-            <ul class="pagination justify-content-center">
-              <li class="page-item" id="previous-btn">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item" id="next-btn">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <%@ include file="/WEB-INF/views/etc/Footer.jsp" %>
+          <% Paginations paginations=(Paginations)result.get("paginations"); %>
+            <div style="margin-left: 18%; font-weight: bold;">총 상품 : <%= paginations.getTotalCount() %>
+            </div>
+            <nav aria-label="Page navigation">
+              <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link"
+                    href="/search/searchList?currentPage=<%=paginations.getPreviousPage()%>">Previous</a></li>
+
+                <% for(int i=paginations.getBlockStart();i <=paginations.getBlockEnd(); i=i+1){ %>
+                  <li class="page-item">
+                    <a class="page-link" href="/search/searchList?currentPage=<%= i %>">
+                      <%= i %>
+                    </a>
+                  </li>
+                  <% } %>
+
+                    <li class="page-item">
+                      <a class="page-link"
+                        href="/search/searchList?currentPage=<%= paginations.getNextPage() %>">Next</a>
+                    </li>
+              </ul>
+            </nav>
+            <%@ include file="/WEB-INF/views/etc/Footer.jsp" %>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
