@@ -15,6 +15,7 @@ import com.example.project_supplements.utils.Paginations;
 public class SearchService  {
     @Autowired
     SharedDao sharedDao;
+    
     //커뮤니티 테이블 리스트    
     public Map selectCommunitySearch(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
@@ -23,6 +24,7 @@ public class SearchService  {
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;
     }
+
     // 검색(조건-search : YEAR, CAR_NAME)
     public Object selectSearch(String search, String words) {
         // Object getOne(String sqlMapId, Object dataMap)

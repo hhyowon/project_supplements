@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.project_supplements.service.DietService;
+import com.example.project_supplements.service.RankService;
 
 
 @Controller
@@ -20,11 +21,13 @@ import com.example.project_supplements.service.DietService;
 
 public class RankController {
     @Autowired
-    DietService DietService;
+    RankService rankService;
 
     @GetMapping({" "})
-    public ModelAndView main(ModelAndView modelAndView){
-        
+    public ModelAndView rank(@RequestParam Map<String, String> params,ModelAndView modelAndView){
+        Object result = rankService.surveyRankFirstRankOne(params);
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
         modelAndView.setViewName("/WEB-INF/views/rank/rank.jsp");
         return modelAndView;
     }

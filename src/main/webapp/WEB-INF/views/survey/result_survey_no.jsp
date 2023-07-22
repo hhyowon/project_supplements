@@ -11,7 +11,16 @@
     
     <body>
         <%@ include file= "/WEB-INF/views/etc/Header.jsp" %> <!-- Menu -->
-     
+
+        <% 
+        HashMap result=(HashMap)request.getAttribute("result");
+        %>
+        
+        <%
+        String count01 = result.get("COUNT(*)");
+        %>
+
+
           <div class="container">
                 <div class=text-center><h2 style="color: #5B9BD5;">설문조사 결과</h2></div>
                 <br>
@@ -25,7 +34,7 @@
                 <tbody> 
                     <tr>
                         <td>1. 어떤 이유로 다이어트를 결심하게 되었나요?</td>
-                         <td>1) 개인목표: 명 <br>
+                         <td>1) 개인목표: <%= count01 %> 명 <br>
                              2) 건강: 명 <br>
                              3) 미용: 명 <br>
                              4) 정신건강: 명<br>
@@ -50,11 +59,12 @@
                             4) 잘안다: 명 </td>
                     </tr>
                     <tr>
-                        <td> 4. 다이어트 보조제를 고려하는 주요 목표 또는 이유? </td>
-                        <td>1) 신진대사 개선: 명 <br>
-                            2) 식욕 억제: 명 <br>
-                            3) 영양지원: 명 <br>
-                            4) 기타: 명 
+                        <td> 4. 다이어트 보조제를 고려하는 효과는 무엇인가요? </td>
+                        <td>1) 포만감: 명 <br>
+                            2) 체온상승: 명 <br>
+                            3) 배변활동 증가: 명 <br>
+                            4) 체중감량: 명 <br>
+                            5) 식욕억제: 명
                         </td>
                     </tr>
                   

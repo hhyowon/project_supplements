@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SurveyResult">
+    
+    <!-- 설문 결과  -->
+
+    <select id="surveyresult01" parameterType="Map" resultType="Map">
+    SELECT COUNT(*)
+    FROM SURVEY
+    WHERE SURVEY_OPT_ID = 'O-01'
+    ;
+	</select>
+    
+</mapper>
+
+
+
+ 

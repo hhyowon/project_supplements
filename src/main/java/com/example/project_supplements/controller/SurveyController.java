@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.project_supplements.service.DietService;
+import com.example.project_supplements.service.SurveyResultService;
 import com.example.project_supplements.service.SurveyService;
 
 
@@ -22,6 +23,9 @@ import com.example.project_supplements.service.SurveyService;
 public class SurveyController {
     @Autowired
     SurveyService surveyService;
+
+    @Autowired 
+    SurveyResultService surveyResultService;
 
     @GetMapping({" "})
     public ModelAndView main(ModelAndView modelAndView){
@@ -53,23 +57,29 @@ public class SurveyController {
     @GetMapping("/insertsurey")
     public ModelAndView insertsurvey(@RequestParam Map params, ModelAndView modelAndView) {
         Object result = surveyService.insertsurvey(params);
-
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
         modelAndView.setViewName("/WEB-INF/views/mainpage/main.jsp");
         return modelAndView;
     }
 
-    
 
     @GetMapping({"/result_yes"})
-    public ModelAndView result_yes(ModelAndView modelAndView){
+    public ModelAndView result_yes(@RequestParam Map params, ModelAndView modelAndView){
+        Object result = surveyResultService.surveyResult(params);
+
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
         modelAndView.setViewName("/WEB-INF/views/survey/result_survey_yes.jsp");
         return modelAndView;
     }
 
     @GetMapping({"/result_no"})
-    public ModelAndView result_no(ModelAndView modelAndView){
+    public ModelAndView result_no(@RequestParam Map params, ModelAndView modelAndView){
+        Object result = surveyResultService.surveyResult01(params);
+
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
         modelAndView.setViewName("/WEB-INF/views/survey/result_survey_no.jsp");
         return modelAndView;
     }
