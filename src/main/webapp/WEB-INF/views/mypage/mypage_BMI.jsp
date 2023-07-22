@@ -17,32 +17,7 @@
   <!-- 마이페이지 옆-->
 <main>
   <div class="row g-0 vh-100">
-    <nav class="p-5 navbar-light bg-light d-md-block col-2">
-      <div>
-        <ul class="list-unstyled navbar-nav">
-          <li class="d-flex align-items-center">
-            <div class="text-decoration-none nav-link fs-5 fw-bold">마이페이지</div>
-          </li>
-          <li class="d-flex align-items-center">
-            <a href="mypage/main" class="text-decoration-none nav-link">개인정보 수정</a>
-          </li>
-          <li class="d-flex align-items-center">
-            <a href="./mypage_community.html" class="text-decoration-none nav-link">내가 작성한 글</a>
-          </li>
-          <li class="d-flex align-items-center">
-            <a href="./mypage_survey.html" class="text-decoration-none nav-link">설문조사 이력</a>
-          </li>
-          <li class="d-flex align-items-center">
-            <a href="/mypageBMI" class="text-decoration-none nav-link">나의 BMI</a>
-         </li>
-          <br>
-          <li class="d-flex align-items-center">
-            <a href="./mainnavs.html" class="text-decoration-none nav-link fw-bold">로그아웃</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    
+    <%@ include file= "/WEB-INF/views/etc/Sidebar.jsp" %><!-- 마이페이지 sidebar -->
     <div class="col-9 p-0 mb-5 ms-5">
       <div style="text-align:center;">
           <h1 class="h3 mb-3 fw-normal">나의 BMI 관리</h1>

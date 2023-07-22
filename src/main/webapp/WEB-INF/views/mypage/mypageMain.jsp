@@ -13,35 +13,10 @@
 </head>
 
 <body>
-  <%@ include file= "/WEB-INF/views/etc/Header.jsp" %> <!-- Menu -->
-  <!-- 마이페이지 옆-->
+  <%@ include file= "/WEB-INF/views/etc/Header.jsp" %> <!-- header -->
  <main>
   <div class="row g-0 vh-100">
-    <nav class="p-5 navbar-light bg-light d-md-block col-2">
-      <div>
-        <ul class="list-unstyled navbar-nav">
-          <li class="d-flex align-items-center">
-            <div class="text-decoration-none nav-link fs-5 fw-bold">마이페이지</div>
-          </li>
-          <li class="d-flex align-items-center">
-            <a href="/mypage/main" class="text-decoration-none nav-link">개인정보 수정</a>
-          </li>
-          <li class="d-flex align-items-center">
-            <a href="./mypage_community.html" class="text-decoration-none nav-link">내가 작성한 글</a>
-          </li>
-          <li class="d-flex align-items-center">
-            <a href="./mypage_survey.html" class="text-decoration-none nav-link">설문조사 이력</a>
-          </li>
-          <li class="d-flex align-items-center">
-            <a href="/mypage" class="text-decoration-none nav-link">나의 BMI</a>
-         </li>
-          <br>
-          <li class="d-flex align-items-center">
-            <a href="./mainnavs.html" class="text-decoration-none nav-link fw-bold">로그아웃</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <%@ include file= "/WEB-INF/views/etc/Sidebar.jsp" %><!-- 마이페이지 sidebar -->
     <div class="col-9">
     <h3 class="text-center">
       개인정보 수정
@@ -53,6 +28,7 @@
 
     <% ArrayList resultList=(ArrayList)result.get("resultList"); 
       String targetUserId = "honggd123"; // userid 하드코팅 해놓았음 
+    if (resultList != null && !resultList.isEmpty()) {
       for (int i = 0; i < resultList.size(); i++) {
         HashMap record = (HashMap) resultList.get(i);
         String userId = (String) record.get("USER_ID");
@@ -103,7 +79,7 @@
               </div>
             </div>
             <% break; // userId 같지 않으면 중지
-           }  } %>
+            }}  } %>
             <!-- Ad receive check -->
             <div class="form-group row mt-3">
               <div class="col-sm-3">광고수신여부 :</div>
@@ -118,7 +94,7 @@
 
             <div class="float-end">
               <button type="button" class="btn btn-main">취소</button>
-              <button type="submit" class="btn btn-main" formaction="/mypage/main">수정완료</button>
+              <button type="submit" class="btn btn-main" formaction="/mypage/updateAndSelectSearch" method="get">수정완료</button>
             </div>
       </form>
     </div>
