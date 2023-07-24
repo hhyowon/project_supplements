@@ -85,7 +85,7 @@ public class SurveyController {
 
     @GetMapping({"/result_yes"})
     public ModelAndView result_yes(@RequestParam Map params, ModelAndView modelAndView){
-        Object result = surveyResultService.surveyResult(params);
+        Object result = surveyResultService.surveyResult01(params);
 
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
