@@ -64,10 +64,10 @@ public class SurveyController {
         return modelAndView;
     }
 
-    @GetMapping("/insertsurveyAndSelectSearch")
-    public ModelAndView insertsurveyAndSelectSearch(@RequestParam Map params,
+    @GetMapping("/insertAndSelectSurvey")
+    public ModelAndView insertAndSelectSurvey(@RequestParam Map params,
             ModelAndView modelAndView) {
-        Object result = surveyService.insertsurveyAndSelectSearch(params);
+        Object result = surveyService.insertAndSelectSurvey(params);
 
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
@@ -75,6 +75,7 @@ public class SurveyController {
 
         return modelAndView;
     }
+
     
     // uuid    
     public String generateUUID() {
@@ -85,7 +86,7 @@ public class SurveyController {
 
      @GetMapping({"/result_yes"})
      public ModelAndView result_yes(@RequestParam Map params, ModelAndView modelAndView){
-        Object result = surveyResultService.surveyResultYes(params);
+        Object result = surveyResultService.surveyResult01(params);
 
          modelAndView.addObject("params", params);
          modelAndView.addObject("result", result);
@@ -95,7 +96,7 @@ public class SurveyController {
 
      @GetMapping({"/result_no"})
      public ModelAndView result_no(@RequestParam Map params, ModelAndView modelAndView){
-         Object result = surveyResultService.surveyResultNo(params);
+         Object result = surveyResultService.surveyResult01(params);
 
          modelAndView.addObject("params", params);
          modelAndView.addObject("result", result);
