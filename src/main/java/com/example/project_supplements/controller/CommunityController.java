@@ -1,6 +1,7 @@
 package com.example.project_supplements.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,33 +39,33 @@ public class CommunityController {
         return modelAndView;
     }
 
-    @GetMapping("/communityModal")
-    public ModelAndView communityModal(@RequestParam Map<String, String> params, ModelAndView modelAndView) {
-    // 데이터를 저장할 HashMap 객체인 dataMap을 생성합니다.
-    Map<String, Object> dataMap = new HashMap<>();
 
-    // 모달에서 받아온 값들을 dataMap에 저장합니다.
-    String categoryId = params.get("CATEGORY"); // 모달에서 전달된 카테고리 값
-    String communityTitle = params.get("TITLE"); // 모달에서 전달된 제목 값
-    String communityContent = params.get("CONTENT"); // 모달에서 전달된 내용 값
+        @GetMapping("/communityModal")
+        public ModelAndView communityModal(@RequestParam Map<String, String> params, ModelAndView modelAndView) {
+        // 데이터를 저장할 HashMap 객체인 dataMap을 생성합니다.
+        Map<String, Object> dataMap = new HashMap<>();
 
-    dataMap.put("CATEGORY_ID", categoryId);
-    dataMap.put("COMMUNITY_TITLE", communityTitle);
-    dataMap.put("COMMUNITY_CONTENT", communityContent);
+        // 모달에서 받아온 값들을 dataMap에 저장합니다.
+        String categoryId = params.get("CATEGORY"); // 모달에서 전달된 카테고리 값
+        String communityTitle = params.get("TITLE"); // 모달에서 전달된 제목 값
+        String communityContent = params.get("CONTENT"); // 모달에서 전달된 내용 값
 
-    // communityService.insert 메서드의 파라미터를 dataMap으로 변경하고 호출합니다.
-    Object result = communityService.insert(dataMap);
-    System.out.println("Data type of result in controller: " + result.getClass().getName());
-   //여기에 추가
-   
-    // 모델에 필요한 데이터를 추가합니다.
-    modelAndView.addObject("params", params); // 모달에서 전달된 원래의 params 맵
-    modelAndView.addObject("result", result); // 삽입 결과
+        dataMap.put("CATEGORY_ID", categoryId);
+        dataMap.put("COMMUNITY_TITLE", communityTitle);
+        dataMap.put("COMMUNITY_CONTENT", communityContent);
 
-    // 뷰 정보를 설정하고 ModelAndView 객체를 반환합니다.
-    modelAndView.setViewName("/WEB-INF/views/community/community.jsp");
-    return modelAndView;
-}
+        // communityService.insert 메서드의 파라미터를 dataMap으로 변경하고 호출합니다.
+        Object result = communityService.insert(dataMap);
+        //여기에 추가
+        
+        // 모델에 필요한 데이터를 추가합니다.
+        modelAndView.addObject("params", params); // 모달에서 전달된 원래의 params 맵
+        modelAndView.addObject("result", result); // 삽입 결과
+
+        // 뷰 정보를 설정하고 ModelAndView 객체를 반환합니다.
+        modelAndView.setViewName("/WEB-INF/views/community/community.jsp");
+        return modelAndView;
+    }
 
 
   

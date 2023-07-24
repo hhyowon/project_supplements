@@ -1,6 +1,7 @@
 package com.example.project_supplements.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ public class CommunityService {
 
     @Autowired
     Commons commons;
+
     //모달창 게시글 작성용
     public Object insert(Map dataMap) {
         String sqlMapId = "Commu.insert";
@@ -30,11 +32,15 @@ public class CommunityService {
         } else {
             // "COMMUNITY_ID"가 null이 아니고 빈 문자열도 아닌 경우 처리
         }
-        Object result = sharedDao.insert(sqlMapId, dataMap);
-        
+        Object result_1 = sharedDao.insert(sqlMapId, dataMap);
+        HashMap result = (HashMap) this.selectWithPagination(dataMap);
         return result;
+    
     }    
-            
+
+  
+
+
     //커뮤니티 테이블 리스트    
         public Map selectCommunity(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
