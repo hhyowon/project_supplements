@@ -7,7 +7,7 @@
     <select id="surveyresult_no" parameterType="Map" resultType="Map">
     SELECT COUNT(*)
     FROM SURVEY
-    WHERE SURVEY_OPT_ID < "O-25"
+    WHERE SURVEY_OPT_ID <![CDATA[<]]> "O-25"
     GROUP BY  SURVEY_OPT_ID
 	ORDER BY SURVEY_OPT_ID  ASC
     ;
@@ -16,7 +16,7 @@
       <select id="surveyresult_yes" parameterType="Map" resultType="Map">
     SELECT COUNT(*)
     FROM SURVEY
-    WHERE SURVEY_OPT_ID > "O-24"
+    WHERE SURVEY_OPT_ID <![CDATA[>]]> "O-24"
     GROUP BY  SURVEY_OPT_ID
 	ORDER BY SURVEY_OPT_ID  ASC
     ;
