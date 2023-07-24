@@ -23,7 +23,7 @@
                     <a class="nav-link" href="/bmi/insertBMI" style="color: #5B9BD5;">BMI</a>
                 </div>
                 <div>
-                    <a class="nav-link" href="../admin/admin_userList.jsp" style="color:black">관리자전용</a>
+                    <a class="nav-link" href="/admin" style="color:black">관리자전용</a>
                 </div>
                 <div>
                     <a class="nav-link" href="/login" style="color:black">로그인</a>
