@@ -4,12 +4,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class Commons {
-    @Bean
     public String generateUUID(){
         String uuid = UUID.randomUUID().toString();
         return uuid;
