@@ -1,4 +1,5 @@
 <!-- <%@ page import="java.util.HashMap, java.util.ArrayList" %> -->
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <head>
   
@@ -27,7 +28,7 @@
                 </div>
                 <div>
                     <a class="nav-link" href="/login" style="color:black">로그인</a>
-                </div>
+                </div> 
                
                 <div class="dropdown nav-item">
                     <button class="btn btn-drak dropdown-toggle"
@@ -36,10 +37,26 @@
                         <!-- 필터 이용해야 될 것 같음-->
                         <li class="dropdown-item">
                             <a class="nav-link" href="/mypage">마이페이지</a>
-                        </li>
-                        <li class="dropdown-item">
-                            <a class="nav-link" href="/signup">회원가입</a>
-                        </li>
+                        </li>  
+                        <!-- 로그인 전 -->
+                        <sec:authorize access="isAnonymous()">
+                            <li class="dropdown-item">
+                                <a class="nav-link"  href="/signup">회원가입</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a class="nav-link"  href="/login">로그인</button>
+                            </li>
+                        </sec:authorize>
+                        <!-- 로그인 후-->
+                        <sec:authorize access="isAuthenticated()">
+                            <li class="nav-link">
+                                User ID : ${userDetailsBean.username},
+                                Name : ${userDetailsBean.memberName}
+                            </li>
+                            <li>
+                                <button class="nav-link" formaction="/logoutForm">logout Form</button>
+                            </li>
+                        </sec:authorize>
                         <li class="dropdown-divider"></li> <!--drowdown메뉴안에서 라인으로 나누기 -->
                         <li class="dropdown-item">
                             <a class="nav-link" href="/main">로그아웃</a>
