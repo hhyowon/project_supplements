@@ -1,23 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Commu">
+<mapper namespace="Adminuser">
 
-    <!-- 짭 게시글 입력 #{COMMUNITY_ID}-->
-   <insert id="insert" parameterType="Map">
-        INSERT INTO community (COMMUNITY_ID, CATEGORY_ID, COMMUNITY_TITLE, COMMUNITY_CONTENT, COMMUNITY_DATE, USER_ID)
-        VALUES
-        (#{COMMUNITY_ID}, #{CATEGORY_ID} , #{COMMUNITY_TITLE}, #{COMMUNITY_CONTENT}, CURRENT_TIMESTAMP(), 'lee_jw');
-    </insert>
 
-    <!--다시 뽑아오기-->
-   <insert id="selectList" parameterType="Map">
-             SELECT comm.COMMUNITY_ID, ca.CATEGORY, comm.COMMUNITY_TITLE, comm.COMMUNITY_CONTENT, comm.USER_ID
-        FROM project_diet.community as comm
-        INNER JOIN category as ca
-        ON comm.CATEGORY_ID = ca.CATEGORY_ID
-        WHERE ca.CATEGORY_ID LIKE 'C%'
-        order by COMMUNITY_ID
-    </insert>
 
     <!-- 찐 커뮤니티 테이블 리스트 -->
 	<select id="community" parameterType="Map" resultType="Map">
@@ -32,7 +17,7 @@
     <!--Pagination 레코드 갯수 -->
     <select id="cntTotal" parameterType="Map" resultType="int">
         select count(*) as cnt
-        from community
+        from project_diet.members;
         ;
 	</select>
     

@@ -17,9 +17,10 @@ public class RankService {
 
     //설문 랭킹 
 
-       public Object surveyRankFirstRankOne(Map dataMap){
-        String sqlMapId = "SurveyRank.surveyRankFirstRankOne";
-        Object result = sharedDao.getOne(sqlMapId, dataMap);
+       public Object surveyRankFirst(Map dataMap){
+        String sqlMapId = "SurveyRank.surveyRankFirst";
+        HashMap result = new HashMap<>();
+        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;
     }
 

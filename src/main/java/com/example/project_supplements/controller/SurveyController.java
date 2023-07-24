@@ -80,25 +80,25 @@ public class SurveyController {
     
 
 
-    @GetMapping({"/result_yes"})
-    public ModelAndView result_yes(@RequestParam Map params, ModelAndView modelAndView){
-        Object result = surveyResultService.surveyResult(params);
+     @GetMapping({"/result_yes"})
+     public ModelAndView result_yes(@RequestParam Map params, ModelAndView modelAndView){
+        Object result = surveyResultService.surveyResultYes(params);
 
-        modelAndView.addObject("params", params);
-        modelAndView.addObject("result", result);
-        modelAndView.setViewName("/WEB-INF/views/survey/result_survey_yes.jsp");
-        return modelAndView;
-    }
+         modelAndView.addObject("params", params);
+         modelAndView.addObject("result", result);
+         modelAndView.setViewName("/WEB-INF/views/survey/result_survey_yes.jsp");
+         return modelAndView;
+     }
 
-    @GetMapping({"/result_no"})
-    public ModelAndView result_no(@RequestParam Map params, ModelAndView modelAndView){
-        Object result = surveyResultService.surveyResult01(params);
+     @GetMapping({"/result_no"})
+     public ModelAndView result_no(@RequestParam Map params, ModelAndView modelAndView){
+         Object result = surveyResultService.surveyResultNo(params);
 
-        modelAndView.addObject("params", params);
-        modelAndView.addObject("result", result);
-        modelAndView.setViewName("/WEB-INF/views/survey/result_survey_no.jsp");
-        return modelAndView;
-    }
+         modelAndView.addObject("params", params);
+         modelAndView.addObject("result", result);
+         modelAndView.setViewName("/WEB-INF/views/survey/result_survey_no.jsp");
+         return modelAndView;
+     }
 
 
 }

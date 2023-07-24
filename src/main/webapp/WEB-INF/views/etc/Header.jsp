@@ -23,12 +23,12 @@
                     <a class="nav-link" href="/rank" style="color:#858688;">랭킹</a>
                     <a class="nav-link" href="/bmi/insertBMI" style="color: #5B9BD5;">BMI</a>
                 </div>
-                <!-- <div>
-                    <a class="nav-link" href="./admin/userList.html" style="color:black">관리자전용</a>
+                <div>
+                    <a class="nav-link" href="../admin/admin_userList.jsp" style="color:black">관리자전용</a>
                 </div>
                 <div>
                     <a class="nav-link" href="/login" style="color:black">로그인</a>
-                </div> -->
+                </div> 
                
                 <div class="dropdown nav-item">
                     <button class="btn btn-drak dropdown-toggle"

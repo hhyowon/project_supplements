@@ -20,9 +20,9 @@ public class RankController {
     @Autowired
     RankService rankService;
 
-    @GetMapping({" "})
+    @GetMapping({"rank/rank"})
     public ModelAndView rank(@RequestParam Map<String, String> params,ModelAndView modelAndView){
-        Object result = rankService.surveyRankFirstRankOne(params);
+        Object result = rankService.surveyRankFirst(params);
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
         modelAndView.setViewName("/WEB-INF/views/rank/rank.jsp");
