@@ -7,11 +7,12 @@
         <form action="/resources/static/css/maintool.css" method="get">
             <%@ include file= "/WEB-INF/views/etc/Header.jsp" %>
 
-        <% 
-        HashMap params=(HashMap)request.getAttribute("params"); 
-        String searchStr=(String)params.getOrDefault("search", ""); 
-        HashMap result=(HashMap)request.getAttribute("result"); 
-        %>
+            <% 
+            HashMap params=(HashMap)request.getAttribute("params"); 
+            String searchStr=(String)params.getOrDefault("search", ""); 
+            HashMap result=(HashMap)request.getAttribute("result"); 
+            %>
+
         <div class="container ">
             <h2 class="ui teal image header text-center">
                 커뮤니티
@@ -21,7 +22,7 @@
                 <div class="container mx-auto" style="padding: 20px; border-radius: 10px ; width: 70%;">      
                     <a data-bs-toggle="modal" href="#modalTarget-center"><button class="btn mx-2  mb-2 float-end submit btn-outline-secondary">작성하기</button></a>
                     <!-- 모달 창 -->
-                    <form id="modalForm" method="GET" action=""> 
+                    <form id="modalForm" method="GET" action="" > 
                         <div class="modal" id="modalTarget-center">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
@@ -117,6 +118,7 @@
             
     </form>
     <%@ include file="/WEB-INF/views/etc/Footer.jsp" %> <!-- footer --> 
+
 </body>
-    
+
 </html>
