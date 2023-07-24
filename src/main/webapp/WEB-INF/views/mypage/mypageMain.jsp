@@ -13,6 +13,7 @@
 </head>
 
 <body>
+  <form action="/mypage/main"> <!-- 폼-->
   <%@ include file= "/WEB-INF/views/etc/Header.jsp" %> <!-- header -->
  <main>
   <div class="row g-0 vh-100">
@@ -37,7 +38,7 @@
         %>
 
     <div class="container col-9 pb-5 px-5" style="width: 700px;">
-      <form action="/mypage/main"> <!-- 폼-->
+      <!-- <form action="/mypage/main">  폼-->
         <div class="px-5">
           <div class="py-2">
             <lable class="form-label" for="idusername">이름</lable>
@@ -91,14 +92,12 @@
             </div>
 
             <hr class="mb-4" />
-
             <div class="float-end">
               <button type="button" class="btn btn-main">취소</button>
-              <button type="submit" class="btn btn-main" formaction="/mypage/updateAndSelectSearch" method="get">수정완료</button>
+              <button type="submit" class="btn btn-main" id="submitBtn" formaction="/mypage/updateAndSelectSearch" method="get">수정완료</button>
             </div>
-      </form>
     </div>
-  </div>
+  </form>
 </main> 
 <%@ include file="/WEB-INF/views/etc/Footer.jsp" %> <!-- footer --> 
 </body>

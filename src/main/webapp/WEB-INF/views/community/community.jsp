@@ -7,12 +7,13 @@
         <form action="/resources/static/css/maintool.css" method="get">
             <%@ include file= "/WEB-INF/views/etc/Header.jsp" %>
 
-        <% 
-        HashMap params=(HashMap)request.getAttribute("params"); 
-        String searchStr=(String)params.getOrDefault("search", ""); 
-        HashMap result=(HashMap)request.getAttribute("result"); 
-        %>
-        <div class="container ">
+            <% 
+            HashMap params=(HashMap)request.getAttribute("params"); 
+            String searchStr=(String)params.getOrDefault("search", ""); 
+            HashMap result=(HashMap)request.getAttribute("result"); 
+            %>
+
+        <div class="container "> 
             <h2 class="ui teal image header text-center">
                 커뮤니티
             </h2>
@@ -21,7 +22,7 @@
                 <div class="container mx-auto" style="padding: 20px; border-radius: 10px ; width: 70%;">      
                     <a data-bs-toggle="modal" href="#modalTarget-center"><button class="btn mx-2  mb-2 float-end submit btn-outline-secondary">작성하기</button></a>
                     <!-- 모달 창 -->
-                    <form id="modalForm" method="GET" action=""> 
+                    <form id="modalForm" method="GET" action="" > 
                         <div class="modal" id="modalTarget-center">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
@@ -54,16 +55,16 @@
                                 <th>제목</th>
                                 <th>등록자</th>
                                 <th>등록일</th>
-                                </tr>
+                            </tr>
                         </thead>
                         <tbody id="list">
                             <% ArrayList resultList=(ArrayList)result.get("resultList"); 
                                     for(int i=0; i < resultList.size(); i=i+1){
                                         HashMap record=(HashMap)resultList.get(i); %>
                             <tr>
-                                <td><%= record.get("COMMUNITY_ID") %></td>
+                                <td><%= i+1 %></td>
                                 <td><%= record.get("CATEGORY") %></td>
-                                <td><%= record.get("COMMUNITY_TITLE") %></td>
+                                <td><a href="/communityComment"><%= record.get("COMMUNITY_TITLE") %></a></td>
                                 <td><%= record.get("USER_ID") %></td>
                                 <td><%= record.get("COMMUNITY_DATE") %></td>
                             </tr>
@@ -117,6 +118,7 @@
             
     </form>
     <%@ include file="/WEB-INF/views/etc/Footer.jsp" %> <!-- footer --> 
+
 </body>
-    
+
 </html>

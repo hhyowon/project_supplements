@@ -8,7 +8,7 @@
         VALUES
         (#{COMMUNITY_ID}, #{CATEGORY_ID} , #{COMMUNITY_TITLE}, #{COMMUNITY_CONTENT}, CURRENT_TIMESTAMP(), 'lee_jw');
     </insert>
-   
+
 
     <!-- 찐 커뮤니티 테이블 리스트 -->
 	<select id="community" parameterType="Map" resultType="Map">
@@ -17,7 +17,7 @@
         INNER JOIN category as ca
         ON comm.CATEGORY_ID = ca.CATEGORY_ID
         WHERE ca.CATEGORY_ID LIKE 'C%'
-        order by COMMUNITY_ID
+        order by COMMUNITY_DATE DESC;
     </select>
 
     <!--Pagination 레코드 갯수 -->
@@ -34,7 +34,7 @@
         INNER JOIN category as ca
         ON comm.CATEGORY_ID = ca.CATEGORY_ID
         WHERE ca.CATEGORY_ID LIKE 'C%'
-        order by COMMUNITY_ID
+        order by COMMUNITY_DATE DESC
         limit #{pageBegin}, #{pageScale} 
         ;
 	</select>

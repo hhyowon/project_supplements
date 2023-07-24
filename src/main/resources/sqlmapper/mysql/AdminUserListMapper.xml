@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Adminuser">
+
+
+
+    <!-- 찐 커뮤니티 테이블 리스트 -->
+	<select id="mem" parameterType="Map" resultType="Map">
+         SELECT * FROM project_diet.members;
+    </select>
+
+    <!--Pagination 레코드 갯수 -->
+    <select id="cntTotal" parameterType="Map" resultType="int">
+        select count(*) as cnt
+        from project_diet.members
+        ;
+	</select>
+    
+    <!--Pagination  -->
+    	<select id="selectPagination" parameterType="Map" resultType="Map">
+       SELECT members.USER_ID,members.NAME,gender.Gender,members.PASSWORD,members.PHONENUMBER,members.ADDRESS,members.EMAIL
+        FROM project_diet.members
+        INNER JOIN project_diet.gender ON members.Gender_UID = gender.Gender_UID
+        limit #{pageBegin}, #{pageScale} 
+        ;
+	</select>
+
+</mapper>
+

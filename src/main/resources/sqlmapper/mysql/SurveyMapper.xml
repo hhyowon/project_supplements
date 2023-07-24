@@ -28,11 +28,19 @@
 	</select>
 
     <!-- 설문조사 결과 입력-->
-   <insert id="insertsurvey" parameterType="Map">
-    INSERT INTO survey (SURVEY_TYPE_ID, SURVEY_QUESTION_ID, SURVEY_ID, USER_ID, SURVEY_OPT_ID)
+   <insert id="insertsurveyresult" parameterType="Map">
+    INSERT INTO surveyresult (USER_ID, DATE_TIME, SURVEY_UID)
+    VALUES 
+    <foreach collection="surveyMapList" item="dataMap" index="index" separator=",">
+        ('honggd123', NOW(), #{dataMap.SURVEY_UID});
+    </foreach>
+    </insert>
+    
+    <insert id="insertsurvey" parameterType="Map">
+    INSERT INTO survey (SURVEY_TYPE_ID, SURVEY_QUESTION_ID, SURVEY_ID, SURVEY_OPT_ID, SURVEY_UID)
     VALUES   
-    <foreach collection="surveyMap" item="entry" index="key" separator=",">
-        (#{SURVEY_TYPE_ID}, #{key}, #{SURVEY_ID}, #{USER_ID}, #{entry})
+    <foreach collection="surveyMapList" item="questionAnswerMap" index="index" separator=",">
+        (#{SURVEY_TYPE_ID}, #{questionAnswerMap.QuestionId}, #{questionAnswerMap.SURVEY_ID}, #{questionAnswerMap.AnswerId},  #{dataMap.SURVEY_UID} )
     </foreach>   
    </insert>
     

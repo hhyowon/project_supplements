@@ -61,10 +61,10 @@ public class SurveyController {
         return modelAndView;
     }
 
-    @GetMapping("/insertsurveyAndSelectSearch")
-    public ModelAndView insertsurveyAndSelectSearch(@RequestParam Map params,
+    @GetMapping("/insertAndSelectSurvey")
+    public ModelAndView insertAndSelectSurvey(@RequestParam Map params,
             ModelAndView modelAndView) {
-        Object result = surveyService.insertsurveyAndSelectSearch(params);
+        Object result = surveyService.insertAndSelectSurvey(params);
 
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
@@ -72,6 +72,7 @@ public class SurveyController {
 
         return modelAndView;
     }
+
     
     // uuid    
     public String generateUUID() {
@@ -80,25 +81,25 @@ public class SurveyController {
     
 
 
-    @GetMapping({"/result_yes"})
-    public ModelAndView result_yes(@RequestParam Map params, ModelAndView modelAndView){
-        Object result = surveyResultService.surveyResult(params);
-
-        modelAndView.addObject("params", params);
-        modelAndView.addObject("result", result);
-        modelAndView.setViewName("/WEB-INF/views/survey/result_survey_yes.jsp");
-        return modelAndView;
-    }
-
-    @GetMapping({"/result_no"})
-    public ModelAndView result_no(@RequestParam Map params, ModelAndView modelAndView){
+     @GetMapping({"/result_yes"})
+     public ModelAndView result_yes(@RequestParam Map params, ModelAndView modelAndView){
         Object result = surveyResultService.surveyResult01(params);
 
-        modelAndView.addObject("params", params);
-        modelAndView.addObject("result", result);
-        modelAndView.setViewName("/WEB-INF/views/survey/result_survey_no.jsp");
-        return modelAndView;
-    }
+         modelAndView.addObject("params", params);
+         modelAndView.addObject("result", result);
+         modelAndView.setViewName("/WEB-INF/views/survey/result_survey_yes.jsp");
+         return modelAndView;
+     }
+
+     @GetMapping({"/result_no"})
+     public ModelAndView result_no(@RequestParam Map params, ModelAndView modelAndView){
+         Object result = surveyResultService.surveyResult01(params);
+
+         modelAndView.addObject("params", params);
+         modelAndView.addObject("result", result);
+         modelAndView.setViewName("/WEB-INF/views/survey/result_survey_no.jsp");
+         return modelAndView;
+     }
 
 
 }

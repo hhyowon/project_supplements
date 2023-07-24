@@ -45,7 +45,7 @@
                                 <a class="nav-link"  href="/signup">회원가입</a>
                             </li>
                             <li class="dropdown-item">
-                                <a class="nav-link"  href="/loginForm">로그인</button>
+                                <a class="nav-link"  href="/login">로그인</button>
                             </li>
                         </sec:authorize>
                         <!-- 로그인 후-->
