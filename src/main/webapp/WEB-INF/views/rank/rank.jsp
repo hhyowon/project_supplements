@@ -13,7 +13,9 @@
 
     <body>
         <%@ include file="/WEB-INF/views/etc/Header.jsp" %> <!-- Menu -->
-            <% HashMap result=(HashMap)request.getAttribute("result"); %>
+        <% HashMap params=(HashMap) request.getAttribute("params"); String searchStr=(String)
+        params.getOrDefault("search", "" ); HashMap result=(HashMap) request.getAttribute("result"); %>
+
 
 
            
@@ -35,14 +37,17 @@
                                     <td style="color:#c0daf5; vertical-align: middle;">
                                         <h3 style="font-weight: bold;text-align: center;">01. 가성비 갑!</h3>
                                     </td>
+                                  
                                     <td rowspan='3' style="background-color: #dbedff;">
                                         <div class="row">
+                                            <% ArrayList resultList=(ArrayList) result.get("resultList"); for (int i=0; i < resultList.size(); i++) {
+                                                HashMap record=(HashMap) resultList.get(i); %>
                                             <div class="col-4"> <img src= <%= result.get("SURVEY_OPT_URL") %> alt width="250" 
                                                     height="300"></div>
-                                            <div class="col-4"> <img src=/html/img/supplement2.jpg alt width="250"
+                                            <!-- <div class="col-4"> <img src=/html/img/supplement2.jpg alt width="250"
                                                     height="300"></div>
                                             <div class="col-4"> <img src=/html/img/supplement3.png alt width="250"
-                                                    height="300"></div>
+                                                    height="300"></div> -->
                                         </div>
                                     </td>
 
