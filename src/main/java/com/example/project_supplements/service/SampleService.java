@@ -13,7 +13,7 @@ import com.example.project_supplements.utils.Paginations;
 
 @Service
 @Transactional
-public class DietService {
+public class SampleService {
     @Autowired
     SharedDao sharedDao;
     

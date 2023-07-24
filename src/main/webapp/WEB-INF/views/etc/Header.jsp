@@ -1,7 +1,9 @@
 <!-- <%@ page import="java.util.HashMap, java.util.ArrayList" %> -->
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<sec:authentication property="principal" var="userDetailsBean" />
 <head>
-  
+  <form>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Bootstrap 5 Template</title>
@@ -22,12 +24,12 @@
                     <a class="nav-link" href="/rank" style="color:#858688;">랭킹</a>
                     <a class="nav-link" href="/bmi/insertBMI" style="color: #5B9BD5;">BMI</a>
                 </div>
-                <div>
+                <!-- <div>
                     <a class="nav-link" href="./admin/userList.html" style="color:black">관리자전용</a>
                 </div>
                 <div>
                     <a class="nav-link" href="/login" style="color:black">로그인</a>
-                </div>
+                </div> -->
                
                 <div class="dropdown nav-item">
                     <button class="btn btn-drak dropdown-toggle"
@@ -36,10 +38,26 @@
                         <!-- 필터 이용해야 될 것 같음-->
                         <li class="dropdown-item">
                             <a class="nav-link" href="/mypage">마이페이지</a>
-                        </li>
-                        <li class="dropdown-item">
-                            <a class="nav-link" href="/signup">회원가입</a>
-                        </li>
+                        </li>  
+                        <!-- 로그인 전 -->
+                        <sec:authorize access="isAnonymous()">
+                            <li class="dropdown-item">
+                                <a class="nav-link"  href="/signup">회원가입</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a class="nav-link"  href="/loginForm">로그인</button>
+                            </li>
+                        </sec:authorize>
+                        <!-- 로그인 후-->
+                        <sec:authorize access="isAuthenticated()">
+                            <li class="nav-link">
+                                User ID : ${userDetailsBean.username},
+                                Name : ${userDetailsBean.memberName}
+                            </li>
+                            <li>
+                                <button class="nav-link" formaction="/logoutForm">logout Form</button>
+                            </li>
+                        </sec:authorize>
                         <li class="dropdown-divider"></li> <!--drowdown메뉴안에서 라인으로 나누기 -->
                         <li class="dropdown-item">
                             <a class="nav-link" href="/main">로그아웃</a>
@@ -50,4 +68,5 @@
             </nav>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    </form>
     </head>
