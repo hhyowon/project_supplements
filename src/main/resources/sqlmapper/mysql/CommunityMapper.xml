@@ -8,7 +8,16 @@
         VALUES
         (#{COMMUNITY_ID}, #{CATEGORY_ID} , #{COMMUNITY_TITLE}, #{COMMUNITY_CONTENT}, CURRENT_TIMESTAMP(), 'lee_jw');
     </insert>
-   
+
+    <!--다시 뽑아오기-->
+   <insert id="selectList" parameterType="Map">
+             SELECT comm.COMMUNITY_ID, ca.CATEGORY, comm.COMMUNITY_TITLE, comm.COMMUNITY_CONTENT, comm.USER_ID
+        FROM project_diet.community as comm
+        INNER JOIN category as ca
+        ON comm.CATEGORY_ID = ca.CATEGORY_ID
+        WHERE ca.CATEGORY_ID LIKE 'C%'
+        order by COMMUNITY_ID
+    </insert>
 
     <!-- 찐 커뮤니티 테이블 리스트 -->
 	<select id="community" parameterType="Map" resultType="Map">
