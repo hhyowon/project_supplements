@@ -17,7 +17,7 @@
 
 
            
-                <% SurveyRankFirstRankOne surveyRankFirstRankOne=(SurveyRankFirstRankOne)result.get("surveyRankFirstRankOne"); %>
+
 
                     <div class="container">
                         <h2 class="ui teal image header text-center">
@@ -37,7 +37,7 @@
                                     </td>
                                     <td rowspan='3' style="background-color: #dbedff;">
                                         <div class="row">
-                                            <div class="col-4"> <img src= <%= surveyRankFirstRankOne %> alt width="250" 
+                                            <div class="col-4"> <img src= <%= result.get("SURVEY_OPT_URL") %> alt width="250" 
                                                     height="300"></div>
                                             <div class="col-4"> <img src=/html/img/supplement2.jpg alt width="250"
                                                     height="300"></div>
