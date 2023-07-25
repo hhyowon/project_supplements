@@ -33,6 +33,7 @@ public class SurveyService {
         String sqlMapId = "SurveyService.surveyno";
         HashMap result = new HashMap<>();
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+        result.put("SURVEY_TYPE_ID",dataMap.get("SURVEY_TYPE_ID"));
         return result;
     }
 
@@ -41,6 +42,7 @@ public class SurveyService {
         String sqlMapId = "SurveyService.surveyyes";
         HashMap result = new HashMap<>();
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+        result.put("SURVEY_TYPE_ID",dataMap.get("SURVEY_TYPE_ID"));
         return result;
     }
 
@@ -69,6 +71,7 @@ public class SurveyService {
         Object result01 = sharedDao.insert(sqlMapId, dataMap);
 
         // 자식테이블 insert
+
         dataMap.put("SURVEY_TYPE_ID", "F-01");
         sqlMapId = "SurveyService.insertsurvey";
         Object resultMap = sharedDao.insert(sqlMapId, dataMap);
@@ -77,7 +80,7 @@ public class SurveyService {
     }
 
     // 설문 값 DB로 입력(복용한자)
-    public Object insertAndSelectSurvey_yes(Map<String,Object> dataMap) {
+    public Object insertAndSelectSurvey_yes( Map<String,Object> dataMap) {
         // question와 answer Map을 List에 담기
         HashMap<String, Object> result = new HashMap<>();
         //result.put("insertCount", this.insertsurvey(dataMap));
@@ -100,6 +103,7 @@ public class SurveyService {
         Object result01 = sharedDao.insert(sqlMapId, dataMap);
 
         // 자식테이블 insert
+        //dataMap.put("SURVEY_TYPE_ID", SU);
         dataMap.put("SURVEY_TYPE_ID", "F-02");
         sqlMapId = "SurveyService.insertsurvey";
         Object resultMap = sharedDao.insert(sqlMapId, dataMap);
