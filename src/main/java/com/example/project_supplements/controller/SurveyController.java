@@ -6,13 +6,10 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.project_supplements.service.DietService;
 import com.example.project_supplements.service.SurveyResultService;
 import com.example.project_supplements.service.SurveyService;
 
@@ -64,10 +61,10 @@ public class SurveyController {
         return modelAndView;
     }
 
-    @GetMapping("/insertsurveyAndSelectSearch")
-    public ModelAndView insertsurveyAndSelectSearch(@RequestParam Map params,
+    @GetMapping("/insertAndSelectSurvey")
+    public ModelAndView insertAndSelectSurvey(@RequestParam Map params,
             ModelAndView modelAndView) {
-        Object result = surveyService.insertsurveyAndSelectSearch(params);
+        Object result = surveyService.insertAndSelectSurvey(params);
 
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
@@ -75,6 +72,7 @@ public class SurveyController {
 
         return modelAndView;
     }
+
     
     // uuid    
     public String generateUUID() {
@@ -85,7 +83,7 @@ public class SurveyController {
 
      @GetMapping({"/result_yes"})
      public ModelAndView result_yes(@RequestParam Map params, ModelAndView modelAndView){
-        Object result = surveyResultService.surveyResultYes(params);
+        Object result = surveyResultService.surveyResult01(params);
 
          modelAndView.addObject("params", params);
          modelAndView.addObject("result", result);
@@ -95,7 +93,7 @@ public class SurveyController {
 
      @GetMapping({"/result_no"})
      public ModelAndView result_no(@RequestParam Map params, ModelAndView modelAndView){
-         Object result = surveyResultService.surveyResultNo(params);
+         Object result = surveyResultService.surveyResult01(params);
 
          modelAndView.addObject("params", params);
          modelAndView.addObject("result", result);

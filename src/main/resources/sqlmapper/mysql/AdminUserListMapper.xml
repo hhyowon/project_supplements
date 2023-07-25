@@ -5,30 +5,22 @@
 
 
     <!-- 찐 커뮤니티 테이블 리스트 -->
-	<select id="community" parameterType="Map" resultType="Map">
-        SELECT comm.COMMUNITY_ID, ca.CATEGORY, comm.COMMUNITY_TITLE, comm.COMMUNITY_CONTENT, comm.USER_ID
-        FROM project_diet.community as comm
-        INNER JOIN category as ca
-        ON comm.CATEGORY_ID = ca.CATEGORY_ID
-        WHERE ca.CATEGORY_ID LIKE 'C%'
-        order by COMMUNITY_ID
+	<select id="mem" parameterType="Map" resultType="Map">
+         SELECT * FROM project_diet.members;
     </select>
 
     <!--Pagination 레코드 갯수 -->
     <select id="cntTotal" parameterType="Map" resultType="int">
         select count(*) as cnt
-        from project_diet.members;
+        from project_diet.members
         ;
 	</select>
     
     <!--Pagination  -->
     	<select id="selectPagination" parameterType="Map" resultType="Map">
-        SELECT comm.COMMUNITY_ID, ca.CATEGORY, comm.COMMUNITY_TITLE, comm.COMMUNITY_CONTENT, comm.USER_ID ,comm.COMMUNITY_DATE
-        FROM project_diet.community as comm
-        INNER JOIN category as ca
-        ON comm.CATEGORY_ID = ca.CATEGORY_ID
-        WHERE ca.CATEGORY_ID LIKE 'C%'
-        order by COMMUNITY_ID
+       SELECT members.USER_ID,members.NAME,gender.Gender,members.PASSWORD,members.PHONENUMBER,members.ADDRESS,members.EMAIL
+        FROM project_diet.members
+        INNER JOIN project_diet.gender ON members.Gender_UID = gender.Gender_UID
         limit #{pageBegin}, #{pageScale} 
         ;
 	</select>

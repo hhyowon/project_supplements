@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.project_supplements.service.DietService;
+import com.example.project_supplements.service.SampleService;
 
 
 @Controller
@@ -20,7 +20,7 @@ import com.example.project_supplements.service.DietService;
 
 public class SampleController {
     @Autowired
-    DietService DietService;
+    SampleService DietService;
 
     @GetMapping({" ", "/home"})
     public ModelAndView main(ModelAndView modelAndView){
@@ -62,34 +62,34 @@ public class SampleController {
         modelAndView.setViewName("/WEB-INF/views/list_map_ex.jsp");
         return modelAndView;
     }
-    // INSERT
-    @PostMapping("/insert")
-    public ModelAndView insert(@RequestParam Map params, ModelAndView modelAndView) {
-        Object result = DietService.insert(params);
+    // // INSERT
+    // @PostMapping("/insert")
+    // public ModelAndView insert(@RequestParam Map params, ModelAndView modelAndView) {
+    //     Object result = DietService.insert(params);
 
-        modelAndView.addObject("params", params);
-        modelAndView.addObject("result", result);
-        modelAndView.setViewName("/WEB-INF/views/mainpage/main.jsp");
-        return modelAndView;
-    }
+    //     modelAndView.addObject("params", params);
+    //     modelAndView.addObject("result", result);
+    //     modelAndView.setViewName("/WEB-INF/views/mainpage/main.jsp");
+    //     return modelAndView;
+    // }
 
-    @GetMapping("/insertForm")
-    public ModelAndView insertForm(@RequestParam Map params, ModelAndView modelAndView) {
-        modelAndView.setViewName("/WEB-INF/views/InsertForm.jsp");
-        return modelAndView;
-    }
+    // @GetMapping("/insertForm")
+    // public ModelAndView insertForm(@RequestParam Map params, ModelAndView modelAndView) {
+    //     modelAndView.setViewName("/WEB-INF/views/InsertForm.jsp");
+    //     return modelAndView;
+    // }
 
-    @PostMapping("/insertAndSelectSearch")
-    public ModelAndView insertAndSelectSearch(@RequestParam Map params,
-            ModelAndView modelAndView) {
-        Object result = DietService.insertAndSelectSearch(params);
+    // @PostMapping("/insertAndSelectSearch")
+    // public ModelAndView insertAndSelectSearch(@RequestParam Map params,
+    //         ModelAndView modelAndView) {
+    //     Object result = DietService.insertAndSelectSearch(params);
 
-        modelAndView.addObject("params", params);
-        modelAndView.addObject("result", result);
-        modelAndView.setViewName("/WEB-INF/views/main.jsp");
+    //     modelAndView.addObject("params", params);
+    //     modelAndView.addObject("result", result);
+    //     modelAndView.setViewName("/WEB-INF/views/main.jsp");
 
-        return modelAndView;
-    }
+    //     return modelAndView;
+    // }
 
     // UPDATE
     @PostMapping("/updateForm/{UNIQUE_ID}")

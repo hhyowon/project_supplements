@@ -11,16 +11,4 @@ public class MainController {
         modelAndView.setViewName("/WEB-INF/views/mainpage/main.jsp");
         return modelAndView;
     }
-
-    @GetMapping({"/login"})
-    public ModelAndView login(ModelAndView modelAndView){
-        modelAndView.setViewName("/WEB-INF/views/login/login.jsp");
-        return modelAndView;
-    }
-
-    @GetMapping({"/signup"})
-    public ModelAndView signup(ModelAndView modelAndView){
-        modelAndView.setViewName("/WEB-INF/views/login/signup.jsp");
-        return modelAndView;
-    }
 }
