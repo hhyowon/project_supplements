@@ -14,15 +14,26 @@ import com.example.project_supplements.dao.SharedDao;
 public class RankService {
     @Autowired 
     SharedDao sharedDao;
-
+  
     //설문 랭킹 
-
-       public Object surveyRankFirst(Map dataMap){
+ 
+       public Object surveyRankFirst(Map dataMap){   
         String sqlMapId = "SurveyRank.surveyRankFirst";
-        HashMap result = new HashMap<>();
-        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
-        return result;
-    }
+        HashMap firstresult = new HashMap<>();
+        firstresult.put("firstresultList", sharedDao.getList(sqlMapId, dataMap));
+        return firstresult;}
 
+        public Object surveyRankSecond(Map dataMap){   
+        String sqlMapId = "SurveyRank.surveyRankSecond";
+        HashMap secondresult = new HashMap<>();
+        secondresult.put("secondresultList", sharedDao.getList(sqlMapId, dataMap));
+        return secondresult;}
+
+       public Object surveyRankThird(Map dataMap){   
+       String sqlMapId = "SurveyRank.surveyRankThird";
+       HashMap thirdresult = new HashMap<>();
+       thirdresult.put("thirdresultList", sharedDao.getList(sqlMapId, dataMap));
+       return thirdresult;}
+     
     }
 
