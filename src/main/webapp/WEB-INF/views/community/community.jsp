@@ -64,7 +64,7 @@
                             <tr>
                                 <td><%= i+1 %></td>
                                 <td><%= record.get("CATEGORY") %></td>
-                                <td><a href="/community/communityPost/<%= record.get("COMMUNITY_ID") %>"><%= record.get("COMMUNITY_TITLE") %></a></td>
+                                <td><a style=" color:black; text-decoration: none;" href="/community/communityPost/<%= record.get("COMMUNITY_ID") %>"><%= record.get("COMMUNITY_TITLE") %></a></td>
                                 <td><%= record.get("USER_ID") %></td>
                                 <td><%= record.get("COMMUNITY_DATE") %></td>
                             </tr>
