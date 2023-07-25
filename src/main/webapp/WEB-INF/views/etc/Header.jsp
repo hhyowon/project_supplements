@@ -12,7 +12,7 @@
             <nav class="navbar navbar-expand">
                 <div class="navbar-brand">
                     <div>
-                        <a href="/main">
+                        <a href="/home">
                             <img class="mb-4" src="/html/img/logo.PNG" alt width="220" height="90">
                         </a>
                     </div>

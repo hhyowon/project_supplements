@@ -39,5 +39,15 @@
         ;
 	</select>
 
+    <!-- 해당 게시글 보기-->
+        <select id="communityPost" parameterType="Map" resultType="Map">
+        SELECT COMMUNITY_ID,COMMUNITY_TITLE, COMMUNITY_CONTENT, USER_ID ,COMMUNITY_DATE
+        FROM project_diet.community
+        WHERE COMMUNITY_ID = #{COMMUNITY_ID}
+        order by COMMUNITY_DATE DESC;
+        </select>
+
+
+
 </mapper>
 

@@ -15,7 +15,7 @@
         HashMap result=(HashMap)request.getAttribute("result");%>
 
           <div class="container">
-                <div class=text-center><h2 style="color: #5B9BD5;">설문조사 결과</h2></div>
+                <div class=text-center ><h2 class="ui teal image header text-center">설문조사 결과 (복용 경험 있는 자)</h2></div>
                 <br>
             <table class="table table-bordered ">
                 <thead>
@@ -28,6 +28,8 @@
                 <tbody> 
                     <% 
                     ArrayList resultList=(ArrayList)result.get("resultList");
+                    String previousquestion = "";
+
                     for (int i=0; i < resultList.size(); i++) 
                     {HashMap record=(HashMap)resultList.get(i); 
                     String surveyquestion=(String)record.get("SURVEY_QUESTION"); 
@@ -35,7 +37,15 @@
                     Long surveycount=(Long)record.get("COUNT(*)"); 
                     %>
                     <tr> 
-                        <td><%= surveyquestion %></td>
+                        <% 
+                        if (!surveyquestion.equals(previousquestion)) { 
+                        %>
+                         <td><%= surveyquestion %></td>
+                            <%previousquestion = surveyquestion;} 
+                            else {previousquestion = surveyquestion;%>
+                                <td></td>
+                                <%} %>
+
                          <td><%= surveyoption %></td>
                          <td><%= surveycount %></td>
                     </tr>
@@ -44,7 +54,7 @@
             </table>
         </div>
     </div>
-    
+    <%@ include file="/WEB-INF/views/etc/Footer.jsp" %>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </html>

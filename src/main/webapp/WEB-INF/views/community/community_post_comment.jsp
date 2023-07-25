@@ -15,30 +15,57 @@
 
   <%@ include file= "/WEB-INF/views/etc/Header.jsp" %>
 
-  <div class="container ">
-  
+  <% 
+  HashMap params=(HashMap)request.getAttribute("params"); 
+  String searchStr=(String)params.getOrDefault("search", ""); 
+  HashMap result=(HashMap)request.getAttribute("result"); 
+  %>
+
+  <% ArrayList resultList=(ArrayList)result.get("resultList"); 
+                    for(int i=0; i < resultList.size(); i=i+1){
+                        HashMap record=(HashMap)resultList.get(i); %>
+
+  <div class="container">
     <br>
-    <div class="container mx-auto" style="padding: 20px; border-radius: 10px ; width: 50%;">
-      <table class="table table-bordered">
-        <tbody>
-          <tr style="background-color: #5B9BD5; color: white;">
-            <td>글쓴이</td>
-            <td>글 제목</td>
-            <td>작성일자</td>
-            <td>글 내용</td>
-          </tr>          
-        </tbody>
+    <div class="container mx-auto" style="border-radius: 10px; width: 70%; padding: 20px; border: 1px solid #ececec;">
+      <table class="tb tb_row" style="border: 1px solid #ececec; width: 100%;">
+          <colgroup>
+              <col style="width: 10%;" /><col style="width: 30%;" /><col style="width: 10%;" /><col style="width: 30%;" />
+          </colgroup>
+          <tbody>
+              <tr style="border: 1px solid #ececec;">
+                  <th scope="row" style="background-color: #eeeeee; text-align: center;">작성자</th>
+                  <td><%= record.get("USER_ID") %></td>
+                  <th scope="row" style="background-color: #eeeeee; text-align: center;">등록일</th>
+                  <td><%= record.get("COMMUNITY_DATE") %></td>
+              </tr>
+              <tr style="border: 1px solid #ececec;">
+                  <th scope="row" style="background-color: #eeeeee; text-align: center;">제목</th>
+                  <td colspan="3"><%= record.get("COMMUNITY_TITLE") %></td>
+              </tr>
+              <tr style="border: 1px solid #ececec;">
+                  <th scope="row" style="background-color: #eeeeee; text-align: center;">내용</th>
+                  <td colspan="3" style="height: 200px;"><%= record.get("COMMUNITY_CONTENT") %></td>
+              </tr>
+          </tbody>
       </table>
-      <form>
-        <textarea name="comment" rows="3" cols="79" style="background-color: #e0e2e4;"  placeholder="해당 내용에 대해 답변해주세요"></textarea><br>
-        <button class="btn mx-2  mb-2 float-end submit " style="background-color: #5B9BD5; color: white; border-color: transparent;">댓글달기</button>
-    </form>
-      <a href="/community"> <button class="btn mx-2  mb-2 float-end submit btn-outline-secondary" >목록</button></a>
+      <br>
+  
+        <% } %>
+        <form style="display: inline-flex;">
+          <textarea name="comment" rows="3" cols="100" style="border: 1px solid #dddddd; flex: 1;" placeholder="소통을 위한 댓글창입니다"></textarea>
+          <button class="btn mx-2 mb-2 float-end submit btn-outline-secondary">작성하기</button>
+        </form>
+
     </div>
+    <div class="container" style="text-align: center; padding: 10%;">
+       <a href="/community"> <button class="btn mx-2 mb-2 submit btn-outline-secondary">목록보기</button></a>
+    </div>
+   
   </div>
 
-
 </body>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </html>
