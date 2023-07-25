@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,15 +42,15 @@ public class SurveyController {
 
     //복용한자의 설문지 뽑아오기
      @GetMapping({"/yes"})
-    public ModelAndView surveyyes(@RequestParam Map params,ModelAndView modelAndView){
+    public ModelAndView surveyyes( @RequestParam Map params,ModelAndView modelAndView){
         Object result = surveyService.surveyyes(params);
-        modelAndView.addObject("params", params);
+        modelAndView.addObject("params", params); 
         modelAndView.addObject("result", result);
         modelAndView.setViewName("/WEB-INF/views/survey/survey_yes.jsp");
         return modelAndView;
     }
 
-    //설문 결과 INSERT
+    //설문 결과 INSERT(복용안한자)
     @GetMapping("/insertAndSelectSurvey")
     public ModelAndView insertAndSelectSurvey(@RequestParam Map params,
             ModelAndView modelAndView) {
@@ -62,9 +63,9 @@ public class SurveyController {
         return modelAndView;
     }
 
-    //설문 결과 INSERT
+    //설문 결과 INSERT(복용한자)
     @GetMapping("/insertAndSelectSurvey_yes")
-    public ModelAndView insertAndSelectSurvey_yes(@RequestParam Map params,
+    public ModelAndView insertAndSelectSurvey_yes( @RequestParam Map params,
             ModelAndView modelAndView) {
         Object result = surveyService.insertAndSelectSurvey_yes(params);
 

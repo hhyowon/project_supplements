@@ -5,7 +5,7 @@
 	<select id="selectByUID" parameterType="Map" resultType="Map">
         SELECT * 
         FROM members
-        where USER_ID = #{USERNAME};
+        where USER_ID = #{username};
 	</select>
 
           <!-- 찐 입력(회원가입) -->

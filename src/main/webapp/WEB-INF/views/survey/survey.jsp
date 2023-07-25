@@ -13,7 +13,7 @@
 </head>
 <body style="background-color:white" >
   <%@ include file= "/WEB-INF/views/etc/Header.jsp" %> <!-- Menu -->
-  
+  <form action="">
   <div class="container" >
     <div class="text-center">
         <br> <br> 
@@ -40,12 +40,9 @@
                 식품 보충제의 효과성 향상에 기여할 것입니다.
               </div>
               <div class="text-center mt-4 mb-4">
-                <a href="/survey/no" class="btn btn-main" >로그인시</a>
-
-                <!-- <button class="btn btn-main" formaction="/survey/no" >로그인시</button> -->
-                <button type="button" class="btn btn-main" data-bs-toggle="modal" data-bs-target="#myModal">
-                  시작하기
-                </button>
+                <input type="hidden" name="SURVEY_TYPE_ID" value="F-01">
+                <button type="submit"  formaction="/survey/no" class="btn btn-main" name="SURVEY_TYPE_ID" value="F-01">로그인시</button>
+                <button type="button" class="btn btn-white btn-main" data-bs-toggle="modal" data-bs-target="#myModal2"> 시작하기</button>
                 <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered modal-sm">
                     <div class="modal-content">
@@ -64,7 +61,7 @@
             </div>
           </div>
         </div>
-
+        
         <div class="col-md-6">
           <div class="card mb-4" style="border-radius: 50px; border-width: 4px;">
             <div class="pro-card-color card-title text-center mt-4">
@@ -81,10 +78,9 @@
                 식품 보충제의 효과성 향상에 기여할 것입니다.
               </div>
               <div class="text-center mt-4 mb-4">
-                <a href="/survey/yes" class="btn btn-main">로그인시</a>
-                <button type="button" class="btn btn-white btn-main" data-bs-toggle="modal" data-bs-target="#myModal2">
-                  시작하기
-                </button>
+                <input type="hidden" name="SURVEY_TYPE_ID" value="F-02">
+                <button type="submit"  formaction="/survey/yes" class="btn btn-main" name="SURVEY_TYPE_ID" value="F-02"  >로그인시</button>
+                <button type="button" class="btn btn-white btn-main" data-bs-toggle="modal" data-bs-target="#myModal2"> 시작하기</button>
                 <div class="modal fade" id="myModal2" tabindex="-1" aria-labelledby="myModalLabel2" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered modal-sm">
                     <div class="modal-content">
@@ -105,7 +101,7 @@
         </div>
       </div>
     </div>
-
+  </form>
     <div class="text-center" style="color: red;">
       ※ 질병의 진단 및 치료는 전문 의료 기관을 이용해 주십시오.
     </div>
