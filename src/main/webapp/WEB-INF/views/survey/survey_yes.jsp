@@ -35,17 +35,22 @@
                     String surveyQuestionId = (String) record.get("SURVEY_QUESTION_ID");
                     String surveyQuestion = (String) record.get("SURVEY_QUESTION");
                     String surveyOpt = (String) record.get("SURVEY_OPT");
+                    String surveyOptId = (String) record.get("SURVEY_OPT_ID");
 
                     if (!surveyQuestionId.equals(compare)) { // 이전 질문 ID와 다르면 (새로운 질문)
                         compare = surveyQuestionId; // 이전 질문 ID 업데이트
                     %>
                             
-                        </br></br><%= surveyQuestion %> </br>
-                        <input type="radio"> <%= surveyOpt %>
+                        </br></br>
+                        <div>
+                            <label name="SURVEY_QUESTION_ID" value="<%= surveyQuestionId %>" ><%= surveyQuestion %> </label>
+                        </div>
+                        
                             
+                     <label><input type="radio"  name="<%= surveyQuestionId %>" value="<%= surveyOptId %>" > <%= surveyOpt %> </label>
                     <%     } else {
                     %> 
-                        <input type="radio">  <%= surveyOpt %>
+                    <label><input type="radio"  name="<%= surveyQuestionId %>" value="<%= surveyOptId %>" > <%= surveyOpt %> </label>
                     <%     }  }
                     %>
                 
@@ -54,7 +59,7 @@
         <div class="container bg-white fs-6 py-6 row mx-auto my-3">
             <div class="text-center d-flex justify-content-center py-2">
                 <button type="submit" formaction="/main" class="btn btn-white mx-2 btn-outline-dark" style="border-color: black; color: black;">닫기</button>
-                <button type="submit" formaction="/survey/insertsurvey" class="btn btn-white btn-outline-dark" style="background-color: #5B9BD5; color: white; border-color: transparent;"data-bs-toggle="modal" data-bs-target="#myModal">설문제출</button>
+                <button type="submit" formaction="/survey/insertAndSelectSurvey_yes" class="btn btn-white btn-outline-dark" style="background-color: #5B9BD5; color: white; border-color: transparent;"data-bs-toggle="modal" data-bs-target="#myModal">설문제출</button>
             </div>
         </div>
         
