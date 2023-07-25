@@ -32,7 +32,7 @@
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
                 <div>
-                    <a class="nav-link" href="./admin/userList.html" style="color:black">관리자전용</a>
+                    <a class="nav-link" href="/admin" style="color:black">관리자전용</a>
                 </div>
                 </sec:authorize>
                 
@@ -58,7 +58,7 @@
                         </sec:authorize>
                         <!-- 로그인 후-->
                         <sec:authorize access="isAuthenticated()">
-                            <li class="dropdown-item">
+                            <li class="dropdown-item"> 
                                 <button class="nav-link btn btn-none" formaction="/logout" method="post">로그아웃</button>
                             </li>
                         </sec:authorize>

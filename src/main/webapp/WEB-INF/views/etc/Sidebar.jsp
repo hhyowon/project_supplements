@@ -23,9 +23,6 @@
             <a href="/mypage" class="text-decoration-none nav-link">나의 BMI</a>
          </li>
           <br>
-          <li class="d-flex align-items-center">
-            <a href="./mainnavs.html" class="text-decoration-none nav-link fw-bold">로그아웃</a>
-          </li>
         </ul>
       </div>
     </nav>
