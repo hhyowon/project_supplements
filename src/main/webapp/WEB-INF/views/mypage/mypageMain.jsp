@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <form action="/mypage/main"> <!-- 폼-->
+  
   <%@ include file= "/WEB-INF/views/etc/Header.jsp" %> <!-- header -->
  <main>
   <div class="row g-0 vh-100">
@@ -38,6 +38,7 @@
         %>
 
     <div class="container col-9 pb-5 px-5" style="width: 700px;">
+<form action="/mypage/updateAndSelectSearch" method="get"> <!-- 폼-->
       <!-- <form action="/mypage/main">  폼-->
         <div class="px-5">
           <div class="py-2">
