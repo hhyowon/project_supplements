@@ -39,8 +39,6 @@ public class CommunityService {
     }    
 
   
-
-
     //커뮤니티 테이블 리스트    
         public Map selectCommunity(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
@@ -50,7 +48,15 @@ public class CommunityService {
         return result;
     }
 
-   
+    //게시글보기
+    public Object selectPost(String COMMUNITY_ID, Map dataMap) {
+        // Object getOne(String sqlMapId, Object dataMap)
+        String sqlMapId = "Commu.communityPost";
+        dataMap.put("COMMUNITY_ID", COMMUNITY_ID); 
+        HashMap result = new HashMap<>();
+        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+        return result;
+    }
   
     // 페이지네이션
       public Map selectWithPagination(Map dataMap) {
@@ -82,10 +88,10 @@ public class CommunityService {
 
  	
 
-       
 
-    }
-    
+}
+
+
 
 
   

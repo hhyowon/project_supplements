@@ -29,7 +29,7 @@
                             효능별 BEST 3
                             <hr class='hr-solid' />
                         </h2>
-                  
+                      
                        
                         <table class="table table-striped table-hover">
                             <tbody>
@@ -177,7 +177,7 @@
 
                         <h6 class="text-center"> 본 랭킹은 구매자들의 실제 후기 및 설문조사로 이루어진 랭킹임을 알려드립니다.</h6>
                     </div>
-
+                    <%@ include file="/WEB-INF/views/etc/Footer.jsp" %>
 
         </body>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

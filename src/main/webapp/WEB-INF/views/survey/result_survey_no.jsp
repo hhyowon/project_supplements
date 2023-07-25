@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/maintool.css">
-    <title>복용한자의 폼</title>
+    <title>복용하지 않은 자의 폼</title>
 </head>
     
     <body>
@@ -16,7 +16,7 @@
         HashMap result=(HashMap)request.getAttribute("result");%>
    
           <div class="container">
-                <div class=text-center><h2 style="color: #5B9BD5;">설문조사 결과</h2></div>
+                <div class=text-center><h2 class="ui teal image header text-center">설문조사 결과 (복용 경험 없는 자)</h2></div>
                 <br>
             <table class="table table-bordered ">
                 <thead>
@@ -30,6 +30,7 @@
                     <% 
                     ArrayList resultList=(ArrayList)result.get("resultList");
                     String previousquestion = "";
+
                     for (int i=0; i < resultList.size(); i++) 
                     {HashMap record=(HashMap)resultList.get(i); 
                     String surveyquestion=(String)record.get("SURVEY_QUESTION"); 
@@ -37,11 +38,14 @@
                     Long surveycount=(Long)record.get("COUNT(*)"); 
                     %>
                     <tr> 
-                        <% if (!surveyquestion.equals(previousquestion)) { %>
-                           
-                            <td><%= surveyquestion %></td>
-                            <%previousquestion = surveyquestion;  } %>
-                            <%else {previousquestion = surveyquestion; } %>
+                        <% 
+                        if (!surveyquestion.equals(previousquestion)) { 
+                        %>
+                         <td><%= surveyquestion %></td>
+                            <%previousquestion = surveyquestion;} 
+                            else {previousquestion = surveyquestion;%>
+                                <td></td>
+                                <%} %>
 
                          <td><%= surveyoption %></td>
                          <td><%= surveycount %></td>
@@ -51,6 +55,7 @@
             </table>
         </div>
         </div>
+        <%@ include file="/WEB-INF/views/etc/Footer.jsp" %>
     
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

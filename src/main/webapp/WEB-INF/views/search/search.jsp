@@ -14,8 +14,9 @@
 
       <%@ include file="/WEB-INF/views/etc/Header.jsp" %> <!-- Menu -->
 
-        <% HashMap params=(HashMap) request.getAttribute("params"); String searchStr=(String)
-          params.getOrDefault("search", "" ); HashMap result=(HashMap) request.getAttribute("result"); %>
+        <% HashMap params=(HashMap) request.getAttribute("params");
+           String searchStr=(String) params.getOrDefault("search", "" ); 
+           HashMap result=(HashMap) request.getAttribute("result"); %>
 
           <div class="container">
             <h2 class="ui teal image header text-center">

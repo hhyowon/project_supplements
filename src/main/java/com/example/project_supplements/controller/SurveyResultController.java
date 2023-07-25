@@ -22,7 +22,7 @@ public class SurveyResultController {
 
      @GetMapping({"/result_yes"})
      public ModelAndView result_yes(@RequestParam Map params, ModelAndView modelAndView){
-        Object result = surveyResultService.surveyResultNo(params);
+        Object result = surveyResultService.surveyResultYes(params);
 
          modelAndView.addObject("params", params);
          modelAndView.addObject("result", result);
@@ -32,7 +32,7 @@ public class SurveyResultController {
 
      @GetMapping({"/result_no"})
      public ModelAndView result_no(@RequestParam Map params, ModelAndView modelAndView){
-         Object result = surveyResultService.surveyResultYes(params);
+         Object result = surveyResultService.surveyResultNo(params);
 
          modelAndView.addObject("params", params);
          modelAndView.addObject("result", result);
