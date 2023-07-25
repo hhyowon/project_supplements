@@ -19,7 +19,7 @@ public class AdminController {
     @Autowired
     AdminService adminService;
 
-    @GetMapping({" "})
+    @GetMapping({""})
     public ModelAndView main(@RequestParam Map<String, String> params, ModelAndView modelAndView) {
         Object result = adminService.selectWithPagination(params); // params 맵을 인자로 전달하여 검색 결과를 가져 옴
 

@@ -65,4 +65,5 @@ public class SearchService  {
         Object result = sharedDao.getOne(sqlMapId, dataMap);
         return result;
     }
+
 }

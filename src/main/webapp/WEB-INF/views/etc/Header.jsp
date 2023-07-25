@@ -30,11 +30,11 @@
                         Name : ${userDetailsBean.memberName}
                     </li>
                 </sec:authorize>
-                <sec:authorize access="isAuthenticated()">
+                
                 <div>
-                    <a class="nav-link" href="./admin/userList.html" style="color:black">관리자전용</a>
+                    <a class="nav-link" href="/admin" style="color:black">관리자전용</a>
                 </div>
-                </sec:authorize>
+               
                 
                
                 <div class="dropdown nav-item">
