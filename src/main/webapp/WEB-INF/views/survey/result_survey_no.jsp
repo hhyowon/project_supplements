@@ -30,6 +30,7 @@
                     <% 
                     ArrayList resultList=(ArrayList)result.get("resultList");
                     String previousquestion = "";
+
                     for (int i=0; i < resultList.size(); i++) 
                     {HashMap record=(HashMap)resultList.get(i); 
                     String surveyquestion=(String)record.get("SURVEY_QUESTION"); 
@@ -37,11 +38,14 @@
                     Long surveycount=(Long)record.get("COUNT(*)"); 
                     %>
                     <tr> 
-                        <% if (!surveyquestion.equals(previousquestion)) { %>
-                           
-                            <td><%= surveyquestion %></td>
-                            <%previousquestion = surveyquestion;  } %>
-                            <%else {previousquestion = surveyquestion; } %>
+                        <% 
+                        if (!surveyquestion.equals(previousquestion)) { 
+                        %>
+                         <td><%= surveyquestion %></td>
+                            <%previousquestion = surveyquestion;} 
+                            else {previousquestion = surveyquestion;%>
+                                <td></td>
+                                <%} %>
 
                          <td><%= surveyoption %></td>
                          <td><%= surveycount %></td>
