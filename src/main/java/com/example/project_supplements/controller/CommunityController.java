@@ -7,12 +7,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.project_supplements.service.CommunityService;
-
 
 @Controller
 
@@ -21,8 +21,8 @@ import com.example.project_supplements.service.CommunityService;
 public class CommunityController {
     @Autowired
     CommunityService communityService;
-    
-    @GetMapping({" "})
+
+    @GetMapping({ " " })
     public ModelAndView community(@RequestParam Map<String, String> params, ModelAndView modelAndView) {
         // Map<String, String>으로 타입을 지정했으며, 파라미터의 이름과 값은 모두 문자열(String)로 처리
         Object result = communityService.selectWithPagination(params); // params 맵을 인자로 전달하여 검색 결과를 가져 옴
@@ -33,15 +33,19 @@ public class CommunityController {
         return modelAndView;
     }
 
-    @GetMapping({"/communityComment"})
-    public ModelAndView main(ModelAndView modelAndView){
+    // 해당 게시글 가져오기
+    @GetMapping({"/communityPost/{COMMUNITY_ID}"})
+    public ModelAndView communityPost(@PathVariable String COMMUNITY_ID, @RequestParam Map params,ModelAndView modelAndView) {
+         Object result = communityService.selectPost(COMMUNITY_ID,params);
+
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
         modelAndView.setViewName("/WEB-INF/views/community/community_post_comment.jsp");
-        return modelAndView;
+        return modelAndView; 
     }
 
-
-        @GetMapping("/communityModal")
-        public ModelAndView communityModal(@RequestParam Map<String, String> params, ModelAndView modelAndView) {
+    @GetMapping("/communityModal")
+    public ModelAndView communityModal(@RequestParam Map<String, String> params, ModelAndView modelAndView) {
         // 데이터를 저장할 HashMap 객체인 dataMap을 생성합니다.
         Map<String, Object> dataMap = new HashMap<>();
 
@@ -56,8 +60,8 @@ public class CommunityController {
 
         // communityService.insert 메서드의 파라미터를 dataMap으로 변경하고 호출합니다.
         Object result = communityService.insert(dataMap);
-        //여기에 추가
-        
+        // 여기에 추가
+
         // 모델에 필요한 데이터를 추가합니다.
         modelAndView.addObject("params", params); // 모달에서 전달된 원래의 params 맵
         modelAndView.addObject("result", result); // 삽입 결과
@@ -67,11 +71,4 @@ public class CommunityController {
         return modelAndView;
     }
 
-
-  
-
 }
-
-
-
-    
