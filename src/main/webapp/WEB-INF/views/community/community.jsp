@@ -50,8 +50,8 @@
                     <table class="table table-bordered" style="text-align: center;">
                          <thead>
                             <tr>
-                                <th>번호</th>
-                                <th>카테고리</th>
+                                <th style="width: 7%;">번호</th>
+                                <th style="width: 10%;">카테고리</th>
                                 <th>제목</th>
                                 <th>등록자</th>
                                 <th>등록일</th>
@@ -64,7 +64,7 @@
                             <tr>
                                 <td><%= i+1 %></td>
                                 <td><%= record.get("CATEGORY") %></td>
-                                <td><a href="/communityComment"><%= record.get("COMMUNITY_TITLE") %></a></td>
+                                <td><a href="/community/communityPost/<%= record.get("COMMUNITY_ID") %>"><%= record.get("COMMUNITY_TITLE") %></a></td>
                                 <td><%= record.get("USER_ID") %></td>
                                 <td><%= record.get("COMMUNITY_DATE") %></td>
                             </tr>
