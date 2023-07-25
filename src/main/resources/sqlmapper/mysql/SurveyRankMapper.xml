@@ -1,12 +1,10 @@
-  
-  <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="SurveyRank">
-    
-    <!-- 랭킹  -->
 
+    <!-- 랭킹  -->
     <select id="surveyRankFirst" parameterType="Map" resultType="Map">
-    SELECT T_SURVEYOPT.SURVEY_OPT_URL
+    SELECT T_SURVEYOPT.SURVEY_OPT_URL AS SURVEY_RANK_FIRST
     FROM (
     SELECT T_SURVEY.SURVEY_UID
     FROM SURVEY AS T_SURVEY
@@ -21,9 +19,8 @@
     LIMIT 3;
 	</select>
 
-   
    <select id="surveyRankSecond" parameterType="Map" resultType="Map">
-    SELECT T_SURVEYOPT.SURVEY_OPT_URL
+    SELECT T_SURVEYOPT.SURVEY_OPT_URL AS SURVEY_RANK_SECOND
     FROM (
     SELECT T_SURVEY.SURVEY_UID
     FROM SURVEY AS T_SURVEY
@@ -36,12 +33,10 @@
     GROUP BY T_SURVEYOPT.SURVEY_OPT_URL
     ORDER BY COUNT(*) DESC
     LIMIT 3;
-	</select>
+	</select>    
 
-
-
-    <select id="surveyRankThree" parameterType="Map" resultType="Map">
-    SELECT T_SURVEYOPT.SURVEY_OPT_URL
+    <select id="surveyRankThird" parameterType="Map" resultType="Map">
+    SELECT T_SURVEYOPT.SURVEY_OPT_URL AS SURVEY_RANK_THIRD
     FROM (
     SELECT T_SURVEY.SURVEY_UID
     FROM SURVEY AS T_SURVEY
@@ -54,12 +49,6 @@
     GROUP BY T_SURVEYOPT.SURVEY_OPT_URL
     ORDER BY COUNT(*) DESC
     LIMIT 3;
-	</select>
-
-
+	</select>   
+     
 </mapper>
-
-
-
- 
-

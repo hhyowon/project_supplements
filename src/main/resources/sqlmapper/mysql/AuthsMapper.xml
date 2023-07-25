@@ -6,7 +6,7 @@
         FROM auths
                 inner JOIN auth_names
         ON auths.UNIQUE_ID = auth_names.UNIQUE_ID
-        AND auths.USER_ID = #{USER_ID}
+        AND auths.USER_ID = #{USER_ID} 
         ;
         </select>
 
@@ -16,7 +16,7 @@
         (USER_ID, UNIQUE_ID)
         values
         <foreach item="auth" collection="authList"
-            separator="," nullable="true">
+            separator=",">
         (#{USER_ID},#{auth})
         </foreach>        
         ;

@@ -17,10 +17,22 @@ public class SurveyResultService {
 
     // 설문 결과 
 
-    public Object surveyResult01(Map dataMap){
-        String sqlMapId = "SurveyResult.surveyresult01";
-        String result = (String)sharedDao.getOne(sqlMapId, dataMap);
+    public Object surveyResultNo(Map dataMap){
+        String sqlMapId = "SurveyResult.surveyresult_no";
+        HashMap result = new HashMap<>();
+        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+        return result;
+    }
+
+     public Object surveyResultYes(Map dataMap){
+        String sqlMapId = "SurveyResult.surveyresult_yes";
+        HashMap result = new HashMap<>();
+        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;
     }
 
 }
+
+
+
+

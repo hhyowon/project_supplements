@@ -4,8 +4,8 @@
 
 	<select id="selectByUID" parameterType="Map" resultType="Map">
         SELECT * 
-        FROM users
-        where UNIQUE_ID = #{USERNAME}
+        FROM members
+        where USER_ID = #{USERNAME};
 	</select>
 
           <!-- 찐 입력(회원가입) -->

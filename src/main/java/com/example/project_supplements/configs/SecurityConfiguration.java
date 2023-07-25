@@ -23,8 +23,8 @@ public class SecurityConfiguration {
                 .requestMatchers("/carInfor/map/*").hasRole("USER")
                         .anyRequest().permitAll() //그외 전체 대상
                 ;
-                httpSecurity.formLogin(login -> login.loginPage("/login") //로그인 하지 않은 사람이 로그인한 후에 접근 가능한 페이지를 눌렀을때 로그인 폼을 띄어라
-                                .failureUrl("/login?fail=true") 
+                httpSecurity.formLogin(login -> login.loginPage("/loginForm") //로그인 하지 않은 사람이 로그인한 후에 접근 가능한 페이지를 눌렀을때 로그인 폼을 띄어라
+                                .failureUrl("/loginForm?fail=true") 
                                 .loginProcessingUrl("/login") 
                                 .defaultSuccessUrl("/")); //로그인 하고 나면 메인으로 간다
                 httpSecurity.logout(logout -> logout

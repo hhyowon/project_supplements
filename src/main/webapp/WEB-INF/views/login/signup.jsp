@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/maintool.css">
 </head>  
 <body>
-  <%@ include file= "/WEB-INF/views/etc/Header.jsp" %>
+  
   <!-- Menu -->
       <div class="container">
         <div class="container text-center">

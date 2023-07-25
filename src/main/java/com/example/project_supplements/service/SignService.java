@@ -40,7 +40,6 @@ public class SignService {
     public Object insertWithAuths(Map dataMap){
         Object result = this.insert(dataMap);
         result = authsService.insert(dataMap);
-
         return result;
     }
 
@@ -52,7 +51,7 @@ public class SignService {
     }
 
     public Object selectByUIDWithAuths(Map dataMap) {
-        Map result = (Map) this.selectByUID(dataMap);
+         Map result = (Map) this.selectByUID(dataMap);
         result.putAll(authsService.selectWithUSERNAME(dataMap));
         return result;
     }

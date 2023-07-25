@@ -7,9 +7,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LoginController {
 
-     @GetMapping({"/login"})     // 로그인 폼 작성
+     @GetMapping({"/loginForm"})     // 로그인 폼 작성
     public ModelAndView loginForm(ModelAndView modelAndView){
-        String viewName = "/WEB-INF/views/login/login.jsp";
+        String viewName = "/WEB-INF/views/login/loginForm.jsp";
         modelAndView.setViewName(viewName);
         return modelAndView;
     }

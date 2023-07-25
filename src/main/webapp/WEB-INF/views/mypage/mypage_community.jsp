@@ -41,7 +41,7 @@
                     HashMap result=(HashMap)request.getAttribute("result"); %>
                     <tbody id="list">
                         <% ArrayList resultList=(ArrayList)result.get("resultList"); 
-                            String targetUserId = "가배457"; // userid 하드코팅 해놓았음
+                            String targetUserId = "honggd123"; // userid 하드코팅 해놓았음
                             for(int i=0; i < resultList.size(); i=i+1){
                                 HashMap record=(HashMap)resultList.get(i); 
                                 String userId = (String) record.get("USER_ID");
