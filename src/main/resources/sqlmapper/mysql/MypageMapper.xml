@@ -20,18 +20,7 @@
         WHERE USER_ID = 'honggd123'; <!-- 하드코딩-->
     </update>
 
-    <!-- 샘플 테이블 리스트-->
-    <select id="search" parameterType="Map" resultType="Map">
-        SELECT NAME, COMMON_CODE_ID, DESCRIPTION, PARENT_COMMON_CODE_ID
-        FROM project_diet.commons_code
-        ORDER BY PARENT_COMMON_CODE_ID DESC;
-        <choose>
-            <when test="search == 'USER_ID'">
-            and NAME like CONCAT(#{words}, '%')
-            </when>
-        </choose>        
-        ;
-	</select>
+  
 
    <!-- 본인 게시글만 뽑아오기  -->
 	<select id="community" parameterType="Map" resultType="Map">
