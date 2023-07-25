@@ -22,9 +22,7 @@ public class SurveyController {
     @Autowired
     SurveyService surveyService;
 
-    @Autowired 
-    SurveyResultService surveyResultService;
-
+  
     @GetMapping({" "})
     public ModelAndView main(ModelAndView modelAndView){
         modelAndView.setViewName("/WEB-INF/views/survey/survey.jsp");
@@ -78,28 +76,6 @@ public class SurveyController {
     public String generateUUID() {
         return UUID.randomUUID().toString();
     }
-    
-
-
-     @GetMapping({"/result_yes"})
-     public ModelAndView result_yes(@RequestParam Map params, ModelAndView modelAndView){
-        Object result = surveyResultService.surveyResult01(params);
-
-         modelAndView.addObject("params", params);
-         modelAndView.addObject("result", result);
-         modelAndView.setViewName("/WEB-INF/views/survey/result_survey_yes.jsp");
-         return modelAndView;
-     }
-
-     @GetMapping({"/result_no"})
-     public ModelAndView result_no(@RequestParam Map params, ModelAndView modelAndView){
-         Object result = surveyResultService.surveyResult01(params);
-
-         modelAndView.addObject("params", params);
-         modelAndView.addObject("result", result);
-         modelAndView.setViewName("/WEB-INF/views/survey/result_survey_no.jsp");
-         return modelAndView;
-     }
 
 
 }

@@ -13,7 +13,7 @@
         </head>
 
         <body>
-            <%@ include file="/WEB-INF/views/etc/Header.jsp" %> <!-- Menu -->
+            <%@ include file="/WEB-INF/views/etc/Header.jsp" %> 
                 <% HashMap firstparams=(HashMap)request.getAttribute("firstparams"); 
                 HashMap firstresult=(HashMap)request.getAttribute("firstresult"); 
                 HashMap secondparams=(HashMap)request.getAttribute("secondparams"); 
