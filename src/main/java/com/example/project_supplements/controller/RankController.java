@@ -20,7 +20,7 @@ public class RankController {
     @Autowired
     RankService rankService;
 
-    @GetMapping({"/rank"})
+    @GetMapping({""})
     public ModelAndView rank(@RequestParam Map <String, String> firstparams, @RequestParam Map <String, String> secondparams, @RequestParam Map <String, String> thirdparams, ModelAndView modelAndView){
         Object firstresult = rankService.surveyRankFirst(firstparams);
         modelAndView.addObject("firstparams", firstparams);
