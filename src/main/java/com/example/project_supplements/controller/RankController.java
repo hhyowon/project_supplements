@@ -20,14 +20,27 @@ public class RankController {
     @Autowired
     RankService rankService;
 
-    @GetMapping({"rank/rank"})
-    public ModelAndView rank(@RequestParam Map<String, String> params,ModelAndView modelAndView){
-        Object result = rankService.surveyRankFirst(params);
-        modelAndView.addObject("params", params);
-        modelAndView.addObject("result", result);
+    @GetMapping({"/rank"})
+    public ModelAndView rank(@RequestParam Map <String, String> firstparams, @RequestParam Map <String, String> secondparams, @RequestParam Map <String, String> thirdparams, ModelAndView modelAndView){
+        Object firstresult = rankService.surveyRankFirst(firstparams);
+        modelAndView.addObject("firstparams", firstparams);
+        modelAndView.addObject("firstresult", firstresult);
         modelAndView.setViewName("/WEB-INF/views/rank/rank.jsp");
+
+    
+        Object secondresult = rankService.surveyRankSecond(secondparams);
+        modelAndView.addObject("secondparams", secondparams);
+        modelAndView.addObject("secondresult", secondresult);
+        modelAndView.setViewName("/WEB-INF/views/rank/rank.jsp");
+
+        Object thirdresult = rankService.surveyRankThird(thirdparams);
+        modelAndView.addObject("thirdparams", thirdparams);
+        modelAndView.addObject("thirdresult", thirdresult);
+        modelAndView.setViewName("/WEB-INF/views/rank/rank.jsp");
+        
         return modelAndView;
     }
+
 }
 
 
