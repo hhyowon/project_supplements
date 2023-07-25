@@ -28,7 +28,7 @@ public class SecurityConfiguration {
                                 .loginProcessingUrl("/login") 
                                 .defaultSuccessUrl("/")); //로그인 하고 나면 메인으로 간다
                 httpSecurity.logout(logout -> logout
-                                .logoutSuccessUrl("/main")
+                                .logoutSuccessUrl("/home")
                                 .invalidateHttpSession(true)
                                 .deleteCookies("JSESSIONID"));
 

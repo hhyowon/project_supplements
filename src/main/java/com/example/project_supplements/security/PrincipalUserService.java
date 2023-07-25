@@ -22,7 +22,8 @@ public class PrincipalUserService implements UserDetailsService{
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         // query select with ID
         Map dataMap = new HashMap<>();
-        dataMap.put("USERNAME", username);
+        dataMap.put("username", username);
+        
         Object usernameObj = username;
         Map resultMap = (Map) usersService.selectByUIDWithAuths(dataMap);
 

@@ -26,10 +26,10 @@
               <% } %>
               <form class="form-signin" method="post" action="/login" style="margin-top: 20px;">
                 <div class="form-group" style="margin-bottom: 15px;">
-                  <input class="form-control" type="text" name="user_id" placeholder="아이디를 입력하세요" id="idid">
+                  <input class="form-control" type="text" name="username" placeholder="아이디를 입력하세요" id="idid">
                 </div>
                 <div class="form-group" style="margin-bottom: 15px;">
-                  <input class="form-control" type="password" name="PASSWORD" placeholder="비밀번호를 입력하세요" id="idpassword">
+                  <input class="form-control" type="password" name="password" placeholder="비밀번호를 입력하세요" id="idpassword">
                 </div>
                 <div class="form-check" style="margin-bottom: 15px;">
                   <input type="checkbox" class="form-check-input" id="remember">

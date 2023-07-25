@@ -24,44 +24,44 @@
                     <a class="nav-link" href="/rank" style="color:#858688;">랭킹</a>
                     <a class="nav-link" href="/bmi/insertBMI" style="color: #5B9BD5;">BMI</a>
                 </div>
-                <!-- <div>
+                <sec:authorize access="isAuthenticated()">
+                    <li class="nav-link">
+                        User ID : ${userDetailsBean.memberId},
+                        Name : ${userDetailsBean.memberName}
+                    </li>
+                </sec:authorize>
+                <sec:authorize access="isAuthenticated()">
+                <div>
                     <a class="nav-link" href="./admin/userList.html" style="color:black">관리자전용</a>
                 </div>
-                <div>
-                    <a class="nav-link" href="/login" style="color:black">로그인</a>
-                </div> -->
+                </sec:authorize>
+                
                
                 <div class="dropdown nav-item">
                     <button class="btn btn-drak dropdown-toggle"
                         data-bs-toggle="dropdown">회원관리</button><!--버튼 버튼색 버튼화살표토글 / 토글효과 : 드롭다운-->
                     <ul class="dropdown-menu">
                         <!-- 필터 이용해야 될 것 같음-->
+                        <sec:authorize access="isAuthenticated()">
                         <li class="dropdown-item">
                             <a class="nav-link" href="/mypage">마이페이지</a>
                         </li>  
+                        </sec:authorize>
                         <!-- 로그인 전 -->
                         <sec:authorize access="isAnonymous()">
                             <li class="dropdown-item">
                                 <a class="nav-link"  href="/signup">회원가입</a>
                             </li>
                             <li class="dropdown-item">
-                                <a class="nav-link"  href="/login">로그인</button>
+                                <a class="nav-link"  href="/loginForm">로그인</button>
                             </li>
                         </sec:authorize>
                         <!-- 로그인 후-->
                         <sec:authorize access="isAuthenticated()">
-                            <li class="nav-link">
-                                User ID : ${userDetailsBean.username},
-                                Name : ${userDetailsBean.memberName}
-                            </li>
-                            <li>
-                                <button class="nav-link" formaction="/logoutForm">logout Form</button>
+                            <li class="dropdown-item">
+                                <button class="nav-link btn btn-none" formaction="/logout" method="post">로그아웃</button>
                             </li>
                         </sec:authorize>
-                        <li class="dropdown-divider"></li> <!--drowdown메뉴안에서 라인으로 나누기 -->
-                        <li class="dropdown-item">
-                            <a class="nav-link" href="/main">로그아웃</a>
-                        </li>
                     </ul>
                 </div>
 
