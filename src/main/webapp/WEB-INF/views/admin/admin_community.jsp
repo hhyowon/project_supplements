@@ -3,14 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/maintool.css">
-    <title>Document</title>
-</head>
-
 <body>
     <%@ include file= "/WEB-INF/views/etc/Header.jsp" %> <!-- header-->
     <div class="row g-0 vh-100">
@@ -68,9 +60,9 @@
                                 <td><%= record.get("USER_ID") %></td>
                                 <td><%= record.get("COMMUNITY_DATE") %></td>
                                 <td>
-                                    <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="">답변하기</button>
-                                    <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="/admina/deleteAndSelectSearch">삭제</button>
-                                  </td>
+                                    <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="/admina/communityPost/<%= record.get("COMMUNITY_ID") %>">답변하기</button>
+                                    <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="/admina/deleteAndSelectSearch/<%= record.get("COMMUNITY_ID") %>">삭제</button>
+                                  </td> 
                             </tr>
                 
                         </thead>
@@ -80,6 +72,5 @@
             </form>
             </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </html>

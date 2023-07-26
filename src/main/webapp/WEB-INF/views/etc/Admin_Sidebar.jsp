@@ -37,16 +37,8 @@
           >
         </li>
         <br>
-        <li class="d-flex align-items-center">
-          <a
-            href="../mainnavs.html"
-            class="text-decoration-none nav-link fw-bold"
-            >로그아웃</a
-          >
-        </li>
       </ul>
     </div>
   </nav>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </html>

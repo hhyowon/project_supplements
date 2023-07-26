@@ -1,5 +1,10 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page import="java.util.HashMap, java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+<!-- Menu -->
+<sec:authentication property="principal" var="userDetailsBean" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -39,8 +39,14 @@
     <!-- 커뮤니티 글 삭제 -->
         <delete id="delete" parameterType="Map">
             delete from community
-            where CATEGORY_ID = #{CATEGORY_ID}
+            where COMMUNITY_ID = #{COMMUNITY_ID} 
         </delete>
 
+    <!-- 해당 게시글 보기-->
+        <select id="communityPost" parameterType="Map" resultType="Map">
+        SELECT COMMUNITY_ID,COMMUNITY_TITLE, COMMUNITY_CONTENT, USER_ID ,COMMUNITY_DATE
+        FROM project_diet.community
+        WHERE COMMUNITY_ID = #{COMMUNITY_ID}
+        </select>
 </mapper>
 
