@@ -88,26 +88,20 @@ public class MypageService {
     return result;
     }
    
-    //개인정보 수정 
-    public Object communityupdate(Map dataMap) {
-        String sqlMapId = "MypageService.communityupdate";
+    //커뮤니티 본인 글 수정 
+    public Object communityupdate(String COMMUNITY_ID, Map dataMap) {
+        dataMap.put("COMMUNITY_ID", COMMUNITY_ID);
+        String sqlMapId = "MypageService.communityupdate"; 
         Object result = sharedDao.update(sqlMapId, dataMap);
         return result;
     }
-
-    public Object communityupdateAndSelectSearch( Map dataMap) {
-        dataMap.put("USER_ID", "가배"); //유니크 아이디 받아와서 dataMap에 저장
+    //커뮤니티 본인글 수정후 목록 뽑기
+    public Object communityupdateAndSelectSearch( String COMMUNITY_ID, Map dataMap) {
+        dataMap.put("COMMUNITY_ID", COMMUNITY_ID);
+        dataMap.put("USER_ID", "가배"); 
         HashMap result = new HashMap<>();
-        result.put("updateCount", this.communityupdate(dataMap));
-        result.putAll(this.communityselectSearch(dataMap));
-        return result;
-    }
-
-     //select 로 불러오기 
-     public Map communityselectSearch(Map dataMap) {
-        String sqlMapId = "MypageService.communityPost";
-        HashMap result = new HashMap<>();
-        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+        result.put("updateCount", this.communityupdate(COMMUNITY_ID, dataMap));
+        result.putAll((Map)this.mypagecommunity(dataMap));
         return result;
     }
 

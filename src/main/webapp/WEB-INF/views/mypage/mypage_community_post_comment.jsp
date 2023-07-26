@@ -27,34 +27,34 @@
           </colgroup>
           <tbody>
               <tr style="border: 1px solid #ececec;">
-                  <th scope="row" type="none" style="background-color: #eeeeee; text-align: center;">작성자</th>
-                  <td><input type="text" style="text-decoration: none";><%= record.get("USER_ID") %></td>
+                  <th scope="row" type="none" style="background-color: hsl(0, 0%, 93%); text-align: center;">작성자</th>
+                  <td value='<%= record.get("USER_ID") %>' name="USER_ID"> <%= record.get("USER_ID") %></td>
                   <th scope="row" style="background-color: #eeeeee; text-align: center;">등록일</th>
                   <td><%= record.get("COMMUNITY_DATE") %></td>
               </tr>
               <tr style="border: 1px solid #ececec;">
                   <th scope="row" style="background-color: #eeeeee; text-align: center;">제목</th>
-                  <td colspan="3"><%= record.get("COMMUNITY_TITLE") %></td>
+                  <td colspan="3"><input type="none" name = "COMMUNITY_TITLE"  value= '<%= record.get("COMMUNITY_TITLE") %>' ></td>
               </tr>
               <tr style="border: 1px solid #ececec;">
                   <th scope="row" style="background-color: #eeeeee; text-align: center;">내용</th>
-                  <td colspan="3" style="height: 200px;"><%= record.get("COMMUNITY_CONTENT") %></td>
+                  <td colspan="3" style="height: 200px;" > <input type="none" name = "COMMUNITY_CONTENT"  value= '<%= record.get("COMMUNITY_CONTENT") %>' ></td>
               </tr>
           </tbody>
       </table>
       <br>
   
-        <% } %>
+        
 
     </div>
     <div class="container" style="text-align: center; padding: 10%;">
-      <button class="btn mx-2 mb-2 submit btn-outline-secondary" formaction="/mypage/communityupdateAndSelectSearch">수정하기</button>
-       <a href="/mypage/community"> <button class="btn mx-2 mb-2 submit btn-outline-secondary" formaction="/admin/community">목록보기</button></a>
+      <button class="btn mx-2 mb-2 submit btn-outline-secondary" formaction='/mypage/communityupdateAndSelectSearch/<%= record.get("COMMUNITY_ID") %>'>수정하기</button>
+       <a href="/mypage/community"> <button class="btn mx-2 mb-2 submit btn-outline-secondary" formaction="/mypage/community">목록보기</button></a>
     </div>
    
   </div>
   </form>
-
+  <% } %>
 </body>
 
 </html>

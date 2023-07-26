@@ -24,7 +24,7 @@
         </li>
         <li class="d-flex align-items-center">
           <a
-            href="/admin/community"
+            href="/admincommunity/community"
             class="text-decoration-none nav-link"
             >커뮤니티 관리</a
           >

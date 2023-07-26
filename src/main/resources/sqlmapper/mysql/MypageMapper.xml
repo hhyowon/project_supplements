@@ -51,10 +51,9 @@
 	<update id="communityupdate" parameterType="Map">
         UPDATE community
         SET 
-        CATEGORY_ID = #{CATEGORY_ID}
-        ,COMMUNITY_TITLE = #{COMMUNITY_TITLE}
+        COMMUNITY_TITLE = #{COMMUNITY_TITLE}
         ,COMMUNITY_CONTENT = #{COMMUNITY_CONTENT}
-        ,COMMUNITY_DATE = #{COMMUNITY_DATE}
+        ,COMMUNITY_DATE = now()
         WHERE COMMUNITY_ID = #{COMMUNITY_ID}; 
     </update>
 

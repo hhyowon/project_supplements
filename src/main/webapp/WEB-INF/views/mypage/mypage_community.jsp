@@ -46,9 +46,10 @@
                             <td><%= record.get("COMMUNITY_TITLE") %></a></td>
                             <td><%= record.get("USER_ID") %></td>
                             <td><%= record.get("COMMUNITY_DATE") %></td>
+                            
                             <td>
-                                <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="/mypage/communityPost/<%= record.get("COMMUNITY_ID") %>">수정</button>
-                                <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="/mypage/deleteAndSelectSearch/<%= record.get("COMMUNITY_ID") %>">삭제</button>
+                                <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction='/mypage/communityPost/<%= record.get("COMMUNITY_ID") %>'>수정</button>
+                                <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction='/mypage/deleteAndSelectSearch/<%= record.get("COMMUNITY_ID") %>'>삭제</button>
                             </td>
                         </tr>
                         <% }  } %>
