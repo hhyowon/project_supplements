@@ -5,6 +5,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,6 +31,26 @@ public class AdminController {
         return modelAndView;
     }
 
+    // 커뮤니티 관리
+    @GetMapping({"/community"})
+    public ModelAndView community(@RequestParam Map params,ModelAndView modelAndView){
+        
+        Object result = adminService.admincommunity(params);
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
+        modelAndView.setViewName("/WEB-INF/views/admin/admin_community.jsp");
+        return modelAndView;
+    }
 
+        // delete
+    @PostMapping("/deleteAndSelectSearch/{UNIQUE_ID}")
+    public ModelAndView deleteAndSelectSearch(@RequestParam Map params,
+            @PathVariable String UNIQUE_ID, ModelAndView modelAndView) {
+        Object result = adminService.deleteAndSelectSearch(UNIQUE_ID, params); // 호출
+        modelAndView.addObject("params", params); // modelAndView 객체에 params와 result를 추가
+        modelAndView.addObject("result", result);
 
+        modelAndView.setViewName("/WEB-INF/views/list_map_ex.jsp");
+        return modelAndView;
+    }
 }
