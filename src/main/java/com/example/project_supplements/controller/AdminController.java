@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import com.example.project_supplements.service.AdminService;
+import com.example.project_supplements.utils.Commons;
 
 
 @Controller
@@ -20,6 +21,9 @@ import com.example.project_supplements.service.AdminService;
 public class AdminController {
     @Autowired
     AdminService adminService;
+
+    @Autowired
+    Commons commons;
 
     @GetMapping({"/"})
     public ModelAndView main(@RequestParam Map<String, String> params, ModelAndView modelAndView) {
@@ -42,15 +46,14 @@ public class AdminController {
         return modelAndView;
     }
 
-        // delete
-    @PostMapping("/deleteAndSelectSearch/{UNIQUE_ID}")
-    public ModelAndView deleteAndSelectSearch(@RequestParam Map params,
-            @PathVariable String UNIQUE_ID, ModelAndView modelAndView) {
-        Object result = adminService.deleteAndSelectSearch(UNIQUE_ID, params); // 호출
+    // 커뮤니티 delete
+    @GetMapping("/deleteAndSelectSearch")
+    public ModelAndView deleteAndSelectSearch(@RequestParam Map params, ModelAndView modelAndView) {
+        Object result = adminService.deleteAndSelectSearch(params); // 호출
         modelAndView.addObject("params", params); // modelAndView 객체에 params와 result를 추가
         modelAndView.addObject("result", result);
 
-        modelAndView.setViewName("/WEB-INF/views/list_map_ex.jsp");
+        modelAndView.setViewName("/WEB-INF/views/admin/admin_community.jsp");
         return modelAndView;
     }
 }

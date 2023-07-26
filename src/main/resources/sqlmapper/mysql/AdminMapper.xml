@@ -36,5 +36,11 @@
         ORDER BY  CO.COMMUNITY_DATE DESC;
         </select>
 
+    <!-- 커뮤니티 글 삭제 -->
+        <delete id="delete" parameterType="Map">
+            delete from community
+            where CATEGORY_ID = #{CATEGORY_ID}
+        </delete>
+
 </mapper>
 

@@ -20,8 +20,8 @@
                 <h1 class="h3 mb-3 fw-normal">커뮤니티 관리</h1>
             </div>
             <br>
-            <div class="container">
-                <form action="">
+            <form action="">
+                <div class="container">
                     <div class="d-flex justify-content-center align-items-center input-group mb-3">
                         <div class="d-flex align-items-center">
                             <div class="input-group">
@@ -37,10 +37,10 @@
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
+             
+                    </div>
 
-            <div class="container">
+                <div class="container">
                 <table class="ui celled table table text-center table-bordered table-hover">
                     <thead>
                         <tr class="bg-secondary bg-opacity-10">
@@ -69,7 +69,7 @@
                                 <td><%= record.get("COMMUNITY_DATE") %></td>
                                 <td>
                                     <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="">답변하기</button>
-                                    <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="">삭제</button>
+                                    <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="/admina/deleteAndSelectSearch">삭제</button>
                                   </td>
                             </tr>
                 
@@ -77,6 +77,7 @@
                             <% }  %>
                         </tbody>
                     </table>
+            </form>
             </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
