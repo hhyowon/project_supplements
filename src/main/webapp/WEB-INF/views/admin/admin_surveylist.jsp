@@ -36,7 +36,9 @@
                     <thead>
                         <tr class="bg-secondary bg-opacity-10">
                             <th>번호</th>
+                            <th>설문 ID</th>
                             <th>설문 일시</th>
+                            <th>설문자 ID</th>
                             <th>설문 타입</th>
                             <th>조회</th>
                             <th>관리</th>
@@ -44,7 +46,6 @@
                     </thead>
                     <% 
                     HashMap params=(HashMap)request.getAttribute("params"); 
-                    String searchStr=(String)params.getOrDefault("search", ""); 
                     HashMap result=(HashMap)request.getAttribute("result"); %>
                     <tbody id="list">
                         <% ArrayList resultList=(ArrayList)result.get("resultList"); 
