@@ -51,7 +51,8 @@
 
     </div>
     <div class="container" style="text-align: center; padding: 10%;">
-       <a href="/mypage/community"> <button class="btn mx-2 mb-2 submit btn-outline-secondary" formaction="/mypage/community">목록보기</button></a>
+      <button class="btn mx-2 mb-2 submit btn-outline-secondary" formaction="/admin/community">수정하기</button>
+       <a href="/mypage/community"> <button class="btn mx-2 mb-2 submit btn-outline-secondary" formaction="/admin/community">목록보기</button></a>
     </div>
    
   </div>

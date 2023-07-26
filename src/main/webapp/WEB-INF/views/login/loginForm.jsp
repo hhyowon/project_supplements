@@ -2,7 +2,15 @@
 <!DOCTYPE html>
 <html lang="en">  
   <body>
-  
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Bootstrap checkout</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.css">
+      <link rel="stylesheet" href="../toy_publishings/css/commons.css">
+      <link rel="stylesheet" href="/css/maintool.css">
+  </head>  
     <div class="container py-5">
         <div class="row justify-content-center">
           <div class="col-md-4">

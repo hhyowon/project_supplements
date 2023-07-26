@@ -30,9 +30,22 @@
         ON CO.USER_ID = M.USER_ID
         LEFT JOIN category AS CA
         ON CO.CATEGORY_ID = CA.CATEGORY_ID
-        WHERE CO.USER_ID = 'honggd123' <!-- userid 하드코팅 해놓았음-->
+        WHERE CO.USER_ID = '가배' <!-- userid 하드코팅 해놓았음-->
         ORDER BY  CO.COMMUNITY_DATE DESC;
     </select>
     
+    <!-- 커뮤니티 글 삭제 -->
+        <delete id="delete" parameterType="Map">
+            delete from community
+            where COMMUNITY_ID = #{COMMUNITY_ID} 
+        </delete>
+
+    <!-- 해당 게시글 보기-->
+        <select id="communityPost" parameterType="Map" resultType="Map">
+        SELECT COMMUNITY_ID,COMMUNITY_TITLE, COMMUNITY_CONTENT, USER_ID ,COMMUNITY_DATE
+        FROM project_diet.community
+        WHERE COMMUNITY_ID = #{COMMUNITY_ID}
+        </select>
+
 </mapper>
 

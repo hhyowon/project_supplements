@@ -61,7 +61,54 @@ public class MypageService {
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;
     }
+
+    // 커뮤니티 글 삭제
+    public Object delete(Map dataMap) {
+        String sqlMapId = "MypageService.delete";
+        Object result = sharedDao.delete(sqlMapId, dataMap);
+        return result;
+    }
+    // 삭제 및 select
+    public Object deleteAndSelectSearch(String COMMUNITY_ID, Map dataMap) {
+        dataMap.put("COMMUNITY_ID", COMMUNITY_ID);
+        HashMap result = new HashMap<>();
+        result.put("deleteCount", this.delete(dataMap));
+        result.putAll(this.mypagecommunity(dataMap));
+        return result;
+    }   
+
+    //해당 게시글보기
+    public Object selectPost(String COMMUNITY_ID, Map dataMap) {
+    // Object getOne(String sqlMapId, Object dataMap)
+    String sqlMapId = "MypageService.communityPost";
+    dataMap.put("COMMUNITY_ID", COMMUNITY_ID); 
+    HashMap result = new HashMap<>();
+    result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+    return result;
+    }
    
+    //개인정보 수정 
+    public Object communityupdate(Map dataMap) {
+        String sqlMapId = "MypageService.update";
+        Object result = sharedDao.update(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object communityupdateAndSelectSearch( Map dataMap) {
+        dataMap.put("USER_ID", "honggd123"); //유니크 아이디 받아와서 dataMap에 저장
+        HashMap result = new HashMap<>();
+        result.put("updateCount", this.update(dataMap));
+        result.putAll(this.selectSearch(dataMap));
+        return result;
+    }
+
+     //select 로 불러오기 
+     public Map selectSearch(Map dataMap) {
+        String sqlMapId = "MypageService.mypagemain";
+        HashMap result = new HashMap<>();
+        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+        return result;
+    }
     private String generateUUID() {
         return null;
     }
