@@ -48,6 +48,7 @@ public class SignService {
 
         Object result = sharedDao.getOne(sqlMapId, dataMap);
         return result;
+
     }
 
     public Object selectByUIDWithAuths(Map dataMap) {

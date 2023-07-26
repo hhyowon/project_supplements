@@ -27,7 +27,6 @@ public class SignController {
         String viewName = "/WEB-INF/views/mainpage/main.jsp";
         modelAndView.setViewName(viewName);
         return modelAndView;
-
     }
 
     @RequestMapping(value = " ", method = RequestMethod.GET)

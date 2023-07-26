@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <%@ include file= "/WEB-INF/views/etc/Header.jsp" %> <!-- Menu --> 
+
 
  
 
@@ -40,33 +40,33 @@
             </div>
             <br>
 
-            <form method="post" onsubmit="calculate(event)">
+            <form method="get" onsubmit="calculate(event)" action="/bmi/insertBMI">
               <div class="row row row-cols-auto">
                 <div class="col">
-                  <label for="input_height_obesity">신장 (cm)</label>
+                  <label for="height">신장 (cm)</label>
                 </div>
                 <div class="col">
                   <span class="s4">
-                    <input type="text" title="신장" id="input_height_obesity" class="form-control" style="width:104px; ime-mode:disabled;">
+                    <input type="text" title="신장" name="height" id="height" class="form-control" style="width:104px; ime-mode:disabled;">
                   </span>
                 </div>
                 <div class="col">
-                  <label for="input_weight_obesity">체중 (kg)</label>
+                  <label for="weight">체중 (kg)</label>
                 </div>
                 <div class="col">
                   <span class="s5">
-                    <input type="text" title="체중" id="input_weight_obesity" class="form-control" style="width:104px; ime-mode:disabled;">
+                    <input type="text" title="체중"  id="weight" name="weight" class="form-control" style="width:104px; ime-mode:disabled;">
                   </span>
                 </div>
                 <div class="col">
-                  <button type="submit" class="btn btn-main" formaction="/bmi/insertBMI">계산하기</button>
+                  <button type="submit" class="btn btn-main" >계산하기</button>
                 </div>
               </div>
             </form>
             
               <div class="row">
                 <div class="col mt-3" style="font-weight: bold;">
-                    <div id="result" style="font-size: 20px;"></div>
+                    <div id="bmiresult" style="font-size: 20px;"></div>
                 </div>
               </div>
             
@@ -154,20 +154,20 @@
 <script>
   function calculate(event) {
     event.preventDefault();
-        var height = parseInt(document.getElementById("input_height_obesity").value);
-        var weight = parseInt(document.getElementById("input_weight_obesity").value);
+        var height = parseInt(document.getElementById("height").value);
+        var weight = parseInt(document.getElementById("weight").value);
       
   
     // Check if height and weight are valid numbers
     if (isNaN(height) || isNaN(weight)) {
-          document.getElementById("result").textContent = "유효한 신장과 체중을 입력해주세요.";
+          document.getElementById("bmiresult").textContent = "유효한 신장과 체중을 입력해주세요.";
           document.getElementById("imageContainer").innerHTML = "";
           return;
         }
       
-        var result = weight / ((height / 100) * (height / 100));
+        var bmiresult = weight / ((height / 100) * (height / 100));
   
-        document.getElementById("result").textContent = "나의 신체질량지수(BMI) : " + result.toFixed(2);
+        document.getElementById("bmiresult").textContent = "나의 신체질량지수(BMI) : " + bmiresult.toFixed(2);
   
     var imageSrc = "/html/img/BMI.PNG"; // Default image source
   
