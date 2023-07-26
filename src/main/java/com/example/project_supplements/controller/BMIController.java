@@ -38,7 +38,6 @@ public class BMIController {
         String weight = params.get("WEIGHT"); // 모달에서 전달된  값
         String bmiresult = params.get("BMI_RESULT"); // 모달에서 전달된  값
 
-
         Map<String, Object> dataMap = new HashMap<>();
         dataMap.put("HEIGHT", height);
         dataMap.put("WEIGHT", weight);

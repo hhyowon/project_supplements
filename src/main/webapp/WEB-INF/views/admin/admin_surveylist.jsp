@@ -6,10 +6,10 @@
 <body>
     <%@ include file= "/WEB-INF/views/etc/Header.jsp" %> <!-- header-->
     <div class="row g-0 vh-100">
-        <%@ include file= "/WEB-INF/views/etc/Admin_Sidebar.jsp" %><!-- 관리자페이지 옆-->
+        <%@ include file= "/WEB-INF/views/etc/Admin_Sidebar.jsp" %>
         <div class="col-9 p-0 mb-5 ms-5">
             <div style="text-align:center;">
-                <h1 class="h3 mb-3 fw-normal">커뮤니티 관리</h1>
+                <h1 class="h3 mb-3 fw-normal">설문조사 관리</h1>
             </div>
             <br>
             <form action="">
@@ -29,7 +29,6 @@
                             </div>
                         </div>
                     </div>
-             
                     </div>
 
                 <div class="container">
@@ -37,16 +36,16 @@
                     <thead>
                         <tr class="bg-secondary bg-opacity-10">
                             <th>번호</th>
-                            <th>카테고리</th>
-                            <th>제목</th>
-                            <th>등록자</th>
-                            <th>등록일</th>
+                            <th>설문 ID</th>
+                            <th>설문 일시</th>
+                            <th>설문자 ID</th>
+                            <th>설문 타입</th>
+                            <th>조회</th>
                             <th>관리</th>
                         </tr>
                     </thead>
                     <% 
                     HashMap params=(HashMap)request.getAttribute("params"); 
-                    String searchStr=(String)params.getOrDefault("search", ""); 
                     HashMap result=(HashMap)request.getAttribute("result"); %>
                     <tbody id="list">
                         <% ArrayList resultList=(ArrayList)result.get("resultList"); 
@@ -60,8 +59,8 @@
                                 <td><%= record.get("USER_ID") %></td>
                                 <td><%= record.get("COMMUNITY_DATE") %></td>
                                 <td>
-                                    <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="/admin/communityPost/<%= record.get("COMMUNITY_ID") %>">답변하기</button>
-                                    <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="/admin/deleteAndSelectSearch/<%= record.get("COMMUNITY_ID") %>">삭제</button>
+                                    <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="/admina/communityPost/<%= record.get("COMMUNITY_ID") %>">답변하기</button>
+                                    <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="/admina/deleteAndSelectSearch/<%= record.get("COMMUNITY_ID") %>">삭제</button>
                                   </td> 
                             </tr>
                 

@@ -2,6 +2,7 @@
 <%@ page import="java.util.HashMap, java.util.ArrayList, com.example.project_supplements.utils.Paginations"%>
 <!DOCTYPE html>
 <html lang="en">
+
 <body>
 
   <%@ include file= "/WEB-INF/views/etc/Header.jsp" %>
@@ -16,6 +17,7 @@
                     for(int i=0; i < resultList.size(); i=i+1){
                         HashMap record=(HashMap)resultList.get(i); %>
 
+  <form action="">
   <div class="container">
     <br>
     <div class="container mx-auto" style="border-radius: 10px; width: 70%; padding: 20px; border: 1px solid #ececec;">
@@ -25,8 +27,8 @@
           </colgroup>
           <tbody>
               <tr style="border: 1px solid #ececec;">
-                  <th scope="row" style="background-color: #eeeeee; text-align: center;">작성자</th>
-                  <td><%= record.get("USER_ID") %></td>
+                  <th scope="row" type="none" style="background-color: #eeeeee; text-align: center;">작성자</th>
+                  <td><input type="text" style="text-decoration: none";><%= record.get("USER_ID") %></td>
                   <th scope="row" style="background-color: #eeeeee; text-align: center;">등록일</th>
                   <td><%= record.get("COMMUNITY_DATE") %></td>
               </tr>
@@ -43,17 +45,15 @@
       <br>
   
         <% } %>
-        <form style="display: inline-flex;">
-          <textarea name="comment" rows="3" cols="100" style="border: 1px solid #dddddd; flex: 1;" placeholder="소통을 위한 댓글창입니다"></textarea>
-          <button class="btn mx-2 mb-2 float-end submit btn-outline-secondary">작성하기</button>
-        </form>
 
     </div>
     <div class="container" style="text-align: center; padding: 10%;">
-       <a href="/community"> <button class="btn mx-2 mb-2 submit btn-outline-secondary">목록보기</button></a>
+      <button class="btn mx-2 mb-2 submit btn-outline-secondary" formaction="/mypage/communityupdateAndSelectSearch">수정하기</button>
+       <a href="/mypage/community"> <button class="btn mx-2 mb-2 submit btn-outline-secondary" formaction="/admin/community">목록보기</button></a>
     </div>
    
   </div>
+  </form>
 
 </body>
 
