@@ -26,7 +26,6 @@ public class SurveyService {
     @Autowired
     Commons commons;
     
-
     // 복용하지 않는 자의 설문
     public Map surveyno(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
@@ -65,7 +64,7 @@ public class SurveyService {
         // 부모테이블 값 insert 먼저 시키기 
         String SURVEY_UID = UUID.randomUUID().toString();
         dataMap.put("SURVEY_UID", SURVEY_UID);
-        dataMap.put("USER_ID", "honggd123");
+        dataMap.put("USER_ID", commons.getUserID());
         dataMap.put("DATE_TIME", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         String sqlMapId = "SurveyService.insertsurveyresult";
         Object result01 = sharedDao.insert(sqlMapId, dataMap);

@@ -18,7 +18,6 @@ public class AdminService {
     @Autowired
     SharedDao sharedDao;
 
-
     //user 테이블 리스트    
         public Map selecUserList(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
@@ -28,8 +27,6 @@ public class AdminService {
         return result;
     }
 
-   
-  
     // 페이지네이션
       public Map selectWithPagination(Map dataMap) {
         // 페이지 형성을 위한 계산
@@ -67,15 +64,15 @@ public class AdminService {
         return result;
     }
    
-    // 삭제
+    // 커뮤니티 글 삭제
     public Object delete(Map dataMap) {
-        String sqlMapId = "Diet.delete";
+        String sqlMapId = "Adminuser.delete";
         Object result = sharedDao.delete(sqlMapId, dataMap);
         return result;
     }
     // 삭제 및 select
-    public Object deleteAndSelectSearch(String UNIQUE_ID, Map dataMap) {
-        dataMap.put("COMMON_CODE_ID", UNIQUE_ID);
+    public Object deleteAndSelectSearch( Map dataMap) {
+        //dataMap.put("COMMON_CODE_ID", UNIQUE_ID);
         HashMap result = new HashMap<>();
         result.put("deleteCount", this.delete(dataMap));
         result.putAll(this.selectSearch(dataMap));
@@ -83,8 +80,7 @@ public class AdminService {
     }   
     public Map selectSearch(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
-        String sqlMapId = "Diet.search";
-        
+        String sqlMapId = "Adminuser.admincommunity";
         HashMap result = new HashMap<>();
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;

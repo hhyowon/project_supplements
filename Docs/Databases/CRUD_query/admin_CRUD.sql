@@ -7,3 +7,7 @@ ON CO.USER_ID = M.USER_ID
 LEFT JOIN category AS CA
 ON CO.CATEGORY_ID = CA.CATEGORY_ID
 ORDER BY  CO.COMMUNITY_DATE DESC;
+
+-- 커뮤니티 글 삭제 
+delete from community
+where COMMUNITY_ID = '113'; 
