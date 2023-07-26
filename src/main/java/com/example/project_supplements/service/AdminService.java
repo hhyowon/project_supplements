@@ -58,10 +58,37 @@ public class AdminService {
         return result;
     }
 
- 	
-
-       
-
+ 	// 본인 글 관리
+     public Map admincommunity( Map dataMap) {
+        // Object getOne(String sqlMapId, Object dataMap)
+        String sqlMapId = "Adminuser.admincommunity";
+        HashMap result = new HashMap<>();
+        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+        return result;
+    }
+   
+    // 삭제
+    public Object delete(Map dataMap) {
+        String sqlMapId = "Diet.delete";
+        Object result = sharedDao.delete(sqlMapId, dataMap);
+        return result;
+    }
+    // 삭제 및 select
+    public Object deleteAndSelectSearch(String UNIQUE_ID, Map dataMap) {
+        dataMap.put("COMMON_CODE_ID", UNIQUE_ID);
+        HashMap result = new HashMap<>();
+        result.put("deleteCount", this.delete(dataMap));
+        result.putAll(this.selectSearch(dataMap));
+        return result;
+    }   
+    public Map selectSearch(Map dataMap) {
+        // Object getOne(String sqlMapId, Object dataMap)
+        String sqlMapId = "Diet.search";
+        
+        HashMap result = new HashMap<>();
+        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+        return result;
+    }
     }
     
 

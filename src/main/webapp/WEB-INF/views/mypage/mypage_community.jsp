@@ -43,12 +43,13 @@
                         <% ArrayList resultList=(ArrayList)result.get("resultList"); 
                             String targetUserId = "honggd123"; // userid 하드코팅 해놓았음
                             for(int i=0; i < resultList.size(); i=i+1){
+                                int number = i+1;
                                 HashMap record=(HashMap)resultList.get(i); 
                                 String userId = (String) record.get("USER_ID");
                                     if (userId.equals(targetUserId)) { // userId가 같으면 다 뽑아오기
                                     %>
                         <tr>
-                            <td><%= record.get("COMMUNITY_ID") %></td> <!-- 수정해야함-->
+                            <td><%= number %></td>
                             <td><%= record.get("CATEGORY") %></td>
                             <td><%= record.get("COMMUNITY_TITLE") %></a></td>
                             <td><%= record.get("USER_ID") %></td>

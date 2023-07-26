@@ -13,20 +13,18 @@
         
         <body>
             <%@ include file= "/WEB-INF/views/etc/Header.jsp" %>
-
-            <% 
-            HashMap params=(HashMap)request.getAttribute("params"); 
-            String searchStr=(String)params.getOrDefault("search", ""); 
-            HashMap result=(HashMap)request.getAttribute("result"); 
-            %>
-            
-<!-- 관리자페이지 옆-->
 <div class="row g-0 vh-100">
-  <%@ include file= "/WEB-INF/views/etc/Admin_Sidebar.jsp" %><!-- 마이페이지 sidebar -->
+  <%@ include file= "/WEB-INF/views/etc/Admin_Sidebar.jsp" %><!-- 관리자페이지 옆-->
+            
   <div class="col-9 p-0 mb-5 ms-5">
           <div style="text-align:center;">
               <h1 class="h3 mb-3 fw-normal">회원 관리</h1> 
           </div>
+          <% 
+          HashMap params=(HashMap)request.getAttribute("params"); 
+          String searchStr=(String)params.getOrDefault("search", ""); 
+          HashMap result=(HashMap)request.getAttribute("result"); 
+          %>
           <br>
           <div class="container">
             <form action="">
@@ -55,7 +53,7 @@
                             <th>USER_ID</th>
                             <th>이름</th>
                             <th>성별</th>
-                            <th>PASSWORD</th>
+                            <!--<th>PASSWORD</th>-->
                             <th>전화번호</th>
                             <th>주소</th>
                             <th>E-mail</th>
@@ -71,7 +69,7 @@
                             <td><%= record.get("USER_ID") %></td>
                             <td><%= record.get("NAME") %></td>
                             <td><%= record.get("Gender") %></td>
-                            <td><%= record.get("PASSWORD") %></td>
+                            <!--<td><%= record.get("PASSWORD") %></td>-->
                             <td><%= record.get("PHONENUMBER") %></td>
                             <td><%= record.get("ADDRESS") %></td>
                             <td style="width: 120px;"><%= record.get("EMAIL") %></td>
@@ -106,7 +104,6 @@
                         </li>
                     </ul>
                 </nav>
-
             </div>
       </body>   
       </html>
