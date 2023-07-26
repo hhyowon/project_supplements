@@ -60,8 +60,8 @@
                                 <td><%= record.get("USER_ID") %></td>
                                 <td><%= record.get("COMMUNITY_DATE") %></td>
                                 <td>
-                                    <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="/admina/communityPost/<%= record.get("COMMUNITY_ID") %>">답변하기</button>
-                                    <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="/admina/deleteAndSelectSearch/<%= record.get("COMMUNITY_ID") %>">삭제</button>
+                                    <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="/admin/communityPost/<%= record.get("COMMUNITY_ID") %>">답변하기</button>
+                                    <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="/admin/deleteAndSelectSearch/<%= record.get("COMMUNITY_ID") %>">삭제</button>
                                   </td> 
                             </tr>
                 

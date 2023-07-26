@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
+import com.example.project_supplements.service.AdminService;
+import com.example.project_supplements.utils.Commons;
 import com.example.project_supplements.service.MypageService;
 
 
@@ -20,6 +21,9 @@ import com.example.project_supplements.service.MypageService;
 public class MypageController {
     @Autowired
     MypageService mypageService;
+
+    @Autowired
+    Commons commons;
 
     @GetMapping({" "})
     public ModelAndView main(ModelAndView modelAndView){
@@ -69,27 +73,46 @@ public class MypageController {
         return modelAndView;
     }
 
-    
-     // 내 설문조사 기록 리스트 
-    @GetMapping({"/surveylist"})
-    public ModelAndView surveylist(@RequestParam Map params,ModelAndView modelAndView){
-        
-        Object result = mypageService.mypagesurveylist(params);
-        modelAndView.addObject("params", params);
+    // 커뮤니티 delete
+    @GetMapping("/deleteAndSelectSearch/{COMMUNITY_ID}")
+    public ModelAndView deleteAndSelectSearch(@RequestParam Map params, @PathVariable String COMMUNITY_ID, ModelAndView modelAndView) {
+        Object result = mypageService.deleteAndSelectSearch(COMMUNITY_ID, params); // 호출
+        modelAndView.addObject("params", params); // modelAndView 객체에 params와 result를 추가
         modelAndView.addObject("result", result);
-        modelAndView.setViewName("/WEB-INF/views/mypage/mypage_surveylist.jsp");
+
+        modelAndView.setViewName("/WEB-INF/views/mypage/mypage_community.jsp");
         return modelAndView;
     }
+
+    // 해당 게시글 가져오기
+    @GetMapping({"/communityPost/{COMMUNITY_ID}"})
+    public ModelAndView communityPost(@PathVariable String COMMUNITY_ID, @RequestParam Map params, ModelAndView modelAndView) {
+            Object result = mypageService.selectPost(COMMUNITY_ID, params);
     
-    // 해당 설문조사 내용 가져오기
-    @GetMapping({"/mypagesurveycontent/{SURVEY_UID}"})
-    public ModelAndView surveyContent(@PathVariable String SURVEY_UID, @RequestParam Map params, ModelAndView modelAndView) {
-        
-        Object result = mypageService.mypagesurveycontent(SURVEY_UID,params);
+            modelAndView.addObject("params", params);
+            modelAndView.addObject("result", result);
+            modelAndView.setViewName("/WEB-INF/views/mypage/mypage_community_post_comment.jsp");
+            return modelAndView; 
+    }
+    
+    //커뮤니티 게시글 수정
+    @GetMapping("/communityupdate")
+    public ModelAndView updateForm( @RequestParam Map params,
+            ModelAndView modelAndView) {
+        modelAndView.setViewName("/WEB-INF/views/mypage/community.jsp");
+        return modelAndView;
+    }
+
+    @GetMapping("/communityupdateAndSelectSearch")
+    public ModelAndView updateAndSelectSearch( @RequestParam Map params,
+            ModelAndView modelAndView) {
+        Object result = mypageService.updateAndSelectSearch(params);
+
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
-        modelAndView.setViewName("/WEB-INF/views/mypage/mypage_surveycontent.jsp");
-        return modelAndView; 
+        modelAndView.setViewName("/WEB-INF/views/mypage/community.jsp");
+
+        return modelAndView;
     }
     
     // @GetMapping("/mypageBMI")
