@@ -21,6 +21,12 @@ public class BmiSerivce {
     @Autowired
     Commons commons;
 
+    public double calculateBMI(double height, double weight) {
+        // Calculate BMI here based on the height and weight
+        double result = weight / ((height / 100) * (height / 100));
+        return result;
+    }
+    
         public Object inserBMI(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
         if (dataMap.get("BMI_UID") == null || dataMap.get("BMI_UID").equals("")) {
