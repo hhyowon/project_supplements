@@ -123,5 +123,28 @@ public class MypageController {
     //     modelAndView.setViewName("/WEB-INF/views/mypage/mypage_BMI.jsp"); // 모델과 뷰 정보를 포함한 ModelAndView 객체를 반환
     //     return modelAndView;
     // }
+
+     // 내 
+    @GetMapping({"/surveylist"})
+    public ModelAndView surveylist(@RequestParam Map params,ModelAndView modelAndView){
+        
+        Object result = mypageService.mypagesurveylist(params);
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
+        modelAndView.setViewName("/WEB-INF/views/mypage/mypage_surveylist.jsp");
+        return modelAndView;
+    }
+
+       // 해당 게시글 가져오기
+    @GetMapping({"/surveycontent/{SURVEY_UID}"})
+    public ModelAndView surveycontent(@PathVariable String SURVEY_UID, @RequestParam Map params, ModelAndView modelAndView) {
+            Object result = mypageService.mypagesurveycontent(SURVEY_UID, params);
+    
+            modelAndView.addObject("params", params);
+            modelAndView.addObject("result", result);
+            modelAndView.setViewName("/WEB-INF/views/mypage/mypage_surveycontent.jsp");
+            return modelAndView; 
+    }
+
 }
 
