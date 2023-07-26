@@ -59,12 +59,12 @@ public class AdminController {
 
     // 해당 게시글 가져오기
     @GetMapping({"/communityPost/{COMMUNITY_ID}"})
-    public ModelAndView communityPost(@PathVariable String COMMUNITY_ID, @RequestParam Map params,ModelAndView modelAndView) {
-            Object result = adminService.selectPost(COMMUNITY_ID,params);
+    public ModelAndView communityPost(@PathVariable String COMMUNITY_ID, @RequestParam Map params, ModelAndView modelAndView) {
+            Object result = adminService.selectPost(COMMUNITY_ID, params);
     
             modelAndView.addObject("params", params);
             modelAndView.addObject("result", result);
-            modelAndView.setViewName("/WEB-INF/views/community/community_post_comment.jsp");
+            modelAndView.setViewName("/WEB-INF/views/admin/admin_community_post_comment.jsp");
             return modelAndView; 
     }
 

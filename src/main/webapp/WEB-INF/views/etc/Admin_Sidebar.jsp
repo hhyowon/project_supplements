@@ -11,7 +11,7 @@
           <div class="text-decoration-none nav-link fs-5 fw-bold">관리자페이지</div>
         </li>
         <li class="d-flex align-items-center">
-          <a href="/admina/" class="text-decoration-none nav-link"
+          <a href="/admin/" class="text-decoration-none nav-link"
             >회원 관리</a
           >
         </li>
@@ -24,7 +24,7 @@
         </li>
         <li class="d-flex align-items-center">
           <a
-            href="/admina/community"
+            href="/admin/community"
             class="text-decoration-none nav-link"
             >커뮤니티 관리</a
           >
