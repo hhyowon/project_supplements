@@ -11,30 +11,24 @@
           <div class="text-decoration-none nav-link fs-5 fw-bold">관리자페이지</div>
         </li>
         <li class="d-flex align-items-center">
-          <a href="/admin/" class="text-decoration-none nav-link"
-            >회원 관리</a
-          >
+          <a href="/admin/" class="text-decoration-none nav-link">
+            회원 관리
+          </a>
         </li>
         <li class="d-flex align-items-center">
-          <a
-            href="/adminaproduct/"
-            class="text-decoration-none nav-link"
-            >보조제 관리</a
-          >
+          <a href="/adminproduct/" class="text-decoration-none nav-link">
+            보조제 관리
+          </a>
         </li>
         <li class="d-flex align-items-center">
-          <a
-            href="/admincommunity/community"
-            class="text-decoration-none nav-link"
-            >커뮤니티 관리</a
-          >
+          <a href="/admincommunity/community" class="text-decoration-none nav-link">
+            커뮤니티 관리
+          </a>
         </li>
         <li class="d-flex align-items-center">
-          <a
-            href="./admin_survey.html"
-            class="text-decoration-none nav-link"
-            >설문조사 관리</a
-          >
+          <a href="./admin_survey.html" class="text-decoration-none nav-link">
+            설문조사 관리
+          </a>
         </li>
         <br>
       </ul>

@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import com.example.project_supplements.service.AdminService;
-import com.example.project_supplements.utils.Commons;
+
 import com.example.project_supplements.service.MypageService;
+import com.example.project_supplements.utils.Commons;
 
 
 @Controller
@@ -115,7 +115,7 @@ public class MypageController {
     //     modelAndView.addObject("params", params); // params 맵을 "params"라는 이름으로 모델에 추가합니다. 이를 통해 JSP 페이지에서 해당 데이터에 접근
     //     modelAndView.addObject("result", result);// 검색 결과(result)를 "result"라는 이름으로 모델에 추가합니다. 마찬가지로 JSP 페이지에서 해당 데이터에 접근
     //     modelAndView.setViewName("/WEB-INF/views/mypage/mypage_BMI.jsp"); // 모델과 뷰 정보를 포함한 ModelAndView 객체를 반환
-    //     return modelAndView;
-    // }
+         return modelAndView;
+     }
 }
 

@@ -14,7 +14,7 @@ import com.example.project_supplements.utils.Commons;
 
 
 @Controller
-@RequestMapping("/adminaproduct")
+@RequestMapping("/adminproduct")
 
 public class AdminProductsController {
     @Autowired
