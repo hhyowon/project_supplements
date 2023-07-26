@@ -68,7 +68,16 @@ public class AdminController {
             return modelAndView; 
     }
 
-    //
+      // 설문조사 관리
+    @GetMapping({"/surveyList"})
+    public ModelAndView surveyList(@RequestParam Map params,ModelAndView modelAndView){
+        
+        Object result = adminService.adminsurveylist(params);
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
+        modelAndView.setViewName("/WEB-INF/views/admin/admin_surveylist.jsp");
+        return modelAndView;
+    }
 
 
 }
