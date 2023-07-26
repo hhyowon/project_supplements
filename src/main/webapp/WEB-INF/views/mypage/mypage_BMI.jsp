@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.util.HashMap, java.util.ArrayList" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +10,12 @@
 <main>
   <div class="row g-0 vh-100">
     <%@ include file= "/WEB-INF/views/etc/Sidebar.jsp" %><!-- 마이페이지 sidebar -->
+   
+    <% 
+              HashMap params=(HashMap)request.getAttribute("params"); 
+              String searchStr=(String)params.getOrDefault("search", ""); 
+              HashMap result=(HashMap)request.getAttribute("result"); %>
+
     <div class="col-9 p-0 mb-5 ms-5">
       <div style="text-align:center;">
           <h1 class="h3 mb-3 fw-normal">나의 BMI 관리</h1>
@@ -28,37 +35,26 @@
           <table class="ui celled table table text-center table-bordered table-hover">
               <thead>
                   <tr style="background: #8cc1f3;">
+                      <th>번호</th>
+                      <th>등록일</th>
                       <th>신장</th>
                       <th>체중</th>
                       <th>BMI</th>
-                      <th>등록일</th>
                   </tr>
               </thead>
               <tbody id="list">
+                <% ArrayList resultList=(ArrayList)result.get("resultList"); 
+                for(int i=0; i < resultList.size(); i=i+1){
+                  int number = i+1;
+                    HashMap record=(HashMap)resultList.get(i); %>
                 <tr>
-                    <td>161</td>
-                    <td>50</td>
-                    <td>20.3</td>
-                    <td>2022.7.18</td>
-                </tr>
-                <tr>
-                  <td>161</td>
-                  <td>55</td>
-                  <td>22.3</td>
-                  <td>2022.12.5</td>
-              </tr>
-              <tr>
-                <td>161</td>
-                <td>53</td>
-                <td>24.3</td>
-                <td>2023.3.18</td>
-            </tr>
-            <tr>
-              <td>161</td>
-              <td>49</td>
-              <td>20</td>
-              <td>2023.7.18</td>
-          </tr>
+                  <td style="width: 7%;" ><%= number %></td>
+                  <td><%= record.get("YEAR") %></td> 
+                  <td><%= record.get("HEIGHT") %></td>
+                    <td><%= record.get("WEIGHT") %></td>
+                    <td><%= record.get("BMI_RESULT") %></td>
+                </tr> 
+                <% }  %>
             </tbody>
           </table>
       </div>

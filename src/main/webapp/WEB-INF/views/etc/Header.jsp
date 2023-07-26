@@ -48,7 +48,7 @@
                                 <!-- 필터 이용해야 될 것 같음-->
                                 <sec:authorize access="isAuthenticated()">
                                     <li class="dropdown-item">
-                                        <a class="nav-link" href="/mypage">마이페이지</a>
+                                        <a class="nav-link" href="/mypage/main">마이페이지</a>
                                     </li>
                                 </sec:authorize>
                                 <!-- 로그인 전 -->

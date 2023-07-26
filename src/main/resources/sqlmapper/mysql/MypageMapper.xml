@@ -57,5 +57,41 @@
         WHERE COMMUNITY_ID = #{COMMUNITY_ID}; 
     </update>
 
+    <!-- 본인 설문조사 기록 리스트 뽑아오기  -->
+    <select id="surveylist" parameterType="Map" resultType="Map">
+    SELECT T_SR.USER_ID, T_SR.DATE_TIME ,T_S.SURVEY_TYPE_ID, T_SR.SURVEY_UID
+    FROM MEMBERS as T_M
+    INNER JOIN SURVEYRESULT AS T_SR
+    ON T_M.USER_ID = T_SR.USER_ID
+    INNER JOIN SURVEY AS T_S
+    ON T_SR.SURVEY_UID = T_S.SURVEY_UID
+    GROUP BY T_S.SURVEY_UID, T_SR.DATE_TIME, T_S.SURVEY_TYPE_ID, T_SR.SURVEY_UID
+    HAVING USER_ID = 'honggd123'; 
+     </select>
+     
+     <!-- 본인이 조회한 설문 내용 뽑아오기  -->
+    <select id="surveycontent" parameterType="Map" resultType="Map">
+    SELECT T_SQ.SURVEY_QUESTION, T_SO.SURVEY_OPT
+    FROM SURVEYRESULT AS T_SR
+    INNER JOIN SURVEY AS T_S
+    ON T_S.SURVEY_UID = T_SR.SURVEY_UID
+    INNER JOIN SURVEY_QUESTION AS T_SQ
+    ON T_SQ.SURVEY_QUESTION_ID = T_S.SURVEY_QUESTION_ID
+    INNER JOIN SURVEY_OPT AS T_SO
+	ON T_SO.SURVEY_OPT_ID = T_S.SURVEY_OPT_ID
+    GROUP BY T_SQ.SURVEY_QUESTION, T_SO.SURVEY_OPT, T_SR.SURVEY_UID
+    HAVING T_SR.SURVEY_UID = #{SURVEY_UID};
+    </select>
+
+      <!-- BMI 뽑아오기  -->
+
+
+	<select id="BMI" parameterType="Map" resultType="Map">
+       SELECT YEAR,HEIGHT,WEIGHT,BMI_RESULT
+       FROM project_diet.bmi
+       where USER_ID = 'honggd123'
+       order by YEAR;
+	</select>
+
 </mapper>
 

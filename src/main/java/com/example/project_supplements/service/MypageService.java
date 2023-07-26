@@ -105,6 +105,15 @@ public class MypageService {
         return result;
     }
 
+
+        // 본인 설문조사 조회
+    public Map mypagesurveylist(Map dataMap) {
+        // Object getOne(String sqlMapId, Object dataMap)
+        String sqlMapId = "MypageService.surveylist";
+        HashMap result = new HashMap<>();
+        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+        return result;
+    }
     // 본인 설문조사 내용 
       public Object mypagesurveycontent(String SURVEY_UID, Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
@@ -118,6 +127,18 @@ public class MypageService {
     private String generateUUID() {
         return null;
     }
+
+
+        // 개인bmi select로 가져오기
+    public Map mypageBMI( Map dataMap) {
+        String sqlMapId = "MypageService.BMI";
+        HashMap result = new HashMap<>();
+        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+        return result;
+    }
+
+
+
 
 }
 
