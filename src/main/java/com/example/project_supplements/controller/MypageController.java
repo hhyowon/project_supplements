@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -69,6 +70,27 @@ public class MypageController {
     }
 
     
+     // 내 설문조사 기록 리스트 
+    @GetMapping({"/surveylist"})
+    public ModelAndView surveylist(@RequestParam Map params,ModelAndView modelAndView){
+        
+        Object result = mypageService.mypagesurveylist(params);
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
+        modelAndView.setViewName("/WEB-INF/views/mypage/mypage_surveylist.jsp");
+        return modelAndView;
+    }
+    
+    // 해당 설문조사 내용 가져오기
+    @GetMapping({"/mypagesurveycontent/{SURVEY_UID}"})
+    public ModelAndView surveyContent(@PathVariable String SURVEY_UID, @RequestParam Map params, ModelAndView modelAndView) {
+        
+        Object result = mypageService.mypagesurveycontent(SURVEY_UID,params);
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
+        modelAndView.setViewName("/WEB-INF/views/mypage/mypage_surveycontent.jsp");
+        return modelAndView; 
+    }
     
     // @GetMapping("/mypageBMI")
     // public ModelAndView selectSearch(@RequestParam Map<String, String> params, ModelAndView modelAndView) {
