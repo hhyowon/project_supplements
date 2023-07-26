@@ -17,7 +17,7 @@
         </li>
         <li class="d-flex align-items-center">
           <a
-            href="./admin_search.html"
+            href="/adminaproduct/"
             class="text-decoration-none nav-link"
             >보조제 관리</a
           >

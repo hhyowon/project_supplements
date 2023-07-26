@@ -37,41 +37,8 @@ public class BmiSerivce {
         return result;
     }
 
-    public Object insert(Map dataMap) {
-        String sqlMapId = "Diet.insert";
-        Object result = sharedDao.insert(sqlMapId, dataMap);
-        return result;
-    }
-    
-     public Object insertAndSelectSearch(Map dataMap) {
-        HashMap result = new HashMap<>();
-        result.put("insertCount", this.insert(dataMap));
-        result.putAll(this.selectSearch(dataMap));
-        return result;
-    }
+
 
 }
 
-    //   // 개인정보 뽑아오기
-    // public Map mypagemain( Map dataMap) {
-    //     // Object getOne(String sqlMapId, Object dataMap)
-    //     String sqlMapId = "MypageService.mypagemain";
-    //     HashMap result = new HashMap<>();
-    //     result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
-    //     return result;
-    // }
-
-    // //개인정보 수정 
-    // public Object update(Map dataMap) {
-    //     String sqlMapId = "MypageService.update";
-    //     Object result = sharedDao.update(sqlMapId, dataMap);
-    //     return result;
-    // }
-
-    // public Object updateAndSelectSearch( Map dataMap) {
-    //     dataMap.put("USER_ID", "honggd123"); //유니크 아이디 받아와서 dataMap에 저장
-    //     HashMap result = new HashMap<>();
-    //     result.put("updateCount", this.update(dataMap));
-    //     result.putAll(this.selectSearch(dataMap));
-    //     return result;
-    // }
+   

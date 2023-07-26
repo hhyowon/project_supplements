@@ -42,5 +42,6 @@
             where CATEGORY_ID = #{CATEGORY_ID}
         </delete>
 
+
 </mapper>
 

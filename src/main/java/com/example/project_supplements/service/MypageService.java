@@ -66,6 +66,18 @@ public class MypageService {
         return null;
     }
 
+
+        // 개인bmi select로 가져오기
+    public Map mypageBMI( Map dataMap) {
+        String sqlMapId = "MypageService.BMI";
+        HashMap result = new HashMap<>();
+        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+        return result;
+    }
+
+
+
+
 }
 
 

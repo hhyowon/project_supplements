@@ -34,5 +34,15 @@
         ORDER BY  CO.COMMUNITY_DATE DESC;
     </select>
     
+      <!-- BMI 뽑아오기  -->
+
+
+	<select id="BMI" parameterType="Map" resultType="Map">
+       SELECT YEAR,HEIGHT,WEIGHT,BMI_RESULT
+       FROM project_diet.bmi
+       where USER_ID = 'honggd123'
+       order by YEAR;
+	</select>
+
 </mapper>
 

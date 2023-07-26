@@ -56,4 +56,7 @@ public class AdminController {
         modelAndView.setViewName("/WEB-INF/views/admin/admin_community.jsp");
         return modelAndView;
     }
+
+
+
 }
