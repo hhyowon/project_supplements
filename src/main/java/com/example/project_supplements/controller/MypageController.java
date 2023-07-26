@@ -96,21 +96,19 @@ public class MypageController {
     }
     
     //커뮤니티 게시글 수정
-    @GetMapping("/communityupdate")
-    public ModelAndView updateForm( @RequestParam Map params,
-            ModelAndView modelAndView) {
-        modelAndView.setViewName("/WEB-INF/views/mypage/community.jsp");
-        return modelAndView;
-    }
-
+    // @GetMapping("/communityupdate")
+    // public ModelAndView updateForm( @RequestParam Map params,ModelAndView modelAndView) {
+    //     modelAndView.setViewName("/WEB-INF/views/mypage/community.jsp");
+    //     return modelAndView;
+    // }
+   //커뮤니티 게시글 수정
     @GetMapping("/communityupdateAndSelectSearch")
-    public ModelAndView updateAndSelectSearch( @RequestParam Map params,
-            ModelAndView modelAndView) {
-        Object result = mypageService.updateAndSelectSearch(params);
+    public ModelAndView communityupdateAndSelectSearch( @RequestParam Map params,  ModelAndView modelAndView) {
+        Object result = mypageService.communityupdateAndSelectSearch(params);
 
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
-        modelAndView.setViewName("/WEB-INF/views/mypage/community.jsp");
+        modelAndView.setViewName("/WEB-INF/views/mypage/mypage_community.jsp");
 
         return modelAndView;
     }

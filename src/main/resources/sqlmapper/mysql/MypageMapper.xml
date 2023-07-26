@@ -47,5 +47,16 @@
         WHERE COMMUNITY_ID = #{COMMUNITY_ID}
         </select>
 
+    <!-- 개인정보 수정(update) -->
+	<update id="communityupdate" parameterType="Map">
+        UPDATE community
+        SET 
+        CATEGORY_ID = #{CATEGORY_ID}
+        ,COMMUNITY_TITLE = #{COMMUNITY_TITLE}
+        ,COMMUNITY_CONTENT = #{COMMUNITY_CONTENT}
+        ,COMMUNITY_DATE = #{COMMUNITY_DATE}
+        WHERE COMMUNITY_ID = #{COMMUNITY_ID}; 
+    </update>
+
 </mapper>
 

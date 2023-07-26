@@ -68,6 +68,7 @@ public class MypageService {
         Object result = sharedDao.delete(sqlMapId, dataMap);
         return result;
     }
+
     // 삭제 및 select
     public Object deleteAndSelectSearch(String COMMUNITY_ID, Map dataMap) {
         dataMap.put("COMMUNITY_ID", COMMUNITY_ID);
@@ -89,28 +90,26 @@ public class MypageService {
    
     //개인정보 수정 
     public Object communityupdate(Map dataMap) {
-        String sqlMapId = "MypageService.update";
+        String sqlMapId = "MypageService.communityupdate";
         Object result = sharedDao.update(sqlMapId, dataMap);
         return result;
     }
 
     public Object communityupdateAndSelectSearch( Map dataMap) {
-        dataMap.put("USER_ID", "honggd123"); //유니크 아이디 받아와서 dataMap에 저장
+        dataMap.put("USER_ID", "가배"); //유니크 아이디 받아와서 dataMap에 저장
         HashMap result = new HashMap<>();
-        result.put("updateCount", this.update(dataMap));
-        result.putAll(this.selectSearch(dataMap));
+        result.put("updateCount", this.communityupdate(dataMap));
+        result.putAll(this.communityselectSearch(dataMap));
         return result;
     }
 
      //select 로 불러오기 
-     public Map selectSearch(Map dataMap) {
-        String sqlMapId = "MypageService.mypagemain";
+     public Map communityselectSearch(Map dataMap) {
+        String sqlMapId = "MypageService.communityPost";
         HashMap result = new HashMap<>();
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;
     }
-<<<<<<< HEAD
-=======
 
     // 본인 설문조사 내용 
       public Object mypagesurveycontent(String SURVEY_UID, Map dataMap) {
@@ -122,10 +121,6 @@ public class MypageService {
         return result;
     }
 
-
- 
-  
->>>>>>> 640d36ec05890f681eed20f08c4f6b0d68896243
     private String generateUUID() {
         return null;
     }
