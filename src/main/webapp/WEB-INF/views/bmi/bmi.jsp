@@ -40,7 +40,7 @@
             </div>
             <br>
 
-            <form action="/bmi/insertBMI" method="post" onsubmit="calculate(event)">
+            <form method="post" onsubmit="calculate(event)">
               <div class="row row row-cols-auto">
                 <div class="col">
                   <label for="input_height_obesity">신장 (cm)</label>
@@ -59,7 +59,7 @@
                   </span>
                 </div>
                 <div class="col">
-                  <button type="submit" class="btn btn-main" >계산하기</button>
+                  <button type="submit" class="btn btn-main" formaction="/bmi/insertBMI">계산하기</button>
                 </div>
               </div>
             </form>
