@@ -30,12 +30,11 @@
                                 User ID : ${userDetailsBean.memberId},
                                 Name : ${userDetailsBean.memberName}
                             </li>
-
+                            <sec:authorize access="hasRole('ROLE_ADMIN')">
                             <div>
-                                <sec:authorize access="hasRole('ROLE_ADMIN')">
-                                    <a class="nav-link" href="/admina/" style="color:black">관리자전용</a>
-                                </sec:authorize>
+                                <a class="nav-link" href="/admin" style="color:black">관리자전용</a>
                             </div>
+                            </sec:authorize>
                         </sec:authorize>
 
 
