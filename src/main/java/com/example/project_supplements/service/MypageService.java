@@ -109,6 +109,23 @@ public class MypageService {
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;
     }
+<<<<<<< HEAD
+=======
+
+    // 본인 설문조사 내용 
+      public Object mypagesurveycontent(String SURVEY_UID, Map dataMap) {
+        // Object getOne(String sqlMapId, Object dataMap)
+        String sqlMapId = "MypageService.surveycontent";
+        dataMap.put("SURVEY_UID", SURVEY_UID); 
+        HashMap result = new HashMap<>();
+        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+        return result;
+    }
+
+
+ 
+  
+>>>>>>> 640d36ec05890f681eed20f08c4f6b0d68896243
     private String generateUUID() {
         return null;
     }
