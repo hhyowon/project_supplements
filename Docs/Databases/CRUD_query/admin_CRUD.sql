@@ -1,0 +1,13 @@
+
+-- 관리자 전용 커뮤니티 글 뽑아오기
+SELECT CO.COMMUNITY_ID, CA.CATEGORY, CO.COMMUNITY_TITLE,  CO.COMMUNITY_DATE, CO.USER_ID
+FROM community as CO
+INNER JOIN members AS M
+ON CO.USER_ID = M.USER_ID
+LEFT JOIN category AS CA
+ON CO.CATEGORY_ID = CA.CATEGORY_ID
+ORDER BY  CO.COMMUNITY_DATE DESC;
+
+-- 커뮤니티 글 삭제 
+delete from community
+where COMMUNITY_ID = '113'; 

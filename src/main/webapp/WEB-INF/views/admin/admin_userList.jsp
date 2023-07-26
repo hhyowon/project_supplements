@@ -2,73 +2,20 @@
 <%@ page import="java.util.HashMap, java.util.ArrayList, com.example.project_supplements.utils.Paginations"%>
 <!DOCTYPE html>
     <html lang="en">
-
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-            <link rel="stylesheet" href="../../css/maintool.css">
-            <title>Document</title>
-        </head>
-        
         <body>
             <%@ include file= "/WEB-INF/views/etc/Header.jsp" %>
-
-            <% 
-            HashMap params=(HashMap)request.getAttribute("params"); 
-            String searchStr=(String)params.getOrDefault("search", ""); 
-            HashMap result=(HashMap)request.getAttribute("result"); 
-            %>
-            
-<!-- 관리자페이지 옆-->
 <div class="row g-0 vh-100">
-  <nav class="p-5 navbar-light bg-light d-md-block col-2">
-    <div>
-      <ul class="list-unstyled navbar-nav">
-        <li class="d-flex align-items-center">
-          <div class="text-decoration-none nav-link fs-5 fw-bold">관리자페이지</div>
-        </li>
-        <li class="d-flex align-items-center">
-          <a href="/admin" class="text-decoration-none nav-link"
-            >회원 관리</a
-          >
-        </li>
-        <li class="d-flex align-items-center">
-          <a
-            href="./admin_search.html"
-            class="text-decoration-none nav-link"
-            >보조제 관리</a
-          >
-        </li>
-        <li class="d-flex align-items-center">
-          <a
-            href="./admin_community.html"
-            class="text-decoration-none nav-link"
-            >커뮤니티 관리</a
-          >
-        </li>
-        <li class="d-flex align-items-center">
-          <a
-            href="./admin_survey.html"
-            class="text-decoration-none nav-link"
-            >설문조사 관리</a
-          >
-        </li>
-        <br>
-        <li class="d-flex align-items-center">
-          <a
-            href="../mainnavs.html"
-            class="text-decoration-none nav-link fw-bold"
-            >로그아웃</a
-          >
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <%@ include file= "/WEB-INF/views/etc/Admin_Sidebar.jsp" %><!-- 관리자페이지 옆-->
+            
   <div class="col-9 p-0 mb-5 ms-5">
           <div style="text-align:center;">
               <h1 class="h3 mb-3 fw-normal">회원 관리</h1> 
           </div>
+          <% 
+          HashMap params=(HashMap)request.getAttribute("params"); 
+          String searchStr=(String)params.getOrDefault("search", ""); 
+          HashMap result=(HashMap)request.getAttribute("result"); 
+          %>
           <br>
           <div class="container">
             <form action="">
@@ -97,7 +44,7 @@
                             <th>USER_ID</th>
                             <th>이름</th>
                             <th>성별</th>
-                            <th>PASSWORD</th>
+                            <!--<th>PASSWORD</th>-->
                             <th>전화번호</th>
                             <th>주소</th>
                             <th>E-mail</th>
@@ -113,12 +60,12 @@
                             <td><%= record.get("USER_ID") %></td>
                             <td><%= record.get("NAME") %></td>
                             <td><%= record.get("Gender") %></td>
-                            <td><%= record.get("PASSWORD") %></td>
+                            <!--<td><%= record.get("PASSWORD") %></td>-->
                             <td><%= record.get("PHONENUMBER") %></td>
                             <td><%= record.get("ADDRESS") %></td>
                             <td style="width: 120px;"><%= record.get("EMAIL") %></td>
                               <td>
-                                <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="">삭제</button>
+                                <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="">관리</button>
                               </td>
                         </tr>
                        <% } %>
@@ -148,7 +95,6 @@
                         </li>
                     </ul>
                 </nav>
-
             </div>
       </body>   
       </html>

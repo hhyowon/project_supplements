@@ -16,7 +16,9 @@ public class PrincipalUser implements UserDetails {
     public PrincipalUser(Map userInfo){
         this.userInfo = userInfo;
     }
-    
+    public String getMemberId() {
+        return (String) userInfo.get("USER_ID");
+    }
     public String getMemberName() {
         return (String) userInfo.get("NAME");
     }

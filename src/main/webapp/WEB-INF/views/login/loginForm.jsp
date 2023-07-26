@@ -1,15 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Template</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/maintool.css">
-</head>  
-
+<html lang="en">  
   <body>
   
     <div class="container py-5">
@@ -26,10 +17,10 @@
               <% } %>
               <form class="form-signin" method="post" action="/login" style="margin-top: 20px;">
                 <div class="form-group" style="margin-bottom: 15px;">
-                  <input class="form-control" type="text" name="user_id" placeholder="아이디를 입력하세요" id="idid">
+                  <input class="form-control" type="text" name="username" placeholder="아이디를 입력하세요" id="idid">
                 </div>
                 <div class="form-group" style="margin-bottom: 15px;">
-                  <input class="form-control" type="password" name="PASSWORD" placeholder="비밀번호를 입력하세요" id="idpassword">
+                  <input class="form-control" type="password" name="password" placeholder="비밀번호를 입력하세요" id="idpassword">
                 </div>
                 <div class="form-check" style="margin-bottom: 15px;">
                   <input type="checkbox" class="form-check-input" id="remember">
@@ -45,5 +36,4 @@
         </div>
       </div>
   </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </html>

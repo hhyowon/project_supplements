@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,14 +20,13 @@ public class SignController {
     SignService signService;
 
     // INSERT
-    @RequestMapping(value = "/insert", method = RequestMethod.POST)
+    @PostMapping({"/insert"})
     public ModelAndView insert(@RequestParam Map params, ModelAndView modelAndView) {
 
         Object result = signService.insertWithAuths(params);
         String viewName = "/WEB-INF/views/mainpage/main.jsp";
         modelAndView.setViewName(viewName);
         return modelAndView;
-
     }
 
     @RequestMapping(value = " ", method = RequestMethod.GET)

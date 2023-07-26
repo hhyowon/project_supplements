@@ -25,5 +25,28 @@
         ;
 	</select>
 
+    <!-- 관리자 게시글관리  -->
+	    <select id="admincommunity" parameterType="Map" resultType="Map">
+        SELECT CO.COMMUNITY_ID, CA.CATEGORY, CO.COMMUNITY_TITLE,  CO.COMMUNITY_DATE, CO.USER_ID
+        FROM community as CO
+        INNER JOIN members AS M
+        ON CO.USER_ID = M.USER_ID
+        LEFT JOIN category AS CA
+        ON CO.CATEGORY_ID = CA.CATEGORY_ID
+        ORDER BY  CO.COMMUNITY_DATE DESC;
+        </select>
+
+    <!-- 커뮤니티 글 삭제 -->
+        <delete id="delete" parameterType="Map">
+            delete from community
+            where COMMUNITY_ID = #{COMMUNITY_ID} 
+        </delete>
+
+    <!-- 해당 게시글 보기-->
+        <select id="communityPost" parameterType="Map" resultType="Map">
+        SELECT COMMUNITY_ID,COMMUNITY_TITLE, COMMUNITY_CONTENT, USER_ID ,COMMUNITY_DATE
+        FROM project_diet.community
+        WHERE COMMUNITY_ID = #{COMMUNITY_ID}
+        </select>
 </mapper>
 
