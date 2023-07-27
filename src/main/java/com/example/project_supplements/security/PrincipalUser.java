@@ -22,7 +22,7 @@ public class PrincipalUser implements UserDetails {
     public String getMemberName() {
         return (String) userInfo.get("NAME");
     }
-    
+  
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         // 권한들
@@ -43,7 +43,7 @@ public class PrincipalUser implements UserDetails {
     @Override
     public String getUsername() {
         // ID
-        return (String) userInfo.get("UNIQUE_ID");
+        return (String) userInfo.get("USER_ID");
     }
 
     @Override

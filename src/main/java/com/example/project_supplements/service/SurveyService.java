@@ -61,8 +61,8 @@ public class SurveyService {
         dataMap.put("surveyMapList", surveyMapList);
         // 부모테이블 값 insert 먼저 시키기 
         String SURVEY_UID = UUID.randomUUID().toString();
-        dataMap.put("SURVEY_UID", SURVEY_UID);
         dataMap.put("USER_ID", commons.getUserID());
+        dataMap.put("SURVEY_UID", SURVEY_UID);
         dataMap.put("DATE_TIME", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         String sqlMapId = "SurveyService.insertsurveyresult";
         Object result01 = sharedDao.insert(sqlMapId, dataMap);
@@ -93,6 +93,7 @@ public class SurveyService {
         dataMap.put("surveyMapList", surveyMapList);
         // 부모테이블 값 insert 먼저 시키기 
         String SURVEY_UID = UUID.randomUUID().toString();
+        dataMap.put("USER_ID", commons.getUserID());
         dataMap.put("SURVEY_UID", SURVEY_UID);
         dataMap.put("USER_ID", "honggd123");
         dataMap.put("DATE_TIME", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
