@@ -29,16 +29,16 @@
                 <div class="d-flex justify-content-center align-items-center input-group mb-3">
                   <div class="d-flex align-items-center">
                     <div class="input-group">
-                      <select class="form-select" name="keyField" style="width: 150px;">
+                      <select class="form-select" name="search" style="width: 150px;">
                         <option>카테고리</option>
-                        <option value="name">상품명</option>
-                        <option value="ingredient">효과</option>
-                        <option value="form">제형</option>
+                        <option value="PRODUCT"<%=(searchStr.equals("PRODUCT")) ? "selected" : "" %>>상품명</option>
+                        <option value="EFFECT"<%=(searchStr.equals("EFFECT")) ? "selected" : "" %>>효과</option>
+                        <option value="FORMULATION"<%=(searchStr.equals("FORMULATION")) ? "selected" : "" %>>제형</option>
                       </select>
                       <input type="text" name="words" value='<%= params.getOrDefault("words", "") %>'
                         class="form-control" placeholder="원하는 상품명, 효과, 제형 검색하기..." id="keydownEnter"
                         style="width: 500px;" />
-                      <button class="btn btn-main" type="submit" formaction="/search/searchList"
+                      <button class="btn btn-main" type="submit" formaction="/search/selectSearch"
                         formmethod="get">검색</button>
 
                     </div>
@@ -83,25 +83,26 @@
           </div>
 
           <% Paginations paginations=(Paginations)result.get("paginations"); %>
-            <div style="margin-left: 18%; font-weight: bold;">총 상품 : <%= paginations.getTotalCount() %>
+          
             </div>
             <nav aria-label="Page navigation">
               <ul class="pagination justify-content-center">
-                <li class="page-item"><a class="page-link"
-                    href="/search/searchList?currentPage=<%=paginations.getPreviousPage()%>">Previous</a></li>
-
+                <li class="page-item">
+                  <a class="page-link" href="/search/selectSearch?currentPage=<%=paginations.getPreviousPage()%>&search=<%= params.getOrDefault("search", "") %>&words=<%= params.getOrDefault("words", "") %>">Previous</a>
+              </li>
+              
                 <% for(int i=paginations.getBlockStart();i <=paginations.getBlockEnd(); i=i+1){ %>
                   <li class="page-item">
-                    <a class="page-link" href="/search/searchList?currentPage=<%= i %>">
+                    <a class="page-link" href="/search/selectSearch?currentPage=<%= i %>&search=<%= params.getOrDefault("search", "") %>&words=<%= params.getOrDefault("words", "") %>">
                       <%= i %>
                     </a>
                   </li>
                   <% } %>
 
-                    <li class="page-item">
-                      <a class="page-link"
-                        href="/search/searchList?currentPage=<%= paginations.getNextPage() %>">Next</a>
-                    </li>
+                  <li class="page-item">
+                    <a class="page-link" href="/search/selectSearch?currentPage=<%= paginations.getNextPage() %>&search=<%= params.getOrDefault("search", "") %>&words=<%= params.getOrDefault("words", "") %>">Next</a>
+                  </li>
+                  
               </ul>
             </nav>
             <%@ include file="/WEB-INF/views/etc/Footer.jsp" %>

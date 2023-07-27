@@ -25,20 +25,8 @@ public class SearchService  {
         return result;
     }
 
-    // 검색(조건-search : YEAR, CAR_NAME)
-    public Object selectSearch(String search, String words) {
-        // Object getOne(String sqlMapId, Object dataMap)
-        String sqlMapId = "Search.list";
-        HashMap dataMap = new HashMap<>();
-        dataMap.put("search", search);
-        dataMap.put("words", words);
 
-        Object result = sharedDao.getList(sqlMapId, dataMap);
-        return result;
-    }
-
-
-                // 페이지네이션
+                // 페이지네이션 search
         public Map selectWithPagination(Map dataMap) {
             // 페이지 형성을 위한 계산
             int totalCount = (int) this.cntTotal(dataMap);
@@ -50,7 +38,7 @@ public class SearchService  {
             HashMap result = new HashMap<>(totalCount, currentPage);
             result.put("paginations", paginations);
             // Object getOne(String sqlMapId, Object dataMap)
-            String sqlMapId = "Search.selectPagination";
+            String sqlMapId = "Search.list";
             dataMap.put("pageScale", paginations.getPageScale());
             dataMap.put("pageBegin", paginations.getPageBegin());
             result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
