@@ -1,3 +1,8 @@
+-- drop schema project_diet;
+-- CREATE SCHEMA project_diet;
+
+use project_diet;
+
 CREATE TABLE AUTH_NAMES
 (
   AUTH_NAME VARCHAR(200) NOT NULL COMMENT '접근권한명',
