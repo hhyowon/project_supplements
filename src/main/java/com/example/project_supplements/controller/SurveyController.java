@@ -23,7 +23,10 @@ import com.example.project_supplements.utils.Commons;
 public class SurveyController {
     @Autowired
     SurveyService surveyService;
-  
+    
+    @Autowired
+    Commons commons;
+
     @GetMapping({" "})
     public ModelAndView main(ModelAndView modelAndView){
         modelAndView.setViewName("/WEB-INF/views/survey/survey.jsp");
@@ -55,7 +58,7 @@ public class SurveyController {
     public ModelAndView insertAndSelectSurvey(@RequestParam Map params,
             ModelAndView modelAndView) {
         Object result = surveyService.insertAndSelectSurvey(params);
-
+        String userId = commons.getUserID();
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
         modelAndView.setViewName("/WEB-INF/views/mainpage/main.jsp");
@@ -68,10 +71,10 @@ public class SurveyController {
     public ModelAndView insertAndSelectSurvey_yes( @RequestParam Map params,
             ModelAndView modelAndView) {
         Object result = surveyService.insertAndSelectSurvey_yes(params);
-
+        String userId = commons.getUserID();
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
-        modelAndView.setViewName("/WEB-INF/views/mainpage/main.jsp");
+        modelAndView.setViewName("/WEB-INF/views/mainpage/main.jsp"); // 통계가 보이게금 설정
 
         return modelAndView;
     }
