@@ -38,19 +38,12 @@
                             </div>
                             </sec:authorize>
                         </sec:authorize>
-
-
-
                         <div class="dropdown nav-item">
                             <button class="btn btn-drak dropdown-toggle"
                                 data-bs-toggle="dropdown">회원관리</button><!--버튼 버튼색 버튼화살표토글 / 토글효과 : 드롭다운-->
                             <ul class="dropdown-menu">
                                 <!-- 필터 이용해야 될 것 같음-->
-                                <sec:authorize access="isAuthenticated()">
-                                    <li class="dropdown-item">
-                                        <a class="nav-link" href="/mypage/main">마이페이지</a>
-                                    </li>
-                                </sec:authorize>
+                              
                                 <!-- 로그인 전 -->
                                 <sec:authorize access="isAnonymous()">
                                     <li class="dropdown-item">
@@ -62,6 +55,9 @@
                                 </sec:authorize>
                                 <!-- 로그인 후-->
                                 <sec:authorize access="isAuthenticated()">
+                                    <li class="dropdown-item">
+                                        <a class="nav-link" href="/mypage/main">마이페이지</a>
+                                    </li>
                                     <li class="dropdown-item">
                                         <button class="nav-link btn btn-none" formaction="/logout"
                                             method="post">로그아웃</button>
