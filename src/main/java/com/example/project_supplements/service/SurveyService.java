@@ -60,8 +60,8 @@ public class SurveyService {
         }
         dataMap.put("surveyMapList", surveyMapList);
         // 부모테이블 값 insert 먼저 시키기 
-        String SURVEY_UID = UUID.randomUUID().toString();
-        dataMap.put("USER_ID", commons.getUserID());
+        String SURVEY_UID = UUID.randomUUID().toString(); 
+        dataMap.put("USER_ID", commons.getUserID()); // user_id 받기
         dataMap.put("SURVEY_UID", SURVEY_UID);
         dataMap.put("DATE_TIME", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         String sqlMapId = "SurveyService.insertsurveyresult";
