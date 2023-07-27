@@ -12,7 +12,7 @@
         </head>
         
         <body>
-            <%@ include file= "/WEB-INF/views/etc/Header.jsp" %>
+          
 <div class="row g-0 vh-100">
   <%@ include file= "/WEB-INF/views/etc/Admin_Sidebar.jsp" %><!-- 관리자페이지 옆-->
             

@@ -1,5 +1,7 @@
 <%@ page import="java.util.HashMap, java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<sec:authentication property="principal" var="userDetailsBean" />
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,9 +35,13 @@
               </div>
               <div class="text-center mt-4 mb-4">
                 <input type="hidden" name="SURVEY_TYPE_ID" value="F-01">
-                <button type="submit"  formaction="/survey/no" class="btn btn-main" name="SURVEY_TYPE_ID" value="F-01">로그인시</button>
+                <sec:authorize access="isAuthenticated()">
+                <button type="submit"  formaction="/survey/no" class="btn btn-main" name="SURVEY_TYPE_ID" value="F-01">시작하기</button>
+                </sec:authorize>
+                <sec:authorize access="isAnonymous()">
                 <button type="button" class="btn btn-white btn-main" data-bs-toggle="modal" data-bs-target="#myModal2"> 시작하기</button>
-                <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+                </sec:authorize>
+                <!-- <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered modal-sm">
                     <div class="modal-content">
                       <div class="modal-body">
@@ -44,11 +50,11 @@
                       </div>
                       <div class="modal-footer d-flex justify-content-center">
                         <a href="/survey" class="btn btn-secondary">닫기</a>
-                        <a href="/login" class="btn btn-white btn-main">확인</a>
+                        <a href="/signup" class="btn btn-white btn-main">확인</a>
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -71,9 +77,13 @@
               </div>
               <div class="text-center mt-4 mb-4">
                 <input type="hidden" name="SURVEY_TYPE_ID" value="F-02">
-                <button type="submit"  formaction="/survey/yes" class="btn btn-main" name="SURVEY_TYPE_ID" value="F-02"  >로그인시</button>
+                <sec:authorize access="isAuthenticated()">
+                <button type="submit"  formaction="/survey/yes" class="btn btn-main" name="SURVEY_TYPE_ID" value="F-02"  >시작하기</button>
+                </sec:authorize>
+                <sec:authorize access="isAnonymous()">
                 <button type="button" class="btn btn-white btn-main" data-bs-toggle="modal" data-bs-target="#myModal2"> 시작하기</button>
-                <div class="modal fade" id="myModal2" tabindex="-1" aria-labelledby="myModalLabel2" aria-hidden="true">
+                </sec:authorize>
+                <!-- <div class="modal fade" id="myModal2" tabindex="-1" aria-labelledby="myModalLabel2" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered modal-sm">
                     <div class="modal-content">
                       <div class="modal-body">
@@ -86,7 +96,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
