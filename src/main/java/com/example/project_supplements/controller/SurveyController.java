@@ -58,7 +58,7 @@ public class SurveyController {
     public ModelAndView insertAndSelectSurvey(@RequestParam Map params,
             ModelAndView modelAndView) {
         Object result = surveyService.insertAndSelectSurvey(params);
-        String userId = commons.getUserID();
+        String userId = commons.getUserID(); // user_id 받기
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
         modelAndView.setViewName("/WEB-INF/views/mainpage/main.jsp");
