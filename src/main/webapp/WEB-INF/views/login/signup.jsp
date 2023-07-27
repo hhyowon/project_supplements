@@ -77,21 +77,7 @@
             style="width: 500px;">
         </div>
       </div>
-        <p>
-          <label for="auth" class="sr-only">Auth</label>
-          <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="auth" id="SYSTEM_MANAGER" value="SYSTEM_MANAGER">
-              <label class="form-check-label" for="ROLE_MANAGER">SYSTEM MANAGER</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="auth" id="ROLE_ADMIN" value="ROLE_ADMIN">
-              <label class="form-check-label" for="ROLE_ADMIN">ADMIN</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="auth" id="USER" value="ROLE_USER">
-              <label class="form-check-label" for="USER">USER</label>
-            </div>
-          </p>
+       
       <!-- Ad receive check -->
       <div class="form-group row mt-3">
         <div class="col-sm-3">광고수신여부 :</div>
@@ -101,13 +87,28 @@
           수신하겠습니다
         </div>
       </div>
-
-          <hr class="mb-4" />
+      <p>
+        <label for="auth" class="sr-only"></label>
+        <!-- <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="auth" id="SYSTEM_MANAGER" value="SYSTEM_MANAGER">
+            <label class="form-check-label" for="ROLE_MANAGER">SYSTEM MANAGER</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="auth" id="ROLE_ADMIN" value="ROLE_ADMIN">
+            <label class="form-check-label" for="ROLE_ADMIN">ADMIN</label>
+          </div> -->
+          <hr class="mb-4">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="auth" id="USER" value="ROLE_USER">
+            <label class="form-check-label" for="USER">개인정보 수집 및 이용에 동의합니다</label>
+          </div>
+        </p>
+          <!-- <hr class="mb-4" />
           <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="aggrement" name="PRIVACY_INFO" required />
             <label class="custom-control-label" for="aggrement">개인정보 수집 및 이용에 동의합니다.</label>
           </div>
-          <P></P>
+          <P></P> -->
           <div>
             <button class="btn btn-main float-end" type="submit" >회원가입</button>
           </div>

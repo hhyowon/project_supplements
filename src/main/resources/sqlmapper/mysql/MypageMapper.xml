@@ -66,7 +66,7 @@
     INNER JOIN SURVEY AS T_S
     ON T_SR.SURVEY_UID = T_S.SURVEY_UID
     GROUP BY T_S.SURVEY_UID, T_SR.DATE_TIME, T_S.SURVEY_TYPE_ID, T_SR.SURVEY_UID
-    HAVING USER_ID = 'honggd123'; 
+    HAVING USER_ID = #{USER_ID}; 
      </select>
      
      <!-- 본인이 조회한 설문 내용 뽑아오기  -->
@@ -94,4 +94,3 @@
 	</select>
 
 </mapper>
-

@@ -28,7 +28,7 @@
           </a>
         </li>
         <li class="d-flex align-items-center">
-          <a href="./admin_survey.html" class="text-decoration-none nav-link">
+          <a href="/surveyresult/result_yes" class="text-decoration-none nav-link">
             설문조사 관리
           </a>
         </li>
