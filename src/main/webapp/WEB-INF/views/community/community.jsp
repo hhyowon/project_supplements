@@ -20,7 +20,8 @@
             <br>
             
                 <div class="container mx-auto" style="padding: 20px; border-radius: 10px ; width: 70%;">      
-                    <a data-bs-toggle="modal" href="#modalTarget-center"><button class="btn mx-2  mb-2 float-end submit btn-outline-secondary">작성하기</button></a>
+                    <a data-bs-toggle="modal" href="#modalTarget-center">
+                        <button class="btn mx-2  mb-2 float-end submit btn-outline-secondary">작성하기</button></a>
                     <!-- 모달 창 -->
                     <form id="modalForm" method="GET" action="" > 
                         <div class="modal" id="modalTarget-center">
@@ -47,51 +48,74 @@
                         </div>
                     </form>
                     
-                    <table class="table table-bordered" style="text-align: center;">
-                         <thead>
-                            <tr>
-                                <th style="width: 7%;">번호</th>
-                                <th style="width: 10%;">카테고리</th>
-                                <th>제목</th>
-                                <th>등록자</th>
-                                <th>등록일</th>
-                            </tr>
-                        </thead>
-                        <tbody id="list">
-                            <% ArrayList resultList=(ArrayList)result.get("resultList"); 
-                                    for(int i=0; i < resultList.size(); i=i+1){
-                                        HashMap record=(HashMap)resultList.get(i); %>
-                            <tr>
-                                <td><%= i+1 %></td>
-                                <td><%= record.get("CATEGORY") %></td>
-                                <td><a style=" color:black; text-decoration: none;" href="/community/communityPost/<%= record.get("COMMUNITY_ID") %>"><%= record.get("COMMUNITY_TITLE") %></a></td>
-                                <td><%= record.get("USER_ID") %></td>
-                                <td><%= record.get("COMMUNITY_DATE") %></td>
-                            </tr>
-                            <% } %>
-                        </tbody>
-                    </table>
+                   
+                            <div class="container">
+                            <form action="" method="GET">
+                                    <div class="d-flex justify-content-center align-items-center input-group mb-3">
+                                        <div class="d-flex align-items-center">
+                                            <div class="input-group">
+                                                <select class="form-select" name="search" id="" style="width: 150px;">
+                                                    <option>선택</option>
+                                                    <option value="COMMUNITY_TITLE"<%=(searchStr.equals("COMMUNITY_TITLE")) ? "selected" : "" %>>제목</option>
+                                                    <option value="USER_ID"<%=(searchStr.equals("USER_ID")) ? "selected" : "" %>>등록자</option>
+                                                </select>
+                                                <input type="text" name="words" value='<%= params.getOrDefault("words", "") %>'
+                                                class="form-control" placeholder="검색어를 입력하세요" id="keydownEnter"
+                                                style="width: 300px;" />     
+                                                <button class="btn btn-main" type="submit" formaction="/community/selectSearch" formmethod="get">검색</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <br>
+                                <table class="table table-bordered" style="text-align: center;">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 7%;">번호</th>
+                                        <th style="width: 10%;">카테고리</th>
+                                        <th>제목</th>
+                                        <th>등록자</th>
+                                        <th>등록일</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="list">
+                                    <% ArrayList resultList=(ArrayList)result.get("resultList"); 
+                                            for(int i=0; i < resultList.size(); i=i+1){
+                                                HashMap record=(HashMap)resultList.get(i); %>
+                                    <tr>
+                                        <td><%= i+1 %></td>
+                                        <td><%= record.get("CATEGORY") %></td>
+                                        <td><a style=" color:black; text-decoration: none;" href="/community/communityPost/<%= record.get("COMMUNITY_ID") %>"><%= record.get("COMMUNITY_TITLE") %></a></td>
+                                        <td><%= record.get("USER_ID") %></td>
+                                        <td><%= record.get("COMMUNITY_DATE") %></td>
+                                    </tr>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                        </form>
                     <%
                     Paginations paginations = (Paginations)result.get("paginations"); 
                     %> 
                    
-                <div>총 게시글 : <%= paginations.getTotalCount() %></div>
+                  
                 <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">
-                        <li class="page-item"><a class="page-link" href="/community?currentPage=<%=paginations.getPreviousPage()%>">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="/community?currentPage=<%=paginations.getPreviousPage()%>&search=<%= params.getOrDefault("search", "") %>&words=<%= params.getOrDefault("words", "") %>">Previous</a>
+                        </li>
 
                         <%
                         for(int i=paginations.getBlockStart();i <= paginations.getBlockEnd(); i=i+1){
                         %>
                         <li class="page-item">
-                            <a class="page-link" href="/community?currentPage=<%= i %>"><%= i %></a>
-                        </li>
+                            <a class="page-link" href="/community?currentPage=<%= i %>&search=<%= params.getOrDefault("search", "") %>&words=<%= params.getOrDefault("words", "") %>">
+                                <%= i %>
+                            </a>
+                            </li>
                         <%
                         }
                         %>
 
                         <li class="page-item">
-                            <a class="page-link" href="/community?currentPage=<%= paginations.getNextPage() %>">Next</a>
+                            <a class="page-link" href="/community?currentPage=<%= paginations.getNextPage() %>&search=<%= params.getOrDefault("search", "") %>&words=<%= params.getOrDefault("words", "") %>">Next</a>
                         </li>
                     </ul>
                 </nav>
@@ -114,10 +138,8 @@
                         닫기
                     </div>
                 </div>
-            </div>
-            
+            </div>         
     </form>
-    <%@ include file="/WEB-INF/views/etc/Footer.jsp" %> <!-- footer --> 
 
 </body>
 

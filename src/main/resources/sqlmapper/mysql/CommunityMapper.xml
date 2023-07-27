@@ -34,6 +34,14 @@
         INNER JOIN category as ca
         ON comm.CATEGORY_ID = ca.CATEGORY_ID
         WHERE ca.CATEGORY_ID LIKE 'C%'
+         <choose>
+            <when test="search == 'COMMUNITY_TITLE'">
+                AND COMMUNITY_TITLE LIKE CONCAT('%', #{words}, '%')
+            </when>
+            <when test="search == 'USER_ID'">
+                AND USER_ID LIKE CONCAT('%', #{words}, '%')
+            </when>
+        </choose> 
         order by COMMUNITY_DATE DESC
         limit #{pageBegin}, #{pageScale} 
         ;

@@ -102,16 +102,17 @@ public class MypageController {
     //     return modelAndView;
     // }
    //커뮤니티 게시글 수정
-    @GetMapping("/communityupdateAndSelectSearch/{COMMUNITY_ID}")
-    public ModelAndView communityupdateAndSelectSearch(@PathVariable String COMMUNITY_ID, @RequestParam Map params,  ModelAndView modelAndView) {
-     Object result = mypageService.communityupdateAndSelectSearch(COMMUNITY_ID, params);
+    @GetMapping("/communityupdateAndSelectSearch")
+    public ModelAndView communityupdateAndSelectSearch( @RequestParam Map params,  ModelAndView modelAndView) {
+        Object result = mypageService.communityupdateAndSelectSearch(params);
 
-     modelAndView.addObject("params", params);
-     modelAndView.addObject("result", result);
-     modelAndView.setViewName("/WEB-INF/views/mypage/mypage_community.jsp");
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
+        modelAndView.setViewName("/WEB-INF/views/mypage/mypage_community.jsp");
 
-     return modelAndView;
- }
+        return modelAndView;
+    }
+    
     @GetMapping("/BMI")
     public ModelAndView selectSearch(@RequestParam Map params,ModelAndView modelAndView) {
         // Map<String, String>으로 타입을 지정했으며, 파라미터의 이름과 값은 모두 문자열(String)로 처리
