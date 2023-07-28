@@ -23,6 +23,9 @@ public class SurveyService {
 
     @Autowired
     Commons commons;
+
+    @Autowired
+    SurveyResultService surveyResultService;
     
     // 복용하지 않는 자의 설문
     public Map surveyno(Map dataMap) {
@@ -76,6 +79,7 @@ public class SurveyService {
         return dataMap;
     }
 
+    
     // 설문 값 DB로 입력(복용한자)
     public Object insertAndSelectSurvey_yes( Map<String,Object> dataMap) {
         // question와 answer Map을 List에 담기
@@ -95,7 +99,6 @@ public class SurveyService {
         String SURVEY_UID = UUID.randomUUID().toString();
         dataMap.put("USER_ID", commons.getUserID());
         dataMap.put("SURVEY_UID", SURVEY_UID);
-        dataMap.put("USER_ID", "honggd123");
         dataMap.put("DATE_TIME", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         String sqlMapId = "SurveyService.insertsurveyresult";
         Object result01 = sharedDao.insert(sqlMapId, dataMap);
@@ -108,8 +111,22 @@ public class SurveyService {
         String uuid = this.generateUUID();
         return dataMap;
     }
+    // 복용 경험이 없는 자 설문조사 결과 연결
+    public Object insertAndSelectSurveyResult(Map<String,Object> dataMap){
+        HashMap result = new HashMap<>();
+        result.put("insertCount", this.insertAndSelectSurvey(dataMap));
+        result.putAll((Map) surveyResultService.surveyResultNo(dataMap));
+        return result;
+    }
+    // 복용 경험이 있는 자 설문조사 결과 연결
+    public Object insertAndSelectSurvey_YesResult(Map<String,Object> dataMap){
+        HashMap result = new HashMap<>();
+        result.put("insertCount", this.insertAndSelectSurvey_yes(dataMap));
+        result.putAll((Map) surveyResultService.surveyResultYes(dataMap));
+        return result;
+    }
 
-
+   
     private String generateUUID() {
         String uuid = UUID.randomUUID().toString();
         return uuid;

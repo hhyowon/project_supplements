@@ -36,22 +36,32 @@ CREATE TABLE CATEGORY
 
 CREATE TABLE COMMONS_CODE
 (
-  COMMON_CODE_ID        varchar(40)   NOT NULL COMMENT '공통 코드_ID',
-  NAME                  varchar(1000) NOT NULL COMMENT '명칭',
-  ORDER_NUMBER          decimal       NULL     COMMENT '정렬순서',
-  ATTRIBUTION_1         varchar(60)   NULL     COMMENT '속성_1',
-  ATTRIBUTION_2         varchar(60)   NULL     COMMENT '속성_2',
-  DESCRIPTION           varchar(1000) NULL     COMMENT '코드설명',
-  SYSTEM_CODE_YN       varchar(40)   NOT NULL  COMMENT '초기 시스템 코드 여부',
-  USE_YN                varchar(40)   NOT NULL COMMENT '사용 여부',
-  PARENT_COMMON_CODE_ID varchar(40)   NULL     COMMENT '상위 공통 코드 ID',
-  REGISTER_SEQ          varchar(50)   NOT NULL COMMENT '등록자SEQ',
-  REGISTRY_DATE         varchar(20)   NOT NULL COMMENT '등록일자',
-  MODIFIER_SEQ          varchar(40)   NOT NULL COMMENT '수정자_SEQ',
-  MODIFY_DATE           varchar(20)   NOT NULL COMMENT '수정일자',
- 
-  PRIMARY KEY (COMMON_CODE_ID)
-);
+	-- 공통 코드_ID(사용자 입력 가능)
+	COMMON_CODE_ID varchar(40) NOT NULL COMMENT '공통 코드_ID',
+	-- 명칭
+	NAME varchar(1000) NOT NULL COMMENT '명칭',
+	-- 정렬순서
+	ORDER_NUMBER decimal COMMENT '정렬순서',
+	-- 속성_1 
+	ATTRIBUTION_1 varchar(60) COMMENT '속성_1',
+	-- 속성_2
+	ATTRIBUTION_2 varchar(60) COMMENT '속성_2',
+	DESCRIPTION varchar(1000) COMMENT '코드설명',
+	-- 삭제불가(초기 시스템 코드 or 카테고리)
+	SYSTEM_CODE_YN varchar(40) DEFAULT 'N' NOT NULL COMMENT '초기 시스템 코드 여부',
+	-- 사용 여부
+	USE_YN varchar(40) NOT NULL COMMENT '사용 여부',
+	-- 공통 코드_ID(사용자 입력 가능)
+	PARENT_COMMON_CODE_ID varchar(40) COMMENT '상위 공통 코드 ID',
+	-- 등록자SEQ
+	REGISTER_SEQ varchar(50) NOT NULL COMMENT '등록자SEQ',
+	-- 등록일자
+	REGISTRY_DATE varchar(20) NOT NULL COMMENT '등록일자',
+	MODIFIER_SEQ varchar(40) NOT NULL COMMENT '수정자_SEQ',
+	-- 수정일자
+	MODIFY_DATE varchar(20) NOT NULL COMMENT '수정일자',
+	PRIMARY KEY (COMMON_CODE_ID)
+) COMMENT = '공통코드';
 
 CREATE TABLE COMMUNITY
 (
@@ -219,7 +229,7 @@ ALTER TABLE SURVEYRESULT
 
 ALTER TABLE COMMONS_CODE
   ADD CONSTRAINT FK_COMMONS_CODE_TO_COMMONS_CODE
-    FOREIGN KEY (COMMON_CODE_ID)
+    FOREIGN KEY (PARENT_COMMON_CODE_ID)
     REFERENCES COMMONS_CODE (COMMON_CODE_ID);
 
 ALTER TABLE SURVEY_OPT
@@ -231,3 +241,5 @@ ALTER TABLE SURVEY
   ADD CONSTRAINT FK_SURVEYRESULT_TO_SURVEY
     FOREIGN KEY (SURVEY_UID)
     REFERENCES SURVEYRESULT (SURVEY_UID);
+
+select 'Done'    ;

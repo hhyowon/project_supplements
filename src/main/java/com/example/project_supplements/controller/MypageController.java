@@ -101,17 +101,18 @@ public class MypageController {
     //     modelAndView.setViewName("/WEB-INF/views/mypage/community.jsp");
     //     return modelAndView;
     // }
+   
    //커뮤니티 게시글 수정
-    // @GetMapping("/communityupdateAndSelectSearch")
-    // public ModelAndView communityupdateAndSelectSearch( @RequestParam Map params,  ModelAndView modelAndView) {
-    //     Object result = mypageService.communityupdateAndSelectSearch(params);
+   @GetMapping("/communityupdateAndSelectSearch/{COMMUNITY_ID}")
+   public ModelAndView communityupdateAndSelectSearch(@PathVariable String COMMUNITY_ID, @RequestParam Map params,  ModelAndView modelAndView) {
+       Object result = mypageService.communityupdateAndSelectSearch(COMMUNITY_ID, params);
 
-    //     modelAndView.addObject("params", params);
-    //     modelAndView.addObject("result", result);
-    //     modelAndView.setViewName("/WEB-INF/views/mypage/mypage_community.jsp");
+       modelAndView.addObject("params", params);
+       modelAndView.addObject("result", result);
+       modelAndView.setViewName("/WEB-INF/views/mypage/mypage_community.jsp");
 
-    //     return modelAndView;
-    // }
+       return modelAndView;
+   }
     
     @GetMapping("/BMI")
     public ModelAndView selectSearch(@RequestParam Map params,ModelAndView modelAndView) {
@@ -123,5 +124,17 @@ public class MypageController {
         modelAndView.setViewName("/WEB-INF/views/mypage/mypage_BMI.jsp"); // 모델과 뷰 정보를 포함한 ModelAndView 객체를 반환
         return modelAndView;
     }
+
+    @GetMapping("/surveycontentlist")
+    public ModelAndView surveysearch(@RequestParam Map params,  ModelAndView modelAndView) {
+       Object result = mypageService.mypagesurveylist(params);
+       String userId = commons.getUserID();
+       modelAndView.addObject("params", params);
+       modelAndView.addObject("result", result);
+       modelAndView.setViewName("/WEB-INF/views/mypage/mypage_surveylist.jsp");
+
+       return modelAndView;
+   }
+    
 }
 

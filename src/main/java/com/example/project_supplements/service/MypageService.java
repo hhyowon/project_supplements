@@ -1,25 +1,24 @@
 package com.example.project_supplements.service;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import org.apache.logging.log4j.util.StringMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.example.project_supplements.dao.SharedDao;
-import com.example.project_supplements.utils.Paginations;
+import com.example.project_supplements.utils.Commons;
 
 @Service
 @Transactional
 public class MypageService {
     @Autowired
     SharedDao sharedDao;
+
+    @Autowired
+    Commons commons;
+
 
     // 개인정보 뽑아오기
     public Map mypagemain( Map dataMap) {
@@ -107,13 +106,15 @@ public class MypageService {
 
 
         // 본인 설문조사 조회
-    public Map mypagesurveylist(Map dataMap) {
+     public Map mypagesurveylist(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
+        dataMap.put("USER_ID", commons.getUserID());
         String sqlMapId = "MypageService.surveylist";
         HashMap result = new HashMap<>();
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;
     }
+    
     // 본인 설문조사 내용 
       public Object mypagesurveycontent(String SURVEY_UID, Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)

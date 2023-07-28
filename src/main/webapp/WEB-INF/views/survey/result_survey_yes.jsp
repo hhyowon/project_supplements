@@ -15,7 +15,14 @@
         HashMap result=(HashMap)request.getAttribute("result");%>
 
           <div class="container">
-                <div class=text-center ><h2 class="ui teal image header text-center">설문조사 결과 (복용 경험 있는 자)</h2></div>
+                <div class=text-center >
+                    <h2 class="ui teal image header text-center">설문조사 결과 (복용 경험 있는 자)</h2>
+                </div>
+                <li class="d-flex align-items-center">
+                    <a href="/surveyresult/result_no" class="text-decoration-none nav-link">
+                        없는자
+                    </a>
+                </li>
                 <br>
             <table class="table table-bordered ">
                 <thead>

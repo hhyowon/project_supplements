@@ -35,13 +35,13 @@
                 <table class="ui celled table table text-center table-bordered table-hover">
                     <thead>
                         <tr class="bg-secondary bg-opacity-10">
-                            <th>번호</th>
-                            <th>설문 ID</th>
+                            <th>번호</th> 
                             <th>설문 일시</th>
+                            <th>설문 ID</th>
                             <th>설문자 ID</th>
                             <th>설문 타입</th>
                             <th>조회</th>
-                            <th>관리</th>
+                            <th>삭제</th>
                         </tr>
                     </thead>
                     <% 
@@ -54,14 +54,13 @@
                                         HashMap record=(HashMap)resultList.get(i); %>
                             <tr>
                                 <td><%= number %></td> 
-                                <td><%= record.get("CATEGORY") %></td>
-                                <td><%= record.get("COMMUNITY_TITLE") %></a></td>
+                                <td><%= record.get("DATE_TIME") %></a></td>
+                                <td><%= record.get("SR.SURVEY_UID") %></td>
                                 <td><%= record.get("USER_ID") %></td>
-                                <td><%= record.get("COMMUNITY_DATE") %></td>
-                                <td>
-                                    <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="/admina/communityPost/<%= record.get("COMMUNITY_ID") %>">답변하기</button>
-                                    <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="/admina/deleteAndSelectSearch/<%= record.get("COMMUNITY_ID") %>">삭제</button>
-                                  </td> 
+                                <td><%= record.get("SURVEY_TYPE_ID") %></td>
+                                <td><button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="/adminsurvey/surveyContent/<%= record.get("COMMUNITY_ID") %>">조회</button></td> 
+                                <td><button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="/admina/deleteAndSelectSearch/<%= record.get("COMMUNITY_ID") %>">삭제</button> </td> 
+                                 
                             </tr>
                 
                         </thead>
