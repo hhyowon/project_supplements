@@ -21,7 +21,7 @@ public class AdminCommunityService {
     // 본인 글 관리
     public Map admincommunity( Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
-        String sqlMapId = "Adminuser.admincommunity";
+        String sqlMapId = "AdminCommunity.admincommunity";
         HashMap result = new HashMap<>();
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;
@@ -29,7 +29,7 @@ public class AdminCommunityService {
    
     // 커뮤니티 글 삭제
     public Object delete(Map dataMap) {
-        String sqlMapId = "Adminuser.delete";
+        String sqlMapId = "AdminCommunity.delete";
         Object result = sharedDao.delete(sqlMapId, dataMap);
         return result;
     }
@@ -45,10 +45,39 @@ public class AdminCommunityService {
     //해당 게시글보기
     public Object selectPost(String COMMUNITY_ID, Map dataMap) {
     // Object getOne(String sqlMapId, Object dataMap)
-    String sqlMapId = "Adminuser.communityPost";
+    String sqlMapId = "AdminCommunity.communityPost";
     dataMap.put("COMMUNITY_ID", COMMUNITY_ID); 
     HashMap result = new HashMap<>();
     result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
     return result;
     }
+
+     // 페이지네이션
+     public Map selectWithPagination(Map dataMap) {
+        // 페이지 형성을 위한 계산
+        int totalCount = (int) this.cntTotal(dataMap);
+        int currentPage = 1;
+        if(dataMap.get("currentPage") != null) {
+            currentPage = Integer.parseInt((String)dataMap.get("currentPage"));    // from client in param
+        }
+        Paginations paginations = new Paginations(totalCount, currentPage); 
+        HashMap result = new HashMap<>(totalCount, currentPage);
+        result.put("paginations", paginations);
+        // Object getOne(String sqlMapId, Object dataMap)
+        String sqlMapId = "AdminCommunity.selectPagination";
+        dataMap.put("pageScale", paginations.getPageScale());
+        dataMap.put("pageBegin", paginations.getPageBegin());
+        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+
+        return result;
+    }
+
+    // 페이지네이션 토탈용 
+    public Object cntTotal(Map dataMap) {
+        // Object getOne(String sqlMapId, Object dataMap)
+        String sqlMapId = "AdminCommunity.cntTotal";
+        Object result = sharedDao.getOne(sqlMapId, dataMap);
+        return result;
+    }
+
 }

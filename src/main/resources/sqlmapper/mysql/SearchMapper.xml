@@ -15,13 +15,13 @@
         WHERE 1 = 1
         <choose>
             <when test="search == 'PRODUCT'">
-                AND PRODUCT LIKE CONCAT(#{words}, '%')
+                AND PRODUCT LIKE CONCAT('%', #{words}, '%')
             </when>
             <when test="search == 'FORMULATION'">
-                AND FORMULATION LIKE CONCAT(#{words}, '%')
+                AND FORMULATION LIKE CONCAT('%', #{words}, '%')
             </when>
             <when test="search == 'EFFECT'">
-                AND EFFECT LIKE CONCAT(#{words}, '%')
+                AND EFFECT LIKE CONCAT('%', #{words}, '%')
             </when>
         </choose> 
          limit #{pageBegin}, #{pageScale} 

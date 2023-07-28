@@ -1,3 +1,6 @@
+
+use project_diet;
+
 -- gender
 INSERT INTO gender(GENDER, GENDER_UID)
 VALUES
@@ -430,4 +433,4 @@ select 'System_Code_Yes','Yes',1,NULL,NULL,'Sytem Using Yes','System_Code_Yes','
 select 'System_Code_No','No',2,NULL,NULL,'Sytem Using No','System_Code_Yes','Yes','System_Code_YN','UUID-1111-1111111',now(),'UUID-1111-1111111',now() from dual 
 ; 
 
-
+select 'Done'    ;

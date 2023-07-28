@@ -1,9 +1,9 @@
 <%@ page import="java.util.HashMap, java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <sec:authentication property="principal" var="userDetailsBean" />
 <!DOCTYPE html>
-<html lang="en">
 
 <body style="background-color:white" >
   <%@ include file= "/WEB-INF/views/etc/Header.jsp" %> <!-- Menu -->
@@ -41,20 +41,6 @@
                 <sec:authorize access="isAnonymous()">
                 <button type="button" class="btn btn-white btn-main" data-bs-toggle="modal" data-bs-target="#myModal2"> 시작하기</button>
                 </sec:authorize>
-                <!-- <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered modal-sm">
-                    <div class="modal-content">
-                      <div class="modal-body">
-                        <div>로그인이 필요합니다.</div>
-                        로그인하시겠습니까?
-                      </div>
-                      <div class="modal-footer d-flex justify-content-center">
-                        <a href="/survey" class="btn btn-secondary">닫기</a>
-                        <a href="/signup" class="btn btn-white btn-main">확인</a>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
               </div>
             </div>
           </div>
@@ -83,20 +69,6 @@
                 <sec:authorize access="isAnonymous()">
                 <button type="button" class="btn btn-white btn-main" data-bs-toggle="modal" data-bs-target="#myModal2"> 시작하기</button>
                 </sec:authorize>
-                <!-- <div class="modal fade" id="myModal2" tabindex="-1" aria-labelledby="myModalLabel2" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered modal-sm">
-                    <div class="modal-content">
-                      <div class="modal-body">
-                        <div>로그인이 필요합니다.</div>
-                        로그인하시겠습니까?
-                      </div>
-                      <div class="modal-footer d-flex justify-content-center">
-                        <a href="/survey" class="btn btn-secondary">닫기</a>
-                        <a href="/login" class="btn btn-white btn-main">확인</a>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
               </div>
             </div>
           </div>

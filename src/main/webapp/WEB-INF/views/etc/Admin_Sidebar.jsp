@@ -23,12 +23,12 @@
           >
         </li>
         <li class="d-flex align-items-center">
-          <a href="/admincommunity/community" class="text-decoration-none nav-link">
+          <a href="/admincommunity" class="text-decoration-none nav-link">
             커뮤니티 관리
           </a>
         </li>
         <li class="d-flex align-items-center">
-          <a href="./admin_survey.html" class="text-decoration-none nav-link">
+          <a href="/surveyresult/result_yes" class="text-decoration-none nav-link">
             설문조사 관리
           </a>
         </li>

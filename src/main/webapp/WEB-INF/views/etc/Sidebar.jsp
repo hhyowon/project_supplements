@@ -17,7 +17,7 @@
             <a href="/mypage/community" class="text-decoration-none nav-link">내가 작성한 글</a>
           </li>
           <li class="d-flex align-items-center">
-            <a href="/mypage/surveylist" class="text-decoration-none nav-link">설문조사 이력</a>
+            <a href="/mypage/surveycontentlist" class="text-decoration-none nav-link">설문조사 이력</a>
           </li>
           <li class="d-flex align-items-center">
             <a href="/mypage/BMI" class="text-decoration-none nav-link">나의 BMI</a>

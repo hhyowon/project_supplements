@@ -6,12 +6,10 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.project_supplements.service.SurveyResultService;
 import com.example.project_supplements.service.SurveyService;
 import com.example.project_supplements.utils.Commons;
 
@@ -54,27 +52,27 @@ public class SurveyController {
     }
 
     //설문 결과 INSERT(복용안한자)
-    @GetMapping("/insertAndSelectSurvey")
+    @GetMapping("/insertAndSelectSurveyResult")
     public ModelAndView insertAndSelectSurvey(@RequestParam Map params,
             ModelAndView modelAndView) {
-        Object result = surveyService.insertAndSelectSurvey(params);
+        Object result = surveyService.insertAndSelectSurveyResult(params);
         String userId = commons.getUserID(); // user_id 받기
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
-        modelAndView.setViewName("/WEB-INF/views/mainpage/main.jsp");
+        modelAndView.setViewName("/WEB-INF/views/survey/result_survey_no.jsp");
 
         return modelAndView;
     }
 
     //설문 결과 INSERT(복용한자)
-    @GetMapping("/insertAndSelectSurvey_yes")
+    @GetMapping("/insertAndSelectSurvey_YesResult")
     public ModelAndView insertAndSelectSurvey_yes( @RequestParam Map params,
             ModelAndView modelAndView) {
-        Object result = surveyService.insertAndSelectSurvey_yes(params);
+        Object result = surveyService.insertAndSelectSurvey_YesResult(params);
         String userId = commons.getUserID();
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
-        modelAndView.setViewName("/WEB-INF/views/mainpage/main.jsp"); // 통계가 보이게금 설정
+        modelAndView.setViewName("/WEB-INF/views/survey/result_survey_yes.jsp"); // 통계가 보이게금 설정
 
         return modelAndView;
     }
