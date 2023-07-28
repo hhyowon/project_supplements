@@ -431,3 +431,11 @@ select 'System_Code_No','No',2,NULL,NULL,'Sytem Using No','System_Code_Yes','Yes
 ; 
 
 
+insert into AUTH_NAMES 
+(UNIQUE_ID,AUTH_NAME)
+values
+('ROLE_MANAGER','SYSTEM_MANAGER'),
+('ROLE_ADMIN','ADMIN'),
+('ROLE_USER','USER'),
+('ROLE_GUEST','GUEST')
+;
