@@ -55,7 +55,7 @@
                              <td> <%=surveytypeyes%></td>
                              <% }%>
                             
-                             <td> <a href="/mypage/surveycontent/<%=surveyuid%>"><button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="">조회</button> </a></td> 
+                             <td> <a href="/mypage/surveyContent/<%=surveyuid%>"><button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="">조회</button> </a></td> 
                         
                             
                         </tr>

@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 
 @Configuration
 public class Commons {
@@ -46,5 +47,9 @@ public class Commons {
             }
         }
         return username;
-    }
+
+    
+        
+    
+}
 }
