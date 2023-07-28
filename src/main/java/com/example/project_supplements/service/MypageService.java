@@ -118,8 +118,8 @@ public class MypageService {
     // 본인 설문조사 내용 
       public Object mypagesurveycontent(String SURVEY_UID, Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
+        dataMap.put("SURVEY_UID", SURVEY_UID);
         String sqlMapId = "MypageService.surveycontent";
-        dataMap.put("SURVEY_UID", SURVEY_UID); 
         HashMap result = new HashMap<>();
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;

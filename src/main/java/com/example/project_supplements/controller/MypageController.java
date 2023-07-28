@@ -135,6 +135,16 @@ public class MypageController {
 
        return modelAndView;
    }
+
+ @GetMapping({"/surveyContent/{SURVEY_UID}"})
+    public ModelAndView surveyContent(@RequestParam Map params,@PathVariable String SURVEY_UID, ModelAndView modelAndView){
+    Object result = mypageService.mypagesurveycontent(SURVEY_UID, params);
+    String userId = commons.getUserID();
+    modelAndView.addObject("params", params);
+    modelAndView.addObject("result", result);
+    modelAndView.setViewName("/WEB-INF/views/mypage/mypage_surveycontent.jsp");
+    return modelAndView;
+    }  
     
 }
 

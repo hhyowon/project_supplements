@@ -36,8 +36,9 @@
                 </div>
                 <div class="text-center" style="margin-top: 20px;">
                   <button type="submit" class="btn btn-main" >로그인</button>
-                </div>
+                </div>  
               </form>
+            
 
             </div>
           </div>
