@@ -17,7 +17,15 @@ public class AdminSurveyService {
         // 관리자 설문조사 관리
      public Map adminsurveylist(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
-        String sqlMapId = "Adminuser.adminsurveylist";
+        String sqlMapId = "Adminsurvey.adminsurveylist";
+        HashMap result = new HashMap<>();
+        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+        return result;
+    }
+
+     public Map adminsurveycontent(Map dataMap) {
+        // Object getOne(String sqlMapId, Object dataMap)
+        String sqlMapId = "Adminsurvey.adminsurveylist";
         HashMap result = new HashMap<>();
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;
