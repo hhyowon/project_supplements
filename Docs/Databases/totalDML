@@ -1,6 +1,3 @@
-
-use project_diet;
-
 -- gender
 INSERT INTO gender(GENDER, GENDER_UID)
 VALUES
