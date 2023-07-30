@@ -43,7 +43,7 @@
             <div>
               <div class="py-2"><!--아이디 작성-->
                 <label class="form-label" for="idid">아이디 </label>
-                <input class="form-control" type="id" name="USER_ID" id="userid" value='<%= record.get("USER_ID")%>' placeholder="hyowon0605" style="width: 500px;">
+                <input class="form-control" type="id" name="USER_ID" id="userid" value='<%= record.get("USER_ID")%>' style="width: 500px;" readonly>
               </div>
 
               <div class="py-2"><!--비밀번호 작성-->
