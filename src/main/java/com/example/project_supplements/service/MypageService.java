@@ -60,7 +60,7 @@ public class MypageService {
     public Map mypagecommunity( Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
         String sqlMapId = "MypageService.community";
-        
+        dataMap.put("USER_ID", commons.getUserID());
         HashMap result = new HashMap<>();
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;
