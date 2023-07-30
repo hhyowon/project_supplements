@@ -21,9 +21,12 @@ public class MypageService {
 
 
     // 개인정보 뽑아오기
-    public Map mypagemain( Map dataMap) {
+    public Map mypagemain(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
         String sqlMapId = "MypageService.mypagemain";
+        dataMap.put("USER_ID", commons.getUserID()); //USER_ID는 PrincipalUserService에 있는 username을 써야한다.
+        // USER_ID에서 권한부분을 담당하는 곳이 PrincipalUserService인데  dataMap.put("username", username); 이 부분 참고
+        // 그래서 selectByUIDWithAuths(Map dataMap)클래스에서 AuthsMapper에 selectWithUSERNAME에서 AND auths.USER_ID = #{username} 으로 씀
         HashMap result = new HashMap<>();
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;
@@ -37,7 +40,7 @@ public class MypageService {
     }
 
     public Object updateAndSelectSearch( Map dataMap) {
-        dataMap.put("USER_ID", "honggd123"); //유니크 아이디 받아와서 dataMap에 저장
+        ; //유니크 아이디 받아와서 dataMap에 저장
         HashMap result = new HashMap<>();
         result.put("updateCount", this.update(dataMap));
         result.putAll(this.selectSearch(dataMap));
@@ -47,6 +50,7 @@ public class MypageService {
      //select 로 불러오기 
      public Map selectSearch(Map dataMap) {
         String sqlMapId = "MypageService.mypagemain";
+        dataMap.put("USER_ID", commons.getUserID());
         HashMap result = new HashMap<>();
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;
@@ -56,6 +60,7 @@ public class MypageService {
     public Map mypagecommunity( Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
         String sqlMapId = "MypageService.community";
+        
         HashMap result = new HashMap<>();
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;

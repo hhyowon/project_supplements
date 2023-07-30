@@ -1,4 +1,5 @@
 <%@ page import="java.util.HashMap, java.util.ArrayList" %>
+<%@ page import="com.example.project_supplements.utils.Commons" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,8 +19,9 @@
     String searchStr=(String)params.getOrDefault("search", ""); 
     HashMap result=(HashMap)request.getAttribute("result"); %>
 
-    <% ArrayList resultList=(ArrayList)result.get("resultList"); 
-      String targetUserId = "honggd123"; // userid 하드코팅 해놓았음 
+    <% ArrayList resultList=(ArrayList)result.get("resultList");
+      Commons commons = new Commons(); 
+      String targetUserId = commons.getUserID(); 
     if (resultList != null && !resultList.isEmpty()) {
       for (int i = 0; i < resultList.size(); i++) {
         HashMap record = (HashMap) resultList.get(i);

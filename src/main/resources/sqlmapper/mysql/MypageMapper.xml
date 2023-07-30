@@ -5,7 +5,7 @@
     <!-- 개인정보 뽑아오기  -->
 	<select id="mypagemain" parameterType="Map" resultType="Map">
         SELECT NAME, USER_ID, PASSWORD, PHONENUMBER, ADDRESS, EMAIL
-        FROM members;
+        FROM members
 	</select>
 
     <!-- 개인정보 수정(update) -->
@@ -17,7 +17,7 @@
         , PHONENUMBER = #{PHONENUMBER}
         , ADDRESS = #{ADDRESS}
         ,EMAIL= #{EMAIL}
-        WHERE USER_ID = 'honggd123'; <!-- 하드코딩-->
+        WHERE USER_ID = #{username}; <!-- 하드코딩-->
     </update>
 
   
