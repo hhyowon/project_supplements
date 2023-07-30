@@ -87,10 +87,10 @@
 
 
 	<select id="BMI" parameterType="Map" resultType="Map">
-       SELECT YEAR,HEIGHT,WEIGHT,BMI_RESULT
+       SELECT DATE,HEIGHT,WEIGHT,BMI_RESULT
        FROM project_diet.bmi
        where USER_ID = 'honggd123'
-       order by YEAR;
+       order by DATE;
 	</select>
 
 </mapper>

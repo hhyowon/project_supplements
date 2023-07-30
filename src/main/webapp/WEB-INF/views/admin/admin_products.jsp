@@ -12,7 +12,7 @@
         </head>
         
         <body>
-          
+          <%@ include file= "/WEB-INF/views/etc/Header.jsp" %>
 <div class="row g-0 vh-100">
   <%@ include file= "/WEB-INF/views/etc/Admin_Sidebar.jsp" %><!-- 관리자페이지 옆-->
             
@@ -40,74 +40,75 @@
                     <input type="text" name="words" value='<%= params.getOrDefault("words", "") %>'
                       class="form-control" placeholder="원하는 상품명, 효과, 제형 검색하기..." id="keydownEnter"
                       style="width: 500px;" />
-                    <button class="btn btn-main" type="submit" formaction="/adminaproduct/selectSearch"
+                    <button class="btn btn-main" type="submit" formaction="/adminproduct/selectSearch"
                       formmethod="get">검색</button>
-                    </div>
                   </div>
                 </div>
-              </form>
+              </div>
+            </form>
+            <a class="btn btn-main float-end" href="./admin_products_add.jsp">추가</a>
           </div>
-          
-            <br>
-            <div class="container " style="padding: 20px;">
-                <table class="table text-center table-bordered table-hover">
-                    <thead class="bg-secondary bg-opacity-10">
-                        <tr>
-                            <th class="col-1">번호</th>
-                            <th>상품이미지</th>
-                            <th>상품명</th>
-                            <th>제형</th>
-                            <th>효과</th>
-                            <th>상세보기</th>
-                            <th>관리</th>
-                        </tr>
-                    </thead>
-                      <tbody id="list">
-                            <% ArrayList resultList = (ArrayList) result.get("resultList"); 
-                            for (int i = 0; i < resultList.size(); i++) {
-                                HashMap record = (HashMap) resultList.get(i); %>
-                        <tr>
-                            <td><%= i+1 %></td>
-                            <td><img src="<%= record.get("PRODUCT_IMG") %>" alt="Image" style="height:50px;"></td>
-                            <td><%= record.get("PRODUCT") %></td>
-                            <td><%= record.get("FORMULATION") %></td>
-                            <td><%= record.get("EFFECT") %></td>
-                            <td><a style="color:black; text-decoration:none;" href="<%= record.get("URL") %>">상세보기</a></td>
-                            
-                            <td>
-                                <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="">수정</button>
-                                <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="">삭제</button>
-                            </td>
-                        </tr>
-                        <% } %>
-                    </tbody>
-                    </table>
-                    
-                    <% Paginations paginations=(Paginations)result.get("paginations"); %>
-                    <div style="margin-left: 18%; font-weight: bold;">총 상품 : <%= paginations.getTotalCount() %>
-                    </div>
-                    <nav aria-label="Page navigation">
-                      <ul class="pagination justify-content-center">
-                        <li class="page-item">
-                          <a class="page-link" href="/adminaproduct/selectSearch?currentPage=<%=paginations.getPreviousPage()%>">Previous</a>
-                      </li>
-                      
-                        <% for(int i=paginations.getBlockStart();i <=paginations.getBlockEnd(); i=i+1){ %>
-                          <li class="page-item">
-                            <a class="page-link" href="/adminaproduct/selectSearch?currentPage=<%= i %>">
-                              <%= i %>
-                            </a>
-                          </li>
-                          <% } %>
+        </div>
+        <br>
+  
+        <div class="container">
+          <div class="row">
+            <% ArrayList resultList=(ArrayList) result.get("resultList"); for (int i=0; i < resultList.size(); i++) {
+              HashMap record=(HashMap) resultList.get(i); %>
+              <div class="col-md-4 mb-4">
+                <div class="card" style="text-align: center;">
+                  <img src="<%= record.get("PROUDUCT_IMG") %>" class="card-img-top" alt="Image" style="height:
+                  350px;">
+                  <div class="card-body">
+                    <h5 class="card-title" style="font-weight: bold;">
+                      <%= record.get("PRODUCT") %>
+                    </h5>
+                    <span class="badge" style="background-color: #5B9BD5;">
+                      <font size="4">
+                        <%= record.get("FORMULATION") %>
+                      </font>
+                    </span>
+                    <span class="badge" style="background-color: #bccad6;">
+                      <font size="4">
+                        <%= record.get("EFFECT") %>
+                      </font>
+                    </span>
+                  </div>
+                  <div class="card-footer">
+                    <a href="<%= record.get("URL") %>" target="_blank" style="color: inherit; text-decoration:
+                      none;">상세보기</a>
+                  </div>
+                </div>
+              </div>
+              <% } %>
+          </div>
+        </div>
+
+        <% Paginations paginations=(Paginations)result.get("paginations"); %>
         
-                          <li class="page-item">
-                            <a class="page-link" href="/adminaproduct/selectSearch?currentPage=<%= paginations.getNextPage() %>">Next</a>
-                          </li>
-                          
-                      </ul>
-                    </nav>
-                    <%@ include file="/WEB-INF/views/etc/Footer.jsp" %>
-            </body>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+          </div>
+          <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <a class="page-link" href="/adminproduct/selectSearch?currentPage=<%=paginations.getPreviousPage()%>&search=<%= params.getOrDefault("search", "") %>&words=<%= params.getOrDefault("words", "") %>">Previous</a>
+            </li>
+            
+              <% for(int i=paginations.getBlockStart();i <=paginations.getBlockEnd(); i=i+1){ %>
+                <li class="page-item">
+                  <a class="page-link" href="/adminproduct/selectSearch?currentPage=<%= i %>&search=<%= params.getOrDefault("search", "") %>&words=<%= params.getOrDefault("words", "") %>">
+                    <%= i %>
+                  </a>
+                </li>
+                <% } %>
+
+                <li class="page-item">
+                  <a class="page-link" href="/adminproduct/selectSearch?currentPage=<%= paginations.getNextPage() %>&search=<%= params.getOrDefault("search", "") %>&words=<%= params.getOrDefault("words", "") %>">Next</a>
+                </li>
+                
+            </ul>
+          </nav>
         
-            </html>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  </html>

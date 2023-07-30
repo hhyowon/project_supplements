@@ -2,6 +2,7 @@ package com.example.project_supplements.service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,12 +27,13 @@ public class CommunityService {
         String sqlMapId = "Commu.insert";
         if (dataMap.get("COMMUNITY_ID") == null || dataMap.get("COMMUNITY_ID").equals("")) {
             // "COMMUNITY_ID"가 null이거나 빈 문자열인 경우 처리
-            String uuid = commons.generateUUID();
+            String uuid = commons.generateUUID(); // user_id 받기 (수정)
             dataMap.put("COMMUNITY_ID", uuid);
             dataMap.put("username", commons.getUserID()); //
         } else {
             // "COMMUNITY_ID"가 null이 아니고 빈 문자열도 아닌 경우 처리
         }
+        
         Object result_1 = sharedDao.insert(sqlMapId, dataMap);
         HashMap result = (HashMap) this.selectWithPagination(dataMap);
         return result;

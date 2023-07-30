@@ -65,7 +65,8 @@ public class MypageController {
      // 내글 관리
     @GetMapping({"/community"})
     public ModelAndView community(@RequestParam Map params,ModelAndView modelAndView){
-        
+        String userId = commons.getUserID(); // user_id 받기
+
         Object result = mypageService.mypagecommunity(params);
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);

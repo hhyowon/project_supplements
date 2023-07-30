@@ -35,39 +35,4 @@ public class AdminController {
         return modelAndView;
     }
 
-    // 커뮤니티 관리
-    @GetMapping({"/community"})
-    public ModelAndView community(@RequestParam Map params,ModelAndView modelAndView){
-        
-        Object result = adminService.admincommunity(params);
-        modelAndView.addObject("params", params);
-        modelAndView.addObject("result", result);
-        modelAndView.setViewName("/WEB-INF/views/admin/admin_community.jsp");
-        return modelAndView;
-    }
-
-    // 커뮤니티 delete
-    @GetMapping("/deleteAndSelectSearch/{COMMUNITY_ID}")
-    public ModelAndView deleteAndSelectSearch(@RequestParam Map params, @PathVariable String COMMUNITY_ID, ModelAndView modelAndView) {
-        Object result = adminService.deleteAndSelectSearch( COMMUNITY_ID, params); // 호출
-        modelAndView.addObject("params", params); // modelAndView 객체에 params와 result를 추가
-        modelAndView.addObject("result", result);
-
-        modelAndView.setViewName("/WEB-INF/views/admin/admin_community.jsp");
-        return modelAndView;
-    }
-
-    // 해당 게시글 가져오기
-    @GetMapping({"/communityPost/{COMMUNITY_ID}"})
-    public ModelAndView communityPost(@PathVariable String COMMUNITY_ID, @RequestParam Map params, ModelAndView modelAndView) {
-            Object result = adminService.selectPost(COMMUNITY_ID, params);
-    
-            modelAndView.addObject("params", params);
-            modelAndView.addObject("result", result);
-            modelAndView.setViewName("/WEB-INF/views/admin/admin_community_post_comment.jsp");
-            return modelAndView; 
-    }
-
-
-
 }

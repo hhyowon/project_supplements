@@ -2,7 +2,7 @@
     <%@ page import="java.util.HashMap, java.util.ArrayList" %>
         <!DOCTYPE html>
         <html lang="en">
-
+    
         <head>
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,17 +20,14 @@
                 HashMap secondresult=(HashMap)request.getAttribute("secondresult"); 
                 HashMap thirdparams=(HashMap)request.getAttribute("thirdparams"); 
                 HashMap thirdresult=(HashMap)request.getAttribute("thirdresult");  %>
-               
-
-
-
+    
+    
                     <div class="container">
                         <h2 class="ui teal image header text-center">
                             효능별 BEST 3
                             <hr class='hr-solid' />
                         </h2>
                       
-                       
                         <table class="table table-striped table-hover">
                             <tbody>
                                 <tr>

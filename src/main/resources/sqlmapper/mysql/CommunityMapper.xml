@@ -24,6 +24,15 @@
     <select id="cntTotal" parameterType="Map" resultType="int">
         select count(*) as cnt
         from community
+        where 1=1
+        <choose>
+            <when test="search == 'COMMUNITY_TITLE'">
+                AND COMMUNITY_TITLE LIKE CONCAT('%', #{words}, '%')
+            </when>
+            <when test="search == 'USER_ID'">
+                AND USER_ID LIKE CONCAT('%', #{words}, '%')
+            </when>
+        </choose> 
         ;
 	</select>
     

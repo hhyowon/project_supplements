@@ -4,7 +4,7 @@
     
    <insert id="insertBMI" parameterType="Map">
     INSERT INTO bmi
-    (BMI_UID, USER_ID, YEAR, HEIGHT, WEIGHT, BMI_RESULT)
+    (BMI_UID, USER_ID, DATE, HEIGHT, WEIGHT, BMI_RESULT)
     VALUES 
     (#{BMI_UID},'honggd123', CURDATE(),#{HEIGHT},#{WEIGHT},#{BMI_RESULT});
     </insert>
