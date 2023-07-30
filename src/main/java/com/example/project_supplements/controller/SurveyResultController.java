@@ -16,14 +16,13 @@ import com.example.project_supplements.service.SurveyResultService;
 @RequestMapping("/surveyresult")
 
 public class SurveyResultController {
-    
     @Autowired 
     SurveyResultService surveyResultService;
 
      @GetMapping({"/result_yes"})
      public ModelAndView result_yes(@RequestParam Map params, ModelAndView modelAndView){
+        
         Object result = surveyResultService.surveyResultYes(params);
-
          modelAndView.addObject("params", params);
          modelAndView.addObject("result", result);
          modelAndView.setViewName("/WEB-INF/views/survey/result_survey_yes.jsp");

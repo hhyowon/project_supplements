@@ -28,9 +28,16 @@
         HAVING T_SR.SURVEY_UID = #{SURVEY_UID};
         </select>
 
-       <!-- 설문 삭제 -->
-        <delete id="delete" parameterType="Map">
-            
+       <!-- 설문 부모테이블 삭제 -->
+        <delete id="surveydelete" parameterType="Map">
+        DELETE FROM SURVEY
+        WHERE SURVEY_UID = "SUID_01";
+        </delete>
+
+        <!-- 설문 자식테이블 삭제 -->
+        <delete id="surveyresultdelete" parameterType="Map">
+        DELETE FROM SURVEYRESULT 
+        WHERE SURVEY_UID = "SUID_01";     
         </delete>
 
 </mapper>
