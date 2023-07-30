@@ -49,7 +49,7 @@
                     HashMap record=(HashMap)resultList.get(i); %>
                 <tr>
                   <td style="width: 7%;" ><%= number %></td>
-                  <td><%= record.get("YEAR") %></td> 
+                  <td><%= record.get("DATE") %></td> 
                   <td><%= record.get("HEIGHT") %></td>
                     <td><%= record.get("WEIGHT") %></td>
                     <td><%= record.get("BMI_RESULT") %></td>

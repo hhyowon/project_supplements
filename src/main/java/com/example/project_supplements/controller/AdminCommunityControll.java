@@ -23,7 +23,7 @@ public class AdminCommunityControll {
     Commons commons;
 
     // 커뮤니티 관리
-    @GetMapping({""})
+    @GetMapping({"/"})
     public ModelAndView community(@RequestParam Map params,ModelAndView modelAndView){
         
         Object result = adminService.selectWithPagination(params);

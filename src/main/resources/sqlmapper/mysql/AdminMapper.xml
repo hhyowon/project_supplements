@@ -13,6 +13,15 @@
     <select id="cntTotal" parameterType="Map" resultType="int">
         select count(*) as cnt
         from project_diet.members
+        where 1=1
+        <choose>
+            <when test="search == 'NAME'">
+                AND NAME LIKE CONCAT('%', #{words}, '%')
+            </when>
+            <when test="search == 'USER_ID'">
+                AND USER_ID LIKE CONCAT('%', #{words}, '%')
+            </when>
+        </choose> 
         ;
 	</select>
     
@@ -21,6 +30,14 @@
        SELECT members.USER_ID,members.NAME,gender.Gender,members.PASSWORD,members.PHONENUMBER,members.ADDRESS,members.EMAIL
         FROM project_diet.members
         INNER JOIN project_diet.gender ON members.Gender_UID = gender.Gender_UID
+        <choose>
+            <when test="search == 'NAME'">
+                AND NAME LIKE CONCAT('%', #{words}, '%')
+            </when>
+            <when test="search == 'USER_ID'">
+                AND USER_ID LIKE CONCAT('%', #{words}, '%')
+            </when>
+        </choose> 
         limit #{pageBegin}, #{pageScale} 
         ;
 	</select>

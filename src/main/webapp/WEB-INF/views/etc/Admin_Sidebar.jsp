@@ -17,13 +17,13 @@
         </li>
         <li class="d-flex align-items-center">
           <a
-            href="/adminaproduct/searchList"
+            href="/adminproduct/selectSearch"
             class="text-decoration-none nav-link"
-            >보조제 관리</a
-          >
+            >보조제 관리</a >
+
         </li>
         <li class="d-flex align-items-center">
-          <a href="/admincommunity" class="text-decoration-none nav-link">
+          <a href="/admincommunity/" class="text-decoration-none nav-link">
             커뮤니티 관리
           </a>
         </li>

@@ -33,7 +33,20 @@
     <select id="cntTotal" parameterType="Map" resultType="int">
         select count(*) as cnt
         from project_diet.product
+         WHERE 1 = 1
+        <choose>
+            <when test="search == 'PRODUCT'">
+                AND PRODUCT LIKE CONCAT('%', #{words}, '%')
+            </when>
+            <when test="search == 'FORMULATION'">
+                AND FORMULATION LIKE CONCAT('%', #{words}, '%')
+            </when>
+            <when test="search == 'EFFECT'">
+                AND EFFECT LIKE CONCAT('%', #{words}, '%')
+            </when>
+        </choose> 
         ;
+
 	</select>
     
     <!--Pagination  -->
