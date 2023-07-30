@@ -96,7 +96,7 @@
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="auth" id="ROLE_ADMIN" value="ROLE_ADMIN">
             <label class="form-check-label" for="ROLE_ADMIN">ADMIN</label>
-          </div> -->
+          </div>   -->
           <hr class="mb-4">
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="auth" id="USER" value="ROLE_USER">

@@ -5,7 +5,7 @@
     <!-- 개인정보 뽑아오기  -->
 	<select id="mypagemain" parameterType="Map" resultType="Map">
         SELECT NAME, USER_ID, PASSWORD, PHONENUMBER, ADDRESS, EMAIL
-        FROM members;
+        FROM members
 	</select>
 
     <!-- 개인정보 수정(update) -->
@@ -17,7 +17,7 @@
         , PHONENUMBER = #{PHONENUMBER}
         , ADDRESS = #{ADDRESS}
         ,EMAIL= #{EMAIL}
-        WHERE USER_ID = 'honggd123'; <!-- 하드코딩-->
+        WHERE USER_ID = #{USER_ID}; <!-- 하드코딩-->
     </update>
 
   
@@ -30,7 +30,7 @@
         ON CO.USER_ID = M.USER_ID
         LEFT JOIN category AS CA
         ON CO.CATEGORY_ID = CA.CATEGORY_ID
-        WHERE CO.USER_ID = '가배' <!-- userid 하드코팅 해놓았음-->
+        WHERE CO.USER_ID = #{USER_ID} <!-- userid 하드코팅 해놓았음-->
         ORDER BY  CO.COMMUNITY_DATE DESC;
     </select>
     

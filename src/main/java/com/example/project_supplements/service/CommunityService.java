@@ -1,7 +1,6 @@
 package com.example.project_supplements.service;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +28,7 @@ public class CommunityService {
             // "COMMUNITY_ID"가 null이거나 빈 문자열인 경우 처리
             String uuid = commons.generateUUID();
             dataMap.put("COMMUNITY_ID", uuid);
+            dataMap.put("username", commons.getUserID()); //
         } else {
             // "COMMUNITY_ID"가 null이 아니고 빈 문자열도 아닌 경우 처리
         }

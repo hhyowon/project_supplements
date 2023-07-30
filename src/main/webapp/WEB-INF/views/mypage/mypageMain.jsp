@@ -1,4 +1,5 @@
 <%@ page import="java.util.HashMap, java.util.ArrayList" %>
+<%@ page import="com.example.project_supplements.utils.Commons" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,8 +19,9 @@
     String searchStr=(String)params.getOrDefault("search", ""); 
     HashMap result=(HashMap)request.getAttribute("result"); %>
 
-    <% ArrayList resultList=(ArrayList)result.get("resultList"); 
-      String targetUserId = "honggd123"; // userid 하드코팅 해놓았음 
+    <% ArrayList resultList=(ArrayList)result.get("resultList");
+      Commons commons = new Commons(); 
+      String targetUserId = commons.getUserID(); 
     if (resultList != null && !resultList.isEmpty()) {
       for (int i = 0; i < resultList.size(); i++) {
         HashMap record = (HashMap) resultList.get(i);
@@ -41,7 +43,7 @@
             <div>
               <div class="py-2"><!--아이디 작성-->
                 <label class="form-label" for="idid">아이디 </label>
-                <input class="form-control" type="id" name="USER_ID" id="userid" value='<%= record.get("USER_ID")%>' placeholder="hyowon0605" style="width: 500px;">
+                <input class="form-control" type="id" name="USER_ID" id="userid" value='<%= record.get("USER_ID")%>' style="width: 500px;" readonly>
               </div>
 
               <div class="py-2"><!--비밀번호 작성-->
