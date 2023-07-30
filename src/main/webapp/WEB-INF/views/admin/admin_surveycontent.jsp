@@ -48,7 +48,7 @@
                     </tbody>
                 </table>
                 <div class="container" style="text-align: center; padding: 10%;">
-                    <a href="/adminsurvey/surveyList"> <button class="btn mx-2 mb-2 submit btn-outline-secondary">목록보기</button></a>
+                    <a href="/adminsurvey/selectSearch"> <button class="btn mx-2 mb-2 submit btn-outline-secondary">목록보기</button></a>
                  </div>
         </div>   
             </div>

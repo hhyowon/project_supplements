@@ -31,14 +31,43 @@
        <!-- 설문 부모테이블 삭제 -->
         <delete id="surveydelete" parameterType="Map">
         DELETE FROM SURVEY
-        WHERE SURVEY_UID = #{SURVEY_UID};;
+        WHERE SURVEY_UID = #{SURVEY_UID};
         </delete>
 
         <!-- 설문 자식테이블 삭제 -->
         <delete id="surveyresultdelete" parameterType="Map">
         DELETE FROM SURVEYRESULT 
-        WHERE SURVEY_UID = #{SURVEY_UID};;     
+        WHERE SURVEY_UID = #{SURVEY_UID};   
         </delete>
+
+
+   <!--Pagination 레코드 갯수-->
+    <select id="cntTotal" parameterType="Map" resultType="int">
+      SELECT count(*) 
+      FROM SURVEYRESULT;
+	</select>
+
+<!--Pagination-->
+    <select id="selectPagination" parameterType="Map" resultType="Map">
+    SELECT T_SR.USER_ID, T_SR.DATE_TIME, T_S.SURVEY_TYPE_ID, T_SR.SURVEY_UID
+    FROM MEMBERS AS T_M
+    INNER JOIN SURVEYRESULT AS T_SR ON T_M.USER_ID = T_SR.USER_ID
+    INNER JOIN SURVEY AS T_S ON T_SR.SURVEY_UID = T_S.SURVEY_UID
+    WHERE T_SR.SURVEY_UID LIKE 'SUID%'
+    <choose>
+        <when test="search == 'SURVEY_UID'">
+            AND T_SR.SURVEY_UID LIKE CONCAT('%', #{words}, '%')
+        </when>
+        <when test="search == 'SURVEY_TYPE_ID'">
+            AND T_S.SURVEY_TYPE_ID LIKE CONCAT('%', #{words}, '%')
+        </when>
+        <when test="search == 'USER_ID'">
+            AND T_SR.USER_ID LIKE CONCAT('%', #{words}, '%')
+        </when>
+    </choose>
+    ORDER BY T_SR.DATE_TIME DESC
+    LIMIT #{pageBegin}, #{pageScale};
+</select>
 
 </mapper>
 
