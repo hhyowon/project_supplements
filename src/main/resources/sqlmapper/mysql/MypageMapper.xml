@@ -17,7 +17,7 @@
         , PHONENUMBER = #{PHONENUMBER}
         , ADDRESS = #{ADDRESS}
         ,EMAIL= #{EMAIL}
-        WHERE USER_ID = #{username}; <!-- 하드코딩-->
+        WHERE USER_ID = #{USER_ID}; <!-- 하드코딩-->
     </update>
 
   
