@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Adminsurvey">
+
+  <!-- 관리자 설문조사 관리  -->
+        <select id="adminsurveylist" parameterType="Map" resultType="Map">
+        SELECT T_SR.USER_ID, T_SR.DATE_TIME ,T_S.SURVEY_TYPE_ID, T_SR.SURVEY_UID
+        FROM MEMBERS as T_M
+        INNER JOIN SURVEYRESULT AS T_SR
+        ON T_M.USER_ID = T_SR.USER_ID
+        INNER JOIN SURVEY AS T_S
+        ON T_SR.SURVEY_UID = T_S.SURVEY_UID
+        GROUP BY T_S.SURVEY_UID, T_SR.DATE_TIME, T_S.SURVEY_TYPE_ID, T_SR.SURVEY_UID
+        ORDER BY  T_SR.DATE_TIME DESC;
+        </select>
+
+    <!-- 설문 내용 뽑아오기  -->
+        <select id="adminsurveycontent" parameterType="Map" resultType="Map">
+        SELECT T_SQ.SURVEY_QUESTION, T_SO.SURVEY_OPT
+        FROM SURVEYRESULT AS T_SR
+        INNER JOIN SURVEY AS T_S
+        ON T_S.SURVEY_UID = T_SR.SURVEY_UID
+        INNER JOIN SURVEY_QUESTION AS T_SQ
+        ON T_SQ.SURVEY_QUESTION_ID = T_S.SURVEY_QUESTION_ID
+        INNER JOIN SURVEY_OPT AS T_SO
+	    ON T_SO.SURVEY_OPT_ID = T_S.SURVEY_OPT_ID
+        GROUP BY T_SQ.SURVEY_QUESTION, T_SO.SURVEY_OPT, T_SR.SURVEY_UID
+        HAVING T_SR.SURVEY_UID = #{SURVEY_UID};
+        </select>
+
+       <!-- 설문 부모테이블 삭제 -->
+        <delete id="surveydelete" parameterType="Map">
+        DELETE FROM SURVEY
+        WHERE SURVEY_UID = #{SURVEY_UID};;
+        </delete>
+
+        <!-- 설문 자식테이블 삭제 -->
+        <delete id="surveyresultdelete" parameterType="Map">
+        DELETE FROM SURVEYRESULT 
+        WHERE SURVEY_UID = #{SURVEY_UID};;     
+        </delete>
+
+</mapper>
+

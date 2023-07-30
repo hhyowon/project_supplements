@@ -6,7 +6,7 @@
    <insert id="insert" parameterType="Map">
         INSERT INTO community (COMMUNITY_ID, CATEGORY_ID, COMMUNITY_TITLE, COMMUNITY_CONTENT, COMMUNITY_DATE, USER_ID)
         VALUES
-        (#{COMMUNITY_ID}, #{CATEGORY_ID} , #{COMMUNITY_TITLE}, #{COMMUNITY_CONTENT}, CURRENT_TIMESTAMP(),  #{USER_ID});
+        (#{COMMUNITY_ID}, #{CATEGORY_ID} , #{COMMUNITY_TITLE}, #{COMMUNITY_CONTENT}, CURRENT_TIMESTAMP(), #{USER_ID});
     </insert>
 
 
@@ -67,4 +67,3 @@
 
 
 </mapper>
-

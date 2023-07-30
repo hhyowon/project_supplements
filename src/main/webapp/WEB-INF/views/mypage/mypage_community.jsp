@@ -1,4 +1,5 @@
 <%@ page import="java.util.HashMap, java.util.ArrayList" %>
+<%@ page import="com.example.project_supplements.utils.Commons" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +34,8 @@
                     HashMap result=(HashMap)request.getAttribute("result"); %>
                     <tbody id="list">
                         <% ArrayList resultList=(ArrayList)result.get("resultList"); 
-                            String targetUserId = "가배"; // userid 하드코팅 해놓았음
+                        Commons commons = new Commons(); 
+                        String targetUserId = commons.getUserID(); 
                             for(int i=0; i < resultList.size(); i=i+1){
                                 int number = i+1;
                                 HashMap record=(HashMap)resultList.get(i); 
