@@ -24,7 +24,7 @@ public class AdminSurveyController {
     @GetMapping({"/surveyList"})
     public ModelAndView surveyList(@RequestParam Map params,ModelAndView modelAndView){
         
-        Object result = adminSurveyService.adminsurveylist(params);
+        Object result = adminSurveyService.selectWithPagination(params);
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
         modelAndView.setViewName("/WEB-INF/views/admin/admin_surveylist.jsp");
