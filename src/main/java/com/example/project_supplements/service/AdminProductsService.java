@@ -18,9 +18,12 @@ import com.example.project_supplements.utils.Paginations;
 public class AdminProductsService {
     @Autowired
     SharedDao sharedDao;
+    
+    @Autowired
+    Commons commons;
 
     //user 테이블 리스트    
-        public Map selecUserList(Map dataMap) {
+        public Map select(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
         String sqlMapId = "Adminproduct.searchList";
         HashMap result = new HashMap<>();
@@ -57,6 +60,40 @@ public class AdminProductsService {
     }
 
 
+        // 커뮤니티 글 삭제
+        public Object delete(Map dataMap) {
+            String sqlMapId = "Adminproduct.delete";
+            Object result = sharedDao.delete(sqlMapId, dataMap);
+            return result;
+        }
+
+        // 삭제 및 select
+        public Object deleteAndSelectSearch(String PRODUCT_UID, Map dataMap) {
+            dataMap.put("PRODUCT_UID", PRODUCT_UID);
+            HashMap result = new HashMap<>();
+            result.put("deleteCount", this.delete(dataMap));
+            result.putAll(this.selectWithPagination(dataMap));
+            return result;
+        }  
+
+
+        //문제
+        public Object insert(Map dataMap) {
+            String sqlMapId = "Adminproduct.insert";
+            if (dataMap.get("PRODUCT_UID") == null || dataMap.get("PRODUCT_UID").equals("")) {
+              
+                String uuid = commons.generateUUID(); // user_id 받기 (수정)
+                dataMap.put("PRODUCT_UID", uuid);
+                dataMap.put("USERNAME", commons.getUserID()); //
+            } else {
+                
+            }
+            
+            Object result_1 = sharedDao.insert(sqlMapId, dataMap);
+            HashMap result = (HashMap) this.selectWithPagination(dataMap);
+            return result;
+        
+        }    
 }
     
 

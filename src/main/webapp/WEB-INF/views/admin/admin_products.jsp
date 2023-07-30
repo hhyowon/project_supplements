@@ -46,11 +46,12 @@
                 </div>
               </div>
             </form>
-            <a class="btn btn-main float-end" href="./admin_products_add.jsp">추가</a>
           </div>
-        </div>
         <br>
-  
+        <div class="container" style="text-align: right;">
+          <a href="/addproduct/insertForm"> <button class="btn mx-2 mb-2 submit btn-outline-secondary">추가하기</button></a> 
+       </div>
+       <br>
         <div class="container">
           <div class="row">
             <% ArrayList resultList=(ArrayList) result.get("resultList"); for (int i=0; i < resultList.size(); i++) {
@@ -77,7 +78,11 @@
                   <div class="card-footer">
                     <a href="<%= record.get("URL") %>" target="_blank" style="color: inherit; text-decoration:
                       none;">상세보기</a>
+  
                   </div>
+                  <form action="/adminproduct/deleteAndSelectSearch/<%= record.get("PRODUCT_UID") %>" method="get">
+                    <button class="btn  btn-sm btn-outline-secondary" type="submit">삭제</button>
+                  </form>
                 </div>
               </div>
               <% } %>
@@ -107,7 +112,10 @@
                 
             </ul>
           </nav>
-        
+
+        </div>
+      </div>
+    
   </body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 

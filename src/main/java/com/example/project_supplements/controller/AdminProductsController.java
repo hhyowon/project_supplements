@@ -35,7 +35,7 @@ public class AdminProductsController {
 
         modelAndView.addObject("params", params); // params 맵을 "params"라는 이름으로 모델에 추가합니다. 이를 통해 JSP 페이지에서 해당 데이터에 접근
         modelAndView.addObject("result", result);// 검색 결과(result)를 "result"라는 이름으로 모델에 추가합니다. 마찬가지로 JSP 페이지에서 해당 데이터에 접근
-        modelAndView.setViewName("/WEB-INF/views/admin/admin_products.jsp");
+        modelAndView.setViewName("/WEB-INF/views/search/search.jsp");
         return modelAndView;
     }
 
@@ -52,14 +52,17 @@ public class AdminProductsController {
        
     }
 
-        // INSERT
-        @GetMapping({"/insert"})
-        public ModelAndView insert(@RequestParam Map params, ModelAndView modelAndView) {
-    
-            Object result = adminProductsService.insert(params);
-            String viewName = "/WEB-INF/views/admin/admin_products.jsp";
-            modelAndView.setViewName(viewName);
-            return modelAndView;
-        }
-    
+
+
+    // 커뮤니티 delete
+    @GetMapping("/deleteAndSelectSearch/{PRODUCT_UID}")
+    public ModelAndView deleteAndSelectSearch(@RequestParam Map params, @PathVariable String PRODUCT_UID, ModelAndView modelAndView) {
+        Object result = adminProductsService.deleteAndSelectSearch( PRODUCT_UID, params); // 호출
+        modelAndView.addObject("params", params); // modelAndView 객체에 params와 result를 추가
+        modelAndView.addObject("result", result);
+
+        modelAndView.setViewName("/WEB-INF/views/admin/admin_products.jsp");
+        return modelAndView;
+    }
+      
 }

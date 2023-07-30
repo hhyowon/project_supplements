@@ -76,6 +76,11 @@
                       <div id="imageContainer"></div>
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="col mt-3" style="font-weight: bold;">
+                      <div id="bmiCategory" style="font-size: 20px;"></div>
+                    </div>
+                  </div>
 
 
                 </ul>
@@ -161,24 +166,36 @@
         event.preventDefault();
         var height = parseInt(document.getElementById("height").value);
         var weight = parseInt(document.getElementById("weight").value);
-
-
+    
         // Check if height and weight are valid numbers
         if (isNaN(height) || isNaN(weight)) {
-          document.getElementById("bmiresult").textContent = "유효한 신장과 체중을 입력해주세요.";
+          document.getElementById("bmiresult").textContent = "유효한 값을 입력해주세요";
+          document.getElementById("bmiCategory").textContent = "";
           document.getElementById("imageContainer").innerHTML = "";
           return;
         }
-
+    
         var bmiresult = weight / ((height / 100) * (height / 100));
-
-        document.getElementById("bmiresult").textContent = "나의 신체질량지수(BMI) : " + bmiresult.toFixed(2);
-
+    
+        var category;
+    
+        if (bmiresult < 18.5) {
+          category = "저체중";
+        } else if (bmiresult >= 18.5 && bmiresult < 24.9) {
+          category = "정상";
+        } else if (bmiresult >= 25 && bmiresult < 29.9) {
+          category = "과체중";
+        } else {
+          category = "비만";
+        }
+    
+        document.getElementById("bmiresult").textContent = "나의 BMI : " + bmiresult.toFixed(2);
+        document.getElementById("bmiCategory").textContent = "💬 당신은 현재 " + category +" 입니다."; 
+    
         var imageSrc = "/html/img/BMI.PNG"; // Default image source
-
+    
         var imageHtml = "<img src='" + imageSrc + "' alt='Result Image' />";
         document.getElementById("imageContainer").innerHTML = imageHtml;
       }
     </script>
-
     </html>

@@ -28,9 +28,10 @@
                                     <a class="nav-link" href="/bmi/mainBMI" style="color: #5B9BD5;">BMI</a>
                         </div>
                         <sec:authorize access="isAuthenticated()">
-                            <li class="nav-link">
-                                User ID : ${userDetailsBean.memberId},
-                                Name : ${userDetailsBean.memberName}
+                            <li class="nav-link" style="text-decoration: none; color: navy;">
+                                <!-- ID: ${userDetailsBean.memberId}, -->
+                                ${userDetailsBean.memberName}님이 
+                                로그인중입니다&#x1F60A
                             </li>
                             <sec:authorize access="hasRole('ROLE_ADMIN')">
                             <div>
