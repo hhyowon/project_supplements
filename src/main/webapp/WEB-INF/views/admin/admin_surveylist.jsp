@@ -59,7 +59,7 @@
                                 <td><%= record.get("USER_ID") %></td>
                                 <td><%= record.get("SURVEY_TYPE_ID") %></td>
                                 <td><button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="/adminsurvey/surveyContent/<%= record.get("SURVEY_UID") %>">조회</button></td> 
-                                
+                                <td><button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="/adminsurvey/deleteAndSelectSearch/<%= record.get("SURVEY_UID") %>">삭제</button></td>
                             </tr>
                 
                         </thead>
