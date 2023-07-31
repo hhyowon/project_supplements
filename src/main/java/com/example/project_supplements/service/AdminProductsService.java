@@ -31,6 +31,21 @@ public class AdminProductsService {
         return result;
     }
 
+       // 제품 삭제
+        public Object delete(Map dataMap) {
+            String sqlMapId = "Adminproduct.delete";
+            Object result = sharedDao.delete(sqlMapId, dataMap);
+            return result;
+        }
+
+        // 삭제 및 select
+        public Object deleteAndSelectSearch(String PRODUCT_UID, Map dataMap) {
+            dataMap.put("PRODUCT_UID", PRODUCT_UID);
+            HashMap result = new HashMap<>();
+            result.put("deleteCount", this.delete(dataMap));
+            result.putAll(this.selectWithPagination(dataMap));
+            return result;
+        }  
     // 페이지네이션
       public Map selectWithPagination(Map dataMap) {
         // 페이지 형성을 위한 계산
@@ -60,21 +75,7 @@ public class AdminProductsService {
     }
 
 
-        // 커뮤니티 글 삭제
-        public Object delete(Map dataMap) {
-            String sqlMapId = "Adminproduct.delete";
-            Object result = sharedDao.delete(sqlMapId, dataMap);
-            return result;
-        }
-
-        // 삭제 및 select
-        public Object deleteAndSelectSearch(String PRODUCT_UID, Map dataMap) {
-            dataMap.put("PRODUCT_UID", PRODUCT_UID);
-            HashMap result = new HashMap<>();
-            result.put("deleteCount", this.delete(dataMap));
-            result.putAll(this.selectWithPagination(dataMap));
-            return result;
-        }  
+ 
 
         //문제
         public Object insert(Map dataMap) {

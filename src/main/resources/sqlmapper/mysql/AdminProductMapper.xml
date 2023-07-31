@@ -62,7 +62,7 @@
         From project_diet.product
         limit #{pageBegin}, #{pageScale} 
         ;
-	</select>
+	    </select>
 
         <!-- 제품 삭제 -->
         <delete id="delete" parameterType="Map">
