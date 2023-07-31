@@ -3,6 +3,8 @@
         <!DOCTYPE html>
         <html lang="en">
             <style>
+            @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+
                 .loading span {
                   display: inline-block;
                   margin: 0 -.05em;
@@ -26,6 +28,12 @@
                 .loading span:nth-child(7) {
                   animation-delay: .6s;
                 }
+                .loading span:nth-child(8) {
+                  animation-delay: .6s;
+                }
+                .loading span:nth-child(9) {
+                  animation-delay: .6s;
+                }
                 @keyframes loading {
                   0%, 100% {
                     transform: translateY(0);
@@ -36,7 +44,7 @@
                 }
                 .satellites {
                     border: 4px solid none;
-                    animation: rotate-axis 10s linear infinite;
+                    animation: rotate-axis 15s linear infinite;
                     transform-style: preserve-3d;
                     display: flex;
                     justify-content: center;
@@ -54,8 +62,8 @@
                 .satellite {
                     position: absolute;
                     width: 100px;
-                    transform: rotateY(calc(var(--i) * 1deg)) translateZ(500px);
-                }
+                    transform: rotateY(calc(var(--i) * 1deg)) translateZ(300px);
+}
                     </style>
                 
         <head>
@@ -79,22 +87,29 @@
                 
                     <div class="container">
                         <div class="satellites">
-                            <img class="satellite" style="--i: 0" src="/html/img/supplement3.png">
-                            <img class="satellite" style="--i: 20" src="/html/img/supplement3.png">
-                            <img class="satellite" style="--i: 40" src="/html/img/supplement3.png">
-                            <img class="satellite" style="--i: 300" src="/html/img/supplement3.png">
-                            <img class="satellite" style="--i: 320" src="/html/img/supplement3.png">
-                            <img class="satellite" style="--i: 340" src="/html/img/supplement3.png">
-                            <img class="satellite" style="--i: 360" src="/html/img/supplement3.png">
-                            <img class="satellite" style="--i: 380" src="/html/img/supplement3.png">
-                            <img class="satellite" style="--i: 400" src="/html/img/supplement3.png">
+                            <img class="satellite" style="--i: 0" src="/html/img/supplement1.png">
+                            <img class="satellite" style="--i: 30" src="/images/메타그린슬림다이어트.jpg">
+                            <img class="satellite" style="--i: 60" src="/html/img/supplement3.png">
+                            <img class="satellite" style="--i: 90" src="/html/img/바이탈슬림 다이어트 올인원 유산균.png">
+                            <img class="satellite" style="--i: 120" src="/images/다이어트츄잉.jpg">
+                            <img class="satellite" style="--i: 150" src="/images/경성 다이어트.jpg">
+                            <img class="satellite" style="--i: 180" src="/images/벨라미 다이어트 젤리(청포도맛).jpg">
+                            <img class="satellite" style="--i: 210" src="/images/S 슬림 미인 다이어트 젤리(전량수출).jpg">
+                            <img class="satellite" style="--i: 240" src="/images/버블리 파인 다이어트.jpg">
+                            <img class="satellite" style="--i: 270" src="/images/벨기에 유산균+다이어트 트리플러스.jpg">
+                            <img class="satellite" style="--i: 300" src="/images/뷰티몬스터 칼로컷 다이어트.jpg">
+                            <img class="satellite" style="--i: 330" src="/images/혈당컷 다이어트.jpg">
                         </div>
+                      
 
-                        <h2 class="ui teal image header text-center">
-                            효능별 BEST 3
-                            <hr class='hr-solid' />
+                        <h2 class="ui teal image header text-center" style="font-size: 100px; margin-top: 200px; color: #707070;
+                        font-family: 'Paytone One', sans-serif;
+                        text-shadow: -.030em .030em #EEEEEE, -.06em .06em #707070;">
+                             BEST 3
                         </h2>
                       
+                        <br>
+                        <br>
                         <table class="table table-striped table-hover">
                             <tbody>
                                 <tr>
@@ -104,28 +119,27 @@
 
                                             </div>
                                             <div class="col-3">
-                                                <h3 style="font-weight: bold; color:#dbedff; text-align: center;">
+                                                <h3 style="font-weight: bold; color:#707070; text-align: center;">
                                                     1위</h3>
                                             </div>
                                             <div class="col-3">
-                                                <h3 style="font-weight: bold; color:#dbedff ; text-align: center;">
+                                                <h3 style="font-weight: bold; color:#707070 ; text-align: center;">
                                                     2위</h3>
                                             </div>
                                             <div class="col-3">
-                                                <h3 style="font-weight: bold; color:#dbedff; text-align: center;">
+                                                <h3 style="font-weight: bold; color:#707070; text-align: center;">
                                                     3위</h3>
                                             </div>
                                         </div>
                                  
                                     </tr>
-                                <tr class="table-default text-center"
-                                    style="background-color: #dbedff; vertical-align: middle;">
+                                    <tr class="table-default text-center"
+                                    style="background-color: #e1e2e4; vertical-align: middle;">
                                     <td class="text-center">
-                                        <h3 style="font-weight: bold; color:white; text-align: center;">
+                                        <h3 style="font-weight: bold;  color:#707070; text-align: center;">
                                             01. 식욕억제</h3>
                                     </td>
-
-                                    <td rowspan='3' style="background-color: #dbedff;">
+                                    <td rowspan='3' style="background-color: white;">
                                         <div class="row">
 
                                             <% ArrayList firstresultList=(ArrayList)firstresult.get("firstresultList");
@@ -133,7 +147,8 @@
                                                 firstrecord=(HashMap) firstresultList.get(i); String
                                                 surveyUrlFirst=(String) firstrecord.get("SURVEY_RANK_FIRST"); %>
                                                 <div class="col-4">
-                                                    <img src="<%= surveyUrlFirst %>" alt width="250" height="300">
+                                                        <img src="<%= surveyUrlFirst %>" alt width="250" height="300">
+
                                                 </div>
                                                 <% } %>
 
@@ -151,28 +166,28 @@
 
                                             </div>
                                             <div class="col-3">
-                                                <h3 style="font-weight: bold; color:#dbedff; text-align: center;">
+                                                <h3 style="font-weight: bold; color:#707070; text-align: center;">
                                                     1위</h3>
                                             </div>
                                             <div class="col-3">
-                                                <h3 style="font-weight: bold; color:#dbedff ; text-align: center;">
+                                                <h3 style="font-weight: bold; color:#707070 ; text-align: center;">
                                                     2위</h3>
                                             </div>
                                             <div class="col-3">
-                                                <h3 style="font-weight: bold; color:#dbedff; text-align: center;">
+                                                <h3 style="font-weight: bold; color:#707070; text-align: center;">
                                                     3위</h3>
                                             </div>
                                         </div>
                                  
                                     </tr>
                                 <tr class="table-default text-center"
-                                    style="background-color: #dbedff; vertical-align: middle;">
+                                    style="background-color: #e1e2e4; vertical-align: middle;">
                                     <td class="text-center">
-                                        <h3 style="font-weight: bold; color:white; text-align: center;">
+                                        <h3 style="font-weight: bold; color:#707070; text-align: center;">
                                             02. 체중감량</h3>
                                     </td>
 
-                                    <td rowspan='3' style="background-color: #dbedff;">
+                                    <td rowspan='3' style="background-color: white;">
                                         <div class="row">
 
                                             <% ArrayList secondresultList=(ArrayList)secondresult.get("secondresultList");
@@ -199,28 +214,28 @@
 
                                             </div>
                                             <div class="col-3">
-                                                <h3 style="font-weight: bold; color:#dbedff; text-align: center;">
+                                                <h3 style="font-weight: bold; color:#707070; text-align: center;">
                                                     1위</h3>
                                             </div>
                                             <div class="col-3">
-                                                <h3 style="font-weight: bold; color:#dbedff ; text-align: center;">
+                                                <h3 style="font-weight: bold; color:#707070 ; text-align: center;">
                                                     2위</h3>
                                             </div>
                                             <div class="col-3">
-                                                <h3 style="font-weight: bold; color:#dbedff; text-align: center;">
+                                                <h3 style="font-weight: bold; color:#707070; text-align: center;">
                                                     3위</h3>
                                             </div>
                                         </div>
                                  
                                     </tr>
                                 <tr class="table-default text-center"
-                                    style="background-color: #dbedff; vertical-align: middle;">
+                                    style="background-color: #e1e2e4; vertical-align: middle;">
                                     <td class="text-center">
-                                        <h3 style="font-weight: bold; color:white; text-align: center;">
+                                        <h3 style="font-weight: bold; color:#707070; text-align: center;">
                                             03. 배변활동</h3>
                                     </td>
 
-                                    <td rowspan='3' style="background-color: #dbedff;">
+                                    <td rowspan='3' style="background-color: white;">
                                         <div class="row">
 
                                             <% ArrayList thirdresultList=(ArrayList)thirdresult.get("thirdresultList");
@@ -238,8 +253,14 @@
                         </table>
 
 
-
-                        <h6 class="text-center"> 본 랭킹은 구매자들의 실제 후기 및 설문조사로 이루어진 랭킹임을 알려드립니다.</h6>
+                        <br>
+                        <h6 class="text-center">
+                        <div>📌본 랭킹은 구매자들의 실제 후기 및 설문조사로 이루어진 랭킹입니다. </div>
+                        <div>이 랭킹은 정확하고 신뢰성 있는 설문조사 데이터를 기반으로 구성되었습니다. </div>
+                        <div>하지만 각 개인의 상황에 따라 결과가 달라질 수 있으니, </div>
+                            자신에게 가장 적합한 제품을 선택하는 데 주의하시기 바랍니다.</h6>
+                            <br>
+                            <br>
                     </div>
                     <%@ include file="/WEB-INF/views/etc/Footer.jsp" %>
 
