@@ -36,7 +36,8 @@
                 </div>
                 <div class="text-center" style="margin-top: 20px;">
                   <button type="submit" class="btn btn-main" >로그인</button>
-                </div>  
+                  <button type="button" onclick="window.location.href='/signup'" class="btn btn-main">회원가입</button>
+                </div>   
               </form>
             
 

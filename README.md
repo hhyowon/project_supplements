@@ -2,7 +2,10 @@
 
 ## 📃콘텐츠 : 다이어트 보조제 추천 사이트 
 
-### ✔️프로젝트 성격(업무 시나리오)
+### ✔️프로젝트 설명
+다이어트 보조체 추천 사이트를 만들어 달라는 의뢰를 받아 구현한 사이트 
+사이트를 이용객의 설문조사를 기반한 순위를 통해 보조제를 추천받을 수 있으며 원하는 보조제를 검색할 수 있다. 
+더불어 마이페이지, 관리자페이지를 통해 원활한 관리가 될 수 있게끔 구현하였다.
 
 ### ✔️사용 기술
 
@@ -18,11 +21,13 @@
 
 ### ✔️구현 화면
 
-<img src="/images/화면정의서.png" width="800"> <!-- 해야 함 -->
+<img src="src/main/resources/static/images/화면정의서.png" width="800"> 
+<img src="src/main/resources/static/images/화면정의서.png" width="800"> <!--해야함 -->
+
 
 ### ✔️ERD
 
-- [ERD](https://github.com/HNNNY35/final_retoree/blob/master/DataBases/table_schemas/merge_erd_3.png) <!-- 해야 함 -->
+- [ERD](https://github.com/hhyowon/project_supplements/blob/main/Docs/Databases/ERD.png) 
 
 ### ✔️팀원 및 구현 기능
 
@@ -161,44 +166,44 @@
 <details>
 <summary>설문조사 진행 페이지</summary>
 
-- [SurveyMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/MainMapper.xml)
-- [SurveyController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/MainController.java)
-- [SurveyService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/MainService.java)
+- [SurveyMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/SurveyMapper.xml)
+- [SurveyController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/SurveyController.java)
+- [SurveyService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/SurveyService.java)
 
 </details>
 
 <details>
 <summary>커뮤니티</summary>
 
-- [CommunityMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/MyPageMapper.xml)
-- [CommunityController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/UserController.java)
-- [CommunityService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/MyPageService.java)
+- [CommunityMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/CommunityMapper.xml)
+- [CommunityController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/CommunityController.java)
+- [CommunityService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/CommunityService.java)
 </details>
 
 <details>
 <summary>마이페이지 회원정보 수정 </summary>
 
-- [MypageMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/ReservationMapper.xml)
-- [MypageController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/UserController.java)
-- [MypageService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/RegisterService.java)
+- [MypageMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/MypageMapper.xml)
+- [MypageController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/MypageController.java)
+- [MypageService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/MypageService.java)
 
 </details>
 
 <details>
 <summary>마이페이지 커뮤니티 관리 </summary>
 
-- [ReservationMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/ReservationMapper.xml)
-- [ReservationController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/UserController.java)
-- [ReservationService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/RegisterService.java)
+- [MypageMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/MypageMapper.xml)
+- [MypageController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/MypageController.java)
+- [MypageService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/MypageService.java)
 
 </details>
 
 <details>
 <summary>관리자 페이지 커뮤니티 관리 </summary>
 
-- [AdminCommunityMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/ReservationMapper.xml)
-- [AdminCommunityControll.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/UserController.java)
-- [AdminCommunityService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/RegisterService.java)
+- [AdminCommunityMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/AdminCommunityMapper.xml)
+- [AdminCommunityControll.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/AdminCommunityControll.java)
+- [AdminCommunityService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/AdminCommunityService.java)
 
 </details>
 
@@ -287,25 +292,36 @@
 ### 👩‍💻 오가배
 
 ```
-        if (passwordEncoder.matches(user_pw, principal.getPassword())) {
-
-            // 세션 제거
-            SecurityContextHolder.clearContext();
-            // user 제거
-            myPageService.deleteUser(user_id);
-            // delete
-            myPageService.delete(user_id);
-            modelAndView.setViewName("myPage/withdrawConfirm");
-            return modelAndView;
-
-        } else {
-            modelAndView.addObject("msg", "비밀번호가 일치하지 않습니다.");
-            modelAndView.addObject("user", myPageService.getUserInfo(user_id));
-            modelAndView.setViewName("myPage/withdraw");
-            return modelAndView;
+        List surveyMapList = new ArrayList<Map>();
+        for (String questionId : dataMap.keySet()) {
+            Map<String, String> questionAnswerMap = new HashMap<>();
+            String answerId = (String) dataMap.get(questionId);
+            questionAnswerMap.put("QuestionId", questionId);
+            questionAnswerMap.put("AnswerId", answerId);
+            questionAnswerMap.put("SURVEY_ID", this.generateUUID());
+            surveyMapList.add(questionAnswerMap);
         }
+        dataMap.put("surveyMapList", surveyMapList);
+        // 부모테이블 값 insert 먼저 시키기 
+        String SURVEY_UID = UUID.randomUUID().toString(); 
+        dataMap.put("USER_ID", commons.getUserID()); // user_id 받기
+        dataMap.put("SURVEY_UID", SURVEY_UID);
+        dataMap.put("DATE_TIME", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        String sqlMapId = "SurveyService.insertsurveyresult";
+        Object result01 = sharedDao.insert(sqlMapId, dataMap);
+
+        // 자식테이블 insert
+
+        dataMap.put("SURVEY_TYPE_ID", "F-01");
+        sqlMapId = "SurveyService.insertsurvey";
+        Object resultMap = sharedDao.insert(sqlMapId, dataMap);
+        //String uuid = this.generateUUID();
+        return dataMap;
 
 ```
 
-파이널 프로젝트를 진행하면서 사이트의 구조와 만드는 방식에 있어서 더 잘 이해하게 되는 계기가 되었습니다.
-스프링시큐리티를 이용해서 비밀번호 확인 후 탈퇴 요청을 처리하는 방식에 있어서 어려운 부분이 있었지만 팀원들과의 의사소통으로 서로의 문제점을 해결했을때 더없이 성취감을 느꼈습니다. 이로 인해 팀원들 간의 협력이 중요하다는 것을 더욱 더 깨닫게 되었습니다. 프로젝트를 진행하다 보니 하고싶은 기능들이 많아졌으나 시간이 부족하여 만들지 못한 부분에 아쉬움이 있었습니다. 다음에는 DB와 설계를 좀더 자세히 하여 더 좋은 결과물을 나타내고 싶다고 느꼈습니다. 
+설문조사 결과값을 DB에 넣는 과정에서 NAME과 VALUE값을 효율적으로 연결하는 법과 DB에 INSERT를 시키기 위해서는 
+부모테이블을 먼저 insert를 시켜야 자식테이블에 insert가 가능하다는 점을 확실히 인지하였습니다. 
+더불어 참조 받은 fk값인 SURVEY_UID는 UUID로 받는데 동일한 UUID임을 인지시켜줘야 부모테이블 및 자식테이블이 insert가 된다는 점을 통해 
+ERD를 명확하게 이해해야 나머지 코드를 조금 더 수월하게 진행해 나갈 수 있음을 알게 되었습니다. 
+마지막으로 팀원분들과 원활한 소통 덕분에 조금 더 빠르고 효율적으로 프로젝트를 진행해 나갈 수 있었음에 감사드립니다!! 
