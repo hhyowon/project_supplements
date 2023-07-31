@@ -2,62 +2,63 @@
 
 ## 📃콘텐츠 : 다이어트 보조제 추천 사이트 
 
-### 💊프로젝트 성격(업무 시나리오)
+### ✔️프로젝트 성격(업무 시나리오)
 
-### 💊사용 기술
+### ✔️사용 기술
 
 <img src="https://img.shields.io/badge/Java-3178C6?style=flat&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white"/> <img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=flat&logo=Spring Boot&logoColor=white"/> <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white"/> <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat&logo=Bootstrap&logoColor=white"/> <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white"/> <img src="https://img.shields.io/badge/CSS-1572B6?style=flat&logo=CSS3&logoColor=white"/> <img src="https://img.shields.io/badge/MyBatis-4479A1?style=flat&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/JSP Servlet-C5E99B?style=flat&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/GoormIDE-D4DFE6?style=flat&logo=&logoColor=white"/>
 
-### 💊개발 기간
+### ✔️개발 기간
 
 - 2023년 7월 7일~ 2023년 7월 31일
 
-### 💊구현 영상
+### ✔️구현 영상
 
 - [다이어트 보조제 구현 영상](https://www.youtube.com/watch?v=eFJFn9SuabQ)
 
-### 💊구현 화면
+### ✔️구현 화면
 
-<img src="https://user-images.githubusercontent.com/111328143/224208532-8e2c4714-6d2f-45fd-9f5d-4c2fc00eb8d9.png" width="800"> <!-- 해야 함 -->
+<img src="/images/화면정의서.png" width="800"> <!-- 해야 함 -->
 
-### 💊ERD
+### ✔️ERD
 
 - [ERD](https://github.com/HNNNY35/final_retoree/blob/master/DataBases/table_schemas/merge_erd_3.png) <!-- 해야 함 -->
 
-### 💊팀원 및 구현 기능
+### ✔️팀원 및 구현 기능
 
 ### 👩‍💻 김명곤
 
 <details>
 <summary>회원가입</summary>
 
-- [CarDetailMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/CarDetailMapper.xml)
-- [Car_detailController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/Car_detailController.java)
-- [CarDetailService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/CarDetailMapper.xml)
-
+- [SignMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/CarDetailMapper.xml)
+- [SignController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/Car_detailController.java)
+- [SignService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/CarDetailMapper.xml)
 </details>
 
 <details>
 <summary>로그인</summary>
 
 - [CarRegMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/CarRegMapper.xml)
-- [CarRegController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/CarRegController.java)
+- [LoginController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/CarRegController.java)
 - [CarRegService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/CarDetailMapper.xml)
 </details>
 
 <details>
 <summary>권한 설정 </summary>
   
- ### 차량 정보 수정
+ - [PrincipalUser.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/configurations/PrincipalUser.java)
+ - [SecurityConfiguraion.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/configurations/SecurityConfiguraion.java)
+
   
- - [CarModifyMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/CarModifyMapper.xml)
- - [CarModifyController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/CarModifyController.java)
- - [CarModifyService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/CarModifyService.java)
- 
-  ### 판매 관리(방문 예약 확정, 판매 상태 변경)
- - [DealerSalesMgmtMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/DealerSalesMgmtMapper.xml)
- - [DealerSalesMgmtController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/DealerSalesMgmtController.java)
- - [DealerSalesMgmtService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/DealerSalesMgmtService.java)
+</details>
+
+<details>
+<summary>샘플 코드 </summary>
+  
+ - [PrincipalUser.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/configurations/PrincipalUser.java)
+ - [SecurityConfiguraion.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/configurations/SecurityConfiguraion.java)
+
   
 </details>
 
@@ -66,19 +67,18 @@
 <details>
 <summary>설문조사 통계</summary>
 
-- [LoginMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/LoginMapper.xml)
-- [LoginController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/LoginController.java)
-- [LoginService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/RegisterService.java)
-- [PrincipalUser.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/configurations/PrincipalUser.java)
-- [SecurityConfiguraion.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/configurations/SecurityConfiguraion.java)
+- [SurveryResultMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/LoginMapper.xml)
+- [SurveyResultController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/LoginController.java)
+- [SurveyResultService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/RegisterService.java)
+
 </details>
 
 <details>
 <summary>랭킹</summary>
 
-- [RegisterMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/RegisterMapper.xml)
-- [RegisterController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/RegisterController.java)
-- [RegisterService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/RegisterService.java)
+- [SurveyRankMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/RegisterMapper.xml)
+- [RankController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/RegisterController.java)
+- [RankService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/RegisterService.java)
 
 </details>
 
@@ -106,7 +106,7 @@
 <summary>메인페이지</summary>
 
 - [CheckPriceMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/CheckPriceMapper.xml)
-- [CheckPriceController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/CheckPriceController.java)
+- [MainController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/CheckPriceController.java)
 - [CheckPriceService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/CheckPriceService.java)
 
 </details>
@@ -114,18 +114,18 @@
 <details>
 <summary>BMI 페이지</summary>
 
-- [SearchMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/SearchMapper.xml)
-- [SearchController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/SearchController.java)
-- [SearchService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/SearchService.java)
+- [BmiMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/SearchMapper.xml)
+- [BMIController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/SearchController.java)
+- [BmiSerivce.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/SearchService.java)
 
 </details>
 
 <details>
 <summary>다이어트 보조제 검색</summary>
 
-- [DealerMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/DealerMapper.xml)
-- [DealerController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/DealerController.java)
-- [DealerService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/DealerService.java)
+- [SearchMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/DealerMapper.xml)
+- [SearchController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/DealerController.java)
+- [SearchService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/DealerService.java)
 </details>
 
 <details>
@@ -140,18 +140,18 @@
 <details>
 <summary>관리자페이지 회원 관리</summary>
 
-- [NoticeMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/NoticeMapper.xml)
-- [NoticeController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/NoticeController.java)
-- [NoticeService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/NoticeService.java)
+- [AdminMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/NoticeMapper.xml)
+- [AdminController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/NoticeController.java)
+- [AdminService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/NoticeService.java)
 
 </details>
 
 <details>
 <summary>관리자페이지 보조제 관리</summary>
 
-- [NoticeMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/NoticeMapper.xml)
-- [NoticeController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/NoticeController.java)
-- [NoticeService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/NoticeService.java)
+- [AdminProductMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/NoticeMapper.xml)
+- [AdminProductsController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/NoticeController.java)
+- [AdminProductsService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/NoticeService.java)
 
 </details>
 
@@ -163,7 +163,7 @@
 
 - [SurveyMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/MainMapper.xml)
 - [SurveyController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/MainController.java)
-- [SurveyController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/MainService.java)
+- [SurveyService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/MainService.java)
 
 </details>
 
@@ -202,9 +202,9 @@
 
 </details>
 
-### 💊주요코드 및 진행 통해 느낀 점
+### ✔️주요코드 및 진행 통해 느낀 점
 
-### 👩‍💻 김해인
+### 👩‍💻 김명곤
 
 ```
     String[] imgFiles = {"Front", "Side", "Inside", "Tire", "Navi", "Trunk"};
@@ -245,7 +245,7 @@
 
 파이널 프로젝트를 진행하면서 jsp에서 컨트롤러로, 컨트롤러에서 서비스, 서비스에서 다시 컨트롤러, jsp까지 데이터를 전달하고 받으며 MVC 패턴을 더 잘 이해할 수 있게 되었습니다. 또, 협업하는 상황에서 초반 ERD 작성이 정말 중요하다는 것을 알게 되었습니다. 여태 진행했던 팀프로젝트와는 규모가 달라서 더 오래걸리고, 더 고민하는 시간이 길었지만 시간을 들인 만큼 구현해냈을때의 성취감도 크게 느낄 수 있었습니다.
 
-### 👩‍💻 김다솜
+### 👩‍💻 송명주
 
 ```
     @Override
@@ -268,7 +268,7 @@
 보면서 "이걸 이런 식으로 구현할 수가 있구나", "이렇게도 가능하구나"라며 다시 한번 배울 수 있었던 기회가 되었고 평소에 전혀 알지 못했던 사용방식, 기능들을 파이널프로젝트를 통해 알게 되어 매우 의미 있는 시간이 되었으며 팀원들과 함께 협동하여 코드를 공유하며 오류를 잡아 구현되지 않았던 코드들이 구현되어 화면에 출력되는 것에 매우 뿌듯하였으며 힘이 들었던 만큼 만족스러운 결과물을 얻게 되어 더욱 나 자신을
 한층 성장시키게 되었던 기간이었던 거 같다.
 
-### 👩‍💻 박병주
+### 👩‍💻 조효원
 
 ```
 
@@ -284,7 +284,7 @@
 
 리투리 프로젝트에서 검색과 시세 기능을 맡았습니다. 제가 생각했던 구현의 중점은 여러 테이블로 분리된 대량의 데이터를 분류하고 가져오는 것이었습니다. 하지만 프로젝트를 완료하면서 불러온 차량 데이터에 대한 이미지 경로를 처리하는 과정에서 불필요한 데이터베이스 호출이 많아져서 성능이 저하되었다는 것이 아쉬웠습니다. 이러한 문제가 발생한 이유는 처음부터 자바 코드를 작성할 때, SQL 문을 고려하지 않았기 때문입니다. 이러한 문제를 사전에 고려하고 SQL 문에서 한 번의 호출로 처리하는 방법을 고려했다면, 성능 저하 문제를 방지할 수 있었을 것입니다. 이번 프로젝트를 통해서 코드를 작성하기 위해 더 다양한 상황에 대한 대처와 고려점이 필요하다고 느꼈습니다.
 
-### 👩‍💻 윤선아
+### 👩‍💻 오가배
 
 ```
         if (passwordEncoder.matches(user_pw, principal.getPassword())) {
