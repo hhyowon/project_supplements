@@ -3,6 +3,8 @@
         <!DOCTYPE html>
         <html lang="en">
             <style>
+            @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+
                 .loading span {
                   display: inline-block;
                   margin: 0 -.05em;
@@ -86,7 +88,7 @@
                     <div class="container">
                         <div class="satellites">
                             <img class="satellite" style="--i: 0" src="/html/img/supplement1.png">
-                            <img class="satellite" style="--i: 30" src="/images/하루야채 킬팻 다이어트.jpg">
+                            <img class="satellite" style="--i: 30" src="/images/메타그린슬림다이어트.jpg">
                             <img class="satellite" style="--i: 60" src="/html/img/supplement3.png">
                             <img class="satellite" style="--i: 90" src="/html/img/바이탈슬림 다이어트 올인원 유산균.png">
                             <img class="satellite" style="--i: 120" src="/images/다이어트츄잉.jpg">
@@ -98,13 +100,16 @@
                             <img class="satellite" style="--i: 300" src="/images/뷰티몬스터 칼로컷 다이어트.jpg">
                             <img class="satellite" style="--i: 330" src="/images/혈당컷 다이어트.jpg">
                         </div>
+                      
 
-                        <h2 class="ui teal image header text-center" style="margin-top: 300px;">
-                            효능별 BEST 3
-                            <hr class='hr-solid' />
+                        <h2 class="ui teal image header text-center" style="font-size: 100px; margin-top: 200px; color: #707070;
+                        font-family: 'Paytone One', sans-serif;
+                        text-shadow: -.030em .030em #EEEEEE, -.06em .06em #707070;">
+                             BEST 3
                         </h2>
                       
-    
+                        <br>
+                        <br>
                         <table class="table table-striped table-hover">
                             <tbody>
                                 <tr>
@@ -114,28 +119,27 @@
 
                                             </div>
                                             <div class="col-3">
-                                                <h3 style="font-weight: bold; color:#dbedff; text-align: center;">
+                                                <h3 style="font-weight: bold; color:#707070; text-align: center;">
                                                     1위</h3>
                                             </div>
                                             <div class="col-3">
-                                                <h3 style="font-weight: bold; color:#dbedff ; text-align: center;">
+                                                <h3 style="font-weight: bold; color:#707070 ; text-align: center;">
                                                     2위</h3>
                                             </div>
                                             <div class="col-3">
-                                                <h3 style="font-weight: bold; color:#dbedff; text-align: center;">
+                                                <h3 style="font-weight: bold; color:#707070; text-align: center;">
                                                     3위</h3>
                                             </div>
                                         </div>
                                  
                                     </tr>
-                                <tr class="table-default text-center"
-                                    style="background-color: #dbedff; vertical-align: middle;">
+                                    <tr class="table-default text-center"
+                                    style="background-color: #e1e2e4; vertical-align: middle;">
                                     <td class="text-center">
-                                        <h3 style="font-weight: bold; color:white; text-align: center;">
+                                        <h3 style="font-weight: bold;  color:#707070; text-align: center;">
                                             01. 식욕억제</h3>
                                     </td>
-
-                                    <td rowspan='3' style="background-color: #dbedff;">
+                                    <td rowspan='3' style="background-color: white;">
                                         <div class="row">
 
                                             <% ArrayList firstresultList=(ArrayList)firstresult.get("firstresultList");
@@ -162,28 +166,28 @@
 
                                             </div>
                                             <div class="col-3">
-                                                <h3 style="font-weight: bold; color:#dbedff; text-align: center;">
+                                                <h3 style="font-weight: bold; color:#707070; text-align: center;">
                                                     1위</h3>
                                             </div>
                                             <div class="col-3">
-                                                <h3 style="font-weight: bold; color:#dbedff ; text-align: center;">
+                                                <h3 style="font-weight: bold; color:#707070 ; text-align: center;">
                                                     2위</h3>
                                             </div>
                                             <div class="col-3">
-                                                <h3 style="font-weight: bold; color:#dbedff; text-align: center;">
+                                                <h3 style="font-weight: bold; color:#707070; text-align: center;">
                                                     3위</h3>
                                             </div>
                                         </div>
                                  
                                     </tr>
                                 <tr class="table-default text-center"
-                                    style="background-color: #dbedff; vertical-align: middle;">
+                                    style="background-color: #e1e2e4; vertical-align: middle;">
                                     <td class="text-center">
-                                        <h3 style="font-weight: bold; color:white; text-align: center;">
+                                        <h3 style="font-weight: bold; color:#707070; text-align: center;">
                                             02. 체중감량</h3>
                                     </td>
 
-                                    <td rowspan='3' style="background-color: #dbedff;">
+                                    <td rowspan='3' style="background-color: white;">
                                         <div class="row">
 
                                             <% ArrayList secondresultList=(ArrayList)secondresult.get("secondresultList");
@@ -210,28 +214,28 @@
 
                                             </div>
                                             <div class="col-3">
-                                                <h3 style="font-weight: bold; color:#dbedff; text-align: center;">
+                                                <h3 style="font-weight: bold; color:#707070; text-align: center;">
                                                     1위</h3>
                                             </div>
                                             <div class="col-3">
-                                                <h3 style="font-weight: bold; color:#dbedff ; text-align: center;">
+                                                <h3 style="font-weight: bold; color:#707070 ; text-align: center;">
                                                     2위</h3>
                                             </div>
                                             <div class="col-3">
-                                                <h3 style="font-weight: bold; color:#dbedff; text-align: center;">
+                                                <h3 style="font-weight: bold; color:#707070; text-align: center;">
                                                     3위</h3>
                                             </div>
                                         </div>
                                  
                                     </tr>
                                 <tr class="table-default text-center"
-                                    style="background-color: #dbedff; vertical-align: middle;">
+                                    style="background-color: #e1e2e4; vertical-align: middle;">
                                     <td class="text-center">
-                                        <h3 style="font-weight: bold; color:white; text-align: center;">
+                                        <h3 style="font-weight: bold; color:#707070; text-align: center;">
                                             03. 배변활동</h3>
                                     </td>
 
-                                    <td rowspan='3' style="background-color: #dbedff;">
+                                    <td rowspan='3' style="background-color: white;">
                                         <div class="row">
 
                                             <% ArrayList thirdresultList=(ArrayList)thirdresult.get("thirdresultList");

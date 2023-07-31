@@ -12,9 +12,9 @@
     <div class="text-center">
       <img src="/html/img/online-survey.png" alt="" height="70">
         <br> <br> 
-      <h5>당신을 더 건강하게 만들 준비가 되셨나요? </h5>
-      <h5>흥미진진한 다이어트 보조제 설문조사에 참여하고 </h5>
-      <h5>당신에게 딱 맞는 맞춤형 권장 사항의 힘을 발견하세요!</h5>
+      <h5><strong>당신을 더 건강하게 만들 준비가 되셨나요? </strong></h5>
+      <h5><strong>다이어트 보조제 설문조사에 참여하고 </strong></h5>
+      <h5><strong>당신에게 딱 맞는 맞춤형 보조제를 만나보세요!</strong></h5>
     </div>
     <br>
     <div class="container py-5">
@@ -22,17 +22,17 @@
         <div class="col-md-6">
           <div class="card mb-4" style="border-radius: 50px; border-width: 4px;">
             <div class="pro-card-color card-title text-center mt-4 ">
-              <h2>복용 경험 없는 자</h2>
+              <h2>❌ 복용 경험이 없어요!</h2>
               <hr>
             </div>
-            <div class="card-body text-center mb-2">
+            <div class="card-body text-center mb-2" style="">
               <p class="card-text">설문조사를 통해 당신에게 맞는 보조제를 찾아봅시다!</p>
               <p class="card-text">우리도 이제 다이어트 성공할 수 있습니다!</p>
             </div>
             <div class="card-desc text-center mb-2">
               <div>
                 <p>솔직한 응답은 향후 권장사항을 구성하고 </p>
-                식품 보충제의 효과성 향상에 기여할 것입니다.   
+                다이어트 보조제의 효과성 향상에 기여할 것입니다.   
               </div>
               <br>
               <img src="/html/img/person.png" alt="" height="150">
@@ -52,7 +52,7 @@
         <div class="col-md-6">
           <div class="card mb-4" style="border-radius: 50px; border-width: 4px;">
             <div class="pro-card-color card-title text-center mt-4">
-              <h2>복용 경험 있는 자</h2>
+              <h2>⭕ 복용 경험이 있어요!</h2>
             
               <hr>
             </div>
@@ -64,7 +64,7 @@
             <div class="card-desc text-center mb-2">
               <div>
                 <p>솔직한 응답은 향후 권장사항을 구성하고 </p>
-                식품 보충제의 효과성 향상에 기여할 것입니다.
+                다이어트 보조제의  효과성 향상에 기여할 것입니다.
               </div>
               <br>
               <img src="/html/img/person.png" alt="" height="150">

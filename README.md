@@ -128,14 +128,6 @@
 - [SearchService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/DealerService.java)
 </details>
 
-<details>
-<summary>마이페이지 보조제 관리</summary>
-
-- [NoticeMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/NoticeMapper.xml)
-- [NoticeController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/NoticeController.java)
-- [NoticeService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/NoticeService.java)
-
-</details>
 
 <details>
 <summary>관리자페이지 회원 관리</summary>
@@ -236,7 +228,7 @@
 
 
 ```
-
+아무고토 모르는 내가 백엔드라니..
 저는 차량 상세페이지와 차량 신규 등록 및 판매 관리 등이 있는 딜러 기능 페이지를 맡았습니다.
 
 백엔드 구현을 시작할때 제가 걱정했던 건 차량 신규 등록 시 이미지 첨부 부분이었습니다. 이미지를 저장하기만 해도 어려운데, 차량 하나에 이미지 6개를 첨부받아서 저장하고, 그걸 상세페이지에서 항목에 맞게 불러와야 했기 때문입니다.
