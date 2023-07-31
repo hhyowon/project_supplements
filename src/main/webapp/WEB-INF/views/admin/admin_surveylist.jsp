@@ -24,7 +24,7 @@
                                             <select class="form-select" name="search" id="" style="width: 150px;">
                                                 <option>선택</option>
                                                 <option value="SURVEY_UID"<%=(searchStr.equals("SURVEY_UID")) ? "selected" : "" %>>설문 ID</option>
-                                                <option value="USER_ID"<%=(searchStr.equals("USER_ID")) ? "selected" : "" %>>설문자 ID</option>
+                                               
                                                 <option value="SURVEY_TYPE_ID"<%=(searchStr.equals("SURVEY_TYPE_ID")) ? "selected" : "" %>>설문 타입</option>
                                             </select>
                                             <input type="text" name="words" value='<%= params.getOrDefault("words", "") %>'
@@ -42,7 +42,7 @@
                         <tr class="bg-secondary bg-opacity-10">
                             <th>번호</th> 
                             <th>설문 일시</th>
-                            <th>설문 ID</th>
+                            
                             <th>설문자 ID</th>
                             <th>설문 타입</th>
                             <th>조회</th>
@@ -58,7 +58,7 @@
                             <tr>
                                 <td><%= number %></td> 
                                 <td><%= record.get("DATE_TIME") %></a></td>
-                                <td><%= record.get("SURVEY_UID") %></td>
+                                
                                 <td><%= record.get("USER_ID") %></td>
                                 <td><%= record.get("SURVEY_TYPE_ID") %></td>
                                 <td><button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="/adminsurvey/surveyContent/<%= record.get("SURVEY_UID") %>">조회</button></td> 
