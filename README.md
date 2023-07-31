@@ -34,38 +34,35 @@
 ### 👩‍💻 김명곤
 
 <details>
-<summary>회원가입</summary>
+<summary>Sample Code</summary>
 
-- [SignMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/CarDetailMapper.xml)
-- [SignController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/Car_detailController.java)
-- [SignService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/CarDetailMapper.xml)
+- [SecurityConfiguration.java]()
+- [SampleController.java]()
+- [SampleService.java]()
+- [DietMapper.xml]()
+- [Header.jsp]()
+- [Footer.jsp]()
+- [list_map_ex.jsp]()
 </details>
 
 <details>
 <summary>로그인</summary>
+- [LoginController.java]()
+- [SignController.java]()
+- [SignService.java]()
 
-- [CarRegMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/CarRegMapper.xml)
-- [LoginController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/CarRegController.java)
-- [CarRegService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/CarDetailMapper.xml)
 </details>
 
 <details>
 <summary>권한 설정 </summary>
   
- - [PrincipalUser.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/configurations/PrincipalUser.java)
- - [SecurityConfiguraion.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/configurations/SecurityConfiguraion.java)
-
+ - [PrincipalUser.java]()
+ - [PrincipalUserService.java]()
+ - [AuthsService.java]()
+ - [SecurityConfiguraion.java]()
   
 </details>
 
-<details>
-<summary>샘플 코드 </summary>
-  
- - [PrincipalUser.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/configurations/PrincipalUser.java)
- - [SecurityConfiguraion.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/configurations/SecurityConfiguraion.java)
-
-  
-</details>
 
 ### 👩‍💻 송명주
 
@@ -233,14 +230,18 @@
 
 
 ```
-아무고토 모르는 내가 백엔드라니..
-저는 차량 상세페이지와 차량 신규 등록 및 판매 관리 등이 있는 딜러 기능 페이지를 맡았습니다.
-
-백엔드 구현을 시작할때 제가 걱정했던 건 차량 신규 등록 시 이미지 첨부 부분이었습니다. 이미지를 저장하기만 해도 어려운데, 차량 하나에 이미지 6개를 첨부받아서 저장하고, 그걸 상세페이지에서 항목에 맞게 불러와야 했기 때문입니다.
-
-저는 항목에 맞게 저장하고 불러오기 위해 CAR_IMG 테이블을 새로 만들었고, IMG_INFO 배열을 만들어 이미지를 항목에 맞게 저장하고 불러오는데 성공했습니다.
-
-파이널 프로젝트를 진행하면서 jsp에서 컨트롤러로, 컨트롤러에서 서비스, 서비스에서 다시 컨트롤러, jsp까지 데이터를 전달하고 받으며 MVC 패턴을 더 잘 이해할 수 있게 되었습니다. 또, 협업하는 상황에서 초반 ERD 작성이 정말 중요하다는 것을 알게 되었습니다. 여태 진행했던 팀프로젝트와는 규모가 달라서 더 오래걸리고, 더 고민하는 시간이 길었지만 시간을 들인 만큼 구현해냈을때의 성취감도 크게 느낄 수 있었습니다.
+모여서 회의하다가 강사님이 부르시길래 내가 다녀올게~ 하고 나갔다가 로또 5등에 당첨이 되지 않는 제가 백엔드에 당첨되었습니다.
+내가.. 내가 백엔드라니.. 내가 백엔드라니!! 으아니!! 내가 백엔드라니!!!!!
+아무고토 모르는 내가 백엔드라 걱정이 많이 되었지만 마른 오징어도 짜면 물이 나온다고
+하다보니 되더라구요.
+일단 해! 라는 마인드가 중요했습니다.
+하나씩 해결해 나가는 우리 팀을 보면서 가아아아아아끔 재밌었고 나머지는 스트레스에 연속이었습니다.
+하지만 우리 조원들이 많이 도와줘서 프로젝트 1차 완료 할 수 있었습니다.
+....
+...
+..
+.
+그만 하고 싶다ㅋ
 
 ### 👍 송명주
 
