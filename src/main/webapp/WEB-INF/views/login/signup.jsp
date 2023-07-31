@@ -109,8 +109,13 @@
             <label class="custom-control-label" for="aggrement">개인정보 수집 및 이용에 동의합니다.</label>
           </div>
           <P></P> -->
-          <div>
-            <button class="btn btn-main float-end" type="submit" >회원가입</button>
+          <div class="row">
+            <div class="col-md-6">
+              <button class="btn btn-secondary float-end me-2" type="button" onclick="window.location.href='/home'">Main</button>
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-main btn-block" type="submit">회원가입</button>
+            </div>
           </div>
   </form>
 

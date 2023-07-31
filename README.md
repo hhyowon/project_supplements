@@ -2,7 +2,10 @@
 
 ## 📃콘텐츠 : 다이어트 보조제 추천 사이트 
 
-### ✔️프로젝트 성격(업무 시나리오)
+### ✔️프로젝트 설명
+다이어트 보조체 추천 사이트를 만들어 달라는 의뢰를 받아 구현한 사이트 
+사이트를 이용객의 설문조사를 기반한 순위를 통해 보조제를 추천받을 수 있으며 원하는 보조제를 검색할 수 있다. 
+더불어 마이페이지, 관리자페이지를 통해 원활한 관리가 될 수 있게끔 구현하였다.
 
 ### ✔️사용 기술
 
@@ -18,11 +21,13 @@
 
 ### ✔️구현 화면
 
-<img src="/images/화면정의서.png" width="800"> <!-- 해야 함 -->
+<img src="src/main/resources/static/images/화면정의서.png" width="800"> 
+<img src="src/main/resources/static/images/화면정의서.png" width="800"> <!--해야함 -->
+
 
 ### ✔️ERD
 
-- [ERD](https://github.com/HNNNY35/final_retoree/blob/master/DataBases/table_schemas/merge_erd_3.png) <!-- 해야 함 -->
+- [ERD](https://github.com/hhyowon/project_supplements/blob/main/Docs/Databases/ERD.png) 
 
 ### ✔️팀원 및 구현 기능
 
@@ -153,50 +158,50 @@
 <details>
 <summary>설문조사 진행 페이지</summary>
 
-- [SurveyMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/MainMapper.xml)
-- [SurveyController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/MainController.java)
-- [SurveyService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/MainService.java)
+- [SurveyMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/SurveyMapper.xml)
+- [SurveyController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/SurveyController.java)
+- [SurveyService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/SurveyService.java)
 
 </details>
 
 <details>
 <summary>커뮤니티</summary>
 
-- [CommunityMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/MyPageMapper.xml)
-- [CommunityController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/UserController.java)
-- [CommunityService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/MyPageService.java)
+- [CommunityMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/CommunityMapper.xml)
+- [CommunityController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/CommunityController.java)
+- [CommunityService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/CommunityService.java)
 </details>
 
 <details>
 <summary>마이페이지 회원정보 수정 </summary>
 
-- [MypageMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/ReservationMapper.xml)
-- [MypageController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/UserController.java)
-- [MypageService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/RegisterService.java)
+- [MypageMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/MypageMapper.xml)
+- [MypageController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/MypageController.java)
+- [MypageService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/MypageService.java)
 
 </details>
 
 <details>
 <summary>마이페이지 커뮤니티 관리 </summary>
 
-- [ReservationMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/ReservationMapper.xml)
-- [ReservationController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/UserController.java)
-- [ReservationService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/RegisterService.java)
+- [MypageMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/MypageMapper.xml)
+- [MypageController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/MypageController.java)
+- [MypageService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/MypageService.java)
 
 </details>
 
 <details>
 <summary>관리자 페이지 커뮤니티 관리 </summary>
 
-- [AdminCommunityMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/ReservationMapper.xml)
-- [AdminCommunityControll.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/UserController.java)
-- [AdminCommunityService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/RegisterService.java)
+- [AdminCommunityMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/AdminCommunityMapper.xml)
+- [AdminCommunityControll.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/AdminCommunityControll.java)
+- [AdminCommunityService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/AdminCommunityService.java)
 
 </details>
 
 ### ✔️주요코드 및 진행 통해 느낀 점
 
-### 👩‍💻 김명곤
+### 👍 김명곤
 
 ```
     String[] imgFiles = {"Front", "Side", "Inside", "Tire", "Navi", "Trunk"};
@@ -237,7 +242,7 @@
 
 파이널 프로젝트를 진행하면서 jsp에서 컨트롤러로, 컨트롤러에서 서비스, 서비스에서 다시 컨트롤러, jsp까지 데이터를 전달하고 받으며 MVC 패턴을 더 잘 이해할 수 있게 되었습니다. 또, 협업하는 상황에서 초반 ERD 작성이 정말 중요하다는 것을 알게 되었습니다. 여태 진행했던 팀프로젝트와는 규모가 달라서 더 오래걸리고, 더 고민하는 시간이 길었지만 시간을 들인 만큼 구현해냈을때의 성취감도 크게 느낄 수 있었습니다.
 
-### 👩‍💻 송명주
+### 👍 송명주
 
 ```
     @Override
@@ -260,7 +265,7 @@
 보면서 "이걸 이런 식으로 구현할 수가 있구나", "이렇게도 가능하구나"라며 다시 한번 배울 수 있었던 기회가 되었고 평소에 전혀 알지 못했던 사용방식, 기능들을 파이널프로젝트를 통해 알게 되어 매우 의미 있는 시간이 되었으며 팀원들과 함께 협동하여 코드를 공유하며 오류를 잡아 구현되지 않았던 코드들이 구현되어 화면에 출력되는 것에 매우 뿌듯하였으며 힘이 들었던 만큼 만족스러운 결과물을 얻게 되어 더욱 나 자신을
 한층 성장시키게 되었던 기간이었던 거 같다.
 
-### 👩‍💻 조효원
+### 👍 조효원
 
 ```
 
@@ -276,28 +281,39 @@
 
 리투리 프로젝트에서 검색과 시세 기능을 맡았습니다. 제가 생각했던 구현의 중점은 여러 테이블로 분리된 대량의 데이터를 분류하고 가져오는 것이었습니다. 하지만 프로젝트를 완료하면서 불러온 차량 데이터에 대한 이미지 경로를 처리하는 과정에서 불필요한 데이터베이스 호출이 많아져서 성능이 저하되었다는 것이 아쉬웠습니다. 이러한 문제가 발생한 이유는 처음부터 자바 코드를 작성할 때, SQL 문을 고려하지 않았기 때문입니다. 이러한 문제를 사전에 고려하고 SQL 문에서 한 번의 호출로 처리하는 방법을 고려했다면, 성능 저하 문제를 방지할 수 있었을 것입니다. 이번 프로젝트를 통해서 코드를 작성하기 위해 더 다양한 상황에 대한 대처와 고려점이 필요하다고 느꼈습니다.
 
-### 👩‍💻 오가배
+### 👍 오가배
 
 ```
-        if (passwordEncoder.matches(user_pw, principal.getPassword())) {
-
-            // 세션 제거
-            SecurityContextHolder.clearContext();
-            // user 제거
-            myPageService.deleteUser(user_id);
-            // delete
-            myPageService.delete(user_id);
-            modelAndView.setViewName("myPage/withdrawConfirm");
-            return modelAndView;
-
-        } else {
-            modelAndView.addObject("msg", "비밀번호가 일치하지 않습니다.");
-            modelAndView.addObject("user", myPageService.getUserInfo(user_id));
-            modelAndView.setViewName("myPage/withdraw");
-            return modelAndView;
+        List surveyMapList = new ArrayList<Map>();
+        for (String questionId : dataMap.keySet()) {
+            Map<String, String> questionAnswerMap = new HashMap<>();
+            String answerId = (String) dataMap.get(questionId);
+            questionAnswerMap.put("QuestionId", questionId);
+            questionAnswerMap.put("AnswerId", answerId);
+            questionAnswerMap.put("SURVEY_ID", this.generateUUID());
+            surveyMapList.add(questionAnswerMap);
         }
+        dataMap.put("surveyMapList", surveyMapList);
+        // 부모테이블 값 insert 먼저 시키기 
+        String SURVEY_UID = UUID.randomUUID().toString(); 
+        dataMap.put("USER_ID", commons.getUserID()); // user_id 받기
+        dataMap.put("SURVEY_UID", SURVEY_UID);
+        dataMap.put("DATE_TIME", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        String sqlMapId = "SurveyService.insertsurveyresult";
+        Object result01 = sharedDao.insert(sqlMapId, dataMap);
+
+        // 자식테이블 insert
+
+        dataMap.put("SURVEY_TYPE_ID", "F-01");
+        sqlMapId = "SurveyService.insertsurvey";
+        Object resultMap = sharedDao.insert(sqlMapId, dataMap);
+        //String uuid = this.generateUUID();
+        return dataMap;
 
 ```
 
-파이널 프로젝트를 진행하면서 사이트의 구조와 만드는 방식에 있어서 더 잘 이해하게 되는 계기가 되었습니다.
-스프링시큐리티를 이용해서 비밀번호 확인 후 탈퇴 요청을 처리하는 방식에 있어서 어려운 부분이 있었지만 팀원들과의 의사소통으로 서로의 문제점을 해결했을때 더없이 성취감을 느꼈습니다. 이로 인해 팀원들 간의 협력이 중요하다는 것을 더욱 더 깨닫게 되었습니다. 프로젝트를 진행하다 보니 하고싶은 기능들이 많아졌으나 시간이 부족하여 만들지 못한 부분에 아쉬움이 있었습니다. 다음에는 DB와 설계를 좀더 자세히 하여 더 좋은 결과물을 나타내고 싶다고 느꼈습니다. 
+설문조사 결과값을 DB에 넣는 과정에서 NAME과 VALUE값을 효율적으로 연결하는 법과 DB에 INSERT를 시키기 위해서는 
+부모테이블을 먼저 insert를 시켜야 자식테이블에 insert가 가능하다는 점을 확실히 인지하였습니다. 
+더불어 참조 받은 fk값인 SURVEY_UID는 UUID로 받는데 동일한 UUID임을 인지시켜줘야 부모테이블 및 자식테이블이 insert가 된다는 점을 통해 
+ERD를 명확하게 이해해야 나머지 코드를 조금 더 수월하게 진행해 나갈 수 있음을 알게 되었습니다. 
+마지막으로 팀원분들과 원활한 소통 덕분에 조금 더 빠르고 효율적으로 프로젝트를 진행해 나갈 수 있었음에 감사드립니다!! 
