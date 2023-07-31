@@ -89,14 +89,14 @@
       </div>
       <p>
         <label for="auth" class="sr-only"></label>
-        <!-- <div class="form-check form-check-inline">
+        <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="auth" id="SYSTEM_MANAGER" value="SYSTEM_MANAGER">
             <label class="form-check-label" for="ROLE_MANAGER">SYSTEM MANAGER</label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="auth" id="ROLE_ADMIN" value="ROLE_ADMIN">
             <label class="form-check-label" for="ROLE_ADMIN">ADMIN</label>
-          </div>   -->
+          </div>  
           <hr class="mb-4">
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="auth" id="USER" value="ROLE_USER">
