@@ -3,8 +3,9 @@
 ## 📃콘텐츠 : 다이어트 보조제 추천 사이트 
 
 ### ✔️프로젝트 설명
-다이어트 보조체 추천 사이트를 만들어 달라는 의뢰를 받아 구현한 사이트 
-사이트를 이용객의 설문조사를 기반한 순위를 통해 보조제를 추천받을 수 있으며 원하는 보조제를 검색할 수 있다. 
+다이어트 보조제 추천 사이트를 만들어 달라는 의뢰를 받아 구현한 사이트. 
+사이트 이용객의 설문조사를 기반한 순위를 통해 원하는 효과별 보조제를 추천받을 수 있다. 
+제형 및 효과별 보조제를 검색할 수 있으며, 커뮤니티를 통해 보조제에 대한 질문, 후기, 및 추천글을 작성 및 조회할 수 있다. 
 더불어 마이페이지, 관리자페이지를 통해 원활한 관리가 될 수 있게끔 구현하였다.
 
 ### ✔️사용 기술
@@ -247,37 +248,90 @@
 ### 👍 송명주
 
 ```
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
+      SELECT T_SURVEYOPT.SURVEY_OPT_URL AS SURVEY_RANK_FIRST
+    FROM (
+    SELECT T_SURVEY.SURVEY_UID
+    FROM SURVEY AS T_SURVEY
+    INNER JOIN SURVEYRESULT AS T_SURVEYRESULT ON T_SURVEY.SURVEY_UID = T_SURVEYRESULT.SURVEY_UID
+    WHERE T_SURVEY.SURVEY_OPT_ID = 'O-54'
+    ) AS T_SURVEYUID
+    INNER JOIN SURVEY AS T_SURVEY2 ON T_SURVEYUID.SURVEY_UID = T_SURVEY2.SURVEY_UID
+    INNER JOIN SURVEY_OPT AS T_SURVEYOPT ON T_SURVEYOPT.SURVEY_OPT_ID = T_SURVEY2.SURVEY_OPT_ID
+    WHERE T_SURVEY2.SURVEY_QUESTION_ID = 'Q-06'
+    GROUP BY T_SURVEYOPT.SURVEY_OPT_URL
+    ORDER BY COUNT(*) DESC
+    LIMIT 3;
 
-        Collection<GrantedAuthority> collections = new ArrayList<>();
-        String authority = (String) userInfo.get("AUTH");
-        if (StringUtils.hasText(authority)) {
-            collections.add(new SimpleGrantedAuthority(authority));
-        } else {
-            collections.add(new SimpleGrantedAuthority("ROLE_ANONYMOUS"));
+    // 관리자 부모테이블 설문조사 삭제
+    public Object delete(Map dataMap) {
+        String sqlMapId = "Adminsurvey.surveydelete";
+        Object result = sharedDao.delete(sqlMapId, dataMap);
+        return result;
         }
-        return collections;
-    }
+    // 관리자 자식테이블 설문조사 삭제
+    public Object resultdelete(Map dataMap) {
+        String sqlMapId = "Adminsurvey.surveyresultdelete";
+        Object result = sharedDao.delete(sqlMapId, dataMap);
+        return result;
+        }
+    // 관리자 설문조사 삭제 및 select
+    public Object deleteAndSelectSearch(String SURVEY_UID, Map dataMap) {
+        dataMap.put("SURVEY_UID", SURVEY_UID);
+        HashMap result = new HashMap<>();
+        result.put("deleteCount", this.delete(dataMap));
+        result.put("deleteCount", this.resultdelete(dataMap));
+        result.putAll(this.selectWithPagination(dataMap));
+        return result;
+        }   
 ```
+    랭킹을 구현하기 위한 쿼리문을 작성하는데 있어서 
 
-로그인을 위해 시큐리티를 적용할 때 인증된 사용자가 가진 권한 정보를 collections에 담아 반환하는 과정에서 오류가 발생하여 구현하는 데에 있어 시간이 상당히 걸리게 되었습니다. 그리하여 if문을 사용하여 권한 정보가 존재하는 경우 권한 정보를 collections에 추가하고 권한 정보가 존재하지 않는 경우 기본 권한 정보를 collections에 추가하여 인증된 사용자의 권한 정보를 포함하는 Collection을 반환하는 방법을 사용하여 구현해 낼 수 있었습니다.
 
-코드를 구현하다 보면 나 자신이 구현한 코드밖에 알지 못해 구현 방식에 한계가 생길 수밖에 없는데 팀원들이 구현한 다양한 방식의 코드를
-보면서 "이걸 이런 식으로 구현할 수가 있구나", "이렇게도 가능하구나"라며 다시 한번 배울 수 있었던 기회가 되었고 평소에 전혀 알지 못했던 사용방식, 기능들을 파이널프로젝트를 통해 알게 되어 매우 의미 있는 시간이 되었으며 팀원들과 함께 협동하여 코드를 공유하며 오류를 잡아 구현되지 않았던 코드들이 구현되어 화면에 출력되는 것에 매우 뿌듯하였으며 힘이 들었던 만큼 만족스러운 결과물을 얻게 되어 더욱 나 자신을
-한층 성장시키게 되었던 기간이었던 거 같다.
+
 
 ### 👍 조효원
 
 ```
+        <% Paginations paginations=(Paginations)result.get("paginations"); %>
+        
+          </div>
+          <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <a class="page-link" href="/adminproduct/selectSearch?currentPage=<%=paginations.getPreviousPage()%>&search=<%= params.getOrDefault("search", "") %>&words=<%= params.getOrDefault("words", "") %>">Previous</a>
+            </li>
+              <% for(int i=paginations.getBlockStart();i <=paginations.getBlockEnd(); i=i+1){ %>
+                <li class="page-item">
+                  <a class="page-link" href="/adminproduct/selectSearch?currentPage=<%= i %>&search=<%= params.getOrDefault("search", "") %>&words=<%= params.getOrDefault("words", "") %>">
+                    <%= i %>
+                  </a>
+                </li>
+                <% } %>
+                <li class="page-item">
+                  <a class="page-link" href="/adminproduct/selectSearch?currentPage=<%= paginations.getNextPage() %>&search=<%= params.getOrDefault("search", "") %>&words=<%= params.getOrDefault("words", "") %>">Next</a>
+                </li> 
+            </ul>
+          </nav>
+        </div>
 
-            for( Map<String, Object> list :(ArrayList<Map<String, Object>>)resultMap){
-                Map<String, Object> car_id = new HashMap<>();
-                car_id.put("SOURCE_UNIQUE_SEQ", list.get("CAR_ID"));
-                Object carImgs = searchService.selectCarImg(car_id);
-                (((ArrayList<Map<String, Object>>)resultMap).get(i)).put("carImgs", (Map<String, Object>)carImgs);
-                i++;
+        //제품 추가하기
+        public Object insert(Map dataMap) {
+            String sqlMapId = "Adminproduct.insert";
+            if (dataMap.get("PRODUCT_UID") == null || dataMap.get("PRODUCT_UID").equals("")) {
+              
+                String uuid = commons.generateUUID(); // user_id 받기 (수정)
+                dataMap.put("PRODUCT_UID", uuid);
+                dataMap.put("USER_ID", commons.getUserID()); 
+            } else {
+                
             }
+            
+            Object result_1 = sharedDao.insert(sqlMapId, dataMap);
+            HashMap result = (HashMap) this.selectWithPagination(dataMap);
+            return result;
+        
+        }    
+}
 
 ```
 
