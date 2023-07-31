@@ -53,7 +53,6 @@
     FROM MEMBERS AS T_M
     INNER JOIN SURVEYRESULT AS T_SR ON T_M.USER_ID = T_SR.USER_ID
     INNER JOIN SURVEY AS T_S ON T_SR.SURVEY_UID = T_S.SURVEY_UID
-    WHERE T_SR.SURVEY_UID LIKE 'SUID%'
     <choose>
         <when test="search == 'SURVEY_UID'">
             AND T_SR.SURVEY_UID LIKE CONCAT('%', #{words}, '%')
