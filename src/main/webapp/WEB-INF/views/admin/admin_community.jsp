@@ -77,14 +77,14 @@
           
             <nav aria-label="Page navigation">
                 <ul class="pagination justify-content-center">
-                    <li class="page-item"><a class="page-link" href="/admincommunity?currentPage=<%=paginations.getPreviousPage()%>&search=<%= params.getOrDefault("search", "") %>&words=<%= params.getOrDefault("words", "") %>">Previous</a>
+                    <li class="page-item"><a class="page-link" href="/admincommunity/selectSearch?currentPage=<%=paginations.getPreviousPage()%>&search=<%= params.getOrDefault("search", "") %>&words=<%= params.getOrDefault("words", "") %>">Previous</a>
                     </li>
 
                     <%
                     for(int i=paginations.getBlockStart();i <= paginations.getBlockEnd(); i=i+1){
                     %>
                     <li class="page-item">
-                        <a class="page-link" href="/admincommunity?currentPage=<%= i %>&search=<%= params.getOrDefault("search", "") %>&words=<%= params.getOrDefault("words", "") %>">
+                        <a class="page-link" href="/admincommunity/selectSearch?currentPage=<%= i %>&search=<%= params.getOrDefault("search", "") %>&words=<%= params.getOrDefault("words", "") %>">
                             <%= i %>
                         </a>
                         </li>
@@ -93,7 +93,7 @@
                     %>
 
                     <li class="page-item">
-                        <a class="page-link" href="/admincommunity?currentPage=<%= paginations.getNextPage() %>&search=<%= params.getOrDefault("search", "") %>&words=<%= params.getOrDefault("words", "") %>">Next</a>
+                        <a class="page-link" href="/admincommunity/selectSearch?currentPage=<%= paginations.getNextPage() %>&search=<%= params.getOrDefault("search", "") %>&words=<%= params.getOrDefault("words", "") %>">Next</a>
                     </li>
                 </ul>
             </nav>

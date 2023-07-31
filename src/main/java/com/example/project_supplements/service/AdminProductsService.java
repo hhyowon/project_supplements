@@ -22,7 +22,7 @@ public class AdminProductsService {
     @Autowired
     Commons commons;
 
-    //user 테이블 리스트    
+    // 테이블 리스트    
         public Map select(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
         String sqlMapId = "Adminproduct.searchList";
