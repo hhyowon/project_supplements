@@ -51,10 +51,11 @@
                                     </tr>
                                 </thead>
                                 <tbody id="list">
-                                    <% ArrayList resultList=(ArrayList)result.get("resultList"); 
+                                    <% ArrayList resultList=(ArrayList)result.get("resultList");
                                                 for(int i=0; i < resultList.size(); i=i+1){
                                                     int number = i+1;
-                                                    HashMap record=(HashMap)resultList.get(i); %>
+                                                    HashMap record=(HashMap)resultList.get(i);
+                                                    String userId = (String) record.get("USER_ID"); %>
                                         <tr>
                                             <td><%= number %></td> 
                                             <td><%= record.get("CATEGORY") %></td>

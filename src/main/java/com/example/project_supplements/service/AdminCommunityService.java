@@ -68,6 +68,7 @@ public class AdminCommunityService {
         dataMap.put("pageScale", paginations.getPageScale());
         dataMap.put("pageBegin", paginations.getPageBegin());
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+        result.putAll(this.admincommunity(dataMap));
 
         return result;
     }
