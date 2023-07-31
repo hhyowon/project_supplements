@@ -61,7 +61,7 @@ public class AdminSurveyService {
          HashMap result = new HashMap<>();
          result.put("deleteCount", this.delete(dataMap));
          result.put("deleteCount", this.resultdelete(dataMap));
-         result.putAll(this.adminsurveylist(dataMap));
+         result.putAll(this.selectWithPagination(dataMap));
          return result;
      }   
 
