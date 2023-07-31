@@ -23,7 +23,7 @@
                                         <div class="input-group">
                                             <select class="form-select" name="search" id="" style="width: 150px;">
                                                 <option>선택</option>
-                                                <option value="SURVEY_UID"<%=(searchStr.equals("SURVEY_UID")) ? "selected" : "" %>>설문 ID</option>
+                                                <option value="USER_ID"<%=(searchStr.equals("USER_ID")) ? "selected" : "" %>>설문자 ID</option>
                                                
                                                 <option value="SURVEY_TYPE_ID"<%=(searchStr.equals("SURVEY_TYPE_ID")) ? "selected" : "" %>>설문 타입</option>
                                             </select>
