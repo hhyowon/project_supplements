@@ -18,7 +18,7 @@ public class SecurityConfiguration {
                 // url, roles from Dao
                 httpSecurity.authorizeHttpRequests() // 로그인
                 .requestMatchers("/manager*").hasAnyRole("ADMIN", "MANAGER")
-                .requestMatchers("/admin*").hasRole("ADMIN")
+                .requestMatchers("/admin*/*").hasRole("ADMIN")
                 .requestMatchers("/main").authenticated() //로그인한 대상자
                 .requestMatchers("/carInfor/map/*").hasRole("USER")
                         .anyRequest().permitAll() //그외 전체 대상
