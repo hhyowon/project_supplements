@@ -203,47 +203,52 @@
 ### 👍 김명곤
 
 ```
-    String[] imgFiles = {"Front", "Side", "Inside", "Tire", "Navi", "Trunk"};
-    int idx = 0;
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<sec:authorize access="isAuthenticated()">
+<sec:authorize access="hasRole('ROLE_ADMIN')">
+<sec:authorize access="isAuthenticated()">
+@Configuration
+@EnableWebSecurity
+public class SecurityConfiguration {
+    @Bean
+        public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+                // None using csrf protection
+                httpSecurity.csrf().disable();
+                // 권한에 대한 부분 : url & roles : user url & roles
+                // url, roles from Dao
+                httpSecurity.authorizeHttpRequests() // 로그인
+                .requestMatchers("/manager*").hasAnyRole("ADMIN", "MANAGER")
+                .requestMatchers("/admin*/*").hasRole("ADMIN")
+                .requestMatchers("/main").authenticated() //로그인한 대상자
+                .requestMatchers("/carInfor/map/*").hasRole("USER")
+                        .anyRequest().permitAll() //그외 전체 대상
+                ;
+                httpSecurity.formLogin(login -> login.loginPage("/loginForm") //로그인 하지 않은 사람이 로그인한 후에 접근 가능한 페이지를 눌렀을때 로그인 폼을 띄어라
+                                .failureUrl("/loginForm?fail=true") 
+                                .loginProcessingUrl("/login") 
+                                .defaultSuccessUrl("/")); //로그인 하고 나면 메인으로 간다
+                httpSecurity.logout(logout -> logout
+                                .logoutSuccessUrl("/home")
+                                .invalidateHttpSession(true)
+                                .deleteCookies("JSESSIONID"));
 
-
-     * 이미지파일 insert
-    attachfile = new HashMap<>();
-    attachfile.put("ATTACHFILE_SEQ", commonUtils.getUniqueSequence());
-    attachfile.put("SOURCE_UNIQUE_SEQ", params.get("CAR_ID"));
-    attachfile.put("ORIGINALFILE_NAME", originalFileName);
-    attachfile.put("PHYSICALFILE_NAME", physicalFileName);
-    attachfile.put("IMG_INFO", imgFiles[idx]);
-    idx = idx + 1;
-
-    attachfiles.add(attachfile);
-
-
-     * 이미지파일 select
-    String[] imgFiles = {"Front", "Side", "Inside", "Tire", "Navi", "Trunk"};
-
-    for(int i = 0; i < imgFiles.length; i++) {
-      ((Map<String, Object>) dataMap).put("IMG_INFO", imgFiles[i]);
-      result = carDetailDao.getOne(sqlMapId, dataMap);
-      String fileName = (String)(((Map<String, Object>)result).get("ORIGINALFILE_NAME"));
-
-      results.put(imgFiles[i], fileName);
-      }
-
-
+                return httpSecurity.build();
+        }
+                 @Bean
+        public BCryptPasswordEncoder encoderPasswordEncoder() {
+                return new BCryptPasswordEncoder();
+        }       
 ```
-모여서 회의하다가 강사님이 부르시길래 내가 다녀올게~ 하고 나갔다가 로또 5등에 당첨이 되지 않는 제가 백엔드에 당첨되었습니다.
+모여서 회의하다가 강사님이 부르시길래 내가 다녀올게~ 하고 나갔다가 로또 5등에 당첨이 되지 않는 제가 백엔드에 당첨되었읍니다.
 내가.. 내가 백엔드라니.. 내가 백엔드라니!! 으아니!! 내가 백엔드라니!!!!!
 아무고토 모르는 내가 백엔드라 걱정이 많이 되었지만 마른 오징어도 짜면 물이 나온다고
 하다보니 되더라구요.
-일단 해! 라는 마인드가 중요했습니다.
-하나씩 해결해 나가는 우리 팀을 보면서 가아아아아아끔 재밌었고 나머지는 스트레스에 연속이었습니다.
-하지만 우리 조원들이 많이 도와줘서 프로젝트 1차 완료 할 수 있었습니다.
-....
-...
-..
-.
-그만 하고 싶다ㅋ
+일단 해! 라는 마인드가 중요했읍니다.
+하나씩 해결해 나가는 우리 팀을 보면서 우리도 할 수 있다라는 생각을 하게 되었읍니다.
+우리 조원들이 많이 도와줘서 프로젝트 1차 완료 할 수 있었읍니다.
+권한부여하는 부분에서 시행착오가 많이 있었고 로그인하면서 PASSWORD를 암호화 하는 부분도 인상깊었읍니다.
+2차 프로젝트도 잘 해쳐나갔으면 좋겠습니다.
+부족한 저를 만나 고생한 팀원들에게 이 영광을 돌립니다.
 
 ### 👍 송명주
 
