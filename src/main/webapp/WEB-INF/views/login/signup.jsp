@@ -28,7 +28,7 @@
 
         <div class="py-2">
           <lable class="form-label" for="name">이름</lable>
-          <input class="form-control" type="text" placeholder="이름" name="NAME" id="name" style="width: 500px;">
+          <input class="form-control" type="text" placeholder="이름을 입력하세요" name="NAME" id="name" style="width: 500px;">
         </div>
 
         <div class="py-2">
@@ -44,12 +44,12 @@
 
         <div class="py-2"><!--아이디 작성-->
           <label class="form-label" for="userid">아이디 </label>
-          <input class="form-control" type="id" name="USER_ID" id="userid" placeholder="hyowon0605" style="width: 500px;">
+          <input class="form-control" type="id" name="USER_ID" id="userid" placeholder="ID를 입력하세요" style="width: 500px;">
         </div>
 
         <div class="py-2"><!--비밀번호 작성-->
           <label class="form-label" for="pw">비밀번호 </label>
-          <input class="form-control" type="password" name="PASSWORD" id="pw" placeholder="123456"
+          <input class="form-control" type="password" name="PASSWORD" id="pw" placeholder="패스워드를 입력하세요"
             style="width: 500px;">
         </div>
 
@@ -61,19 +61,19 @@
 
         <div class="py-2"><!--연락처-->
           <label class="form-label" for="phnum">연락처</label>
-          <input class="form-control" type="text" name="PHONENUMBER" value="" placeholder="010-****-****" id="phnum"
+          <input class="form-control" type="tel" name="PHONENUMBER" value="" placeholder="010-****-****" id="phnum"
             style="width: 500px;">
         </div>
 
         <div class="py-2"><!--Address-->
           <label class="form-label" for="address">주소</label>
-          <input class="form-control" type="text" name="ADDRESS" value="" placeholder="우리집비밀" id="address"
+          <input class="form-control" type="text" name="ADDRESS" value="" placeholder="주소를 입력하세요" id="address"
             style="width: 500px;">
         </div>
 
         <div class="py-2"><!--이메일 작성-->
           <label class="form-label" for="email">Email </label>
-          <input class="form-control" type="email" name="EMAIL" id="email" placeholder="otter@yojulab.com"
+          <input class="form-control" type="email" name="EMAIL" id="email" placeholder="9998@example.com"
             style="width: 500px;">
         </div>
       </div>

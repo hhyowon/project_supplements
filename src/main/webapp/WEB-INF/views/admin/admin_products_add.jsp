@@ -53,7 +53,7 @@
               </div>
               <div class="py-2"><!--image-->
                 <label class="form-label" for="img">image</label>
-                <input class="form-control" type="text" name="PROUDUCT_IMG" id="img" style="width: 500px;" value="/images/noIMG.jpg">
+                <input class="form-control" type="file" name="PROUDUCT_IMG" id="img" style="width: 500px;" value="/images/noIMG.jpg">
               </div>
             </div>
             </div>
