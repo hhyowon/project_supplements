@@ -76,7 +76,6 @@ public class AdminProductsService {
             return result;
         }  
 
-
         //문제
         public Object insert(Map dataMap) {
             String sqlMapId = "Adminproduct.insert";
@@ -84,7 +83,7 @@ public class AdminProductsService {
               
                 String uuid = commons.generateUUID(); // user_id 받기 (수정)
                 dataMap.put("PRODUCT_UID", uuid);
-                dataMap.put("USERNAME", commons.getUserID()); //
+                dataMap.put("USER_ID", commons.getUserID()); 
             } else {
                 
             }
