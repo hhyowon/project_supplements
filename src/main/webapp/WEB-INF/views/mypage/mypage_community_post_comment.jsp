@@ -34,11 +34,12 @@
               </tr>
               <tr style="border: 1px solid #ececec;">
                   <th scope="row" style="background-color: #eeeeee; text-align: center;">제목</th>
-                  <td colspan="3"><input type="text" style="border: none;" size="20" maxlength="100" name = "COMMUNITY_TITLE"  value= '<%= record.get("COMMUNITY_TITLE") %>' ></td>
+                  <td colspan="3"><input type="text" style="border: none;" size="100" maxlength="100" name = "COMMUNITY_TITLE"  value= '<%= record.get("COMMUNITY_TITLE") %>' ></td>
               </tr>
               <tr style="border: 1px solid #ececec;">
                   <th scope="row" style="background-color: #eeeeee; text-align: center;">내용</th>
-                  <td colspan="3" style="height: 200px;" > <input type="text" style="border: none;" name = "COMMUNITY_CONTENT"  value= '<%= record.get("COMMUNITY_CONTENT") %>' rows="5" cols="30" maxlength="200" ></td>
+                  <td colspan="3" style="height: 200px;" ><textarea style="border: none;" name="COMMUNITY_CONTENT" rows="8" cols="100" maxlength="200"><%= record.get("COMMUNITY_CONTENT") %></textarea>
+                  </td>
               </tr>
           </tbody>
       </table>
