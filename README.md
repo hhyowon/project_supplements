@@ -22,7 +22,7 @@
 ### ✔️구현 화면
 
 <img src="src/main/resources/static/images/화면정의서.png" width="800"> 
-<img src="src/main/resources/static/images/화면정의서.png" width="800"> <!--해야함 -->
+<img src="src/main/resources/static/images/화면정의서2.png" width="800"> 
 
 
 ### ✔️ERD
@@ -36,30 +36,31 @@
 <details>
 <summary>Sample Code</summary>
 
-- [SecurityConfiguration.java]()
-- [SampleController.java]()
-- [SampleService.java]()
-- [DietMapper.xml]()
-- [Header.jsp]()
-- [Footer.jsp]()
-- [list_map_ex.jsp]()
+- [SecurityConfiguration.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/configs/SecurityConfiguration.java)
+- [SampleController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/SampleController.java)
+- [SampleService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/SampleService.java)
+- [DietMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/DietMapper.xml)
+- [Header.jsp](https://github.com/hhyowon/project_supplements/blob/main/src/main/webapp/WEB-INF/views/etc/Header.jsp)
+- [Footer.jsp](https://github.com/hhyowon/project_supplements/blob/main/src/main/webapp/WEB-INF/views/etc/Footer.jsp)
+- [list_map_ex.jsp](https://github.com/hhyowon/project_supplements/blob/main/src/main/webapp/WEB-INF/views/etc/list_map_ex.jsp)
 </details>
 
 <details>
 <summary>로그인</summary>
-- [LoginController.java]()
-- [SignController.java]()
-- [SignService.java]()
+
+- [LoginController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/LoginController.java)
+- [SignController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/SignController.java)
+- [SignService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/SignService.java)
 
 </details>
 
 <details>
 <summary>권한 설정 </summary>
   
- - [PrincipalUser.java]()
- - [PrincipalUserService.java]()
- - [AuthsService.java]()
- - [SecurityConfiguraion.java]()
+ - [PrincipalUser.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/security/PrincipalUser.java)
+ - [PrincipalUserService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/security/PrincipalUserService.java)
+ - [AuthsService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/AuthsService.java)
+ - [SecurityConfiguraion.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/configs/SecurityConfiguration.java)
   
 </details>
 
