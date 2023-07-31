@@ -2,7 +2,62 @@
     <%@ page import="java.util.HashMap, java.util.ArrayList" %>
         <!DOCTYPE html>
         <html lang="en">
-    
+            <style>
+                .loading span {
+                  display: inline-block;
+                  margin: 0 -.05em;
+                  animation: loading .7s infinite;
+                }
+                .loading span:nth-child(2) {
+                  animation-delay: .1s;
+                }
+                .loading span:nth-child(3) {
+                  animation-delay: .2s;
+                }
+                .loading span:nth-child(4) {
+                  animation-delay: .3s;
+                }
+                .loading span:nth-child(5) {
+                  animation-delay: .4s;
+                }
+                .loading span:nth-child(6) {
+                  animation-delay: .5s;
+                }
+                .loading span:nth-child(7) {
+                  animation-delay: .6s;
+                }
+                @keyframes loading {
+                  0%, 100% {
+                    transform: translateY(0);
+                  }
+                  50% {
+                    transform: translateY(15px);
+                  }
+                }
+                .satellites {
+                    border: 4px solid none;
+                    animation: rotate-axis 10s linear infinite;
+                    transform-style: preserve-3d;
+                    display: flex;
+                    justify-content: center;
+                }
+                
+                @keyframes rotate-axis {
+                    from {
+                        transform:  perspective(800px) rotateY(0deg);
+                    }
+                    to {
+                        transform:  perspective(800px) rotateY(360deg);
+                    }
+                }
+                
+                .satellite {
+                    position: absolute;
+                    width: 100px;
+                    transform: rotateY(calc(var(--i) * 1deg)) translateZ(500px);
+                }
+                    </style>
+                
         <head>
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,8 +76,20 @@
                 HashMap thirdparams=(HashMap)request.getAttribute("thirdparams"); 
                 HashMap thirdresult=(HashMap)request.getAttribute("thirdresult");  %>
     
-    
+                
                     <div class="container">
+                        <div class="satellites">
+                            <img class="satellite" style="--i: 0" src="/html/img/supplement3.png">
+                            <img class="satellite" style="--i: 20" src="/html/img/supplement3.png">
+                            <img class="satellite" style="--i: 40" src="/html/img/supplement3.png">
+                            <img class="satellite" style="--i: 300" src="/html/img/supplement3.png">
+                            <img class="satellite" style="--i: 320" src="/html/img/supplement3.png">
+                            <img class="satellite" style="--i: 340" src="/html/img/supplement3.png">
+                            <img class="satellite" style="--i: 360" src="/html/img/supplement3.png">
+                            <img class="satellite" style="--i: 380" src="/html/img/supplement3.png">
+                            <img class="satellite" style="--i: 400" src="/html/img/supplement3.png">
+                        </div>
+
                         <h2 class="ui teal image header text-center">
                             효능별 BEST 3
                             <hr class='hr-solid' />

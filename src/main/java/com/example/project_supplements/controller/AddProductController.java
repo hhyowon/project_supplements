@@ -35,11 +35,11 @@ public class AddProductController {
                 String proudct = params.get("PRODUCT"); // Category value passed in modal
                 String url = params.get("URL"); // title value passed from modal
                 String formulation = params.get("FORMULATION"); // content value passed from modal
-                String productImg = params.get("PROUDUCT_IMG");
+                String productImg = "/images/"+params.get("PROUDUCT_IMG");
                 String effect = params.get("EFFECT");
-                 String userId = commons.getUserID(); // get user_id
+                  String userId = commons.getUserID(); // get user_id
             
-                 dataMap.put("USER_ID", userId);
+                  dataMap.put("USER_ID", userId);
                 dataMap.put("PRODUCT", proudct);
                 dataMap.put("URL", url);
                 dataMap.put("FORMULATION", formulation);

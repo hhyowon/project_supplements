@@ -38,7 +38,7 @@ public class AdminCommunityService {
         dataMap.put("COMMUNITY_ID", COMMUNITY_ID);
         HashMap result = new HashMap<>();
         result.put("deleteCount", this.delete(dataMap));
-        result.putAll(this.admincommunity(dataMap));
+        result.putAll(this.selectWithPagination(dataMap));
         return result;
     }   
 
@@ -68,7 +68,7 @@ public class AdminCommunityService {
         dataMap.put("pageScale", paginations.getPageScale());
         dataMap.put("pageBegin", paginations.getPageBegin());
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
-        result.putAll(this.admincommunity(dataMap));
+
 
         return result;
     }
