@@ -1,3 +1,4 @@
+USE `project_diet`;
 
 CREATE TABLE AUTH_NAMES
 (
