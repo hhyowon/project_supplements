@@ -228,7 +228,7 @@
                                     style="background-color: #dbedff; vertical-align: middle;">
                                     <td class="text-center">
                                         <h3 style="font-weight: bold; color:white; text-align: center;">
-                                            03. 배변활동 증가</h3>
+                                            03. 배변활동</h3>
                                     </td>
 
                                     <td rowspan='3' style="background-color: #dbedff;">
