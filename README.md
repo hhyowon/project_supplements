@@ -3,8 +3,9 @@
 ## 📃콘텐츠 : 다이어트 보조제 추천 사이트 
 
 ### ✔️프로젝트 설명
-다이어트 보조체 추천 사이트를 만들어 달라는 의뢰를 받아 구현한 사이트 
-사이트를 이용객의 설문조사를 기반한 순위를 통해 보조제를 추천받을 수 있으며 원하는 보조제를 검색할 수 있다. 
+다이어트 보조제 추천 사이트를 만들어 달라는 의뢰를 받아 구현한 사이트. 
+사이트 이용객의 설문조사를 기반한 순위를 통해 원하는 효과별 보조제를 추천받을 수 있다. 
+제형 및 효과별 보조제를 검색할 수 있으며, 커뮤니티를 통해 보조제에 대한 질문, 후기, 및 추천글을 작성 및 조회할 수 있다. 
 더불어 마이페이지, 관리자페이지를 통해 원활한 관리가 될 수 있게끔 구현하였다.
 
 ### ✔️사용 기술
@@ -22,7 +23,7 @@
 ### ✔️구현 화면
 
 <img src="src/main/resources/static/images/화면정의서.png" width="800"> 
-<img src="src/main/resources/static/images/화면정의서.png" width="800"> <!--해야함 -->
+<img src="src/main/resources/static/images/화면정의서2.png" width="800"> 
 
 
 ### ✔️ERD
@@ -36,30 +37,31 @@
 <details>
 <summary>Sample Code</summary>
 
-- [SecurityConfiguration.java]()
-- [SampleController.java]()
-- [SampleService.java]()
-- [DietMapper.xml]()
-- [Header.jsp]()
-- [Footer.jsp]()
-- [list_map_ex.jsp]()
+- [SecurityConfiguration.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/configs/SecurityConfiguration.java)
+- [SampleController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/SampleController.java)
+- [SampleService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/SampleService.java)
+- [DietMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/DietMapper.xml)
+- [Header.jsp](https://github.com/hhyowon/project_supplements/blob/main/src/main/webapp/WEB-INF/views/etc/Header.jsp)
+- [Footer.jsp](https://github.com/hhyowon/project_supplements/blob/main/src/main/webapp/WEB-INF/views/etc/Footer.jsp)
+- [list_map_ex.jsp](https://github.com/hhyowon/project_supplements/blob/main/src/main/webapp/WEB-INF/views/etc/list_map_ex.jsp)
 </details>
 
 <details>
 <summary>로그인</summary>
-- [LoginController.java]()
-- [SignController.java]()
-- [SignService.java]()
+
+- [LoginController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/LoginController.java)
+- [SignController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/SignController.java)
+- [SignService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/SignService.java)
 
 </details>
 
 <details>
 <summary>권한 설정 </summary>
   
- - [PrincipalUser.java]()
- - [PrincipalUserService.java]()
- - [AuthsService.java]()
- - [SecurityConfiguraion.java]()
+ - [PrincipalUser.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/security/PrincipalUser.java)
+ - [PrincipalUserService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/security/PrincipalUserService.java)
+ - [AuthsService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/AuthsService.java)
+ - [SecurityConfiguraion.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/configs/SecurityConfiguration.java)
   
 </details>
 
@@ -69,18 +71,18 @@
 <details>
 <summary>설문조사 통계</summary>
 
-- [SurveryResultMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/LoginMapper.xml)
+- [SurveryResultMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/SurveryResultMapper.xml)
 - [SurveyResultController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/LoginController.java)
-- [SurveyResultService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/RegisterService.java)
+- [SurveyResultService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/SurveyResultService.java)
 
 </details>
 
 <details>
 <summary>랭킹</summary>
 
-- [SurveyRankMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/RegisterMapper.xml)
+- [SurveyRankMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/SurveyRankMapper.xml)
 - [RankController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/RegisterController.java)
-- [RankService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/RegisterService.java)
+- [RankService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/RankService.java)
 
 </details>
 
@@ -107,45 +109,50 @@
 <details>
 <summary>메인페이지</summary>
 
-- [CheckPriceMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/CheckPriceMapper.xml)
-- [MainController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/CheckPriceController.java)
-- [CheckPriceService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/CheckPriceService.java)
+- [MainController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/MainController.java)
 
 </details>
 
 <details>
 <summary>BMI 페이지</summary>
 
-- [BmiMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/SearchMapper.xml)
-- [BMIController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/SearchController.java)
-- [BmiSerivce.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/SearchService.java)
+- [BmiMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/BmiMapper.xml)
+- [BMIController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/BMIController.java)
+- [BmiSerivce.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/BmiSerivce.java)
 
 </details>
 
 <details>
 <summary>다이어트 보조제 검색</summary>
 
-- [SearchMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/DealerMapper.xml)
-- [SearchController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/DealerController.java)
-- [SearchService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/DealerService.java)
+- [SearchMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/SearchMapper.xml)
+- [SearchController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/SearchController.java)
+- [SearchService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/SearchService.java)
 </details>
 
+<details>
+<summary>커뮤니티</summary>
+
+- [CommunityMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/CommunityMapper.xml)
+- [CommunityController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/CommunityController.java)
+- [CommunityService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/CommunityService.java)
+</details>
 
 <details>
 <summary>관리자페이지 회원 관리</summary>
 
-- [AdminMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/NoticeMapper.xml)
-- [AdminController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/NoticeController.java)
-- [AdminService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/NoticeService.java)
+- [AdminMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/AdminMapper.xml)
+- [AdminController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/AdminController.java)
+- [AdminService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/AdminService.java)
 
 </details>
 
 <details>
 <summary>관리자페이지 보조제 관리</summary>
 
-- [AdminProductMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/NoticeMapper.xml)
-- [AdminProductsController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/NoticeController.java)
-- [AdminProductsService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/NoticeService.java)
+- [AdminProductMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/AdminProductMapper.xml)
+- [AdminProductsController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/AdminProductsController.java)
+- [AdminProductsService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/AdminProductsService.java)
 
 </details>
 
@@ -159,14 +166,6 @@
 - [SurveyController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/SurveyController.java)
 - [SurveyService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/SurveyService.java)
 
-</details>
-
-<details>
-<summary>커뮤니티</summary>
-
-- [CommunityMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/CommunityMapper.xml)
-- [CommunityController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/CommunityController.java)
-- [CommunityService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/CommunityService.java)
 </details>
 
 <details>
@@ -201,82 +200,140 @@
 ### 👍 김명곤
 
 ```
-    String[] imgFiles = {"Front", "Side", "Inside", "Tire", "Navi", "Trunk"};
-    int idx = 0;
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<sec:authorize access="isAuthenticated()">
+<sec:authorize access="hasRole('ROLE_ADMIN')">
+<sec:authorize access="isAuthenticated()">
+@Configuration
+@EnableWebSecurity
+public class SecurityConfiguration {
+    @Bean
+        public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+                // None using csrf protection
+                httpSecurity.csrf().disable();
+                // 권한에 대한 부분 : url & roles : user url & roles
+                // url, roles from Dao
+                httpSecurity.authorizeHttpRequests() // 로그인
+                .requestMatchers("/manager*").hasAnyRole("ADMIN", "MANAGER")
+                .requestMatchers("/admin*/*").hasRole("ADMIN")
+                .requestMatchers("/main").authenticated() //로그인한 대상자
+                .requestMatchers("/carInfor/map/*").hasRole("USER")
+                        .anyRequest().permitAll() //그외 전체 대상
+                ;
+                httpSecurity.formLogin(login -> login.loginPage("/loginForm") //로그인 하지 않은 사람이 로그인한 후에 접근 가능한 페이지를 눌렀을때 로그인 폼을 띄어라
+                                .failureUrl("/loginForm?fail=true") 
+                                .loginProcessingUrl("/login") 
+                                .defaultSuccessUrl("/")); //로그인 하고 나면 메인으로 간다
+                httpSecurity.logout(logout -> logout
+                                .logoutSuccessUrl("/home")
+                                .invalidateHttpSession(true)
+                                .deleteCookies("JSESSIONID"));
 
-
-     * 이미지파일 insert
-    attachfile = new HashMap<>();
-    attachfile.put("ATTACHFILE_SEQ", commonUtils.getUniqueSequence());
-    attachfile.put("SOURCE_UNIQUE_SEQ", params.get("CAR_ID"));
-    attachfile.put("ORIGINALFILE_NAME", originalFileName);
-    attachfile.put("PHYSICALFILE_NAME", physicalFileName);
-    attachfile.put("IMG_INFO", imgFiles[idx]);
-    idx = idx + 1;
-
-    attachfiles.add(attachfile);
-
-
-     * 이미지파일 select
-    String[] imgFiles = {"Front", "Side", "Inside", "Tire", "Navi", "Trunk"};
-
-    for(int i = 0; i < imgFiles.length; i++) {
-      ((Map<String, Object>) dataMap).put("IMG_INFO", imgFiles[i]);
-      result = carDetailDao.getOne(sqlMapId, dataMap);
-      String fileName = (String)(((Map<String, Object>)result).get("ORIGINALFILE_NAME"));
-
-      results.put(imgFiles[i], fileName);
-      }
-
-
+                return httpSecurity.build();
+        }
+                 @Bean
+        public BCryptPasswordEncoder encoderPasswordEncoder() {
+                return new BCryptPasswordEncoder();
+        }       
 ```
-모여서 회의하다가 강사님이 부르시길래 내가 다녀올게~ 하고 나갔다가 로또 5등에 당첨이 되지 않는 제가 백엔드에 당첨되었습니다.
-내가.. 내가 백엔드라니.. 내가 백엔드라니!! 으아니!! 내가 백엔드라니!!!!!
-아무고토 모르는 내가 백엔드라 걱정이 많이 되었지만 마른 오징어도 짜면 물이 나온다고
-하다보니 되더라구요.
-일단 해! 라는 마인드가 중요했습니다.
-하나씩 해결해 나가는 우리 팀을 보면서 가아아아아아끔 재밌었고 나머지는 스트레스에 연속이었습니다.
-하지만 우리 조원들이 많이 도와줘서 프로젝트 1차 완료 할 수 있었습니다.
-....
-...
-..
-.
-그만 하고 싶다ㅋ
+        모여서 회의하다가 강사님이 부르시길래 내가 다녀올게~ 하고 나갔다가 로또 5등에 당첨이 되지 않는 제가 백엔드에 당첨되었읍니다.
+        내가.. 내가 백엔드라니.. 내가 백엔드라니!! 으아니!! 내가 백엔드라니!!!!!
+        아무고토 모르는 내가 백엔드라 걱정이 많이 되었지만 마른 오징어도 짜면 물이 나온다고
+        하다보니 되더라구요.
+        일단 해! 라는 마인드가 중요했읍니다.
+        하나씩 해결해 나가는 우리 팀을 보면서 우리도 할 수 있다라는 생각을 하게 되었읍니다.
+        우리 조원들이 많이 도와줘서 프로젝트 1차 완료 할 수 있었읍니다.
+        권한부여하는 부분에서 시행착오가 많이 있었고 로그인하면서 PASSWORD를 암호화 하는 부분도 인상깊었읍니다.
+        2차 프로젝트도 잘 해쳐나갔으면 좋겠습니다.
+        부족한 저를 만나 고생한 팀원들에게 이 영광을 돌립니다.
 
 ### 👍 송명주
 
 ```
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
+      SELECT T_SURVEYOPT.SURVEY_OPT_URL AS SURVEY_RANK_FIRST
+    FROM (
+    SELECT T_SURVEY.SURVEY_UID
+    FROM SURVEY AS T_SURVEY
+    INNER JOIN SURVEYRESULT AS T_SURVEYRESULT ON T_SURVEY.SURVEY_UID = T_SURVEYRESULT.SURVEY_UID
+    WHERE T_SURVEY.SURVEY_OPT_ID = 'O-54'
+    ) AS T_SURVEYUID
+    INNER JOIN SURVEY AS T_SURVEY2 ON T_SURVEYUID.SURVEY_UID = T_SURVEY2.SURVEY_UID
+    INNER JOIN SURVEY_OPT AS T_SURVEYOPT ON T_SURVEYOPT.SURVEY_OPT_ID = T_SURVEY2.SURVEY_OPT_ID
+    WHERE T_SURVEY2.SURVEY_QUESTION_ID = 'Q-06'
+    GROUP BY T_SURVEYOPT.SURVEY_OPT_URL
+    ORDER BY COUNT(*) DESC
+    LIMIT 3;
 
-        Collection<GrantedAuthority> collections = new ArrayList<>();
-        String authority = (String) userInfo.get("AUTH");
-        if (StringUtils.hasText(authority)) {
-            collections.add(new SimpleGrantedAuthority(authority));
-        } else {
-            collections.add(new SimpleGrantedAuthority("ROLE_ANONYMOUS"));
+    // 관리자 부모테이블 설문조사 삭제
+    public Object delete(Map dataMap) {
+        String sqlMapId = "Adminsurvey.surveydelete";
+        Object result = sharedDao.delete(sqlMapId, dataMap);
+        return result;
         }
-        return collections;
-    }
+    // 관리자 자식테이블 설문조사 삭제
+    public Object resultdelete(Map dataMap) {
+        String sqlMapId = "Adminsurvey.surveyresultdelete";
+        Object result = sharedDao.delete(sqlMapId, dataMap);
+        return result;
+        }
+    // 관리자 설문조사 삭제 및 select
+    public Object deleteAndSelectSearch(String SURVEY_UID, Map dataMap) {
+        dataMap.put("SURVEY_UID", SURVEY_UID);
+        HashMap result = new HashMap<>();
+        result.put("deleteCount", this.delete(dataMap));
+        result.put("deleteCount", this.resultdelete(dataMap));
+        result.putAll(this.selectWithPagination(dataMap));
+        return result;
+        }   
 ```
+    랭킹을 구현하기 위한 쿼리문을 작성하는데 있어서 
 
-로그인을 위해 시큐리티를 적용할 때 인증된 사용자가 가진 권한 정보를 collections에 담아 반환하는 과정에서 오류가 발생하여 구현하는 데에 있어 시간이 상당히 걸리게 되었습니다. 그리하여 if문을 사용하여 권한 정보가 존재하는 경우 권한 정보를 collections에 추가하고 권한 정보가 존재하지 않는 경우 기본 권한 정보를 collections에 추가하여 인증된 사용자의 권한 정보를 포함하는 Collection을 반환하는 방법을 사용하여 구현해 낼 수 있었습니다.
 
-코드를 구현하다 보면 나 자신이 구현한 코드밖에 알지 못해 구현 방식에 한계가 생길 수밖에 없는데 팀원들이 구현한 다양한 방식의 코드를
-보면서 "이걸 이런 식으로 구현할 수가 있구나", "이렇게도 가능하구나"라며 다시 한번 배울 수 있었던 기회가 되었고 평소에 전혀 알지 못했던 사용방식, 기능들을 파이널프로젝트를 통해 알게 되어 매우 의미 있는 시간이 되었으며 팀원들과 함께 협동하여 코드를 공유하며 오류를 잡아 구현되지 않았던 코드들이 구현되어 화면에 출력되는 것에 매우 뿌듯하였으며 힘이 들었던 만큼 만족스러운 결과물을 얻게 되어 더욱 나 자신을
-한층 성장시키게 되었던 기간이었던 거 같다.
+
 
 ### 👍 조효원
 
 ```
+        <% Paginations paginations=(Paginations)result.get("paginations"); %>
+        
+          </div>
+          <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <a class="page-link" href="/adminproduct/selectSearch?currentPage=<%=paginations.getPreviousPage()%>&search=<%= params.getOrDefault("search", "") %>&words=<%= params.getOrDefault("words", "") %>">Previous</a>
+            </li>
+              <% for(int i=paginations.getBlockStart();i <=paginations.getBlockEnd(); i=i+1){ %>
+                <li class="page-item">
+                  <a class="page-link" href="/adminproduct/selectSearch?currentPage=<%= i %>&search=<%= params.getOrDefault("search", "") %>&words=<%= params.getOrDefault("words", "") %>">
+                    <%= i %>
+                  </a>
+                </li>
+                <% } %>
+                <li class="page-item">
+                  <a class="page-link" href="/adminproduct/selectSearch?currentPage=<%= paginations.getNextPage() %>&search=<%= params.getOrDefault("search", "") %>&words=<%= params.getOrDefault("words", "") %>">Next</a>
+                </li> 
+            </ul>
+          </nav>
+        </div>
 
-            for( Map<String, Object> list :(ArrayList<Map<String, Object>>)resultMap){
-                Map<String, Object> car_id = new HashMap<>();
-                car_id.put("SOURCE_UNIQUE_SEQ", list.get("CAR_ID"));
-                Object carImgs = searchService.selectCarImg(car_id);
-                (((ArrayList<Map<String, Object>>)resultMap).get(i)).put("carImgs", (Map<String, Object>)carImgs);
-                i++;
+        //제품 추가하기
+        public Object insert(Map dataMap) {
+            String sqlMapId = "Adminproduct.insert";
+            if (dataMap.get("PRODUCT_UID") == null || dataMap.get("PRODUCT_UID").equals("")) {
+              
+                String uuid = commons.generateUUID(); // user_id 받기 (수정)
+                dataMap.put("PRODUCT_UID", uuid);
+                dataMap.put("USER_ID", commons.getUserID()); 
+            } else {
+                
             }
+            
+            Object result_1 = sharedDao.insert(sqlMapId, dataMap);
+            HashMap result = (HashMap) this.selectWithPagination(dataMap);
+            return result;
+        
+        }    
+}
 
 ```
 

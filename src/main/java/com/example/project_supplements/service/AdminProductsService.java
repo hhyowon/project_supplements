@@ -75,9 +75,7 @@ public class AdminProductsService {
     }
 
 
- 
-
-        //문제
+        //재품 추가하기
         public Object insert(Map dataMap) {
             String sqlMapId = "Adminproduct.insert";
             if (dataMap.get("PRODUCT_UID") == null || dataMap.get("PRODUCT_UID").equals("")) {
