@@ -71,18 +71,18 @@
 <details>
 <summary>설문조사 통계</summary>
 
-- [SurveryResultMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/LoginMapper.xml)
+- [SurveryResultMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/SurveryResultMapper.xml)
 - [SurveyResultController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/LoginController.java)
-- [SurveyResultService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/RegisterService.java)
+- [SurveyResultService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/SurveyResultService.java)
 
 </details>
 
 <details>
 <summary>랭킹</summary>
 
-- [SurveyRankMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/RegisterMapper.xml)
+- [SurveyRankMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/SurveyRankMapper.xml)
 - [RankController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/RegisterController.java)
-- [RankService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/RegisterService.java)
+- [RankService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/RankService.java)
 
 </details>
 
@@ -109,45 +109,50 @@
 <details>
 <summary>메인페이지</summary>
 
-- [CheckPriceMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/CheckPriceMapper.xml)
-- [MainController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/CheckPriceController.java)
-- [CheckPriceService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/CheckPriceService.java)
+- [MainController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/MainController.java)
 
 </details>
 
 <details>
 <summary>BMI 페이지</summary>
 
-- [BmiMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/SearchMapper.xml)
-- [BMIController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/SearchController.java)
-- [BmiSerivce.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/SearchService.java)
+- [BmiMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/BmiMapper.xml)
+- [BMIController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/BMIController.java)
+- [BmiSerivce.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/BmiSerivce.java)
 
 </details>
 
 <details>
 <summary>다이어트 보조제 검색</summary>
 
-- [SearchMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/DealerMapper.xml)
-- [SearchController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/DealerController.java)
-- [SearchService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/DealerService.java)
+- [SearchMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/SearchMapper.xml)
+- [SearchController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/SearchController.java)
+- [SearchService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/SearchService.java)
 </details>
 
+<details>
+<summary>커뮤니티</summary>
+
+- [CommunityMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/CommunityMapper.xml)
+- [CommunityController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/CommunityController.java)
+- [CommunityService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/CommunityService.java)
+</details>
 
 <details>
 <summary>관리자페이지 회원 관리</summary>
 
-- [AdminMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/NoticeMapper.xml)
-- [AdminController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/NoticeController.java)
-- [AdminService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/NoticeService.java)
+- [AdminMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/AdminMapper.xml)
+- [AdminController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/AdminController.java)
+- [AdminService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/AdminService.java)
 
 </details>
 
 <details>
 <summary>관리자페이지 보조제 관리</summary>
 
-- [AdminProductMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/NoticeMapper.xml)
-- [AdminProductsController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/NoticeController.java)
-- [AdminProductsService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/NoticeService.java)
+- [AdminProductMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/AdminProductMapper.xml)
+- [AdminProductsController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/AdminProductsController.java)
+- [AdminProductsService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/AdminProductsService.java)
 
 </details>
 
@@ -161,14 +166,6 @@
 - [SurveyController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/SurveyController.java)
 - [SurveyService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/SurveyService.java)
 
-</details>
-
-<details>
-<summary>커뮤니티</summary>
-
-- [CommunityMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/CommunityMapper.xml)
-- [CommunityController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/CommunityController.java)
-- [CommunityService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/CommunityService.java)
 </details>
 
 <details>
@@ -239,27 +236,16 @@ public class SecurityConfiguration {
                 return new BCryptPasswordEncoder();
         }       
 ```
-모여서 회의하다가 강사님이 부르시길래 내가 다녀올게~ 하고 나갔다가 로또 5등에 당첨이 되지 않는 제가 백엔드에 당첨되었읍니다.
-내가.. 내가 백엔드라니.. 내가 백엔드라니!! 으아니!! 내가 백엔드라니!!!!!
-아무고토 모르는 내가 백엔드라 걱정이 많이 되었지만 마른 오징어도 짜면 물이 나온다고
-하다보니 되더라구요.
-<<<<<<< HEAD
-일단 해! 라는 마인드가 중요했습니다.
-하나씩 해결해 나가는 우리 팀을 보면서 가아아아아아끔 스트레스였고 나머지는 즐거움에 연속이었습니다.
-역시 우리 조원들이 많이 도와줘서 프로젝트 1차 완료 할 수 있었습니다.
-....
-...
-..
-.
-그만 하고 싶다ㅋ
-=======
-일단 해! 라는 마인드가 중요했읍니다.
-하나씩 해결해 나가는 우리 팀을 보면서 우리도 할 수 있다라는 생각을 하게 되었읍니다.
-우리 조원들이 많이 도와줘서 프로젝트 1차 완료 할 수 있었읍니다.
-권한부여하는 부분에서 시행착오가 많이 있었고 로그인하면서 PASSWORD를 암호화 하는 부분도 인상깊었읍니다.
-2차 프로젝트도 잘 해쳐나갔으면 좋겠습니다.
-부족한 저를 만나 고생한 팀원들에게 이 영광을 돌립니다.
->>>>>>> b62381a06b3b1e0b0b26f708aceced96fbdb281d
+        모여서 회의하다가 강사님이 부르시길래 내가 다녀올게~ 하고 나갔다가 로또 5등에 당첨이 되지 않는 제가 백엔드에 당첨되었읍니다.
+        내가.. 내가 백엔드라니.. 내가 백엔드라니!! 으아니!! 내가 백엔드라니!!!!!
+        아무고토 모르는 내가 백엔드라 걱정이 많이 되었지만 마른 오징어도 짜면 물이 나온다고
+        하다보니 되더라구요.
+        일단 해! 라는 마인드가 중요했읍니다.
+        하나씩 해결해 나가는 우리 팀을 보면서 우리도 할 수 있다라는 생각을 하게 되었읍니다.
+        우리 조원들이 많이 도와줘서 프로젝트 1차 완료 할 수 있었읍니다.
+        권한부여하는 부분에서 시행착오가 많이 있었고 로그인하면서 PASSWORD를 암호화 하는 부분도 인상깊었읍니다.
+        2차 프로젝트도 잘 해쳐나갔으면 좋겠습니다.
+        부족한 저를 만나 고생한 팀원들에게 이 영광을 돌립니다.
 
 ### 👍 송명주
 
