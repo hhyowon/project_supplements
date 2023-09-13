@@ -1,7 +1,5 @@
 # '9998' Final Project
-<img src="src/main/resources/static/html/img/logo.PNG" width="600"> 
 
-<<<<<<< HEAD
 <div style="text-align: center;">
   <img src="src/main/resources/static/html/img/logo.PNG" width="600" alt="Logo">
 </div>
