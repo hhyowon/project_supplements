@@ -1,7 +1,7 @@
 # '9998' Final Project
 
 <div style="text-align: center;">
-  <img src="src/main/resources/static/html/img/logo.PNG" width="600" alt="Logo">
+  <img src="src/main/resources/static/html/img/logo.PNG" width="300" alt="Logo">
 </div>
 
 
@@ -213,6 +213,8 @@
 - [AdminCommunityService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/AdminCommunityService.java)
 
 </details>
+
+
 
 ### ✔️주요코드 및 진행 통해 느낀 점
 
