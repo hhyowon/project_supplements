@@ -19,7 +19,7 @@ public class MypageService {
     @Autowired
     Commons commons;
 
-
+ 
     // 개인정보 뽑아오기
     public Map mypagemain(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)

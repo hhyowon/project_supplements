@@ -38,7 +38,7 @@
 
 ### ✔️구현 영상
 
-- [다이어트 보조제 구현 영상](https://www.youtube.com/watch?v=eFJFn9SuabQ)
+- [다이어트 보조제 구현 영상](https://youtu.be/7zkeFdLxRlw?si=PAENISywPwgAXDNj)
 
 ### ✔️구현 화면
 

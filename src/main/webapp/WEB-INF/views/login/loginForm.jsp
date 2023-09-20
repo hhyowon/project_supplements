@@ -21,7 +21,7 @@
               %>
               
               <% if ("true".equals(fail)) { %>            
-              <div><font color="red"> 아이디 OR 비밀번호 확인하지? </font></div>
+              <div><font color="red"> 아이디 OR 비밀번호를 확인하세요</font></div>
               <% } %>
               <form class="form-signin" method="post" action="/login" style="margin-top: 20px;">
                 <div class="form-group" style="margin-bottom: 15px;">

@@ -39,7 +39,7 @@ public class AddProductController {
                 String effect = params.get("EFFECT");
                   String userId = commons.getUserID(); // get user_id
             
-                  dataMap.put("USER_ID", userId);
+                dataMap.put("USER_ID", userId);
                 dataMap.put("PRODUCT", proudct);
                 dataMap.put("URL", url);
                 dataMap.put("FORMULATION", formulation);
