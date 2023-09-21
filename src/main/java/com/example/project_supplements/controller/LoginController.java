@@ -14,10 +14,10 @@ public class LoginController {
         return modelAndView;
     }
 
-    @GetMapping({"/logoutForm"})     // 로그아웃 폼 작성
-    public ModelAndView logoutForm(ModelAndView modelAndView){
-        String viewName = "/WEB-INF/views/security/logoutForm.jsp";
-        modelAndView.setViewName(viewName);
-        return modelAndView;
-    }
+//     @GetMapping({"/logoutForm"})     // 로그아웃 폼 작성
+//     public ModelAndView logoutForm(ModelAndView modelAndView){
+//         String viewName = "/WEB-INF/views/security/logoutForm.jsp";
+//         modelAndView.setViewName(viewName);
+//         return modelAndView;
+//     }
 }
