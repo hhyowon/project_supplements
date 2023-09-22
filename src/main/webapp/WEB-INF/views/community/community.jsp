@@ -3,9 +3,10 @@
     <!DOCTYPE html>
     <html lang="en">
         <link href="" rel="stylesheet" type="text/css">
+        <%@ include file= "/WEB-INF/views/etc/Header.jsp" %>
     <body>
         <form action="/resources/static/css/maintool.css" method="get">
-            <%@ include file= "/WEB-INF/views/etc/Header.jsp" %>
+           
 
             <% 
             HashMap params=(HashMap)request.getAttribute("params"); 

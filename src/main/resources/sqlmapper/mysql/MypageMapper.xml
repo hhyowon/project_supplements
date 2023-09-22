@@ -30,7 +30,7 @@
         ON CO.USER_ID = M.USER_ID
         LEFT JOIN category AS CA
         ON CO.CATEGORY_ID = CA.CATEGORY_ID
-        WHERE CO.USER_ID = #{USER_ID} <!-- userid 하드코팅 해놓았음-->
+        WHERE CO.USER_ID = #{USER_ID} 
         ORDER BY  CO.COMMUNITY_DATE DESC;
     </select>
     

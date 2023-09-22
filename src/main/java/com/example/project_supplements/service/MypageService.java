@@ -102,7 +102,7 @@ public class MypageService {
     //커뮤니티 본인글 수정후 목록 뽑기
     public Object communityupdateAndSelectSearch( String COMMUNITY_ID, Map dataMap) {
         dataMap.put("COMMUNITY_ID", COMMUNITY_ID);
-        dataMap.put("USER_ID", "가배"); 
+        dataMap.put("USER_ID", commons.getUserID());
         HashMap result = new HashMap<>();
         result.put("updateCount", this.communityupdate(COMMUNITY_ID, dataMap));
         result.putAll((Map)this.mypagecommunity(dataMap));
