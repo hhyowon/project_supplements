@@ -5,11 +5,11 @@
 
 <!DOCTYPE html>
 
+
 <body style="background-color:white" >
-  
+  <%@ include file= "/WEB-INF/views/etc/Header.jsp" %> <!-- Menu -->
     <sec:authentication property="principal" var="userDetailsBean" />
     <form action="">
-    <%@ include file= "/WEB-INF/views/etc/Header.jsp" %> <!-- Menu -->
     <div class="container" >
       <div class="text-center">
         <img src="/html/img/online-survey.png" alt="" height="70">
@@ -94,8 +94,6 @@
     <br>
   </div>
 
-  <%@ include file="/WEB-INF/views/etc/Footer.jsp" %> <!-- footer -->
+  <%@ include file="/WEB-INF/views/etc/Footer.jsp" %> <!-- footer --> 
 </body>
-
-
 </html>
