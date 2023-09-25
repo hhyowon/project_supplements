@@ -3,10 +3,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
-
-<body>
-  
   <%@ include file= "/WEB-INF/views/etc/Header.jsp" %> <!-- header -->
+<body>
  <main>
   <div class="row g-0 vh-100">
     <%@ include file= "/WEB-INF/views/etc/Sidebar.jsp" %><!-- 마이페이지 sidebar -->

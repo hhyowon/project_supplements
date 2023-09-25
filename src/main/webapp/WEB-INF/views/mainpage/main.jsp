@@ -34,8 +34,8 @@
           }
         }
 </style>
+<%@ include file= "/WEB-INF/views/etc/Header.jsp" %>
 <body>
-    <%@ include file= "/WEB-INF/views/etc/Header.jsp" %>
     <!-- Menu -->
         <div style="position: relative;">
             <img class="w-100" src="/html/img/다.PNG" alt="" height="700">
@@ -71,11 +71,7 @@
             <img src="/html/img/리뷰.JPG" alt="" height="300">
           </div> -->
 
-          
-
     <%@ include file="/WEB-INF/views/etc/Footer.jsp" %>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
