@@ -95,26 +95,10 @@ public class BMIController {
     return modelAndView;
 }
 
-//     @GetMapping("/selectBMI")
-//     public ModelAndView selectBMI(ModelAndView modelAndView) {
-//     // 여기서 데이터베이스에서 BMI 데이터 중 원하는 2가지 데이터를 조회합니다.
-//     String userId = commons.getUserID(); // 사용자 아이디 가져오기
-//     List<BmiData> bmiDataList = bmiService.selectBMI(userId); // 데이터베이스에서 BMI 데이터 조회
-
-//     // 원하는 2가지 데이터 가져오기 (예: BMI_RESULT와 BMI_TYPE)
-//     double bmiResult = bmiDataList.get(0).getBmiResult();
-//     String bmiType = bmiDataList.get(0).getBmiType();
-
-//     // 결과를 모델에 추가합니다.
-//     modelAndView.addObject("bmiResult", bmiResult);
-//     modelAndView.addObject("bmiType", bmiType);
-
-//     modelAndView.setViewName("/WEB-INF/views/bmi/bmi_result.jsp");
-//     return modelAndView;
-// }  
+}
 
 
- }
+ 
 
 
 

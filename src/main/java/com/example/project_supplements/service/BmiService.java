@@ -33,9 +33,10 @@ public class BmiService {
             // "BMI_UID"가 null이 아니고 빈 문자열도 아닌 경우 처리
         }
         String sqlMapId = "BMI.insertBMI";
-        Object result = sharedDao.insert(sqlMapId, dataMap);
-      
+        Object result_1 = sharedDao.insert(sqlMapId, dataMap);
+        HashMap result = (HashMap) this.selectBMI(dataMap);
         return result;
+
     }
 
    public String getUserGender(String userId) {

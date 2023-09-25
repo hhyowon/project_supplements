@@ -1,4 +1,5 @@
 <%@ page import="java.util.HashMap, java.util.ArrayList" %>
+<%@ page import="com.example.project_supplements.utils.Commons" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
@@ -10,8 +11,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.css">
   <link rel="stylesheet" href="/css/maintool.css">
   <title>BMI</title>
+  <style>
+    /* Add your CSS styles here for better formatting */
+  </style>
 </head>
 <body>
+  <%@ include file= "/WEB-INF/views/etc/Header.jsp" %> <!-- header -->
   <div class="container">
     <h2 class="ui teal image header text-center">
       BMI
@@ -19,18 +24,47 @@
     </h2>
     <br>
     <h3 style="color: #5B9BD5; font-weight: bold; margin-top: 30px;">BMI 결과</h3>
-    <div class="container mx-auto" style="border-radius: 10px; width: 70%; padding: 20px; border: 1px solid #ececec;">
-      <% Map<String, Object> result = (Map<String, Object>) session.getAttribute("result"); %>
-        <% if (result != null) { %>
-          <% double bmiResult = (double) result.get("BMI_RESULT"); %>
-          <% String bmiType = (String) result.get("BMI_TYPE"); %>
-          <%= "BMI 값은 " + bmiResult + "이고" %>
-          <%= "당신은 " + bmiType + " 입니다." %>
-        <% } else { %>
-          <!-- 결과가 없는 경우에 대한 처리 -->
-          <p>결과가 없습니다.</p>
-        <% } %>
+    <div class="equation1" style="border: 1px solid lightgray; padding: 20px; border-radius: 10px; text-align: center;">
+    
+      <% HashMap<String, Object> result = (HashMap<String, Object>) session.getAttribute("result"); %>
+      <% if (result != null) { %>
+        <%
+          double bmiResult = (Double) result.get("BMI_RESULT");
+          String bmiType = (String) result.get("BMI_TYPE");
+        %>
+        <p>BMI 값은 <%= String.format("%.2f", bmiResult) %>이고</p>
+        <p>당신은 <%= bmiType %> 입니다.</p>
+      <% } else { %>
+        <!-- 결과가 없는 경우에 대한 처리 -->
+        <p>결과가 없습니다.</p>
+      <% } %>
+
+      <table align="center" cellspacing="10">
+        <tr>
+            <td style="padding: 5px; background-color: #c2c2c2; width: 350px; height: 30px;">
+                <p class="light_mass" style="margin: 0; color: white; font-weight: bold;">저체중</p>
+            </td>
+            <td style="padding: 5px; background-color: #b2e9ff; width: 180px; height: 30px;">
+                <p class="normal" style="margin: 0; color: white; font-weight: bold;">정상</p>
+            </td>
+            <td style="padding: 5px; background-color: #8db1ff; width: 180px; height: 30px;">
+                <p class="before_mass" style="margin: 0; color: white; font-weight: bold;">과체중</p>
+            </td>
+            <td style="padding: 5px; background-color: #79b7fd; width: 180px; height: 30px;">
+                <p class="before_mass" style="margin: 0; color: white; font-weight: bold;">비만</p>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right; font-weight: bold;">10</td>
+            <td style="text-align: right; font-weight: bold;">40</td>
+            <td style="text-align: right; font-weight: bold;">20</td>
+            <td style="text-align: right; font-weight: bold;">30</td>
+        </tr>
+    </table>
+
     </div>
+
+    <h3 style="color: #5B9BD5; font-weight: bold; margin-top: 30px;">BMI 계산식</h3>
     <div class="equation1" style="border: 1px solid lightgray; padding: 20px; border-radius: 10px; text-align: center;">
       <span class="item">체질량 지수(BMI)</span>
       <span class="item equal">=</span>

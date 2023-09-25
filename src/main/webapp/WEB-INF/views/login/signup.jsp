@@ -14,7 +14,7 @@
   
   <!-- Menu -->
       <div class="container">
-        <img class="mb-4" src="/html/img/signdiet.jpg" alt width="700" height="400" style="display: block; margin-left: auto; margin-right: auto;">
+        <img class="mb-4" src="/html/img/signdiet.jpg" alt width="700" height="350" style="display: block; margin-left: auto; margin-right: auto;">
         <div class="container text-center">
           <h1 > 회원가입
             <hr class='hr-solid' />
@@ -45,11 +45,14 @@
           </div>
         <div>
 
-        <div class="py-2"><!--아이디 작성(효원추가)-->
-          <label class="form-label" for="userid">아이디 </label>
+        <!--아이디 작성(효원추가)-->
+        <div class="py-2" style="display: flex; flex-direction: column; align-items: flex-start;">
+          <label class="form-label" for="userid">아이디</label>
           <input class="form-control" type="id" name="USER_ID" id="userid" placeholder="ID를 입력하세요" style="width: 500px;">
-        </div>
-        <div id="idMessage"></div>
+          <button  class="btn btn-secondary" id="checkDuplicate" style="margin-top: 10px;">중복 확인</button>
+      </div>
+      <div id="idMessage"></div>
+
 
         <div class="py-2"><!--비밀번호 작성-->
           <label class="form-label" for="pw">비밀번호 </label>
@@ -115,10 +118,10 @@
           <P></P> -->
           <div class="row">
             <div class="col-md-6">
-              <button class="btn btn-secondary float-end me-2" type="button" onclick="window.location.href='/home'">Main</button>
+              <button class="btn btn-secondary float-end me-2" type="button" onclick="window.location.href='/home'">홈</button>
             </div>
             <div class="col-md-6">
-              <button class="btn btn-main btn-block" type="submit">회원가입</button>
+              <button class="btn btn-main btn-block" type="submit">가입하기</button>
             </div>
           </div>
   </form>
