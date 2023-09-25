@@ -3,9 +3,9 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -475,
-    "scrollLeft": -135,
-    "zoomLevel": 0.7,
+    "scrollTop": -780,
+    "scrollLeft": -373,
+    "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
       "columnComment": true,
@@ -1010,13 +1010,36 @@
               "widthDataType": 87.71875,
               "widthDefault": 60
             }
+          },
+          {
+            "name": "BMI_TYPE",
+            "comment": "BMI타입",
+            "dataType": "VARCHAR(50)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 66.29541015625,
+              "widthComment": 60,
+              "widthDataType": 87.71875,
+              "widthDefault": 60
+            },
+            "id": "63648856-0fb6-48aa-9f06-214d1b18d95d"
           }
         ],
         "ui": {
           "active": false,
-          "left": 377.3333,
-          "top": 1177.8738,
-          "zIndex": 5,
+          "left": 18.3333,
+          "top": 1100.8738,
+          "zIndex": 41,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1916,7 +1939,7 @@
             "488b7866-4c94-451f-80f6-538da343baa0"
           ],
           "x": 954.1611,
-          "y": 1110.9498999999998,
+          "y": 1181.783233333333,
           "direction": "left"
         },
         "end": {
@@ -1924,8 +1947,8 @@
           "columnIds": [
             "53f15970-5574-43a3-9b36-0540b202d304"
           ],
-          "x": 782.4416984375,
-          "y": 1273.8738,
+          "x": 423.4416984375,
+          "y": 1207.1238,
           "direction": "right"
         },
         "constraintName": "",
@@ -2046,7 +2069,7 @@
             "488b7866-4c94-451f-80f6-538da343baa0"
           ],
           "x": 954.1611,
-          "y": 1181.783233333333,
+          "y": 1110.9498999999998,
           "direction": "left"
         },
         "end": {

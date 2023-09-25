@@ -14,10 +14,13 @@
   
   <!-- Menu -->
       <div class="container">
+        <img class="mb-4" src="/html/img/signdiet.jpg" alt width="700" height="400" style="display: block; margin-left: auto; margin-right: auto;">
         <div class="container text-center">
           <h1 > 회원가입
             <hr class='hr-solid' />
           </h1>
+          0124의 회원이 되면 
+          다양한 혜택을 이용할 수 있습니다.
         </div>
       </div>
     </br>
@@ -42,22 +45,23 @@
           </div>
         <div>
 
-        <div class="py-2"><!--아이디 작성-->
+        <div class="py-2"><!--아이디 작성(효원추가)-->
           <label class="form-label" for="userid">아이디 </label>
           <input class="form-control" type="id" name="USER_ID" id="userid" placeholder="ID를 입력하세요" style="width: 500px;">
         </div>
+        <div id="idMessage"></div>
 
         <div class="py-2"><!--비밀번호 작성-->
           <label class="form-label" for="pw">비밀번호 </label>
           <input class="form-control" type="password" name="PASSWORD" id="pw" placeholder="패스워드를 입력하세요"
-            style="width: 500px;">
-        </div>
-
-        <!-- <div class="py-2">
-          <label class="form-label" for="chkpw">비밀번호 확인</label>
-          <input class="form-control" type="password" name="CHKPW" id="chkpw"
-            style="width: 500px;">
-        </div> -->
+              style="width: 500px;">
+      </div>
+      
+      <div class="py-2"><!--비밀번호 확인(효원추가)--> 
+          <label class="form-label" for="pw_confirm">비밀번호 확인</label>
+          <input class="form-control" type="password" id="pw_confirm" placeholder="패스워드를 다시 입력하세요" style="width: 500px;">
+          <div id="message"></div>
+      </div>
 
         <div class="py-2"><!--연락처-->
           <label class="form-label" for="phnum">연락처</label>
@@ -121,5 +125,60 @@
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  var password = document.getElementById("pw");
+  var confirmPassword = document.getElementById("pw_confirm");
+  var message = document.getElementById("message");
+  
+  // 입력란이 변경될 때마다 비밀번호 일치 여부 확인
+  password.addEventListener("input", checkPassword);
+  confirmPassword.addEventListener("input", checkPassword);
+  
+  function checkPassword() {
+      var passwordValue = password.value;
+      var confirmPasswordValue = confirmPassword.value;
+  
+      if (passwordValue === confirmPasswordValue) {
+          message.innerHTML = "비밀번호 확인 완료";
+          message.style.color = "green";
+      } else {
+          message.innerHTML = "비밀번호가 일치하지 않습니다.";
+          message.style.color = "red";
+      }
+  }
 
+</script>
+
+<script>
+  var userIdInput = document.getElementById("userid");
+  var idMessage = document.getElementById("idMessage");
+  
+  userIdInput.addEventListener("input", function() {
+      var userId = userIdInput.value;
+      
+      // 입력값이 변경될 때마다 서버로 아이디 중복 확인 요청 보내기
+      fetch("/signup/checkDuplicateId", {   // 중복 확인요청 fetch 
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ userId: userId }),
+      })
+      .then(response => response.json())  //서버로부터 받은 응답 JSON형식으로 파싱
+      .then(data => {  // 파싱된 응답 데이터 처리 
+          if (data.isDuplicate) {
+              idMessage.innerHTML = "이미 사용 중인 아이디입니다.";
+              idMessage.style.color = "red";
+          } else {
+              idMessage.innerHTML = "사용 가능한 아이디입니다.";
+              idMessage.style.color = "green";
+          }
+      })
+      .catch(error => {
+          idMessage.innerHTML = "서버 오류가 발생했습니다.";
+          idMessage.style.color = "red";
+          console.error(error);
+      });
+  });
+  </script>
 </html>

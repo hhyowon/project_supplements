@@ -3,12 +3,23 @@
 <mapper namespace="BMI">
     
    <insert id="insertBMI" parameterType="Map">
-    INSERT INTO bmi
-    (BMI_UID, USER_ID, DATE, HEIGHT, WEIGHT, BMI_RESULT)
-    VALUES 
-    (#{BMI_UID},'honggd123', CURDATE(),#{HEIGHT},#{WEIGHT},#{BMI_RESULT});
+  INSERT INTO bmi (BMI_UID, USER_ID, GENDER_UID, DATE, HEIGHT, WEIGHT, BMI_RESULT, BMI_TYPE)
+    VALUES (#{BMI_UID}, #{USER_ID},#{GENDER_UID}, NOW(), #{HEIGHT}, #{WEIGHT}, #{BMI_RESULT}, #{BMI_TYPE});
+
     </insert>
-    
+
+<select id="getUserGender" parameterType="String" resultType="String">
+    SELECT GENDER_UID
+    FROM members
+    WHERE USER_ID = #{USER_ID}
+</select>
+
+
+<select id="resultBMI" parameterType="Map" resultType="String">
+    SELECT  BMI_RESULT, BMI_TYPE
+    FROM bmi
+    WHERE USER_ID = #{USER_ID}
+</select>
 
 </mapper>
 
