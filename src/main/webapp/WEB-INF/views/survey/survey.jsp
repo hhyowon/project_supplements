@@ -71,8 +71,7 @@
               <div class="text-center mt-4 mb-4">
                 <input type="hidden" name="SURVEY_TYPE_ID" value="F-02">
                 <sec:authorize access="isAuthenticated()">    
-                
-                <button type="submit"  formaction="/survey/yes" class="btn btn-outline-secondary " style="border-radius: 20px;" name="SURVEY_TYPE_ID" value="F-02"  >설문조사 하러가기</button>
+                <button type="submit" formaction="/survey/yes" class="btn btn-outline-secondary " style="border-radius: 20px;" name="SURVEY_TYPE_ID" value="F-02">설문조사 하러가기</button>
                 </sec:authorize>
                 <sec:authorize access="isAnonymous()">
                 <button type="button" class="btn btn-white btn-main" data-bs-toggle="modal" data-bs-target="#myModal2"> 설문조사하러가기</button>
