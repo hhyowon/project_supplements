@@ -1,6 +1,7 @@
 package com.example.project_supplements.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.project_supplements.service.BmiSerivce;
+import com.example.project_supplements.service.BmiService;
+import com.example.project_supplements.utils.Commons;
 
 
 @Controller
@@ -22,7 +24,10 @@ import com.example.project_supplements.service.BmiSerivce;
 
 public class BMIController {
     @Autowired
-    BmiSerivce bmiSerivce;
+    BmiService bmiService;
+
+    @Autowired
+    Commons commons;
 
     @GetMapping({"/mainBMI"})
     public ModelAndView bmimain(ModelAndView modelAndView){
@@ -30,27 +35,83 @@ public class BMIController {
         return modelAndView;
     }
 
-    @GetMapping("/insertBMI")
-    public ModelAndView insertBMI(@RequestParam Map<String, String> params, ModelAndView modelAndView) {
-       // double result =  bmiSerivce.calculateBMI(height, weight);
-    // 모달에서 받아온 값들을 dataMap에 저장합니다.
-        String height = params.get("HEIGHT"); // 모달에서 전달된  값
-        String weight = params.get("WEIGHT"); // 모달에서 전달된  값
-        String bmiresult = params.get("BMI_RESULT"); // 모달에서 전달된  값
-
-        Map<String, Object> dataMap = new HashMap<>();
-        dataMap.put("HEIGHT", height);
-        dataMap.put("WEIGHT", weight);
-        dataMap.put("BMI_RESULT", bmiresult);
-
-        Object result = bmiSerivce.insertBMI(params);
-        modelAndView.addObject("params", params);
-        modelAndView.addObject("result", result);
-        modelAndView.setViewName("/WEB-INF/views/bmi.jsp");
-
-        return modelAndView;
+    // BMI 계산 메서드
+    private double calculateBMI(double height, double weight) {
+        // BMI 계산 로직을 여기에 추가합니다.
+        // BMI = 체중(kg) / (신장(m) * 신장(m))
+        double heightInMeters = height / 100.0; // cm를 m로 변환
+        double bmi = weight / (heightInMeters * heightInMeters);
+        return bmi;
     }
 
+    @GetMapping("/insertBMI")
+    public ModelAndView insertBMI(@RequestParam Map<String, String> params, ModelAndView modelAndView) {
+    // 사용자가 입력한 신장과 체중을 가져옵니다.
+    String heightStr = params.get("HEIGHT");
+    String weightStr = params.get("WEIGHT");
+
+    double height = Double.parseDouble(heightStr);
+    double weight = Double.parseDouble(weightStr);
+
+    // BMI를 계산합니다.
+    double bmi = calculateBMI(height, weight);
+
+    // BMI 결과를 데이터베이스에 삽입합니다.
+    Map<String, Object> dataMap = new HashMap<>();
+    String userId = commons.getUserID(); // 사용자 아이디 가져오기
+    // 성별 정보 가져오기
+    String userGender = bmiService.getUserGender(userId);
+
+    dataMap.put("USER_ID", userId);
+    dataMap.put("GENDER_UID", userGender);
+    dataMap.put("HEIGHT", height);
+    dataMap.put("WEIGHT", weight);
+    dataMap.put("BMI_RESULT", bmi); // BMI_RESULT를 DOUBLE로 저장
+
+    // BMI_TYPE을 계산하여 설정합니다.
+    String bmiType;
+    if (bmi < 18.5) {
+        bmiType = "저체중";
+    } else if (bmi < 23) {
+        bmiType = "정상";
+    } else if (bmi < 25) {
+        bmiType = "과체중";
+    } else {
+        bmiType = "비만";
+    }
+    dataMap.put("BMI_TYPE", bmiType);
+
+    // bmiService를 호출하여 BMI 정보를 데이터베이스에 삽입합니다.
+    bmiService.insertBMI(dataMap);
+
+    // 결과를 모델에 추가합니다.
+    Map<String, Object> resultModel = new HashMap<>();
+    resultModel.put("BMI_RESULT", bmi); // BMI 값
+    resultModel.put("BMI_TYPE", bmiType); // BMI 타입
+    modelAndView.addObject("params", params);
+    modelAndView.addObject("result", resultModel); // 수정된 부분
+    modelAndView.setViewName("/WEB-INF/views/bmi/bmi_result.jsp");
+
+    return modelAndView;
+}
+
+//     @GetMapping("/selectBMI")
+//     public ModelAndView selectBMI(ModelAndView modelAndView) {
+//     // 여기서 데이터베이스에서 BMI 데이터 중 원하는 2가지 데이터를 조회합니다.
+//     String userId = commons.getUserID(); // 사용자 아이디 가져오기
+//     List<BmiData> bmiDataList = bmiService.selectBMI(userId); // 데이터베이스에서 BMI 데이터 조회
+
+//     // 원하는 2가지 데이터 가져오기 (예: BMI_RESULT와 BMI_TYPE)
+//     double bmiResult = bmiDataList.get(0).getBmiResult();
+//     String bmiType = bmiDataList.get(0).getBmiType();
+
+//     // 결과를 모델에 추가합니다.
+//     modelAndView.addObject("bmiResult", bmiResult);
+//     modelAndView.addObject("bmiType", bmiType);
+
+//     modelAndView.setViewName("/WEB-INF/views/bmi/bmi_result.jsp");
+//     return modelAndView;
+// }  
 
 
  }
