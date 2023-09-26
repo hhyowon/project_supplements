@@ -26,25 +26,34 @@ public class SurveyService {
 
     @Autowired
     SurveyResultService surveyResultService;
-    
-    // 복용하지 않는 자의 설문
-    public Map surveyno(Map dataMap) {
-        // Object getOne(String sqlMapId, Object dataMap)
-        String sqlMapId = "SurveyService.surveyno";
-        HashMap result = new HashMap<>();
-        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
-        result.put("SURVEY_TYPE_ID",dataMap.get("SURVEY_TYPE_ID"));
-        return result;
-    }
 
-    // 복용한자의 설문
-    public Map surveyyes(Map dataMap) {
-        String sqlMapId = "SurveyService.surveyyes";
+    
+     public Map surveyboth(Map dataMap) {
+        String sqlMapId = "SurveyService.surveyboth";
         HashMap result = new HashMap<>();
-        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
-        result.put("SURVEY_TYPE_ID",dataMap.get("SURVEY_TYPE_ID"));
+       result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+       result.put("SURVEY_TYPE_ID",dataMap.get("SURVEY_TYPE_ID"));
         return result;
-    }
+     }
+
+    // // 복용하지 않는 자의 설문
+    // public Map surveyno(Map dataMap) {
+    //     // Object getOne(String sqlMapId, Object dataMap)
+    //     String sqlMapId = "SurveyService.surveyno";
+    //     HashMap result = new HashMap<>();
+    //     result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+    //     result.put("SURVEY_TYPE_ID",dataMap.get("SURVEY_TYPE_ID"));
+    //     return result;
+    // }
+
+    // // 복용한자의 설문
+    // public Map surveyyes(Map dataMap) {
+    //     String sqlMapId = "SurveyService.surveyyes";
+    //     HashMap result = new HashMap<>();
+    //     result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+    //     result.put("SURVEY_TYPE_ID",dataMap.get("SURVEY_TYPE_ID"));
+    //     return result;
+    // }
 
 
     // 설문 값 DB로 입력(복용안한자)

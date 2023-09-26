@@ -40,6 +40,7 @@
                       <th>신장</th>
                       <th>체중</th>
                       <th>BMI</th>
+                      <th>BMI결과</th>
                   </tr>
               </thead>
               <tbody id="list">
@@ -53,6 +54,7 @@
                   <td><%= record.get("HEIGHT") %></td>
                     <td><%= record.get("WEIGHT") %></td>
                     <td><%= record.get("BMI_RESULT") %></td>
+                    <td><%= record.get("BMI_TYPE") %></td>
                 </tr> 
                 <% }  %>
             </tbody>
@@ -61,7 +63,7 @@
     </main>
 </body>
 
-
+<!--나중에 차트 수업하고 구현하기로 함-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <script type="text/javascript">
   var context = document

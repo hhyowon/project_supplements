@@ -31,25 +31,36 @@ public class SurveyController {
         return modelAndView;
     }
 
-    //복용하지 않는자의 설문지 뽑아오기 
-     @GetMapping({"/no"})
-    public ModelAndView surveyno(@RequestParam Map params, ModelAndView modelAndView){
-        Object result = surveyService.surveyno( params);
-        modelAndView.addObject("params", params);
-        modelAndView.addObject("result", result);
-        modelAndView.setViewName("/WEB-INF/views/survey/survey_no.jsp");
-        return modelAndView;
-    }
-
     //복용한자의 설문지 뽑아오기
-     @GetMapping({"/yes"})
-    public ModelAndView surveyyes( @RequestParam Map params,ModelAndView modelAndView){
-        Object result = surveyService.surveyyes(params);
+     @GetMapping({"/both"})
+    public ModelAndView surveyboth( @RequestParam Map params,ModelAndView modelAndView){
+        Object result = surveyService.surveyboth(params);
         modelAndView.addObject("params", params); 
         modelAndView.addObject("result", result);
         modelAndView.setViewName("/WEB-INF/views/survey/survey_yes.jsp");
         return modelAndView;
     }
+
+
+    // //복용하지 않는자의 설문지 뽑아오기 
+    //  @GetMapping({"/no"})
+    // public ModelAndView surveyno(@RequestParam Map params, ModelAndView modelAndView){
+    //     Object result = surveyService.surveyno( params);
+    //     modelAndView.addObject("params", params);
+    //     modelAndView.addObject("result", result);
+    //     modelAndView.setViewName("/WEB-INF/views/survey/survey_no.jsp");
+    //     return modelAndView;
+    // }
+
+    // //복용한자의 설문지 뽑아오기
+    //  @GetMapping({"/yes"})
+    // public ModelAndView surveyyes( @RequestParam Map params,ModelAndView modelAndView){
+    //     Object result = surveyService.surveyyes(params);
+    //     modelAndView.addObject("params", params); 
+    //     modelAndView.addObject("result", result);
+    //     modelAndView.setViewName("/WEB-INF/views/survey/survey_yes.jsp");
+    //     return modelAndView;
+    // }
 
     //설문 결과 INSERT(복용안한자)
     @GetMapping("/insertAndSelectSurveyResult")
