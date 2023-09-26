@@ -183,7 +183,7 @@ document.getElementById("insertForm").addEventListener("submit", checkForm);
 </script>
 
 <script>
-// 자동차 정보 상세 
+// 자동차 정보 상세 fetch예시
 function fetchCarInforDetail(){
     let url = 'http://192.168.0.44:8080/selectDetail/CI002';
     let request = fetch(url)
