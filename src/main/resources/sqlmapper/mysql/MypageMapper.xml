@@ -57,6 +57,14 @@
         WHERE COMMUNITY_ID = #{COMMUNITY_ID}; 
     </update>
 
+     <!-- 탈퇴(update) -->
+	<update id="dormant" parameterType="Map">
+        UPDATE members
+        SET 
+        PASSWORD = '!@#$%^*'
+        WHERE USER_ID = #{USER_ID}; 
+    </update>
+
     <!-- 본인 설문조사 기록 리스트 뽑아오기  -->
     <select id="surveylist" parameterType="Map" resultType="Map">
     SELECT T_SR.USER_ID, T_SR.DATE_TIME ,T_S.SURVEY_TYPE_ID, T_SR.SURVEY_UID

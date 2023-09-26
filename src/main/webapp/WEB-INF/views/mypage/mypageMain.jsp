@@ -46,12 +46,7 @@
 
               <div class="py-2"><!--비밀번호 작성-->
                 <label class="form-label" for="idpw">비밀번호 </label>
-                <input class="form-control" type="password" name="PASSWORD" value ='<%= record.get("PASSWORD")%>' id="pw" placeholder="123456"style="width: 500px;">
-              </div>
-
-              <div class="py-2"><!--비밀번호 확인란 작성-->
-                <label class="form-label" for="idpw">비밀번호 확인</label>
-                <input class="form-control" type="password" name="CHKPW" id="chkpw" style="width: 500px;">
+                <input class="form-control" type="password" name="PASSWORD" value ='<%= record.get("PASSWORD")%>' id="pw" placeholder="123456" style="width: 500px;" readonly>
               </div>
 
               <div class="py-2"><!--연락처-->
@@ -87,9 +82,11 @@
             <div class="float-end">
               <button type="button" class="btn btn-main">취소</button>
               <button type="submit" class="btn btn-main" id="submitBtn" formaction="/mypage/updateAndSelectSearch" method="get">수정완료</button>
+             
             </div>
     </div>
   </form>
+  <button type="submit" class="btn btn-main" id="submitBtn" formaction="/mypage/dormant" method="get">탈퇴하기</button>
 </main> 
 <%@ include file="/WEB-INF/views/etc/Footer.jsp" %> <!-- footer --> 
 </body>

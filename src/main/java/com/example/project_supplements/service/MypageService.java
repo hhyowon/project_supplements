@@ -142,9 +142,13 @@ public class MypageService {
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;
     }
-
-
-
+    // 회원 탈퇴
+    public Object dormant( Map dataMap) {
+        dataMap.put("USER_ID", commons.getUserID());
+        String sqlMapId = "MypageService.dormant"; 
+        Object result = sharedDao.update(sqlMapId, dataMap);
+        return result;
+    }
 
 }
 

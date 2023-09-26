@@ -11,9 +11,9 @@
           <!-- 찐 입력(회원가입) -->
         <insert id="insert" parameterType="Map">
         insert into MEMBERS
-        (USER_ID, NAME, GENDER_UID, PASSWORD, PHONENUMBER, ADDRESS, EMAIL)
+        (USER_ID, NAME, GENDER_UID, PASSWORD, PHONENUMBER, ADDRESS, EMAIL, DORMANT_UID)
         values
-        (#{USER_ID}, #{NAME}, #{GENDER_UID}, #{PASSWORD}, #{PHONENUMBER}, #{ADDRESS}, #{EMAIL});
+        (#{USER_ID}, #{NAME}, #{GENDER_UID}, #{PASSWORD}, #{PHONENUMBER}, #{ADDRESS}, #{EMAIL},'H_01');
         </insert>
 
   
