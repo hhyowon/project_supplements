@@ -34,9 +34,9 @@ public class SurveyController {
 
     //설문지 뽑아오기
     @GetMapping({"/both"})
-    public ModelAndView surveyboth(@RequestParam("surveyType") String surveyType, ModelAndView modelAndView) {
+    public ModelAndView surveyboth(@RequestParam("SURVEY_TYPE_ID") String surveyTypeId, ModelAndView modelAndView) {
         Map<String, String> params = new HashMap<>();
-        params.put("surveyType", surveyType); // surveyType 파라미터를 params Map에 추가
+        params.put("SURVEY_TYPE_ID", surveyTypeId); // surveyType 파라미터를 params Map에 추가
         Object result = surveyService.surveyboth(params);
         modelAndView.addObject("params", params); 
         modelAndView.addObject("result", result);
