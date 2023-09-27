@@ -29,7 +29,7 @@
         %>
 
     <div class="container col-9 pb-5 px-5" style="width: 700px;">
-<form action="/mypage/updateAndSelectSearch" method="get"> <!-- 폼-->
+<form method="get"> <!-- 폼-->
       <!-- <form action="/mypage/main">  폼-->
         <div class="px-5">
           <div class="py-2">
@@ -82,12 +82,13 @@
             <div class="float-end">
               <button type="button" class="btn btn-main">취소</button>
               <button type="submit" class="btn btn-main" id="submitBtn" formaction="/mypage/updateAndSelectSearch" method="get">수정완료</button>
-             
+              <button type="submit" class="btn btn-main" id="submitBtn" formaction="/mypage/dormant" method="get" onclick="return confirm('정말로 탈퇴하시겠습니까?')">탈퇴하기</button>
             </div>
+</main> 
+            
     </div>
   </form>
-  <button type="submit" class="btn btn-main" id="submitBtn" formaction="/mypage/dormant" method="get">탈퇴하기</button>
-</main> 
+  
 <%@ include file="/WEB-INF/views/etc/Footer.jsp" %> <!-- footer --> 
 </body>
 

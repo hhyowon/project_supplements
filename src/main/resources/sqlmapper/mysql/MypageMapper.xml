@@ -61,7 +61,7 @@
 	<update id="dormant" parameterType="Map">
         UPDATE members
         SET 
-        PASSWORD = '!@#$%^*'
+        DORMANT_UID = 'H_02', PASSWORD = '!@#$%^*'
         WHERE USER_ID = #{USER_ID}; 
     </update>
 

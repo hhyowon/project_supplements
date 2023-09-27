@@ -102,11 +102,10 @@ public class MypageController {
         Object result = mypageService.dormant(params);
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
-        modelAndView.setViewName("/WEB-INF/views/security/logoutForm.jsp");
-
+        modelAndView.setViewName("redirect:/logout"); // 메인 화면으로 리다이렉트
         return modelAndView;
     }
-    
+
     //커뮤니티 게시글 수정
     // @GetMapping("/communityupdate")
     // public ModelAndView updateForm( @RequestParam Map params,ModelAndView modelAndView) {
