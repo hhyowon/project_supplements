@@ -1,44 +1,40 @@
+
 <%@ page import="java.util.HashMap, java.util.ArrayList" %>
 <%@ page import="com.example.project_supplements.utils.Commons" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.text.DecimalFormat" %>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="/css/maintool.css">
-  <title>BMI</title>
-  <style>
-    /* Add your CSS styles here for better formatting */
-  </style>
+  <!-- ... -->
 </head>
 <body>
-  <%@ include file= "/WEB-INF/views/etc/Header.jsp" %> <!-- header -->
+  <%@ include file="/WEB-INF/views/etc/Header.jsp" %> <!-- header -->
   <div class="container">
-    <h2 class="ui teal image header text-center">
-      BMI
-      <hr class='hr-solid' />
-    </h2>
-    <br>
+    <!-- ... -->
     <h3 style="color: #5B9BD5; font-weight: bold; margin-top: 30px;">BMI 결과</h3>
     <div class="equation1" style="border: 1px solid lightgray; padding: 20px; border-radius: 10px; text-align: center;">
     
-      <% HashMap<String, Object> result = (HashMap<String, Object>) session.getAttribute("result"); %>
+      <% 
+      HashMap params = (HashMap) request.getAttribute("params"); 
+      HashMap result = (HashMap) request.getAttribute("result"); 
+      %>
+
       <% if (result != null) { %>
         <%
-          double bmiResult = (Double) result.get("BMI_RESULT");
-          String bmiType = (String) result.get("BMI_TYPE");
+          Object bmiResultObj = result.get("BMI_RESULT");
+          Object bmiTypeObj = result.get("BMI_TYPE");
+          DecimalFormat decimalFormat = new DecimalFormat("0.00");
+          String bmiResult = decimalFormat.format(bmiResultObj);
+          String bmiType = (String) bmiTypeObj;
         %>
-        <p>BMI 값은 <%= String.format("%.2f", bmiResult) %>이고</p>
-        <p>당신은 <%= bmiType %> 입니다.</p>
+        <p>BMI 값은 <strong style="font-size: 1.5em;"><%= bmiResult %></strong>, BMI 결과 <strong style="font-size: 1.5em;"><%= bmiType %></strong> 입니다.</p>
       <% } else { %>
-        <!-- 결과가 없는 경우에 대한 처리 -->
-        <p>결과가 없습니다.</p>
+        <%-- 데이터 유형이 맞지 않는 경우에 대한 처리 --%>
+        <p>올바른 결과가 없습니다.</p>
       <% } %>
-
+      
       <table align="center" cellspacing="10">
         <tr>
             <td style="padding: 5px; background-color: #c2c2c2; width: 350px; height: 30px;">
@@ -55,10 +51,9 @@
             </td>
         </tr>
         <tr>
-            <td style="text-align: right; font-weight: bold;">10</td>
-            <td style="text-align: right; font-weight: bold;">40</td>
-            <td style="text-align: right; font-weight: bold;">20</td>
-            <td style="text-align: right; font-weight: bold;">30</td>
+            <td style="text-align: right; font-weight: bold;">18.5</td>
+            <td style="text-align: right; font-weight: bold;">23</td>
+            <td style="text-align: right; font-weight: bold;">25</td>
         </tr>
     </table>
 

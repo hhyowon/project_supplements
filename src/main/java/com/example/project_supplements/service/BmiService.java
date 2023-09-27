@@ -32,9 +32,13 @@ public class BmiService {
         } else {
             // "BMI_UID"가 null이 아니고 빈 문자열도 아닌 경우 처리
         }
+
         String sqlMapId = "BMI.insertBMI";
         Object result_1 = sharedDao.insert(sqlMapId, dataMap);
-        HashMap result = (HashMap) this.selectBMI(dataMap);
+        
+        // "selectBMI" 메서드를 사용하여 해당 BMI 결과값과 타입만을 선택
+        Map<String, Object> result = this.selectBMI((String) dataMap.get("USER_ID"));
+        
         return result;
 
     }
@@ -49,22 +53,30 @@ public class BmiService {
     return gender;
 }
     
-    public Object insert(Map dataMap) {
-        String sqlMapId = "Diet.insert";
-        Object result = sharedDao.insert(sqlMapId, dataMap);
-        return result;
-    }
         
-    //커뮤니티 테이블 리스트    
-        public Map selectBMI(Map dataMap) {
-            // Object getOne(String sqlMapId, Object dataMap)
+    // 커뮤니티 테이블 리스트    
+    
+        // public Map selectBMI(Map dataMap) {
+        //     // Object getOne(String sqlMapId, Object dataMap)
+        //     String sqlMapId = "BMI.resultBMI";
+        //     HashMap result = new HashMap<>();
+        //     result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+        //     return result;
+        // }
+
+        public Map selectBMI(String userId) {
+            // SQL 쿼리에서 USER_ID를 사용하여 해당 사용자의 BMI 결과를 가져옵니다.
             String sqlMapId = "BMI.resultBMI";
+            
+            Map<String, Object> dataMap = new HashMap<>();
+            dataMap.put("USER_ID", userId);
+        
+            // 해당 사용자의 BMI 결과를 가져옵니다.
             HashMap result = new HashMap<>();
             result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+            
             return result;
         }
-
-
 }
 
    

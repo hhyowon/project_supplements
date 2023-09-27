@@ -92,13 +92,13 @@
     HAVING T_SR.SURVEY_UID = #{SURVEY_UID};
     </select>
 
-      <!-- BMI 뽑아오기  -->
 
 
+    <!-- BMI 뽑아오기  -->
 	<select id="BMI" parameterType="Map" resultType="Map">
-       SELECT DATE,HEIGHT,WEIGHT,BMI_RESULT
+       SELECT DATE,HEIGHT,WEIGHT,BMI_RESULT, BMI_TYPE
        FROM project_diet.bmi
-       where USER_ID = 'honggd123'
+       where USER_ID = #{USER_ID}
        order by DATE;
 	</select>
 

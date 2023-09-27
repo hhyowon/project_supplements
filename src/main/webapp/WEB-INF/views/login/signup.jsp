@@ -15,12 +15,10 @@
   <!-- Menu -->
       <div class="container">
         <img class="mb-4" src="/html/img/signdiet.jpg" alt width="700" height="350" style="display: block; margin-left: auto; margin-right: auto;">
-        <div class="container text-center">
-          <h1 > 회원가입
-            <hr class='hr-solid' />
-          </h1>
+        <div class="container">
+          <h2><strong>회원가입</strong></h2>
           0124의 회원이 되면 
-          다양한 혜택을 이용할 수 있습니다.
+          다양한 혜택을 이용할 수 있습니다 <hr class='hr-solid' />
         </div>
       </div>
     </br>
@@ -95,6 +93,7 @@
         </div>
       </div>
       <p>
+        
         <label for="auth" class="sr-only"></label>
         <!-- <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="auth" id="SYSTEM_MANAGER" value="SYSTEM_MANAGER">
@@ -132,15 +131,15 @@
   var password = document.getElementById("pw");
   var confirmPassword = document.getElementById("pw_confirm");
   var message = document.getElementById("message");
-  
+
   // 입력란이 변경될 때마다 비밀번호 일치 여부 확인
   password.addEventListener("input", checkPassword);
   confirmPassword.addEventListener("input", checkPassword);
-  
+
   function checkPassword() {
       var passwordValue = password.value;
       var confirmPasswordValue = confirmPassword.value;
-  
+
       if (passwordValue === confirmPasswordValue) {
           message.innerHTML = "비밀번호 확인 완료";
           message.style.color = "green";
@@ -150,38 +149,54 @@
       }
   }
 
+  function checkForm(event) {
+    var form = document.getElementById("insertForm"); // 폼 요소를 ID로 가져옵니다.
+    var inputs = form.querySelectorAll("input"); // 폼 안의 모든 input 요소를 선택합니다.
+
+    var genderSelected = false; // 성별 옵션을 선택했는지 여부를 확인하는 플래그입니다.
+
+    for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].value === "") { // 입력란이 비어있는 경우
+            alert("모든 입력란을 채워주세요.");
+            event.preventDefault(); // 이벤트 기본 동작을 중지하고
+            return false; // 함수 실행을 중지합니다.
+        }
+
+        if (inputs[i].type === "radio" && inputs[i].name === "GENDER_UID" && inputs[i].checked) {
+            // 라디오 버튼이 선택되었는지 확인하고 선택된 경우
+            genderSelected = true; // 성별 옵션을 선택했다고 표시합니다.
+        }
+    }
+
+    // 성별 옵션을 선택하지 않은 경우
+    if (!genderSelected) {
+        alert("성별을 선택해주세요.");
+        event.preventDefault(); // 이벤트 기본 동작을 중지하고
+        return false; // 함수 실행을 중지합니다.
+    }
+}
+
+// 폼 제출 이벤트 리스너를 폼 요소에 추가합니다.
+document.getElementById("insertForm").addEventListener("submit", checkForm);
+
+
 </script>
 
 <script>
-  var userIdInput = document.getElementById("userid");
-  var idMessage = document.getElementById("idMessage");
-  
-  userIdInput.addEventListener("input", function() {
-      var userId = userIdInput.value;
-      
-      // 입력값이 변경될 때마다 서버로 아이디 중복 확인 요청 보내기
-      fetch("/signup/checkDuplicateId", {   // 중복 확인요청 fetch 
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ userId: userId }),
-      })
-      .then(response => response.json())  //서버로부터 받은 응답 JSON형식으로 파싱
-      .then(data => {  // 파싱된 응답 데이터 처리 
-          if (data.isDuplicate) {
-              idMessage.innerHTML = "이미 사용 중인 아이디입니다.";
-              idMessage.style.color = "red";
-          } else {
-              idMessage.innerHTML = "사용 가능한 아이디입니다.";
-              idMessage.style.color = "green";
-          }
-      })
-      .catch(error => {
-          idMessage.innerHTML = "서버 오류가 발생했습니다.";
-          idMessage.style.color = "red";
-          console.error(error);
-      });
-  });
-  </script>
+// 자동차 정보 상세 fetch예시
+function fetchCarInforDetail(){
+    let url = 'http://192.168.0.44:8080/selectDetail/CI002';
+    let request = fetch(url)
+    .then((result) => {
+        return result.json();
+    })
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((errorMeg) => {
+        console.log(errorMeg);
+    });
+}
+
+</script>
 </html>

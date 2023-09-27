@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="SurveyService">
+
+    <select id="survey" parameterType="Map" resultType="Map">
+        SELECT Q.SURVEY_QUESTION, O.SURVEY_OPT, Q.SURVEY_QUESTION_ID,  O.SURVEY_OPT_ID
+        FROM survey_type_for_question AS T
+        INNER JOIN survey_question AS Q 
+        ON T.SURVEY_QUESTION_ID = Q.SURVEY_QUESTION_ID
+        LEFT JOIN survey_opt AS O 
+        ON Q.SURVEY_QUESTION_ID = O.SURVEY_QUESTION_ID
+        WHERE T.SURVEY_TYPE_ID = #{SURVEY_TYPE_ID}
+        ORDER BY O.OPT_ORDER;
+
+	</select>
+
     
-    <!-- 질문과 답항을 뽑아오는 쿼리(복용x)  -->
+    <!-- 질문과 답항을 뽑아오는 쿼리(복용x) 
 	<select id="surveyno" parameterType="Map" resultType="Map">
         SELECT Q.SURVEY_QUESTION, O.SURVEY_OPT, Q.SURVEY_QUESTION_ID,  O.SURVEY_OPT_ID
         FROM survey_type_for_question AS T
@@ -15,7 +28,7 @@
 
 	</select>
 
-    <!-- 질문과 답항을 뽑아오는 쿼리(복용o)  -->
+    질문과 답항을 뽑아오는 쿼리(복용o)  
     <select id="surveyyes" parameterType="Map" resultType="Map">
         SELECT Q.SURVEY_QUESTION, O.SURVEY_OPT, Q.SURVEY_QUESTION_ID, O.SURVEY_OPT_ID
         FROM survey_type_for_question AS T
@@ -25,7 +38,7 @@
         ON Q.SURVEY_QUESTION_ID = O.SURVEY_QUESTION_ID
         WHERE T.SURVEY_TYPE_ID = 'F-02'
         ORDER BY O.OPT_ORDER;
-	</select>
+	</select>-->
 
     <!-- 설문조사 결과 insert(부모테이블)-->
    <insert id="insertsurveyresult" parameterType="Map">
