@@ -19,20 +19,33 @@
         HashMap params=(HashMap)request.getAttribute("params"); 
         String searchStr=(String)params.getOrDefault("search", ""); 
         HashMap result=(HashMap)request.getAttribute("result");
-        
-    %>
-    <div class="top-margin text-center">
-        <img class="mt-4 mb-4" src="/html/img/logo.PNG" alt width="240" height="100" style="display: block; margin-left: auto; margin-right: auto;">
-        if(<%= surveyQuestion %>)        
-        <H3>다이어트 보조제 복용 경험이 없는 사람의 설문조사 </H3>  
-        else(<%= surveyQuestion %>)
-        <H3>다이어트 보조제 복용 경험이 없는 사람의 설문조사 </H3>  
-    </div>
-    <form  method= "get" action="/survey/survey_both" >
-        <div class= "container mx-auto" style="border: 2px solid rgb(91, 155, 213); padding: 20px; border-radius: 10px; text-align: center; width: 50%;">
-            <tbody id="surveyno">
+        ArrayList resultList = (ArrayList) result.get("resultList");
+     
+        if (!resultList.isEmpty()) {
+            HashMap firstRecord = (HashMap) resultList.get(0);
+            String surveyTypeId = (String) firstRecord.get("SURVEY_TYPE_ID");
+        }
 
-                <% ArrayList resultList = (ArrayList) result.get("resultList");
+    %>
+
+    <form method="get" action="/survey/survey_both">
+        <div class="container mx-auto" style="border: 2px solid rgb(91, 155, 213); padding: 20px; border-radius: 10px; text-align: center; width: 50%;">
+            <tbody id="surveyboth">
+                <div class="top-margin text-center">
+                    <img class="mt-4 mb-4" src="/html/img/logo.PNG" alt width="240" height="100" style="display: block; margin-left: auto; margin-right: auto;">
+                </div>
+    
+                <h3>
+                    <%
+                    if ("F-01".equals(surveyTypeId)) {
+                        out.println("다이어트 보조제 복용 경험이 없는 사람의 설문조사");
+                    } else if ("F-02".equals(surveyTypeId)) {
+                        out.println("다이어트 보조제 복용 경험이 있는 사람의 설문조사");
+                    }
+                    %>
+                </h3>
+    
+                <%
                 String compare = ""; // 이전 질문 ID를 저장할 변수 초기화
                 for (int i = 0; i < resultList.size(); i++) {
                     HashMap record = (HashMap) resultList.get(i);
@@ -63,7 +76,7 @@
             <div class="text-center d-flex justify-content-center py-2">
                 <button type="submit" formaction="/main" class="btn btn-white mx-2 btn-outline-dark" style="border-color: black; color: black;">닫기</button>
                 <button type="submit" formaction="/survey/insertAndSelectSurveyResult" class="btn btn-white btn-outline-dark" style="background-color: #5B9BD5; color: white; border-color: transparent;">설문제출</button>
-            </div>
+            </div><!--여기도 수정필요 결과도 각각 작동하는중, 지금은 no result-->
         </div>
     </form>
 

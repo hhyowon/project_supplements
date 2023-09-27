@@ -27,13 +27,12 @@ public class SurveyService {
     @Autowired
     SurveyResultService surveyResultService;
 
-    
      public Map surveyboth(Map dataMap) {
         String sqlMapId = "SurveyService.surveyboth";
         HashMap result = new HashMap<>();
        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
        result.put("SURVEY_TYPE_ID",dataMap.get("SURVEY_TYPE_ID"));
-        return result;
+       return result;
      }
 
     // // 복용하지 않는 자의 설문
@@ -120,6 +119,9 @@ public class SurveyService {
         String uuid = this.generateUUID();
         return dataMap;
     }
+
+
+
     // 복용 경험이 없는 자 설문조사 결과 연결
     public Object insertAndSelectSurveyResult(Map<String,Object> dataMap){
         HashMap result = new HashMap<>();

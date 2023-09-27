@@ -1,5 +1,6 @@
 package com.example.project_supplements.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -31,13 +32,15 @@ public class SurveyController {
         return modelAndView;
     }
 
-    //복용한자의 설문지 뽑아오기
-     @GetMapping({"/both"})
-    public ModelAndView surveyboth( @RequestParam Map params,ModelAndView modelAndView){
+    //설문지 뽑아오기
+    @GetMapping({"/both"})
+    public ModelAndView surveyboth(@RequestParam("surveyType") String surveyType, ModelAndView modelAndView) {
+        Map<String, String> params = new HashMap<>();
+        params.put("surveyType", surveyType); // surveyType 파라미터를 params Map에 추가
         Object result = surveyService.surveyboth(params);
         modelAndView.addObject("params", params); 
         modelAndView.addObject("result", result);
-        modelAndView.setViewName("/WEB-INF/views/survey/survey_yes.jsp");
+        modelAndView.setViewName("/WEB-INF/views/survey/survey_both.jsp");
         return modelAndView;
     }
 

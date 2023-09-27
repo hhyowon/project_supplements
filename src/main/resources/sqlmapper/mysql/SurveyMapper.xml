@@ -3,7 +3,7 @@
 <mapper namespace="SurveyService">
 
     <select id="survey" parameterType="Map" resultType="Map">
-        SELECT Q.SURVEY_QUESTION, O.SURVEY_OPT, Q.SURVEY_QUESTION_ID,  O.SURVEY_OPT_ID
+        SELECT Q.SURVEY_QUESTION, O.SURVEY_OPT, Q.SURVEY_QUESTION_ID,  O.SURVEY_OPT_ID     <!--, T.SURVEY_TYPE_ID -->
         FROM survey_type_for_question AS T
         INNER JOIN survey_question AS Q 
         ON T.SURVEY_QUESTION_ID = Q.SURVEY_QUESTION_ID
@@ -11,7 +11,6 @@
         ON Q.SURVEY_QUESTION_ID = O.SURVEY_QUESTION_ID
         WHERE T.SURVEY_TYPE_ID = #{SURVEY_TYPE_ID}
         ORDER BY O.OPT_ORDER;
-
 	</select>
 
     
@@ -38,7 +37,7 @@
         ON Q.SURVEY_QUESTION_ID = O.SURVEY_QUESTION_ID
         WHERE T.SURVEY_TYPE_ID = 'F-02'
         ORDER BY O.OPT_ORDER;
-	</select>-->
+	</select> -->
 
     <!-- 설문조사 결과 insert(부모테이블)-->
    <insert id="insertsurveyresult" parameterType="Map">
