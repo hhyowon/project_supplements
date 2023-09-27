@@ -6,19 +6,26 @@ VALUES
 ('남성', 'G-01')
 , ('여성', 'G-02');
 
--- members 
-INSERT INTO members (USER_ID, NAME, GENDER_UID, PASSWORD, PHONENUMBER, ADDRESS, EMAIL)
+
+-- DORMANT_ACCOUNTS
+INSERT INTO DORMANT_ACCOUNTS (DORMANT, DORMANT_UID)
 VALUES
-('honggd123', '홍길동', 'G-01', '12345678', '010-1234-5678', '서울시 강남구', 'honggd123@email.com'),
-('kimeh456', '김영희', 'G-02', '98765432', '010-5678-1234', '경기도 고양시', 'kimeh456@email.com'),
-('lee_cs', '이철수', 'G-01', 'cs123456', '010-9876-5432', '인천광역시 부평구', 'lee_cs@email.com'),
-('parkjy789', '박지영', 'G-02', '65432198', '010-4321-9876', '대구광역시 동구', 'parkjy789@email.com'),
-('choimh123', '최민호', 'G-01', '87654321', '010-1234-5678', '부산광역시 해운대구', 'choimh123@email.com'),
-('lee_jw', '이지원', 'G-01', 'jw123456', '010-5678-1234', '경기도 성남시 분당구', 'lee_jw@email.com'),
-('kimje456', '김지은', 'G-02', '32198765', '010-9876-5432', '서울시 마포구', 'kimje456@email.com'),
-('parkcm789', '박철민', 'G-01', '67891234', '010-4321-9876', '경기도 안양시', 'parkcm789@email.com'),
-('songmr123', '송미라', 'G-02', '34567891', '010-1234-5678', '경상북도 포항시', 'songmr123@email.com'),
-('limdh123', '임동현', 'G-01', '91929394', '010-5678-1234', '서울시 종로구', 'limdh123@email.com');
+('NOT휴면', 'H_01'),
+('휴면', 'H_02');
+
+-- members 
+INSERT INTO members (USER_ID, NAME, GENDER_UID, PASSWORD, PHONENUMBER, ADDRESS, EMAIL, DORMANT_UID)
+VALUES
+('honggd123', '홍길동', 'G-01', '12345678', '010-1234-5678', '서울시 강남구', 'honggd123@email.com', 'H_01'),
+('kimeh456', '김영희', 'G-02', '98765432', '010-5678-1234', '경기도 고양시', 'kimeh456@email.com', 'H_01'),
+('lee_cs', '이철수', 'G-01', 'cs123456', '010-9876-5432', '인천광역시 부평구', 'lee_cs@email.com', 'H_01'),
+('parkjy789', '박지영', 'G-02', '65432198', '010-4321-9876', '대구광역시 동구', 'parkjy789@email.com', 'H_01'),
+('choimh123', '최민호', 'G-01', '87654321', '010-1234-5678', '부산광역시 해운대구', 'choimh123@email.com', 'H_01'),
+('lee_jw', '이지원', 'G-01', 'jw123456', '010-5678-1234', '경기도 성남시 분당구', 'lee_jw@email.com', 'H_01'),
+('kimje456', '김지은', 'G-02', '32198765', '010-9876-5432', '서울시 마포구', 'kimje456@email.com', 'H_01'),
+('parkcm789', '박철민', 'G-01', '67891234', '010-4321-9876', '경기도 안양시', 'parkcm789@email.com', 'H_01'),
+('songmr123', '송미라', 'G-02', '34567891', '010-1234-5678', '경상북도 포항시', 'songmr123@email.com', 'H_01'),
+('limdh123', '임동현', 'G-01', '91929394', '010-5678-1234', '서울시 종로구', 'limdh123@email.com', 'H_01');
 
 -- bmi 
 INSERT INTO bmi(BMI_UID, USER_ID, GENDER_UID, DATE, HEIGHT, WEIGHT, BMI_RESULT, BMI_TYPE)

@@ -96,6 +96,16 @@ public class MypageController {
             return modelAndView; 
     }
     
+    // 탈퇴하기
+    @GetMapping("/dormant")
+   public ModelAndView dormant( @RequestParam Map params, ModelAndView modelAndView) {
+        Object result = mypageService.dormant(params);
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
+        modelAndView.setViewName("redirect:/logout"); // 메인 화면으로 리다이렉트
+        return modelAndView;
+    }
+
     //커뮤니티 게시글 수정
     // @GetMapping("/communityupdate")
     // public ModelAndView updateForm( @RequestParam Map params,ModelAndView modelAndView) {

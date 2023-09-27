@@ -27,9 +27,10 @@
     
     <!--Pagination  -->
     	<select id="selectPagination" parameterType="Map" resultType="Map">
-       SELECT members.USER_ID,members.NAME,gender.Gender,members.PASSWORD,members.PHONENUMBER,members.ADDRESS,members.EMAIL
+        SELECT members.USER_ID,members.NAME,gender.Gender,members.PASSWORD,members.PHONENUMBER,members.ADDRESS,members.EMAIL,dormant_accounts.DORMANT_UID
         FROM project_diet.members
         INNER JOIN project_diet.gender ON members.Gender_UID = gender.Gender_UID
+        INNER JOIN project_diet.dormant_accounts ON dormant_accounts.DORMANT_UID = members.DORMANT_UID
         <choose>
             <when test="search == 'NAME'">
                 AND NAME LIKE CONCAT('%', #{words}, '%')

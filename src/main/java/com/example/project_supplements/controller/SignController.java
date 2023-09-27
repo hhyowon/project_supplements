@@ -39,7 +39,7 @@ public class SignController {
     //     String userId = request.get("userId");
 
     //     // 중복 확인 로직을 구현하고 결과를 반환합니다.
-    //     //boolean isDuplicate = check(userId); /* 중복 확인 로직을 수행하세요 */;
+    //     boolean isDuplicate = check(userId); /* 중복 확인 로직을 수행하세요 */;
 
     //     Map<String, Object> response = new HashMap<>();
     //     response.put("isDuplicate", isDuplicate);

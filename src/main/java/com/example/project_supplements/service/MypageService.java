@@ -3,6 +3,7 @@ package com.example.project_supplements.service;
 import java.util.HashMap;
 import java.util.Map;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -143,9 +144,13 @@ public class MypageService {
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;
     }
-
-
-
+    // 회원 탈퇴
+    public Object dormant( Map dataMap) {
+        dataMap.put("USER_ID", commons.getUserID());
+        String sqlMapId = "MypageService.dormant"; 
+        Object result = sharedDao.update(sqlMapId, dataMap);
+        return result;
+    }
 
 }
 

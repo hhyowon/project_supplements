@@ -7,6 +7,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,10 +20,10 @@
         HashMap params=(HashMap)request.getAttribute("params"); 
         String searchStr=(String)params.getOrDefault("search", ""); 
         HashMap result=(HashMap)request.getAttribute("result");
-        
     %>
     <div class="top-margin text-center">
-        <img class="mt-4 mb-4" src="/html/img/logo.PNG" alt width="240" height="100" style="display: block; margin-left: auto; margin-right: auto;">
+        <img class="mt-4 mb-4" src="/html/img/logo.PNG" alt width="240" height="100" 
+            style="display: block; margin-left: auto; margin-right: auto;">
         <H3>다이어트 보조제 복용 경험이 없는 사람의 설문조사 </H3>  
     </div>
     <form  method= "get" action="/survey/survey_no" >
