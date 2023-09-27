@@ -95,26 +95,26 @@
       <p>
         
         <label for="auth" class="sr-only"></label>
-        <!-- <div class="form-check form-check-inline">
+        <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="auth" id="SYSTEM_MANAGER" value="SYSTEM_MANAGER">
             <label class="form-check-label" for="ROLE_MANAGER">SYSTEM MANAGER</label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="auth" id="ROLE_ADMIN" value="ROLE_ADMIN">
             <label class="form-check-label" for="ROLE_ADMIN">ADMIN</label>
-          </div>   -->
+          </div>  
           <hr class="mb-4">
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="auth" id="USER" value="ROLE_USER">
-            <label class="form-check-label" for="USER">개인정보 수집 및 이용에 동의합니다</label>
+            <label class="form-check-label" for="USER">USER</label>
           </div>
         </p>
-          <!-- <hr class="mb-4" />
+          <hr class="mb-4" />
           <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="aggrement" name="PRIVACY_INFO" required />
             <label class="custom-control-label" for="aggrement">개인정보 수집 및 이용에 동의합니다.</label>
           </div>
-          <P></P> -->
+          <P></P>
           <div class="row">
             <div class="col-md-6">
               <button class="btn btn-secondary float-end me-2" type="button" onclick="window.location.href='/home'">홈</button>

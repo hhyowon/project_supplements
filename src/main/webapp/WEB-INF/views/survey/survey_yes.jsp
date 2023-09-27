@@ -1,5 +1,8 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.HashMap, java.util.ArrayList" %>
+
+<sec:authentication property="principal" var="userDetailsBean" />
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,9 +17,9 @@
 
 <body>
     <% 
-    HashMap params=(HashMap)request.getAttribute("params"); 
-    String searchStr=(String)params.getOrDefault("search", ""); 
-    HashMap result=(HashMap)request.getAttribute("result");
+        HashMap params=(HashMap)request.getAttribute("params"); 
+        String searchStr=(String)params.getOrDefault("search", ""); 
+        HashMap result=(HashMap)request.getAttribute("result");
     %>
     <div style="text-align: center;">
         <img class="mb-4" src="/html/img/logo.PNG" alt width="240" height="100"

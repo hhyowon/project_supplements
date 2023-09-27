@@ -50,7 +50,7 @@
                             <th>전화번호</th>
                             <th>주소</th>
                             <th>E-mail</th>
-                            <th>관리</th>
+                            <th>회원</th>
                         </tr>
                     </thead>
                       <tbody id="list">
@@ -66,9 +66,7 @@
                             <td><%= record.get("PHONENUMBER") %></td>
                             <td><%= record.get("ADDRESS") %></td>
                             <td style="width: 120px;"><%= record.get("EMAIL") %></td>
-                              <td>
-                                <button class="btn  btn-sm btn-outline-secondary" type="submit" formaction="">관리</button>
-                              </td>
+                            <td><%= record.get("DORMANT_UID") %></td>
                         </tr>
                        <% } %>
                         </tbody>
