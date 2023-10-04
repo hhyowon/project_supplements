@@ -45,7 +45,7 @@
         <% } %>
         <form style="display: inline-flex;">
           <textarea name="comment" rows="3" cols="100" style="border: 1px solid #dddddd; flex: 1;" placeholder="소통을 위한 댓글창입니다"></textarea>
-          <button class="btn mx-2 mb-2 float-end submit btn-outline-secondary">작성하기</button>
+          <button class="btn mx-2 mb-2 float-end submit btn-outline-secondary" formaction="/community/comment">작성하기</button>
         </form>
 
     </div>

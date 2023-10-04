@@ -27,11 +27,13 @@ public class SurveyService {
     @Autowired
     SurveyResultService surveyResultService;
 
+    // 설문조사 내역 가져오기
      public Map surveyboth(Map dataMap) {
-        String sqlMapId = "SurveyService.surveyboth";
-        HashMap result = new HashMap<>();
+       String sqlMapId = "SurveyService.surveyboth";
+       HashMap result = new HashMap<>();
        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
        result.put("SURVEY_TYPE_ID",dataMap.get("SURVEY_TYPE_ID"));
+
        return result;
      }
 
