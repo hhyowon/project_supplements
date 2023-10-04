@@ -143,15 +143,19 @@
                                         <div class="row">
 
                                             <% ArrayList firstresultList=(ArrayList)firstresult.get("firstresultList");
-                                                for (int i=0; i < firstresultList.size(); i++) { HashMap
-                                                firstrecord=(HashMap) firstresultList.get(i); String
-                                                surveyUrlFirst=(String) firstrecord.get("SURVEY_RANK_FIRST"); %>
-                                                <div class="col-4">
-                                                        <img src="<%= surveyUrlFirst %>" alt width="250" height="300">
-
-                                                </div>
-                                                <% } %>
-
+                                            for (int i=0; i < firstresultList.size(); i++) { 
+                                            HashMap firstrecord=(HashMap) firstresultList.get(i); 
+                                            String surveyUrlFirst=(String) firstrecord.get("SURVEY_RANK_FIRST"); 
+                                            String productUrlFirst=(String) firstrecord.get("SURVEY_OPT_WEB_URL"); %>
+                                            <div class="col-4">
+                                                <a href="<%= productUrlFirst %>">
+                                                    <img src="<%= surveyUrlFirst %>" alt width="250" height="300">
+                                                </a>
+                                            </div>
+                                            <% } %>
+                                                
+                                      
+                                             
                                         </div>
                                     </td>
                             </tbody>
@@ -189,29 +193,32 @@
 
                                     <td rowspan='3' style="background-color: white;">
                                         <div class="row">
-
-                                            <% ArrayList secondresultList=(ArrayList)secondresult.get("secondresultList");
-                                                for (int i=0; i < secondresultList.size(); i++) 
-                                                {HashMap secondrecord = (HashMap) secondresultList.get(i); 
-                                                 String surveyUrlSecond = (String) secondrecord.get("SURVEY_RANK_SECOND"); %>
-                                                <div class="col-4">
-                                                    <img src="<%= surveyUrlSecond %>" alt width="250" height="300">
-                                                </div>
-                                                <% } %>
-
+                                            <% ArrayList secondresultList = (ArrayList) secondresult.get("secondresultList");
+                                            for (int i = 0; i < secondresultList.size(); i++) {
+                                                HashMap secondrecord = (HashMap) secondresultList.get(i);
+                                                String surveyUrlSecond = (String) secondrecord.get("SURVEY_RANK_SECOND");
+                                                String productUrlSecond = (String) secondrecord.get("SURVEY_OPT_WEB_URL");
+                                            %>
+                                            <!-- 제품 이미지와 링크 표시 -->
+                                            <div class="col-4">
+                                                <a href="<%= productUrlSecond %>">
+                                                    <img src="<%= surveyUrlSecond %>" alt="2nd Product" width="250" height="300">
+                                                </a>
+                                            </div>
+                                            <% } %>
                                         </div>
+
+                                     
+                                        
                                     </td>
                             </tbody>
                         </table>
-
                         
                         <table class="table table-striped table-hover">
                             <tbody>
                                 <tr>
-                                   
                                         <div class="row">
                                             <div class="col-3">
-
                                             </div>
                                             <div class="col-3">
                                                 <h3 style="font-weight: bold; color:#707070; text-align: center;">
@@ -237,17 +244,20 @@
 
                                     <td rowspan='3' style="background-color: white;">
                                         <div class="row">
-
-                                            <% ArrayList thirdresultList=(ArrayList)thirdresult.get("thirdresultList");
-                                                for (int i=0; i < thirdresultList.size(); i++) 
-                                                {HashMap thirdrecord = (HashMap) thirdresultList.get(i); 
-                                                 String surveyUrlThird = (String) thirdrecord.get("SURVEY_RANK_THIRD"); %>
-                                                <div class="col-4">
-                                                    <img src="<%= surveyUrlThird %>" alt width="250" height="300">
-                                                </div>
-                                                <% } %>
-
+                                            <% ArrayList thirdresultList = (ArrayList) thirdresult.get("thirdresultList");
+                                            for (int i = 0; i < thirdresultList.size(); i++) {
+                                                HashMap thirdrecord = (HashMap) thirdresultList.get(i);
+                                                String surveyUrlThird = (String) thirdrecord.get("SURVEY_RANK_THIRD");
+                                                String productUrlThird = (String) thirdrecord.get("SURVEY_OPT_WEB_URL");
+                                            %>
+                                            <div class="col-4">
+                                                <a href="<%= productUrlThird %>">
+                                                    <img src="<%= surveyUrlThird %>" alt="3rd Product" width="250" height="300">
+                                                </a>
+                                            </div>
+                                            <% } %>
                                         </div>
+                                
                                     </td>
                             </tbody>
                         </table>
@@ -267,3 +277,4 @@
         </body>
 
         </html>
+
