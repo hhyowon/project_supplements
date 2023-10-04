@@ -205,7 +205,7 @@
                                                     <img src="<%= surveyUrlSecond %>" alt="2nd Product" width="250" height="300">
                                                 </a>
                                             </div>
-                                            <% } %>
+                                            <% } %> 
                                         </div>
 
                                      
