@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="SurveyResult">
     
-    <!-- 설문 결과 두개 다 나오는거 효 추가중 일단 yes no 둘다 출력함-->
+    <!-- 설문 결과 두개 다 나오는거 효 추가중 일단 yes no 둘다 출력함
     <select id="surveyresult" parameterType="Map" resultType="Map"> 
     SELECT T_SURVEY_QUESTION.SURVEY_QUESTION, T_SURVEY_OPT.SURVEY_OPT,
     CASE
@@ -21,7 +21,7 @@
     GROUP BY T_SURVEY_OPT.SURVEY_OPT_ID, surveyresult
     ORDER BY T_SURVEY_OPT.SURVEY_OPT_ID ASC
     ;
-    </select>
+    </select> -->
 
 
   <select id="surveyresult_no" parameterType="Map" resultType="Map">
