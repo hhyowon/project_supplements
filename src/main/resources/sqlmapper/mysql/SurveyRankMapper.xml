@@ -20,6 +20,7 @@
 	</select>
 
     
+    
 
    <select id="surveyRankSecond" parameterType="Map" resultType="Map">
     SELECT T_SURVEYOPT.SURVEY_OPT_URL AS SURVEY_RANK_SECOND, T_SURVEYOPT.SURVEY_OPT_WEB_URL

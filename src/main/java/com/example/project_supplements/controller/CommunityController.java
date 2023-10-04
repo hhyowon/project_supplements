@@ -47,6 +47,16 @@ public class CommunityController {
         return modelAndView;
     }
 
+    //   // 댓글 작성
+    // @GetMapping({"/comment"})
+    // public ModelAndView comment(@RequestParam Map<String, String> params, ModelAndView modelAndView) {
+    //      Object result = communityService.selectPost(params);
+
+    //     modelAndView.addObject("params", params);
+    //     modelAndView.addObject("result", result);
+    //     modelAndView.setViewName("/WEB-INF/views/community/community_post_comment.jsp");
+    //     return modelAndView; 
+    // }
 
     // 해당 게시글 가져오기
     @GetMapping({"/communityPost/{COMMUNITY_ID}"})
@@ -88,5 +98,6 @@ public class CommunityController {
         return modelAndView;
     }
 
+  
     
 }

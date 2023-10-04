@@ -148,7 +148,7 @@
                                             String surveyUrlFirst=(String) firstrecord.get("SURVEY_RANK_FIRST"); 
                                             String productUrlFirst=(String) firstrecord.get("SURVEY_OPT_WEB_URL"); %>
                                             <div class="col-4">
-                                                <a href="<%= productUrlFirst %>">
+                                                <a href="<%= productUrlFirst %>" target="_blank">
                                                     <img src="<%= surveyUrlFirst %>" alt width="250" height="300">
                                                 </a>
                                             </div>
@@ -201,7 +201,7 @@
                                             %>
                                             <!-- 제품 이미지와 링크 표시 -->
                                             <div class="col-4">
-                                                <a href="<%= productUrlSecond %>">
+                                                <a href="<%= productUrlSecond %>" target="_blank">
                                                     <img src="<%= surveyUrlSecond %>" alt="2nd Product" width="250" height="300">
                                                 </a>
                                             </div>
@@ -251,7 +251,7 @@
                                                 String productUrlThird = (String) thirdrecord.get("SURVEY_OPT_WEB_URL");
                                             %>
                                             <div class="col-4">
-                                                <a href="<%= productUrlThird %>">
+                                                <a href="<%= productUrlThird %>" target="_blank">
                                                     <img src="<%= surveyUrlThird %>" alt="3rd Product" width="250" height="300">
                                                 </a>
                                             </div>
