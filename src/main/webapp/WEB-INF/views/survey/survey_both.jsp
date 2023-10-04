@@ -46,7 +46,6 @@
                     }
                     %>
                 </h3>
-    
                 <%
                 String compare = ""; // 이전 질문 ID를 저장할 변수 초기화
                 for (int i = 0; i < resultList.size(); i++) {
@@ -55,7 +54,7 @@
                     String surveyQuestion = (String) record.get("SURVEY_QUESTION");
                     String surveyOpt = (String) record.get("SURVEY_OPT");
                     String surveyOptId = (String) record.get("SURVEY_OPT_ID");
-
+                
                     if (!surveyQuestionId.equals(compare)) { // 이전 질문 ID와 현재 질문 ID를 비교하여 새로운 질문 항목인지 확인
                         compare = surveyQuestionId; // 이전 질문 ID 업데이트
                 %>
@@ -67,34 +66,60 @@
                 <%
                         if ("Q-06".equals(surveyQuestionId)) {
                 %>
-                       <!-- 드롭다운 옵션을 출력 -->
-                        <select name="<%= surveyQuestionId %>">
-                            <!-- "카테고리" 옵션 추가 -->
-                            <option value="">카테고리</option>
-                            <!-- surveyOpt를 그대로 사용하여 동적으로 생성 -->
-                            <option value="<%= surveyOptId %>"><%= surveyOpt %></option>
+                        <!-- 드롭다운 옵션을 출력 -->
+                           <select name="<%= surveyQuestionId %>">
+                            <option value="">복용하신 보조제를 선택해주세요</option>
+                            <!-- surveyOpt를 for문을 통해 모두 생성 -->
+                            <%
+                            for (int j = 0; j < resultList.size(); j++) {
+                                HashMap optRecord = (HashMap) resultList.get(j);
+                                String optSurveyQuestionId = (String) optRecord.get("SURVEY_QUESTION_ID");
+                                String optSurveyOpt = (String) optRecord.get("SURVEY_OPT");
+                                String optSurveyOptId = (String) optRecord.get("SURVEY_OPT_ID");
+                                if ("Q-06".equals(optSurveyQuestionId)) {
+                            %>
+                                <option value="<%= optSurveyOptId %>"><%= optSurveyOpt %></option>
+                            <%
+                                }
+                            }
+                            %>
                         </select>
                 <%
                         } else {
                 %>
                         <!-- 선택 옵션을 라디오 버튼으로 나타내기 -->
-                        <label><input type="radio"  name="<%= surveyQuestionId %>" value="<%= surveyOptId %>" ><%= surveyOpt %> </label>
+                        <%
+                        for (int j = 0; j < resultList.size(); j++) {
+                            HashMap optRecord = (HashMap) resultList.get(j);
+                            String optSurveyQuestionId = (String) optRecord.get("SURVEY_QUESTION_ID");
+                            String optSurveyOpt = (String) optRecord.get("SURVEY_OPT");
+                            String optSurveyOptId = (String) optRecord.get("SURVEY_OPT_ID");
+                            if (surveyQuestionId.equals(optSurveyQuestionId)) {
+                        %>
+                        <label><input type="radio"  name="<%= surveyQuestionId %>" value="<%= optSurveyOptId %>" ><%= optSurveyOpt %> </label>
+                        <%
+                            }
+                        }
+                        %>
                 <%
                         }
                 %>
-                <%
-                    } else {
-                %>
-                        <!-- 같은 질문 항목의 라디오 버튼으로 옵션 생성 -->
-                        <label><input type="radio"  name="<%= surveyQuestionId %>" value="<%= surveyOptId %>" ><%= surveyOpt %> </label>
                 <%
                     }
                 %>
                 <%
                 }
                 %>
-            </tbody>
-        </div>
-    </form>
-</body>
-</html>
+                
+                
+                </tbody>
+            </div>
+            <div class="container bg-white fs-6 py-6 row mx-auto my-3">
+                <div class="text-center d-flex justify-content-center py-2">
+                    <button type="submit" formaction="/main" class="btn btn-white mx-2 btn-outline-dark" style="border-color: black; color: black;">닫기</button>
+                    <button type="submit" formaction="/survey/insertAndSelectSurvey_YesResult" class="btn btn-white btn-outline-dark" style="background-color: #5B9BD5; color: white; border-color: transparent;"data-bs-toggle="modal" data-bs-target="#myModal">설문제출</button>
+                </div>
+            </div>
+        </form>
+    </body>
+    </html>
