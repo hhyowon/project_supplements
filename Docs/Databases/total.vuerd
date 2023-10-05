@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -411,
-    "scrollLeft": -228,
+    "scrollTop": 0,
+    "scrollLeft": -315,
     "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
@@ -97,7 +97,7 @@
           "active": false,
           "left": 0,
           "top": 148.75,
-          "zIndex": 120,
+          "zIndex": 10,
           "widthName": 90.84814453125,
           "widthComment": 67
         },
@@ -159,7 +159,7 @@
           "active": false,
           "left": 933.75,
           "top": 228.5,
-          "zIndex": 164,
+          "zIndex": 12,
           "widthName": 60,
           "widthComment": 60
         },
@@ -221,7 +221,7 @@
           "active": false,
           "left": 1564.0004,
           "top": 217.9998,
-          "zIndex": 78,
+          "zIndex": 6,
           "widthName": 73.75390625,
           "widthComment": 60
         },
@@ -283,7 +283,7 @@
           "active": false,
           "left": 0,
           "top": 263,
-          "zIndex": 119,
+          "zIndex": 9,
           "widthName": 147.89453125,
           "widthComment": 60
         },
@@ -345,7 +345,7 @@
           "active": false,
           "left": 74.3347,
           "top": 599,
-          "zIndex": 76,
+          "zIndex": 5,
           "widthName": 60,
           "widthComment": 60
         },
@@ -407,7 +407,7 @@
           "active": false,
           "left": 966.6666,
           "top": 568.6665,
-          "zIndex": 85,
+          "zIndex": 7,
           "widthName": 96.40869140625,
           "widthComment": 81.447265625
         },
@@ -469,7 +469,7 @@
           "active": false,
           "left": 950.9999,
           "top": 757.6657,
-          "zIndex": 187,
+          "zIndex": 17,
           "widthName": 206.2041015625,
           "widthComment": 96.61181640625
         },
@@ -554,7 +554,7 @@
           "active": false,
           "left": 959.0009,
           "top": 954.334,
-          "zIndex": 186,
+          "zIndex": 16,
           "widthName": 130.349609375,
           "widthComment": 60
         },
@@ -639,7 +639,7 @@
           "active": false,
           "left": 1553.6672,
           "top": 1063.9998,
-          "zIndex": 51,
+          "zIndex": 3,
           "widthName": 105.54931640625,
           "widthComment": 60
         },
@@ -770,7 +770,7 @@
           "active": false,
           "left": 950,
           "top": 1180.5001,
-          "zIndex": 50,
+          "zIndex": 2,
           "widthName": 60,
           "widthComment": 60
         },
@@ -924,7 +924,7 @@
           "active": false,
           "left": 904.0001,
           "top": 4.9162,
-          "zIndex": 126,
+          "zIndex": 82,
           "widthName": 82.158203125,
           "widthComment": 60
         },
@@ -1078,7 +1078,7 @@
           "active": false,
           "left": 33.0002,
           "top": 802.1664,
-          "zIndex": 52,
+          "zIndex": 4,
           "widthName": 89.1787109375,
           "widthComment": 60
         },
@@ -1255,7 +1255,7 @@
           "active": false,
           "left": 0,
           "top": 380.4167,
-          "zIndex": 118,
+          "zIndex": 8,
           "widthName": 66.2763671875,
           "widthComment": 60
         },
@@ -1455,7 +1455,7 @@
           "active": false,
           "left": 1562.2503,
           "top": 714.666,
-          "zIndex": 185,
+          "zIndex": 15,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1655,7 +1655,7 @@
           "active": false,
           "left": 1549.3334,
           "top": 346.8327,
-          "zIndex": 171,
+          "zIndex": 13,
           "widthName": 67.72998046875,
           "widthComment": 60
         },
@@ -1970,7 +1970,7 @@
           "active": false,
           "left": 20,
           "top": 1081.5,
-          "zIndex": 42,
+          "zIndex": 1,
           "widthName": 116.1181640625,
           "widthComment": 60
         },
@@ -2052,7 +2052,7 @@
           },
           {
             "name": "COMMENT_USER_ID",
-            "comment": "회원아이디",
+            "comment": "댓글 작성 회원아이디",
             "dataType": "VARCHAR(50)",
             "default": "",
             "option": {
@@ -2067,18 +2067,41 @@
               "fk": false,
               "pfk": false,
               "widthName": 132.736328125,
-              "widthComment": 67,
+              "widthComment": 120,
               "widthDataType": 87.71875,
               "widthDefault": 60
             },
             "id": "a4d3e708-de8c-48ed-996f-e7d15f2f7692"
+          },
+          {
+            "name": "COMMENT_ID",
+            "comment": "댓글UID",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 89.38818359375,
+              "widthComment": 60,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "838aa52c-6451-4319-9d4d-ecfa4c2f1e77"
           }
         ],
         "ui": {
           "active": false,
           "left": 253,
           "top": 0,
-          "zIndex": 178,
+          "zIndex": 73,
           "widthName": 69.158203125,
           "widthComment": 60
         },
@@ -2553,8 +2576,8 @@
           "columnIds": [
             "e322c685-d301-4bf2-8a4e-642f2ae76cdf"
           ],
-          "x": 724.0732421875,
-          "y": 75.5,
+          "x": 767.68505859375,
+          "y": 85.75,
           "direction": "right"
         },
         "constraintName": "fk_community_to_comment",
