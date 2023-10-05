@@ -41,13 +41,14 @@
           </tbody>
       </table>
       <br>
-  
-        <% } %>
-        <form style="display: inline-flex;">
-          <textarea name="comment" rows="3" cols="100" style="border: 1px solid #dddddd; flex: 1;" placeholder="소통을 위한 댓글창입니다"></textarea>
-          <button class="btn mx-2 mb-2 float-end submit btn-outline-secondary" formaction="/community/comment">작성하기</button>
-        </form>
+      
 
+        <form method="post" action="/community/comment/<%= record.get("COMMUNITY_ID") %>" style="display: inline-flex;">
+          <textarea name="COMMENT" rows="3" cols="100" style="border: 1px solid #dddddd; flex: 1;" placeholder="소통을 위한 댓글창입니다"></textarea>
+          <button type="submit" class="btn mx-2 mb-2 float-end submit btn-outline-secondary">작성하기</button>
+        </form>
+        <% } %>
+    
     </div>
     <div class="container" style="text-align: center; padding: 10%;">
        <a href="/community"> <button class="btn mx-2 mb-2 submit btn-outline-secondary">목록보기</button></a>

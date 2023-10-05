@@ -39,8 +39,31 @@ public class CommunityService {
         return result;
     
     }    
-
+    // 댓글
+    public Object insertcomment(Map<String, String> dataMap) {
+        String sqlMapId = "Commu.insertcomment";
+        dataMap.put("COMMENT_USER_ID", commons.getUserID());
+        dataMap.put("COMMUNITY_ID", dataMap.get("COMMUNITY_ID"));
+        HashMap result = new HashMap<>();
+        result.put("resultlist", sharedDao.insert(sqlMapId, dataMap));
+        return result;
+    }
   
+    public Map selectcomment(Map dataMap) {
+        // Object getOne(String sqlMapId, Object dataMap)
+        String sqlMapId = "Commu.selectcomment";
+        HashMap result = new HashMap<>();
+        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+        return result;
+    }
+    public Object insertAndSelectcomment(Map dataMap) {
+        HashMap result = new HashMap<>();
+        result.put("insertCount", this.insertcomment(dataMap));
+        result.putAll(this.selectcomment(dataMap));
+        return result;
+    }
+
+    
     //커뮤니티 테이블 리스트    
         public Map selectCommunity(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
@@ -59,6 +82,7 @@ public class CommunityService {
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;
     }
+
   
     // 페이지네이션
       public Map selectWithPagination(Map dataMap) {
@@ -88,8 +112,7 @@ public class CommunityService {
         return result;
     }
 
- 	
-
+   
 
 }
 
