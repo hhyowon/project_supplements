@@ -11,9 +11,9 @@
 
     <!-- 댓글 입력-->
     <insert id="insertcomment" parameterType="Map">
-        INSERT INTO comment (`COMMENT`, `COMMUNITY_ID`, `COMMENTDATE`, `COMMENT_USER_ID`)
+        INSERT INTO comment (`COMMENT`, `COMMUNITY_ID`, `COMMENTDATE`, `COMMENT_USER_ID`,`COMMENT_ID`)
         VALUES
-        (#{COMMENT}, #{COMMUNITY_ID}, CURRENT_TIMESTAMP, #{COMMENT_USER_ID});
+        (#{COMMENT}, #{COMMUNITY_ID}, CURRENT_TIMESTAMP, #{COMMENT_USER_ID}, #{COMMENT_ID});
     </insert>
 
     <!-- 댓글 읽어오기 -->

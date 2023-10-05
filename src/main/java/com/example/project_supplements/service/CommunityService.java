@@ -2,7 +2,6 @@ package com.example.project_supplements.service;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +32,6 @@ public class CommunityService {
         } else {
             // "COMMUNITY_ID"가 null이 아니고 빈 문자열도 아닌 경우 처리
         }
-        
         Object result_1 = sharedDao.insert(sqlMapId, dataMap);
         HashMap result = (HashMap) this.selectWithPagination(dataMap);
         return result;
@@ -42,8 +40,15 @@ public class CommunityService {
     // 댓글
     public Object insertcomment(Map<String, String> dataMap) {
         String sqlMapId = "Commu.insertcomment";
-        dataMap.put("COMMENT_USER_ID", commons.getUserID());
-        dataMap.put("COMMUNITY_ID", dataMap.get("COMMUNITY_ID"));
+         if (dataMap.get("COMMENT_ID") == null || dataMap.get("COMMENT_ID").equals("")) {
+            // "COMMUNITY_ID"가 null이거나 빈 문자열인 경우 처리
+            String uuid = commons.generateUUID(); // user_id 받기 (수정)
+            dataMap.put("COMMENT_ID", uuid);
+            dataMap.put("COMMENT_USER_ID", commons.getUserID());
+            dataMap.put("COMMUNITY_ID", dataMap.get("COMMUNITY_ID"));
+        } else {
+            // "COMMUNITY_ID"가 null이 아니고 빈 문자열도 아닌 경우 처리
+        }
         HashMap result = new HashMap<>();
         result.put("resultlist", sharedDao.insert(sqlMapId, dataMap));
         return result;
@@ -56,6 +61,7 @@ public class CommunityService {
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;
     }
+    
     public Object insertAndSelectcomment(Map dataMap) {
         HashMap result = new HashMap<>();
         result.put("insertCount", this.insertcomment(dataMap));
