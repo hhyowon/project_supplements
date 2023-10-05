@@ -1,11 +1,10 @@
-USE `project_diet`;
+USE `project_second`;
 
 -- gender
 INSERT INTO gender(GENDER, GENDER_UID)
 VALUES
 ('남성', 'G-01')
 , ('여성', 'G-02');
-
 
 -- DORMANT_ACCOUNTS
 INSERT INTO DORMANT_ACCOUNTS (DORMANT, DORMANT_UID)
@@ -72,7 +71,6 @@ VALUES
 ('CU_08', 'C_01', '다이어트 보조제로 결과를 보는 데 얼마나 걸립니까?', '다이어트 보조제를 일상에 통합할 때 눈에 띄는 결과를 보기 위한 기간에 대한 통찰력을 구합니다.', '2023-07-12', 'parkcm789'),
 ('CU_09', 'C_02', '제품 검토: XYZ 다이어트 보조제', '효과, 부작용 및 전반적인 경험을 포함하여 XYZ 다이어트 보조제에 대한 심층적인 리뷰를 공유합니다.', '2023-07-11', 'songmr123'),
 ('CU_10', 'C_03', '초보자를 위한 필수 다이어트 보조제: 종합 가이드', '초보자를 위한 포괄적인 가이드를 제공하고 안전하고 효과적이며 보충제의 세계에 처음 입문하는 사람들에게 적합한 다이어트 보조제를 추천합니다.', '2023-07-11', 'limdh123');
-
 
 -- research
 INSERT INTO PRODUCT (PRODUCT_UID, PRODUCT, URL, USER_ID,FORMULATION,PROUDUCT_IMG,EFFECT)
@@ -152,7 +150,6 @@ VALUES
 ('F-02', 'Q-13'),
 ('F-02', 'Q-14');
 
-
 -- survey_opt
 INSERT INTO survey_opt (OPT_ORDER, SURVEY_QUESTION_ID, SURVEY_OPT, SURVEY_OPT_ID, SURVEY_OPT_URL, SURVEY_OPT_WEB_URL)
 VALUES
@@ -220,8 +217,6 @@ VALUES
 ('62', 'Q-14', '환각', 'O-62','', ''),
 ('63', 'Q-14', '변비', 'O-63','', ''),
 ('64', 'Q-14', '해당사항 없음', 'O-64','', '');
-
-
 
 -- surveyresult
 INSERT INTO surveyresult (USER_ID, DATE_TIME, SURVEY_UID)
@@ -296,7 +291,6 @@ VALUES
 ('parkcm789', '2022-03-30', 'SUID_68'),
 ('songmr123', '2022-03-31', 'SUID_69'),
 ('limdh123', '2022-04-01', 'SUID_70');
-
 
 -- survey 
 INSERT INTO survey (SURVEY_TYPE_ID, SURVEY_QUESTION_ID, SURVEY_ID, SURVEY_OPT_ID, SURVEY_UID)
@@ -409,7 +403,6 @@ select 'System_Code_Yes','Yes',1,NULL,NULL,'Sytem Using Yes','System_Code_Yes','
 select 'System_Code_No','No',2,NULL,NULL,'Sytem Using No','System_Code_Yes','Yes','System_Code_YN','UUID-1111-1111111',now(),'UUID-1111-1111111',now() from dual 
 ; 
 
-
 insert into AUTH_NAMES 
 (UNIQUE_ID,AUTH_NAME)
 values
@@ -418,3 +411,11 @@ values
 ('ROLE_USER','USER'),
 ('ROLE_GUEST','GUEST')
 ;
+
+INSERT INTO  comment
+(COMMENT, COMMUNITY_ID, COMMENTDATE, COMMENT_USER_ID, COMMENT_ID)
+VALUES 
+('이 보조제가 좋더라고요', 'CU_01', '2023-10-05', 'rkqo457', 'CM-01' ) ,
+('배송은 빠른가요?', 'CU_01', '2023-10-04', 'rkqo457', 'CM-02' ),
+('제품은 좋은가용?', 'CU_01', '2023-10-03', 'rkqo457', 'CM-03' ),
+('이 보조제 효능이 좋아요', 'CU_01', '2023-10-04', 'rkqo457', 'CM-03' );
