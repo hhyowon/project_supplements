@@ -49,9 +49,9 @@ public class CommunityController {
 
     // 댓글 작성
       @PostMapping("/comment/{COMMUNITY_ID}")
-      public ModelAndView comment(@PathVariable("COMMUNITY_ID") String communityId, @RequestParam Map<String, String> params, ModelAndView modelAndView) {
-          params.put("COMMUNITY_ID", communityId);
-          Object result = communityService.insertAndSelectcomment(params);
+      public ModelAndView comment(@PathVariable("COMMUNITY_ID") String COMMUNITY_ID, @RequestParam Map<String, String> params, ModelAndView modelAndView) {
+          params.put("COMMUNITY_ID", COMMUNITY_ID);
+          Object result = communityService.insertAndSelectcomment(COMMUNITY_ID ,params);
           modelAndView.addObject("params", params);
           modelAndView.addObject("result", result);
           modelAndView.setViewName("/WEB-INF/views/community/community_post_comment.jsp");
@@ -61,9 +61,9 @@ public class CommunityController {
 
     // 해당 게시글 가져오기
     @GetMapping({"/communityPost/{COMMUNITY_ID}"})
-     public ModelAndView communityPost(@PathVariable("COMMUNITY_ID") String communityId, @RequestParam Map<String, String> params, ModelAndView modelAndView) {
-        params.put("COMMUNITY_ID", communityId);
-         Object result = communityService.selectcomment(params);
+     public ModelAndView communityPost(@PathVariable("COMMUNITY_ID") String COMMUNITY_ID, @RequestParam Map<String, String> params, ModelAndView modelAndView) {
+        params.put("COMMUNITY_ID", COMMUNITY_ID);
+        Object result = communityService.selectPostComment(COMMUNITY_ID, params);
 
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);

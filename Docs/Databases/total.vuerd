@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -92,
-    "scrollLeft": -157,
+    "scrollTop": 0,
+    "scrollLeft": -315,
     "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
@@ -467,9 +467,15 @@
         ],
         "ui": {
           "active": false,
+<<<<<<< HEAD
           "left": 928.4999,
           "top": 752.6657,
           "zIndex": 20,
+=======
+          "left": 950.9999,
+          "top": 757.6657,
+          "zIndex": 17,
+>>>>>>> fd7faf711258a89c28cb5774d784d09ba24297fc
           "widthName": 206.2041015625,
           "widthComment": 96.61181640625
         },
@@ -554,7 +560,11 @@
           "active": false,
           "left": 959.0009,
           "top": 954.334,
+<<<<<<< HEAD
           "zIndex": 15,
+=======
+          "zIndex": 16,
+>>>>>>> fd7faf711258a89c28cb5774d784d09ba24297fc
           "widthName": 130.349609375,
           "widthComment": 60
         },
@@ -924,7 +934,11 @@
           "active": false,
           "left": 904.0001,
           "top": 4.9162,
+<<<<<<< HEAD
           "zIndex": 11,
+=======
+          "zIndex": 82,
+>>>>>>> fd7faf711258a89c28cb5774d784d09ba24297fc
           "widthName": 82.158203125,
           "widthComment": 60
         },
@@ -1455,7 +1469,11 @@
           "active": false,
           "left": 1562.2503,
           "top": 714.666,
+<<<<<<< HEAD
           "zIndex": 17,
+=======
+          "zIndex": 15,
+>>>>>>> fd7faf711258a89c28cb5774d784d09ba24297fc
           "widthName": 60,
           "widthComment": 60
         },
@@ -2052,7 +2070,7 @@
           },
           {
             "name": "COMMENT_USER_ID",
-            "comment": "회원아이디",
+            "comment": "댓글 작성 회원아이디",
             "dataType": "VARCHAR(50)",
             "default": "",
             "option": {
@@ -2067,18 +2085,45 @@
               "fk": false,
               "pfk": false,
               "widthName": 132.736328125,
-              "widthComment": 67,
+              "widthComment": 120,
               "widthDataType": 87.71875,
               "widthDefault": 60
             },
             "id": "a4d3e708-de8c-48ed-996f-e7d15f2f7692"
+          },
+          {
+            "name": "COMMENT_ID",
+            "comment": "댓글UID",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 89.38818359375,
+              "widthComment": 60,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "838aa52c-6451-4319-9d4d-ecfa4c2f1e77"
           }
         ],
         "ui": {
           "active": false,
           "left": 253,
           "top": 0,
+<<<<<<< HEAD
           "zIndex": 21,
+=======
+          "zIndex": 73,
+>>>>>>> fd7faf711258a89c28cb5774d784d09ba24297fc
           "widthName": 69.158203125,
           "widthComment": 60
         },
@@ -2553,8 +2598,8 @@
           "columnIds": [
             "e322c685-d301-4bf2-8a4e-642f2ae76cdf"
           ],
-          "x": 724.0732421875,
-          "y": 75.5,
+          "x": 767.68505859375,
+          "y": 85.75,
           "direction": "right"
         },
         "constraintName": "fk_community_to_comment",

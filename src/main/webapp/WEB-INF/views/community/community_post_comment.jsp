@@ -10,7 +10,9 @@
   HashMap params = (HashMap)request.getAttribute("params"); 
   String searchStr = (String)params.getOrDefault("search", ""); 
   HashMap result = (HashMap)request.getAttribute("result"); 
-  
+  HashMap commentresult = (HashMap) result.get("commentresult");
+  ArrayList<HashMap<String, Object>> commentList = (ArrayList<HashMap<String, Object>>) commentresult.get("resultList");
+
   ArrayList resultList = (ArrayList)result.get("resultList"); 
   if (resultList != null && !resultList.isEmpty()) {
       HashMap record = (HashMap)resultList.get(0); %>
@@ -44,8 +46,8 @@
           
           <!-- 댓글 목록 렌더링 -->
           <%
-          for (int i = 0; i < resultList.size(); i++) {
-           HashMap comment = (HashMap)resultList.get(i);
+          for (int i = 0; i < commentList.size(); i++) {
+           HashMap CommentList = (HashMap)commentList.get(i);
           %>
           <table class="tb tb_row" style="border: 1px solid #ececec; width: 100%;">
             <colgroup>
@@ -53,9 +55,9 @@
             </colgroup>
             <tbody>
                 <tr style="border: 1px solid #ececec;">
-                    <th scope="row" style="background-color: #eeeeee; text-align: center; width: 20%;"><%= comment.get("COMMENT_USER_ID") %></th>
-                    <td style="width: 60%;"><%= comment.get("COMMENT") %></td>
-                    <td style="width: 20%;"><%= comment.get("COMMENTDATE") %></td>
+                    <th scope="row" style="background-color: #eeeeee; text-align: center; width: 20%;"><%= CommentList.get("COMMENT_USER_ID") %></th>
+                    <td style="width: 60%;"><%= CommentList.get("COMMENT") %></td>
+                    <td style="width: 20%;"><%= CommentList.get("COMMENTDATE") %></td>
                 </tr>
             </tbody>
           </table>

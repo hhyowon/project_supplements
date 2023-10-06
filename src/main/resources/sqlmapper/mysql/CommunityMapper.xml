@@ -18,12 +18,20 @@
 
     <!-- 댓글 읽어오기 -->
     <select id="selectcomment" parameterType="Map" resultType="Map">
-        SELECT a.COMMENT, a.COMMENTDATE, a.COMMENT_USER_ID, b.USER_ID, b.COMMUNITY_TITLE, b.COMMUNITY_CONTENT, b.COMMUNITY_DATE
+        SELECT a.COMMENT, a.COMMENTDATE, a.COMMENT_USER_ID, b.USER_ID, b.COMMUNITY_TITLE, b.COMMUNITY_CONTENT, b.COMMUNITY_DATE, b.COMMUNITY_ID
         FROM comment AS a
         INNER JOIN community AS b 
         ON a.COMMUNITY_ID = b.COMMUNITY_ID 
         WHERE b.COMMUNITY_ID = #{COMMUNITY_ID};
     </select> 
+
+    <!-- 해당 게시글 보기-->
+        <select id="communityPost" parameterType="Map" resultType="Map">
+        SELECT COMMUNITY_ID, COMMUNITY_TITLE, COMMUNITY_CONTENT, USER_ID ,COMMUNITY_DATE
+        FROM project_diet.community
+        WHERE COMMUNITY_ID = #{COMMUNITY_ID}
+        order by COMMUNITY_DATE DESC;
+        </select>
 
     <!-- 찐 커뮤니티 테이블 리스트 -->
 	<select id="community" parameterType="Map" resultType="Map">
@@ -70,14 +78,6 @@
         limit #{pageBegin}, #{pageScale} 
         ;
 	</select>
-
-    <!-- 해당 게시글 보기-->
-        <select id="communityPost" parameterType="Map" resultType="Map">
-        SELECT COMMUNITY_ID,COMMUNITY_TITLE, COMMUNITY_CONTENT, USER_ID ,COMMUNITY_DATE
-        FROM project_diet.community
-        WHERE COMMUNITY_ID = #{COMMUNITY_ID}
-        order by COMMUNITY_DATE DESC;
-        </select>
 
 <!-- -->
 
