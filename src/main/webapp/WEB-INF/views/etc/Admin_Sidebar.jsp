@@ -10,11 +10,20 @@
         <li class="d-flex align-items-center">
           <div class="text-decoration-none nav-link fs-5 fw-bold">관리자페이지</div>
         </li>
+
+        <li class="d-flex align-items-center">
+          <a href="/admin/charts/google_charts_scatter" class="text-decoration-none nav-link">
+            통계 관리
+          </a>  
+        </li>
+
         <li class="d-flex align-items-center">
           <a href="/admin/" class="text-decoration-none nav-link">
             회원 관리
           </a>
         </li>
+
+
         <li class="d-flex align-items-center">
           <a
             href="/adminproduct/selectSearch"

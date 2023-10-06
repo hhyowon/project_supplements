@@ -44,13 +44,14 @@
         <div>
 
         <!--아이디 작성(효원추가)-->
-        <div class="py-2" style="display: flex; flex-direction: column; align-items: flex-start;">
-          <label class="form-label" for="userid">아이디</label>
-          <input class="form-control" type="id" name="USER_ID" id="userid" placeholder="ID를 입력하세요" style="width: 500px;">
-          <button  class="btn btn-secondary" id="checkDuplicate" style="margin-top: 10px;">중복 확인</button>
-      </div>
+        <form>
+          <div class="form-group">
+              <label class="form-label" for="userid">아이디</label>
+              <input class="form-control" type="id" name="USER_ID" id="userid" placeholder="ID를 입력하세요" style="width: 500px;">
+              <button onclick="preCheckID(event)" class="btn btn-secondary" id="checkDuplicate" style="margin-top: 10px;">중복 확인</button>
+          </div>
+      </form>
       <div id="idMessage"></div>
-
 
         <div class="py-2"><!--비밀번호 작성-->
           <label class="form-label" for="pw">비밀번호 </label>
@@ -181,22 +182,7 @@ document.getElementById("insertForm").addEventListener("submit", checkForm);
 
 
 </script>
+<script src="/js/checkID.js"></script>
 
-<script>
-// 자동차 정보 상세 fetch예시
-function fetchCarInforDetail(){
-    let url = 'http://192.168.0.44:8080/selectDetail/CI002';
-    let request = fetch(url)
-    .then((result) => {
-        return result.json();
-    })
-    .then((data) => {
-        console.log(data);
-    })
-    .catch((errorMeg) => {
-        console.log(errorMeg);
-    });
-}
 
-</script>
 </html>

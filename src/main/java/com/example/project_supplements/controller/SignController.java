@@ -34,19 +34,20 @@ public class SignController {
         return modelAndView;
     }
 
-    //  @PostMapping("/checkDuplicateId")
-    // public ResponseEntity<?> checkDuplicateId(@RequestBody Map<String, String> request) {
-    //     String userId = request.get("userId");
+    
 
-    //     // 중복 확인 로직을 구현하고 결과를 반환합니다.
-    //     boolean isDuplicate = check(userId); /* 중복 확인 로직을 수행하세요 */;
+    @RequestMapping("/checkDuplicateId")
+    public ResponseEntity<Map<String, Boolean>> checkDuplicateId(@RequestBody Map<String, String> request) {
+    String userId = request.get("userId");
 
-    //     Map<String, Object> response = new HashMap<>();
-    //     response.put("isDuplicate", isDuplicate);
+    // 중복 확인 로직을 구현하고 결과 반환
+    boolean isDuplicate = signService.checkID(userId);
 
-    //     return ResponseEntity.ok(response);
-    // }
+    Map<String, Boolean> response = new HashMap<>();
+    response.put("isDuplicate", isDuplicate);
+    
+    return ResponseEntity.ok(response);
+}
 
-
-
+        
 }
