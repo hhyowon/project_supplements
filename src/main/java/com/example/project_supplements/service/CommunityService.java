@@ -2,7 +2,6 @@ package com.example.project_supplements.service;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,14 +32,43 @@ public class CommunityService {
         } else {
             // "COMMUNITY_ID"가 null이 아니고 빈 문자열도 아닌 경우 처리
         }
-        
         Object result_1 = sharedDao.insert(sqlMapId, dataMap);
         HashMap result = (HashMap) this.selectWithPagination(dataMap);
         return result;
     
     }    
+    // 댓글 넣기
+    public Object insertcomment(Map<String, String> dataMap) {
+        String sqlMapId = "Commu.insertcomment";
+         if (dataMap.get("COMMENT_ID") == null || dataMap.get("COMMENT_ID").equals("")) {
+            // "COMMUNITY_ID"가 null이거나 빈 문자열인 경우 처리
+            String uuid = commons.generateUUID(); // user_id 받기 (수정)
+            dataMap.put("COMMENT_ID", uuid);
+            dataMap.put("COMMENT_USER_ID", commons.getUserID());
+            
+        } else {
+            // "COMMUNITY_ID"가 null이 아니고 빈 문자열도 아닌 경우 처리
+        }
+        Object result = sharedDao.insert(sqlMapId, dataMap);
+        return result;
+    }
+    // 댓글 가져오기
+    public Map selectcomment(Map dataMap) {
+        // Object getOne(String sqlMapId, Object dataMap)
+        String sqlMapId = "Commu.selectcomment";
+        HashMap result = new HashMap<>();
+        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+        return result;
+    }
+    // 댓글 넣고 가져오기
+    public Object insertAndSelectcomment(String COMMUNITY_ID,Map dataMap) {
+        HashMap result = new HashMap<>();
+        result.put("insertCount", this.insertcomment(dataMap));
+        result.putAll((Map) this.selectPostComment(COMMUNITY_ID, dataMap)); //map 형태로 바꿔줌
+        return result;
+    }
 
-  
+    
     //커뮤니티 테이블 리스트    
         public Map selectCommunity(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
@@ -56,9 +84,21 @@ public class CommunityService {
         String sqlMapId = "Commu.communityPost";
         dataMap.put("COMMUNITY_ID", COMMUNITY_ID); 
         HashMap result = new HashMap<>();
+        result.putAll(this.selectcomment(dataMap));
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;
     }
+    //게시글+댓글가져오기
+    public Object selectPostComment(String COMMUNITY_ID, Map dataMap) {
+        // Object getOne(String sqlMapId, Object dataMap)
+        String sqlMapId = "Commu.communityPost";
+        dataMap.put("COMMUNITY_ID", COMMUNITY_ID); 
+        HashMap result = new HashMap<>();
+        result.put("commentresult", this.selectcomment(dataMap));
+        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+        return result;
+    }
+
   
     // 페이지네이션
       public Map selectWithPagination(Map dataMap) {
@@ -88,8 +128,7 @@ public class CommunityService {
         return result;
     }
 
- 	
-
+   
 
 }
 
