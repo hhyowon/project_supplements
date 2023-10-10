@@ -57,23 +57,21 @@ public class SignService {
         return result;
     }
 
-    public boolean checkID(String userId) {
+    public Object checkID(Map<String, String> dataMap) {
         // 데이터베이스에서 아이디 중복 확인 로직을 수행하여 결과를 반환
-        // 중복된 아이디가 있으면 true, 없으면 false를 반환하도록 구현
-        
+        // 중복된 아이디가 있으면 아이디를 반환하고, 없으면 스페이스(" ") 문자열 반환하도록 구현
+    
         // 예시: 여기에서 데이터베이스 쿼리를 실행하여 중복 확인을 수행
         // userId가 이미 존재하는지 확인하는 쿼리를 실행하고 결과를 받기
         String sqlMapId = "Sign.checkID";
-        Map<String, String> dataMap = new HashMap<>();
-        dataMap.put("userId", userId);
-        
+    
         // 실제로 데이터베이스 쿼리를 실행하고 결과를 받아옵니다.
-        boolean isDuplicate = (boolean) sharedDao.getOne(sqlMapId, dataMap);
-        
-        return isDuplicate;
+        String result = (String) sharedDao.getOne(sqlMapId, dataMap);
+
+    
+        // 결과가 null인 경우 스페이스(" ") 반환
+        return result != null ? result : " ";
     }
     
-
-
 
 }
