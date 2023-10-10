@@ -48,16 +48,26 @@ public class CommunityController {
     }
 
     // 댓글 작성
-      @PostMapping("/comment/{COMMUNITY_ID}")
-      public ModelAndView comment(@PathVariable("COMMUNITY_ID") String COMMUNITY_ID, @RequestParam Map<String, String> params, ModelAndView modelAndView) {
-          params.put("COMMUNITY_ID", COMMUNITY_ID);
-          Object result = communityService.insertAndSelectcomment(COMMUNITY_ID ,params);
-          modelAndView.addObject("params", params);
-          modelAndView.addObject("result", result);
-          modelAndView.setViewName("/WEB-INF/views/community/community_post_comment.jsp");
-          return modelAndView;
-      }
-
+    @PostMapping("/comment/{COMMUNITY_ID}")
+    public ModelAndView comment(@PathVariable("COMMUNITY_ID") String COMMUNITY_ID, @RequestParam Map<String, String> params, ModelAndView modelAndView) {
+        params.put("COMMUNITY_ID", COMMUNITY_ID);
+        Object result = communityService.insertAndSelectcomment(COMMUNITY_ID ,params);
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
+        modelAndView.setViewName("/WEB-INF/views/community/community_post_comment.jsp");
+        return modelAndView;
+    }
+    // 댓글 제출을 처리하는 컨트롤러 메서드
+    // @PostMapping("/comment/{COMMUNITY_ID}")
+    // public ResponseEntity comment(@PathVariable("COMMUNITY_ID") String COMMUNITY_ID, @RequestBody Map<String, String> params) {
+    //     try {
+    //         params.put("COMMUNITY_ID", COMMUNITY_ID);
+    //         Object result = communityService.insertAndSelectcomment(COMMUNITY_ID, params);
+    //         return ResponseEntity.ok(result);
+    //     } catch (Exception e) {
+    //         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("댓글 처리 중 오류 발생: " + e.getMessage());
+    //     }
+    // }
 
     // 해당 게시글 가져오기
     @GetMapping({"/communityPost/{COMMUNITY_ID}"})
