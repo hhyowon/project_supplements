@@ -5,8 +5,6 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <!-- Bootstrap CSS -->
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
             <!-- Google Charts API -->
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
             <style>
@@ -143,8 +141,6 @@
         }
     </script>
 
-    <!-- Bootstrap Bundle with Popper.js and Bootstrap JS -->
-    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js'></script>
     <!-- Google Maps API Script -->
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 
