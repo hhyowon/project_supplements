@@ -6,13 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.project_supplements.service.AdminCommunityService;
-import com.example.project_supplements.service.AdminService;
+import com.example.project_supplements.service.CommunityService;
 import com.example.project_supplements.utils.Commons;
 
 @Controller
@@ -24,6 +23,8 @@ public class AdminCommunityControll {
     @Autowired
     Commons commons;
 
+    @Autowired
+    CommunityService communityService;
     // 커뮤니티 관리
     @GetMapping({"/"})
     public ModelAndView community(@RequestParam Map params, ModelAndView modelAndView){
@@ -58,8 +59,9 @@ public class AdminCommunityControll {
 
     // 해당 게시글 가져오기
     @GetMapping({"/communityPost/{COMMUNITY_ID}"})
-    public ModelAndView communityPost(@PathVariable String COMMUNITY_ID, @RequestParam Map params, ModelAndView modelAndView) {
-            Object result = adminCommunityService.selectPost(COMMUNITY_ID, params);
+    public ModelAndView communityPost(@PathVariable("COMMUNITY_ID") String COMMUNITY_ID, @RequestParam Map<String, String> params, ModelAndView modelAndView) {
+        params.put("COMMUNITY_ID", COMMUNITY_ID);
+        Object result = communityService.selectPostComment(COMMUNITY_ID, params);
     
             modelAndView.addObject("params", params);
             modelAndView.addObject("result", result);

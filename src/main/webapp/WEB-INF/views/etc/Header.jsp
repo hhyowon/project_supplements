@@ -35,7 +35,7 @@
                             </li>
                             <sec:authorize access="hasRole('ROLE_ADMIN')">
                             <div>
-                                <a class="nav-link" href="/admin" style="color:black">관리자전용</a>
+                                <a class="nav-link" href="/admin/charts/google_charts_scatter" style="color:black">관리자전용</a>
                             </div>
                             </sec:authorize>
                         </sec:authorize>

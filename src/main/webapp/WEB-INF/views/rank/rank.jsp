@@ -148,11 +148,7 @@
                                             String surveyUrlFirst=(String) firstrecord.get("SURVEY_RANK_FIRST"); 
                                             String productUrlFirst=(String) firstrecord.get("SURVEY_OPT_WEB_URL"); %>
                                             <div class="col-4">
-<<<<<<< HEAD
-                                                <a href="<%= productUrlFirst %>">
-=======
                                                 <a href="<%= productUrlFirst %>" target="_blank">
->>>>>>> 7e713bf27a03c997cefce7edf5f25e92ac0137a0
                                                     <img src="<%= surveyUrlFirst %>" alt width="250" height="300">
                                                 </a>
                                             </div>
@@ -197,21 +193,6 @@
 
                                     <td rowspan='3' style="background-color: white;">
                                         <div class="row">
-<<<<<<< HEAD
-                                        
-                                            <% ArrayList secondresultList=(ArrayList)secondresult.get("secondresultList");
-                                            for (int i=0; i < secondresultList.size(); i++) { 
-                                            HashMap secondrecord=(HashMap) secondresultList.get(i); 
-                                            String surveyUrlSecond=(String) secondrecord.get("SURVEY_RANK_SECOND"); 
-                                            String productUrlSecond=(String) secondrecord.get("SURVEY_OPT_WEB_URL"); %>
-                                            <div class="col-4">
-                                                <a href="<%= productUrlSecond %>">
-                                                    <img src="<%= surveyUrlSecond %>" alt width="250" height="300">
-                                                </a>
-                                            </div>
-                                            <% } %>
-
-=======
                                             <% ArrayList secondresultList = (ArrayList) secondresult.get("secondresultList");
                                             for (int i = 0; i < secondresultList.size(); i++) {
                                                 HashMap secondrecord = (HashMap) secondresultList.get(i);
@@ -225,7 +206,6 @@
                                                 </a>
                                             </div>
                                             <% } %> 
->>>>>>> 7e713bf27a03c997cefce7edf5f25e92ac0137a0
                                         </div>
 
                                      
@@ -264,17 +244,6 @@
 
                                     <td rowspan='3' style="background-color: white;">
                                         <div class="row">
-<<<<<<< HEAD
-
-                                            <% ArrayList thirdresultList=(ArrayList)thirdresult.get("thirdresultList");
-                                            for (int i=0; i < thirdresultList.size(); i++) { 
-                                            HashMap thirdrecord=(HashMap) thirdresultList.get(i); 
-                                            String surveyUrlThird=(String) thirdrecord.get("SURVEY_RANK_THIRD"); 
-                                            String productUrlThird=(String) thirdrecord.get("SURVEY_OPT_WEB_URL"); %>
-                                            <div class="col-4">
-                                                <a href="<%= productUrlThird %>">
-                                                    <img src="<%= surveyUrlThird %>" alt width="250" height="300">
-=======
                                             <% ArrayList thirdresultList = (ArrayList) thirdresult.get("thirdresultList");
                                             for (int i = 0; i < thirdresultList.size(); i++) {
                                                 HashMap thirdrecord = (HashMap) thirdresultList.get(i);
@@ -284,7 +253,6 @@
                                             <div class="col-4">
                                                 <a href="<%= productUrlThird %>" target="_blank">
                                                     <img src="<%= surveyUrlThird %>" alt="3rd Product" width="250" height="300">
->>>>>>> 7e713bf27a03c997cefce7edf5f25e92ac0137a0
                                                 </a>
                                             </div>
                                             <% } %>
@@ -298,9 +266,8 @@
                         <br>
                         <h6 class="text-center">
                         <div>📌본 랭킹은 구매자들의 실제 후기 및 설문조사로 이루어진 랭킹입니다. </div>
-                        <div>이 랭킹은 정확하고 신뢰성 있는 설문조사 데이터를 기반으로 구성되었습니다. </div>
-                        <div>하지만 각 개인의 상황에 따라 결과가 달라질 수 있으니, </div>
-                            자신에게 가장 적합한 제품을 선택하는 데 주의하시기 바랍니다.</h6>
+                        <div>각 개인의 성향에 따라 효과가 다를 수 있으니, </div>
+                            자신에게 가장 적합한 제품을 선택하는 데 유의하시기 바랍니다.</h6>
                             <br>
                             <br>
                     </div>

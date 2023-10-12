@@ -19,26 +19,38 @@ public class SurveyResultController {
     @Autowired 
     SurveyResultService surveyResultService;
 
-     @GetMapping({"/result_yes"})
-     public ModelAndView result_yes(@RequestParam Map params, ModelAndView modelAndView){
+    //한개로 만들기
+        @GetMapping({"/result"})
+        public ModelAndView result(@RequestParam Map<String, String> params, ModelAndView modelAndView) {
+            String surveyTypeId = params.get("SURVEY_TYPE_ID"); // 이렇게 surveyTypeId를 가져옵니다.
+            Object result = surveyResultService.surveyResult(params, surveyTypeId); // surveyTypeId를 서비스로 전달합니다.
         
-        Object result = surveyResultService.surveyResultYes(params);
-         modelAndView.addObject("params", params);
-         modelAndView.addObject("result", result);
-         modelAndView.setViewName("/WEB-INF/views/survey/result_survey_yes.jsp");
-         return modelAndView;
-     }
+            modelAndView.addObject("params", params);
+            modelAndView.addObject("result", result);
+            modelAndView.setViewName("/WEB-INF/views/survey/result_survey.jsp");
+            return modelAndView;
+        }
+    //  @GetMapping({"/result_yes"})
+    //  public ModelAndView result_yes(@RequestParam Map params, ModelAndView modelAndView){
+        
+    //     Object result = surveyResultService.surveyResultYes(params);
+    //      modelAndView.addObject("params", params);
+    //      modelAndView.addObject("result", result);
+    //      modelAndView.setViewName("/WEB-INF/views/survey/result_survey_yes.jsp");
+    //      return modelAndView;
+    //  }
 
-     @GetMapping({"/result_no"})
-     public ModelAndView result_no(@RequestParam Map params, ModelAndView modelAndView){
-         Object result = surveyResultService.surveyResultNo(params);
+    //  @GetMapping({"/result_no"})
+    //  public ModelAndView result_no(@RequestParam Map params, ModelAndView modelAndView){
+    //      Object result = surveyResultService.surveyResultNo(params);
 
-         modelAndView.addObject("params", params);
-         modelAndView.addObject("result", result);
-         modelAndView.setViewName("/WEB-INF/views/survey/result_survey_no.jsp");
-         return modelAndView;
-     }
-
+    //      modelAndView.addObject("params", params);
+    //      modelAndView.addObject("result", result);
+    //      modelAndView.setViewName("/WEB-INF/views/survey/result_survey_no.jsp");
+    //      return modelAndView;
+    //  }
+     
+     
 
 }
 

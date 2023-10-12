@@ -60,7 +60,7 @@ public class AddProductController {
       
      
 
- // INSERT
+    // INSERT
       @GetMapping({"/insertForm"})
       public ModelAndView insertForm(@RequestParam Map params, ModelAndView modelAndView) {
   

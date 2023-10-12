@@ -28,6 +28,7 @@
     }
     %>
     <form method="get"> 
+        <input type="hidden" name="SURVEY_TYPE_ID" value="<%= surveyTypeId %>"> 
         <div class="container mx-auto" style="border: 2px solid rgb(91, 155, 213); padding: 20px; border-radius: 10px; text-align: center; width: 50%;">
             <tbody id="surveyboth">
                 <div class="top-margin text-center">
@@ -111,13 +112,13 @@
                 }
                 %>
                 
-                
+              
                 </tbody>
             </div>
             <div class="container bg-white fs-6 py-6 row mx-auto my-3">
                 <div class="text-center d-flex justify-content-center py-2">
                     <button type="submit" formaction="/main" class="btn btn-white mx-2 btn-outline-dark" style="border-color: black; color: black;">닫기</button>
-                    <button type="submit" formaction="/survey/insertAndSelectSurvey_YesResult" class="btn btn-white btn-outline-dark" style="background-color: #5B9BD5; color: white; border-color: transparent;"data-bs-toggle="modal" data-bs-target="#myModal">설문제출</button>
+                    <button type="submit" formaction="/survey/insertAndSelectSurveyResult" class="btn btn-white btn-outline-dark" style="background-color: #5B9BD5; color: white; border-color: transparent;"data-bs-toggle="modal" data-bs-target="#myModal">설문제출</button>
                 </div>
             </div>
         </form>

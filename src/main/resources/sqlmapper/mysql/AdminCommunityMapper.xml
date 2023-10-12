@@ -16,12 +16,20 @@
         ORDER BY  CO.COMMUNITY_DATE DESC;
         </select>
 
+    
     <!-- 커뮤니티 글 삭제 -->
-        <delete id="delete" parameterType="Map">
-            delete from community
-            where COMMUNITY_ID = #{COMMUNITY_ID} 
-        </delete>
+    <delete id="deletecomment" parameterType="Map">
+        <!-- 먼저 자식 행들을 삭제합니다. -->
+        delete from comment
+        where COMMUNITY_ID = #{COMMUNITY_ID};
+    </delete>   
 
+    <delete id="deletecommunity" parameterType="Map">
+        <!-- 그 다음 부모 행을 삭제합니다. -->
+        delete from community
+        where COMMUNITY_ID = #{COMMUNITY_ID};
+    </delete>
+    
     <!-- 해당 게시글 보기-->
         <select id="communityPost" parameterType="Map" resultType="Map">
         SELECT COMMUNITY_ID,COMMUNITY_TITLE, COMMUNITY_CONTENT, USER_ID ,COMMUNITY_DATE
@@ -66,4 +74,3 @@
 	</select>
 
 </mapper>
-
