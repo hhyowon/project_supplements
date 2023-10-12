@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.project_supplements.dao.SharedDao;
 import com.example.project_supplements.utils.Commons;
-import com.example.project_supplements.utils.Paginations;6
+import com.example.project_supplements.utils.Paginations;
 
 
 @Service
@@ -53,7 +53,7 @@ public class CommunityService {
         return result;
     }
     // 댓글 가져오기
-    public Map selectcomment(String COMMUNITY_ID, Map dataMap) {
+    public Map selectcomment(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
         String sqlMapId = "Commu.selectcomment";
         HashMap result = new HashMap<>();
@@ -78,16 +78,16 @@ public class CommunityService {
         return result;
     }
 
-    //게시글보기
-    public Object selectPost(String COMMUNITY_ID, Map dataMap) {
-        // Object getOne(String sqlMapId, Object dataMap)
-        String sqlMapId = "Commu.communityPost";
-        dataMap.put("COMMUNITY_ID", COMMUNITY_ID); 
-        HashMap result = new HashMap<>();
-        result.putAll(this.selectcomment(dataMap));
-        result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
-        return result;
-    }
+    // //게시글보기
+    // public Object selectPost(String COMMUNITY_ID, Map dataMap) {
+    //     // Object getOne(String sqlMapId, Object dataMap)
+    //     String sqlMapId = "Commu.communityPost";
+    //     dataMap.put("COMMUNITY_ID", COMMUNITY_ID); 
+    //     HashMap result = new HashMap<>();
+    //     result.putAll(this.selectcomment(sqlMapId, dataMap));
+    //     result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
+    //     return result;
+    // }
     //게시글+댓글가져오기
     public Object selectPostComment(String COMMUNITY_ID, Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)

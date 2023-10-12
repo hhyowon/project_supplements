@@ -7,10 +7,11 @@
 
       <%@ include file="/WEB-INF/views/etc/Header.jsp" %>
 
-        <% HashMap params=(HashMap)request.getAttribute("params"); String
-          searchStr=(String)params.getOrDefault("search", "" ); HashMap result=(HashMap)request.getAttribute("result");
-          HashMap commentresult=(HashMap) result.get("commentresult"); ArrayList<HashMap<String, Object>> commentList
-          =(ArrayList<HashMap<String, Object>>) commentresult.get("resultList");
+        <% HashMap params=(HashMap)request.getAttribute("params"); 
+        String searchStr=(String)params.getOrDefault("search", "" ); 
+        HashMap result=(HashMap)request.getAttribute("result");
+        HashMap commentresult=(HashMap)result.get("commentresult"); 
+        ArrayList<HashMap<String, Object>> commentList = (ArrayList<HashMap<String, Object>>) commentresult.get("resultList");
 
             ArrayList resultList = (ArrayList)result.get("resultList");
             if (resultList != null && !resultList.isEmpty()) {
@@ -99,6 +100,6 @@
             </div>
           
     </body>
-    <script src="/js/comment1.js"></script>
+    <script src="/js/comment.js"></script>
     
     </html>

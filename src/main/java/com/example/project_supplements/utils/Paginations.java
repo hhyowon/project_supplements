@@ -1,8 +1,5 @@
 package com.example.project_supplements.utils;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Paginations {
 
 	private int pageScale = 12; // 페이지당 게시물 수

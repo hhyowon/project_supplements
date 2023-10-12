@@ -111,7 +111,7 @@ public class CommunityController {
         params.put("COMMUNITY_ID", COMMUNITY_ID);
         Object result = communityService.insertAndSelectcomment(COMMUNITY_ID, params);
         // 응답을 Map 형식으로 반환합니다.
-        return (Map<String, Object>) result;
+6        return (Map<String, Object>) result;
     }
 
 
