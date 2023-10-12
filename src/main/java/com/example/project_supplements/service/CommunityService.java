@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.project_supplements.dao.SharedDao;
 import com.example.project_supplements.utils.Commons;
-import com.example.project_supplements.utils.Paginations;
+import com.example.project_supplements.utils.Paginations;6
 
 
 @Service
@@ -53,7 +53,7 @@ public class CommunityService {
         return result;
     }
     // 댓글 가져오기
-    public Map selectcomment(Map dataMap) {
+    public Map selectcomment(String COMMUNITY_ID, Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)
         String sqlMapId = "Commu.selectcomment";
         HashMap result = new HashMap<>();
@@ -131,8 +131,3 @@ public class CommunityService {
    
 
 }
-
-
-
-
-  

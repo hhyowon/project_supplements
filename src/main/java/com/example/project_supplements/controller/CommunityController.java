@@ -8,8 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.project_supplements.service.CommunityService;
@@ -36,7 +38,7 @@ public class CommunityController {
         modelAndView.setViewName("/WEB-INF/views/community/community.jsp"); // 모델과 뷰 정보를 포함한 ModelAndView 객체를 반환
         return modelAndView;
     }
-
+    
     @GetMapping({ "/selectSearch" })
     public ModelAndView communityselectSearch(@RequestParam Map<String, String> params, ModelAndView modelAndView) {
         // Map<String, String>으로 타입을 지정했으며, 파라미터의 이름과 값은 모두 문자열(String)로 처리
@@ -45,41 +47,6 @@ public class CommunityController {
         modelAndView.addObject("result", result);// 검색 결과(result)를 "result"라는 이름으로 모델에 추가합니다. 마찬가지로 JSP 페이지에서 해당 데이터에 접근
         modelAndView.setViewName("/WEB-INF/views/community/community.jsp"); // 모델과 뷰 정보를 포함한 ModelAndView 객체를 반환
         return modelAndView;
-    }
-
-    // 댓글 작성
-    @PostMapping("/comment/{COMMUNITY_ID}")
-    public ModelAndView comment(@PathVariable("COMMUNITY_ID") String COMMUNITY_ID, @RequestParam Map<String, String> params, ModelAndView modelAndView) {
-        params.put("COMMUNITY_ID", COMMUNITY_ID);
-        Object result = communityService.insertAndSelectcomment(COMMUNITY_ID ,params);
-        modelAndView.addObject("params", params);
-        modelAndView.addObject("result", result);
-        modelAndView.setViewName("/WEB-INF/views/community/community_post_comment.jsp");
-        return modelAndView;
-    }
-    // 댓글 제출을 처리하는 컨트롤러 메서드
-    // @PostMapping("/comment/{COMMUNITY_ID}")
-    // public ResponseEntity comment(@PathVariable("COMMUNITY_ID") String COMMUNITY_ID, @RequestBody Map<String, String> params) {
-    //     try {
-    //         params.put("COMMUNITY_ID", COMMUNITY_ID);
-    //         Object result = communityService.insertAndSelectcomment(COMMUNITY_ID, params);
-    //         return ResponseEntity.ok(result);
-    //     } catch (Exception e) {
-    //         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("댓글 처리 중 오류 발생: " + e.getMessage());
-    //     }
-    // }
-
-    // 해당 게시글 가져오기
-    @GetMapping({"/communityPost/{COMMUNITY_ID}"})
-     public ModelAndView communityPost(@PathVariable("COMMUNITY_ID") String COMMUNITY_ID, @RequestParam Map<String, String> params, ModelAndView modelAndView) {
-        params.put("COMMUNITY_ID", COMMUNITY_ID);
-        Object result = communityService.selectPostComment(COMMUNITY_ID, params);
-
-        modelAndView.addObject("params", params);
-        modelAndView.addObject("result", result);
-        modelAndView.setViewName("/WEB-INF/views/community/community_post_comment.jsp");
-
-        return modelAndView; 
     }
 
     @GetMapping("/communityModal")
@@ -110,7 +77,42 @@ public class CommunityController {
         modelAndView.setViewName("/WEB-INF/views/community/community.jsp");
         return modelAndView;
     }
-
-  
     
+    // // 댓글 작성
+    // @PostMapping("/comment/{COMMUNITY_ID}")
+    // public ModelAndView comment(@PathVariable("COMMUNITY_ID") String COMMUNITY_ID,
+    //         @RequestParam Map<String, String> params, ModelAndView modelAndView) {
+    //     params.put("COMMUNITY_ID", COMMUNITY_ID);
+    //     Object result = communityService.insertAndSelectcomment(COMMUNITY_ID, params);
+    //     modelAndView.addObject("params", params);
+    //     modelAndView.addObject("result", result);
+    //     modelAndView.setViewName("/WEB-INF/views/community/community_post_comment.jsp");
+    //     return modelAndView;
+    // }
+
+    // 해당 게시글 가져오기
+    @GetMapping({ "/communityPost/{COMMUNITY_ID}" })
+    public ModelAndView communityPost(@PathVariable("COMMUNITY_ID") String COMMUNITY_ID,
+            @RequestParam Map<String, String> params, ModelAndView modelAndView) {
+        params.put("COMMUNITY_ID", COMMUNITY_ID);
+        Object result = communityService.selectPostComment(COMMUNITY_ID, params);
+
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
+        modelAndView.setViewName("/WEB-INF/views/community/community_post_comment.jsp");
+
+        return modelAndView;
+    }
+    //댓글 작성 fetch
+    @PostMapping("/comment/{COMMUNITY_ID}")
+    @ResponseBody
+    public Map<String, Object> comment(@PathVariable("COMMUNITY_ID") String COMMUNITY_ID,
+            @RequestBody Map<String, String> params) {
+        params.put("COMMUNITY_ID", COMMUNITY_ID);
+        Object result = communityService.insertAndSelectcomment(COMMUNITY_ID, params);
+        // 응답을 Map 형식으로 반환합니다.
+        return (Map<String, Object>) result;
+    }
+
+
 }

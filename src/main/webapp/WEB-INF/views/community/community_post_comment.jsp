@@ -7,11 +7,10 @@
 
       <%@ include file="/WEB-INF/views/etc/Header.jsp" %>
 
-        <% HashMap params=(HashMap)request.getAttribute("params"); 
-        String searchStr=(String)params.getOrDefault("search", "" ); 
-        HashMap result=(HashMap)request.getAttribute("result");
-        HashMap commentresult=(HashMap) result.get("commentresult"); 
-        ArrayList<HashMap<String, Object>> commentList =(ArrayList<HashMap<String, Object>>) commentresult.get("resultList");
+        <% HashMap params=(HashMap)request.getAttribute("params"); String
+          searchStr=(String)params.getOrDefault("search", "" ); HashMap result=(HashMap)request.getAttribute("result");
+          HashMap commentresult=(HashMap) result.get("commentresult"); ArrayList<HashMap<String, Object>> commentList
+          =(ArrayList<HashMap<String, Object>>) commentresult.get("resultList");
 
             ArrayList resultList = (ArrayList)result.get("resultList");
             if (resultList != null && !resultList.isEmpty()) {
@@ -57,8 +56,8 @@
                 <br>
 
                 <!-- 댓글 목록 렌더링 -->
-                <div id="commentTableContainer"></div>
-
+                <input type="hidden" id="communityIdHidden" value="<%= record.get("COMMUNITY_ID") %>">
+                <div id="commentTableContainer">
                 <% for (int i=0; i < commentList.size(); i++) { HashMap CommentList=(HashMap)commentList.get(i); %>
                   <table class="tb tb_row" style="border: 1px solid #ececec; width: 100%;">
                     <colgroup>
@@ -81,16 +80,15 @@
                     </tbody>
                   </table>
                   <% } %>
+                </div>
 
-                 
-            <!-- 댓글 입력 폼 -->
-            <form method="post" action="/community/comment/<%= record.get("COMMUNITY_ID") %>" style="display:
-              inline-flex;">
-              <textarea id="commentInput" name="COMMENT" rows="3" cols="100"
-                  style="border: 1px solid #dddddd; flex: 1;" placeholder="소통을 위한 댓글창입니다"></textarea>
-              <button type="submit" id="submitButton" class="btn mx-2 mb-2 float-end submit btn-outline-secondary">작성하기</button>
-              
-            </form>
+                    <!-- 댓글 입력 폼 -->
+                    <form id="commentForm" style="display: inline-flex;">
+                      <textarea id="commentInput" name="COMMENT" rows="3" cols="100"
+                        style="border: 1px solid #dddddd; flex: 1;" placeholder="소통을 위한 댓글창입니다"></textarea>
+                      <button type="submit" id="submitButton"
+                        class="btn mx-2 mb-2 float-end submit btn-outline-secondary">작성하기</button>
+                    </form>
 
                     <!-- 목록보기 버튼 -->
                     <div class="container" style="text-align: center; padding: 10%;">
@@ -99,7 +97,8 @@
                     <% } %>
               </div>
             </div>
-            <script src="/src/main/resources/static/js/comment.js"></script>
+          
     </body>
-
+    <script src="/js/comment1.js"></script>
+    
     </html>
