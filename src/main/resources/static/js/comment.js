@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const commentForm = document.getElementById("commentForm");
-    const commentInput = document.getElementById("commentInput");
-    let COMMUNITY_ID = document.getElementById('communityIdHidden').value;// 값을 가져옵니다.
+    const commentForm = document.getElementById("commentForm"); //JSP ID 값 : commentForm, 댓글 입력하고 전송요소 
+    const commentInput = document.getElementById("commentInput"); //JSP ID 값 :commentInput, 댓글 입력하는 텍스트 필드
+    let COMMUNITY_ID = document.getElementById('communityIdHidden').value;// 특정 커뮤니티 게시물의 ID를 가져옵니다. 이 ID는 폼 안의 숨겨진 필드에서 가져옵니다.
 
-    commentForm.addEventListener("submit", function(e) {
-        e.preventDefault();
+    commentForm.addEventListener("submit", function(e) { //commentForm이 제출될 때 실행될 코드를 정의합니다.
+        e.preventDefault(); // form이 제출될 때 기본적으로 페이지 리로드되는 동작 막음
             
-        let commentText = commentInput.value;
+        let commentText = commentInput.value; 
 
         fetch(`/community/comment/${COMMUNITY_ID}`, {
             method: "POST",
@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", function() {
             body: JSON.stringify({
                 COMMENT: commentText
             }),
-        })
-        .then(response => response.json())
-        .then(data => {
+        }) // fetch 함수를 사용해 서버에 POST 요청을 보냅니다. 이 때, 댓글 내용과 함께 게시물의 ID를 URL에 포함시킵니다.
+        .then(response => response.json()) //서버로부터의 응답을 JSON 형태로 변환
+        // .then(data => {  // 데이터를 처리
             const resultList = data.commentresult.resultList;
             // 'commentresult' 안에 'resultList'를 찾습니다.
         
@@ -64,4 +64,3 @@ document.addEventListener("DOMContentLoaded", function() {
             commentInput.value = '';
         });
     });
-});
