@@ -19,11 +19,8 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(response => response.json())
         .then(data => {
-             // 'result' 안에 'commentresult'를 찾습니다.
-            const commentResult = data.result.commentresult;
+            const resultList = data.commentresult.resultList;
             // 'commentresult' 안에 'resultList'를 찾습니다.
-            const resultList = commentResult.resultList;
-              // 'resultList'를 반복하면서 데이터에 접근합니다.
             resultList.forEach(item => {
                 const COMMENT_USER_ID = item.COMMENT_USER_ID;
                 const COMMENT = item.COMMENT;
@@ -45,13 +42,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 <tbody>
                     <tr style="border: 1px solid #ececec;">
                         <th scope="row" style="background-color: #eeeeee; text-align: center; width: 20%;">
-                            User ID: ${COMMENT_USER_ID}
+                            ${COMMENT_USER_ID}
                         </th>
                         <td style="width: 60%;">
-                            Comment: ${COMMENT}
+                            ${COMMENT}
                         </td>
                         <td style="width: 20%;">
-                            Comment Date: ${COMMENTDATE}
+                            ${COMMENTDATE}
                         </td>
                     </tr>
                 </tbody>
