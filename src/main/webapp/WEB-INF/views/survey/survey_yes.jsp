@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/maintool.css">
-    <title>복용한자의 폼</title>
+    <title>복용자의 폼</title>
 </head>
 
 <body>
@@ -24,7 +24,7 @@
     <div style="text-align: center;">
         <img class="mb-4" src="/html/img/logo.PNG" alt width="240" height="100"
             style="display: block; margin-left: auto; margin-right: auto;">
-        <H1>다이어트 보조제 복용인을 대상으로 한 설문조사</H1>
+        <H1>복용자 설문조사</H1>
     </div>
 
     <form method="get" action="/survey/survey_yes">

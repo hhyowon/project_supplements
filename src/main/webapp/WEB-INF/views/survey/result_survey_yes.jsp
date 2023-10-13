@@ -14,15 +14,15 @@
         <% HashMap params=(HashMap)request.getAttribute("params"); 
         HashMap result=(HashMap)request.getAttribute("result");%>
 
-          <div class="container">
-                <div class=text-center >
-                    <h2 class="ui teal image header text-center">설문조사 결과 (복용 경험 있는 자)</h2>
+          <div class="container"> 
+            <!-- <div style="float: right; width: 600px; margin-top: 6cm;"> -->
+               
+                <div>
+                    <a href="/rank" style="background-color: transparent; color: #454546; font-weight: bold; text-decoration: none; padding: 10px 20px; border: 2px solid #454546; border-radius: 5px; display: inline-block; margin-top: 30px;">랭킹 보러가기</a>
                 </div>
-                <li class="d-flex align-items-center">
-                    <a href="/surveyresult/result_no" class="text-decoration-none nav-link">
-                        없는자
-                    </a>
-                </li>
+                
+
+                    <h3 style="color: #5B9BD5; font-weight: bold; margin-top: 30px;">복용자의 설문통계 결과</h3>
                 <br>
             <table class="table table-bordered ">
                 <thead>
@@ -63,5 +63,6 @@
     </div>
     <%@ include file="/WEB-INF/views/etc/Footer.jsp" %>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </html>
 

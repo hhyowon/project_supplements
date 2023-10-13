@@ -3,6 +3,8 @@ package com.example.project_supplements.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,13 +18,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.project_supplements.service.BmiService;
 import com.example.project_supplements.utils.Commons;
-
+import com.google.gson.Gson;
 
 @Controller
 
 @RequestMapping("/bmi")
 
 public class BMIController {
+    @Autowired
+    private Gson gson;
+
     @Autowired
     BmiService bmiService;
 
@@ -34,7 +39,23 @@ public class BMIController {
         modelAndView.setViewName("/WEB-INF/views/bmi/bmi.jsp"); 
         return modelAndView;
     }
-
+    
+    // // 그래프 데이터 생성 메서드ㄴ
+    // private List<List<Object>> createChartData() {
+    //     List<List<Object>> chartData = new ArrayList<>();
+        
+    //     // 그래프 데이터 생성 로직을 여기에 추가합니다.
+    //     // 예시 데이터:
+    //     chartData.add(Arrays.asList("Age", "Weight"));
+    //     chartData.add(Arrays.asList(8, 12));
+    //     chartData.add(Arrays.asList(4, 5.5));
+    //     chartData.add(Arrays.asList(11, 14));
+    //     chartData.add(Arrays.asList(4, 5));
+    //     chartData.add(Arrays.asList(3, 3.5));
+    //     chartData.add(Arrays.asList(6.5, 7));
+        
+    //     return chartData;
+    // }
     // BMI 계산 메서드
     private double calculateBMI(double height, double weight) {
         // BMI 계산 로직을 여기에 추가합니다.
@@ -55,6 +76,8 @@ public class BMIController {
 
     // BMI를 계산합니다.
     double bmi = calculateBMI(height, weight);
+ // BMI 값을 소수 둘째 자리까지 반올림
+    bmi = Math.round(bmi * 100.0) / 100.0;
 
     // BMI 결과를 데이터베이스에 삽입합니다.
     Map<String, Object> dataMap = new HashMap<>();
@@ -90,6 +113,12 @@ public class BMIController {
     resultModel.put("BMI_TYPE", bmiType); // BMI 타입
     modelAndView.addObject("params", params);
     modelAndView.addObject("result", resultModel); // 수정된 부분
+
+          // 서비스에서 데이터를 가져오고 JSON으로 변환하여 JSP로 전달
+            Map<String, Object> result = bmiService.getAvgBMI();
+            String jsonData = gson.toJson(result);
+            modelAndView.addObject("dataArray", jsonData);
+
     modelAndView.setViewName("/WEB-INF/views/bmi/bmi_result.jsp");
 
     return modelAndView;

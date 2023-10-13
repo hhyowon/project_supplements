@@ -52,6 +52,7 @@
       </form>
       <div id="idMessage"></div>
 
+
         <div class="py-2"><!--비밀번호 작성-->
           <label class="form-label" for="pw">비밀번호 </label>
           <input class="form-control" type="password" name="PASSWORD" id="pw" placeholder="패스워드를 입력하세요"

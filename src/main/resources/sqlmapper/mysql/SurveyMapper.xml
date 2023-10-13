@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="SurveyService">
 
-    <select id="surveyboth" parameterType="Map" resultType="Map">
+
+<mapper namespace="SurveyService">
+<select id="surveyboth" parameterType="Map" resultType="Map">
         SELECT Q.SURVEY_QUESTION, O.SURVEY_OPT, Q.SURVEY_QUESTION_ID,  O.SURVEY_OPT_ID , T.SURVEY_TYPE_ID 
         FROM survey_type_for_question AS T
         INNER JOIN survey_question AS Q 
@@ -11,48 +12,46 @@
         ON Q.SURVEY_QUESTION_ID = O.SURVEY_QUESTION_ID
         WHERE T.SURVEY_TYPE_ID = #{SURVEY_TYPE_ID}
         ORDER BY O.OPT_ORDER;
-	</select>
+ </select>
 
-    
-    <!-- 질문과 답항을 뽑아오는 쿼리(복용x) 
-	<select id="surveyno" parameterType="Map" resultType="Map">
-        SELECT Q.SURVEY_QUESTION, O.SURVEY_OPT, Q.SURVEY_QUESTION_ID,  O.SURVEY_OPT_ID
-        FROM survey_type_for_question AS T
-        INNER JOIN survey_question AS Q 
-        ON T.SURVEY_QUESTION_ID = Q.SURVEY_QUESTION_ID
-        LEFT JOIN survey_opt AS O 
-        ON Q.SURVEY_QUESTION_ID = O.SURVEY_QUESTION_ID
-        WHERE T.SURVEY_TYPE_ID = 'F-01'
-        ORDER BY O.OPT_ORDER;
+ <!-- 질문과 답항을 뽑아오는 쿼리(복용x)  
+<select id="surveyno" parameterType="Map" resultType="Map"> 
+SELECT Q.SURVEY_QUESTION, O.SURVEY_OPT, Q.SURVEY_QUESTION_ID, O.SURVEY_OPT_ID 
+FROM survey_type_for_question AS T 
+INNER JOIN survey_question AS Q 
+ON T.SURVEY_QUESTION_ID = Q.SURVEY_QUESTION_ID 
+LEFT JOIN survey_opt AS O 
+ON Q.SURVEY_QUESTION_ID = O.SURVEY_QUESTION_ID 
+WHERE T.SURVEY_TYPE_ID = 'F-01' 
+ORDER BY O.OPT_ORDER;
+ </select>
 
-	</select>
+  질문과 답항을 뽑아오는 쿼리(복용o)
+<select id="surveyyes" parameterType="Map" resultType="Map"> 
+SELECT Q.SURVEY_QUESTION, O.SURVEY_OPT, Q.SURVEY_QUESTION_ID, O.SURVEY_OPT_ID 
+FROM survey_type_for_question AS T 
+INNER JOIN survey_question AS Q ON T.SURVEY_QUESTION_ID = Q.SURVEY_QUESTION_ID 
+LEFT JOIN survey_opt AS O ON Q.SURVEY_QUESTION_ID = O.SURVEY_QUESTION_ID 
+WHERE T.SURVEY_TYPE_ID = 'F-02' 
+ORDER BY O.OPT_ORDER; 
+</select> -->
 
-    질문과 답항을 뽑아오는 쿼리(복용o)  
-    <select id="surveyyes" parameterType="Map" resultType="Map">
-        SELECT Q.SURVEY_QUESTION, O.SURVEY_OPT, Q.SURVEY_QUESTION_ID, O.SURVEY_OPT_ID
-        FROM survey_type_for_question AS T
-        INNER JOIN survey_question AS Q 
-        ON T.SURVEY_QUESTION_ID = Q.SURVEY_QUESTION_ID
-        LEFT JOIN survey_opt AS O 
-        ON Q.SURVEY_QUESTION_ID = O.SURVEY_QUESTION_ID
-        WHERE T.SURVEY_TYPE_ID = 'F-02'
-        ORDER BY O.OPT_ORDER;
-	</select> -->
+<!--  설문조사 결과 insert(부모테이블) -->
+<insert id="insertsurveyresult" parameterType="Map"> 
+INSERT INTO surveyresult (USER_ID, DATE_TIME, SURVEY_UID) 
+VALUES (#{USER_ID}, #{DATE_TIME}, #{SURVEY_UID});
+ </insert>
 
-    <!-- 설문조사 결과 insert(부모테이블)-->
-   <insert id="insertsurveyresult" parameterType="Map">
-    INSERT INTO surveyresult (USER_ID, DATE_TIME, SURVEY_UID)
-    VALUES (#{USER_ID}, #{DATE_TIME}, #{SURVEY_UID});
-    </insert>
-    
-    <!-- 설문조사 결과 insert(자식테이블)-->
-    <insert id="insertsurvey" parameterType="Map">
-    INSERT INTO survey (SURVEY_TYPE_ID, SURVEY_QUESTION_ID, SURVEY_ID, SURVEY_OPT_ID, SURVEY_UID)
-    VALUES   
-    <foreach collection="surveyMapList" item="questionAnswerMap" index="index" separator=",">
-        (#{SURVEY_TYPE_ID}, #{questionAnswerMap.QuestionId}, #{questionAnswerMap.SURVEY_ID}, #{questionAnswerMap.AnswerId}, #{SURVEY_UID})
-    </foreach>   
-   </insert>
-    
+<!--  설문조사 결과 insert(자식테이블) -->
+<insert id="insertsurvey" parameterType="Map">
+    INSERT INTO survey 
+    (SURVEY_TYPE_ID, SURVEY_QUESTION_ID, SURVEY_ID, SURVEY_OPT_ID, SURVEY_UID) VALUES
+    <foreach collection="surveyMapList" item="questionAnswerMap" index="index" separator=","> 
+    (#{SURVEY_TYPE_ID}, #{questionAnswerMap.QuestionId}, #{questionAnswerMap.SURVEY_ID}, #{questionAnswerMap.AnswerId}, #{SURVEY_UID}) 
+</foreach>
+</insert>
+
 </mapper>
+    
+
 

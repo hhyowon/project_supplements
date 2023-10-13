@@ -43,28 +43,17 @@ public class BmiService {
 
     }
 
-   public String getUserGender(String userId) {
-    String sqlMapId = "BMI.getUserGender"; // XML 쿼리 ID
-    Map<String, Object> params = new HashMap<>();
-    params.put("USER_ID", userId);
+    public String getUserGender(String userId) {
+        String sqlMapId = "BMI.getUserGender"; // XML 쿼리 ID
+        Map<String, Object> params = new HashMap<>();
+        params.put("USER_ID", userId);
 
-    String gender = (String) sharedDao.getOne(sqlMapId, params); // 단일 레코드 조회
+        String gender = (String) sharedDao.getOne(sqlMapId, params); // 단일 레코드 조회
 
-    return gender;
-}
+        return gender;
+    }
     
-        
-    // 커뮤니티 테이블 리스트    
-    
-        // public Map selectBMI(Map dataMap) {
-        //     // Object getOne(String sqlMapId, Object dataMap)
-        //     String sqlMapId = "BMI.resultBMI";
-        //     HashMap result = new HashMap<>();
-        //     result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
-        //     return result;
-        // }
-
-        public Map selectBMI(String userId) {
+    public Map selectBMI(String userId) {
             // SQL 쿼리에서 USER_ID를 사용하여 해당 사용자의 BMI 결과를 가져옵니다.
             String sqlMapId = "BMI.resultBMI";
             
@@ -77,6 +66,25 @@ public class BmiService {
             
             return result;
         }
+
+        //차트구현을 위한 데이터를 가져오는 서비스
+        public Map<String, Object> getAvgBMI() {
+            String sqlMapId = "BMI.BMI_avg";
+            
+            Map<String, Object> result = new HashMap<>();
+            result.put("resultList", sharedDao.getList(sqlMapId, null));
+            
+            return result;
+        }
+
+    public Map<String, Object> getBMIDistributionByGender(String gender) {
+        String sqlMapId = gender.equals("남성") ? "BMI.BMI_TYPE_male" : "BMI.BMI_TYPE_female";
+
+        Map<String, Object> result = new HashMap<>();
+        result.put("resultList", sharedDao.getList(sqlMapId, null));
+        
+        return result;
+    }
 }
 
    

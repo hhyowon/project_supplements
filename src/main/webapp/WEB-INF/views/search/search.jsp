@@ -64,7 +64,7 @@
                   <%= record.get("FORMULATION") %>
                 </font>
               </span>
-              <span class="badge" style="background-color: #bccad6;">
+               <span class="badge" style="background-color: #e7bd16;">
                 <font size="4">
                   <%= record.get("EFFECT") %>
                 </font>

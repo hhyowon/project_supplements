@@ -5,10 +5,14 @@
 <%@ page import="java.text.DecimalFormat" %>
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- ... -->
-</head>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <!-- Google Charts API -->
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        </head>
+
 <body>
   <%@ include file="/WEB-INF/views/etc/Header.jsp" %> <!-- header -->
   <div class="container">
@@ -34,7 +38,8 @@
         <%-- 데이터 유형이 맞지 않는 경우에 대한 처리 --%>
         <p>올바른 결과가 없습니다.</p>
       <% } %>
-      
+
+
       <table align="center" cellspacing="10">
         <tr>
             <td style="padding: 5px; background-color: #c2c2c2; width: 350px; height: 30px;">
@@ -56,9 +61,20 @@
             <td style="text-align: right; font-weight: bold;">25</td>
         </tr>
     </table>
+  </div>
+
+    <h3 style="color: #5B9BD5; font-weight: bold; margin-top: 30px;">BMI 통계</h3>
+    <div class="equation1" style="border: 1px solid lightgray; padding: 20px; border-radius: 10px; text-align: center;">
+        <!-- 바 차트를 표시할 div 요소 -->
+        <div id="barChart" style="width: 100%; height: 300px;"></div>
+
+        <!-- 파이 차트를 표시할 div 요소 -->
+      <div style="display: flex; justify-content: space-between;">
+        <div id="pieChart" style="width: 50%; height: 400px;"></div>
+        <div id="pieChart2" style="width: 50%; height: 400px;"></div>
+      </div>
 
     </div>
-
     <h3 style="color: #5B9BD5; font-weight: bold; margin-top: 30px;">BMI 계산식</h3>
     <div class="equation1" style="border: 1px solid lightgray; padding: 20px; border-radius: 10px; text-align: center;">
       <span class="item">체질량 지수(BMI)</span>
@@ -126,3 +142,79 @@
       </tbody>
     </table>
   </div>
+
+  <script type='text/javascript'>
+    // Load the Visualization API and the corechart package
+    google.charts.load('current', { 'packages': ['corechart'] });
+  
+    // Set a callback to run when the Google Visualization API is loaded
+    google.charts.setOnLoadCallback(drawCharts);
+  
+    // Function to draw the charts
+    function drawCharts() {
+      // Data for Bar Chart
+      var barData = google.visualization.arrayToDataTable([
+          ['Category', '남성', '여성'],
+          ['BMI 평균', 10, 20],
+      ]);
+
+      // Options for Bar Chart
+      var barOptions = {
+          title: '여성/남성별 BMI평균',
+          colors: ['#79b7fd', '#FFC0CB'], // 남성: 파란색, 여성: 핑크색
+          bar: {
+            groupWidth: '60%'
+        },
+        titleTextStyle: {
+        fontSize: 25  // 여기서 숫자는 원하는 글꼴 크기로 조정할 수 있습니다.
+        }
+        };
+        
+      // Data for Pie Chart 1
+      var pieData1 = google.visualization.arrayToDataTable([
+        ['Fruit', 'Quantity'],
+        ['Apple', 30],
+        ['Banana', 20],
+        ['Orange', 50]
+      ]);
+  
+      // Options for Pie Chart 1
+      var pieOptions1 = {
+        title: '여성 BMI',
+        titleTextStyle: {
+        fontSize: 25  // 여기서 숫자는 원하는 글꼴 크기로 조정할 수 있습니다.
+        },
+        width: 600,   // 원하는 너비로 설정
+        height: 400   // 원하는 높이로 설정
+        
+      };
+
+      // Data for Pie Chart 2
+      var pieData2 = google.visualization.arrayToDataTable([
+        ['Fruit', 'Quantity'],
+        ['Grapes', 15],
+        ['Strawberry', 25],
+        ['Blueberry', 60]
+      ]);
+
+      // Options for Pie Chart 2
+      var pieOptions2 = {
+        title: '남성 BMI ',
+        titleTextStyle: {
+        fontSize: 25  // 여기서 숫자는 원하는 글꼴 크기로 조정할 수 있습니다.
+        },
+        width: 600,   // 원하는 너비로 설정
+       height: 400   // 원하는 높이로 설정
+      };
+
+      // Draw the charts
+      var barChart = new google.visualization.BarChart(document.querySelector('#barChart'));
+      barChart.draw(barData, barOptions);
+  
+      var pieChart1 = new google.visualization.PieChart(document.querySelector('#pieChart'));
+      pieChart1.draw(pieData1, pieOptions1);
+        
+      var pieChart2 = new google.visualization.PieChart(document.querySelector('#pieChart2'));
+      pieChart2.draw(pieData2, pieOptions2);
+    }
+</script>

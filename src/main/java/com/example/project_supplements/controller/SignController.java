@@ -30,17 +30,18 @@ public class SignController {
     }
 
     @RequestMapping(value = " ", method = RequestMethod.GET)
-    public ModelAndView insertForm(@RequestParam Map params, ModelAndView modelAndView) {
-        modelAndView.setViewName("/WEB-INF/views/login/signup.jsp");
-        return modelAndView;
-    }
+        public ModelAndView insertForm(@RequestParam Map params, ModelAndView modelAndView) {
+            modelAndView.setViewName("/WEB-INF/views/login/signup.jsp");
+            return modelAndView;
+        }
 
-    @PostMapping("/checkDuplicateId")
-    public ResponseEntity checkDuplicateId(@RequestBody Map params) {
-        // 중복 확인 로직을 구현하고 결과 반환
-        Object result = signService.checkID(params);
-        return ResponseEntity.ok(result);
-    }
+
+        @PostMapping("/checkDuplicateId")
+        public ResponseEntity checkDuplicateId(@RequestParam Map params, ModelAndView modelAndView) {
+            // 중복 확인 로직을 구현하고 결과 반환
+            Object result = signService.checkID(params);
+            return ResponseEntity.ok(result);
+        }
 
         
 }

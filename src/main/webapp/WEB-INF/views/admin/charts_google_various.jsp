@@ -7,12 +7,6 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <!-- Google Charts API -->
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-            <style>
-                #map {
-                  height: 400px;
-                  width: 100%;
-                }
-              </style>
         </head>
 
         
@@ -141,8 +135,7 @@
         }
     </script>
 
-    <!-- Google Maps API Script -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+   
 
 
             

@@ -24,7 +24,7 @@
     <div class="top-margin text-center">
         <img class="mt-4 mb-4" src="/html/img/logo.PNG" alt width="240" height="100" 
             style="display: block; margin-left: auto; margin-right: auto;">
-        <H3>다이어트 보조제 복용 경험이 없는 사람의 설문조사 </H3>  
+        <H3>미복용자 설문조사 </H3>  
     </div>
     <form  method= "get" action="/survey/survey_no" >
         <div class= "container mx-auto" style="border: 2px solid rgb(91, 155, 213); padding: 20px; border-radius: 10px; text-align: center; width: 50%;">

@@ -118,8 +118,11 @@
             <div class="container bg-white fs-6 py-6 row mx-auto my-3">
                 <div class="text-center d-flex justify-content-center py-2">
                     <button type="submit" formaction="/main" class="btn btn-white mx-2 btn-outline-dark" style="border-color: black; color: black;">닫기</button>
-                    <button type="submit" formaction="/survey/insertAndSelectSurveyResult" class="btn btn-white btn-outline-dark" style="background-color: #5B9BD5; color: white; border-color: transparent;"data-bs-toggle="modal" data-bs-target="#myModal">설문제출</button>
-                </div>
+                    <%
+                    String formAction = "F-01".equals(surveyTypeId) ? "/survey/insertAndSelectSurveyResult" : "/survey/insertAndSelectSurvey_YesResult";
+                    %>
+                    <button type="submit" formaction="<%= formAction %>" class="btn btn-white btn-outline-dark" style="background-color: #5B9BD5; color: white; border-color: transparent" data-bs-toggle="modal" data-bs-target="#myModal">설문제출</button>
+                        </div>
             </div>
         </form>
     </body>
