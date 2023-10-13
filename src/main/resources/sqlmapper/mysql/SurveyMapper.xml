@@ -54,5 +54,31 @@
     </foreach>   
    </insert>
     
+    <!-- 복용한 사람의 userid가 선택한 보조제를 나오게 하는 쿼리문(각각 따로)  -->
+    <select id="usersupplist_sep" parameterType="Map" resultType="Map">
+    SELECT SO.SURVEY_OPT
+    FROM SURVEYRESULT AS SR
+    INNER JOIN SURVEY AS S
+    ON SR.SURVEY_UID = S.SURVEY_UID
+    INNER JOIN SURVEY_OPT AS SO
+    ON S.SURVEY_OPT_ID = SO.SURVEY_OPT_ID
+    WHERE S.SURVEY_QUESTION_ID = 'Q-06' AND SR.USER_ID = #{USER_ID}
+    ORDER BY SO.SURVEY_OPT;
+    </select>
+
+
+     <!-- 복용한 사람의 userid가 선택한 보조제를 나오게 하는 쿼리문 (하나의 문자열로) -->
+    <select id="usersupplist_all" parameterType="Map" resultType="Map">
+    SELECT GROUP_CONCAT(SO.SURVEY_OPT) AS SUPP_LIST
+    FROM SURVEYRESULT AS SR
+    INNER JOIN SURVEY AS S
+    ON SR.SURVEY_UID = S.SURVEY_UID
+    INNER JOIN SURVEY_OPT AS SO
+    ON S.SURVEY_OPT_ID = SO.SURVEY_OPT_ID
+    WHERE S.SURVEY_QUESTION_ID = 'Q-06' AND SR.USER_ID = #{USER_ID}
+    ORDER BY SO.SURVEY_OPT;
+    </select>
+
+
 </mapper>
 
