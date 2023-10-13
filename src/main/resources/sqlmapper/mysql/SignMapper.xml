@@ -8,7 +8,7 @@
         where USER_ID = #{username};
 	</select>
 
-          <!-- 찐 입력(회원가입) -->
+        <!-- 찐 입력(회원가입) -->
         <insert id="insert" parameterType="Map">
         insert into MEMBERS
         (USER_ID, NAME, GENDER_UID, PASSWORD, PHONENUMBER, ADDRESS, EMAIL, DORMANT_UID)
@@ -16,5 +16,15 @@
         (#{USER_ID}, #{NAME}, #{GENDER_UID}, #{PASSWORD}, #{PHONENUMBER}, #{ADDRESS}, #{EMAIL},'H_01');
         </insert>
 
-  
+         <!-- 아이디중복확인용 -->
+        <select id="checkID" parameterType="Map" resultType="Map">  
+          SELECT USER_ID
+          FROM project_diet.members
+          WHERE USER_ID = #{userId};
+        </select>
+
 </mapper>
+
+
+  
+  

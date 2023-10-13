@@ -1,28 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="SurveyResult">
-    
-    <!-- 설문 결과 두개 다 나오는거 효 추가중 일단 yes no 둘다 출력함
-    <select id="surveyresult" parameterType="Map" resultType="Map"> 
-    SELECT T_SURVEY_QUESTION.SURVEY_QUESTION, T_SURVEY_OPT.SURVEY_OPT,
-    CASE
-        WHEN T_SURVEY_OPT.SURVEY_OPT_ID < "O-25" THEN 'NO'
-        WHEN T_SURVEY_OPT.SURVEY_OPT_ID > "O-24" THEN 'YES'
-        ELSE NULL  
-    END AS surveyresult,
-    COUNT(*) AS count
-    FROM
-    SURVEY_QUESTION AS T_SURVEY_QUESTION
-    INNER JOIN SURVEY_OPT AS T_SURVEY_OPT
-    ON T_SURVEY_QUESTION.SURVEY_QUESTION_ID = T_SURVEY_OPT.SURVEY_QUESTION_ID
-    INNER JOIN SURVEY AS T_SURVEY
-    ON T_SURVEY_OPT.SURVEY_OPT_ID = T_SURVEY.SURVEY_OPT_ID
-    WHERE T_SURVEY_OPT.SURVEY_OPT_ID < "O-25" OR T_SURVEY_OPT.SURVEY_OPT_ID > "O-24"
-    GROUP BY T_SURVEY_OPT.SURVEY_OPT_ID, surveyresult
-    ORDER BY T_SURVEY_OPT.SURVEY_OPT_ID ASC
-    ;
-    </select> -->
-
 
   <select id="surveyresult_no" parameterType="Map" resultType="Map">
    SELECT T_SURVEY_QUESTION.SURVEY_QUESTION, T_SURVEY_OPT.SURVEY_OPT, COUNT(*)
@@ -48,7 +26,7 @@
    GROUP BY T_SURVEY_OPT.SURVEY_OPT_ID
    ORDER BY T_SURVEY_OPT.SURVEY_OPT_ID ASC
    ;
-	</select>
+	</select> 
 
 
   

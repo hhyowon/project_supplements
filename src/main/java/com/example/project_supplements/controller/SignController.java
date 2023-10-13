@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.project_supplements.service.SignService;
 
 @Controller
+@CrossOrigin(origins = "http://localhost:8080") 
 @RequestMapping("/signup")
 
 public class SignController {
@@ -34,19 +35,12 @@ public class SignController {
         return modelAndView;
     }
 
-    //  @PostMapping("/checkDuplicateId")
-    // public ResponseEntity<?> checkDuplicateId(@RequestBody Map<String, String> request) {
-    //     String userId = request.get("userId");
+    @PostMapping("/checkDuplicateId")
+    public ResponseEntity checkDuplicateId(@RequestBody Map params) {
+        // 중복 확인 로직을 구현하고 결과 반환
+        Object result = signService.checkID(params);
+        return ResponseEntity.ok(result);
+    }
 
-    //     // 중복 확인 로직을 구현하고 결과를 반환합니다.
-    //     boolean isDuplicate = check(userId); /* 중복 확인 로직을 수행하세요 */;
-
-    //     Map<String, Object> response = new HashMap<>();
-    //     response.put("isDuplicate", isDuplicate);
-
-    //     return ResponseEntity.ok(response);
-    // }
-
-
-
+        
 }

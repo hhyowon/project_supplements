@@ -3,7 +3,6 @@ package com.example.project_supplements.service;
 import java.util.HashMap;
 import java.util.Map;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -67,21 +66,30 @@ public class MypageService {
         return result;
     }
 
-    // 커뮤니티 글 삭제
-    public Object delete(Map dataMap) {
-        String sqlMapId = "MypageService.delete";
+
+    // 게시글 COMMENT TABAL COMMUNITY_ID 삭제
+    public Object delete_comment(Map dataMap) {
+        String sqlMapId = "AdminCommunity.deletecomment";
         Object result = sharedDao.delete(sqlMapId, dataMap);
         return result;
     }
-
+    // 게시글 COMMUNITY TABAL COMMUNITY_ID 삭제
+    public Object delete_community(Map dataMap) {
+        String sqlMapId = "AdminCommunity.deletecommunity";
+         Object result = sharedDao.delete(sqlMapId, dataMap);
+        return result;
+    }
+    
     // 삭제 및 select
     public Object deleteAndSelectSearch(String COMMUNITY_ID, Map dataMap) {
         dataMap.put("COMMUNITY_ID", COMMUNITY_ID);
         HashMap result = new HashMap<>();
-        result.put("deleteCount", this.delete(dataMap));
+        result.put("del_Coment_Count_", this.delete_comment(dataMap));
+        result.put("del_Community_Count_", this.delete_community(dataMap));
         result.putAll(this.mypagecommunity(dataMap));
         return result;
     }   
+
 
     //해당 게시글보기
     public Object selectPost(String COMMUNITY_ID, Map dataMap) {
