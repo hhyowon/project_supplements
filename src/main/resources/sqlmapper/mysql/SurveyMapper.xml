@@ -36,21 +36,21 @@ WHERE T.SURVEY_TYPE_ID = 'F-02'
 ORDER BY O.OPT_ORDER; 
 </select> -->
 
-<!--  설문조사 결과 insert(부모테이블) -->
-<insert id="insertsurveyresult" parameterType="Map"> 
-INSERT INTO surveyresult (USER_ID, DATE_TIME, SURVEY_UID) 
-VALUES (#{USER_ID}, #{DATE_TIME}, #{SURVEY_UID});
- </insert>
-
-<!--  설문조사 결과 insert(자식테이블) -->
-<insert id="insertsurvey" parameterType="Map">
-    INSERT INTO survey 
-    (SURVEY_TYPE_ID, SURVEY_QUESTION_ID, SURVEY_ID, SURVEY_OPT_ID, SURVEY_UID) VALUES
-    <foreach collection="surveyMapList" item="questionAnswerMap" index="index" separator=","> 
-    (#{SURVEY_TYPE_ID}, #{questionAnswerMap.QuestionId}, #{questionAnswerMap.SURVEY_ID}, #{questionAnswerMap.AnswerId}, #{SURVEY_UID}) 
-</foreach>
-</insert>
-
+    <!-- 설문조사 결과 insert(부모테이블)-->
+   <insert id="insertsurveyresult" parameterType="Map">
+    INSERT INTO surveyresult (USER_ID, DATE_TIME, SURVEY_UID)
+    VALUES (#{USER_ID}, #{DATE_TIME}, #{SURVEY_UID});
+    </insert>
+    
+    <!-- 설문조사 결과 insert(자식테이블)-->
+    <insert id="insertsurvey" parameterType="Map">
+    INSERT INTO survey (SURVEY_TYPE_ID, SURVEY_QUESTION_ID, SURVEY_ID, SURVEY_OPT_ID, SURVEY_UID)
+    VALUES   
+    <foreach collection="surveyMapList" item="questionAnswerMap" index="index" separator=",">
+        (#{SURVEY_TYPE_ID}, #{questionAnswerMap.QuestionId}, #{questionAnswerMap.SURVEY_ID}, #{questionAnswerMap.AnswerId}, #{SURVEY_UID})
+    </foreach>   
+   </insert>
+    
 </mapper>
     
 
