@@ -29,11 +29,15 @@ public class CommunityService {
             String uuid = commons.generateUUID(); // user_id 받기 (수정)
             dataMap.put("COMMUNITY_ID", uuid);
             dataMap.put("username", commons.getUserID()); //
+            
         } else {
             // "COMMUNITY_ID"가 null이 아니고 빈 문자열도 아닌 경우 처리
         }
         Object result_1 = sharedDao.insert(sqlMapId, dataMap);
         HashMap result = (HashMap) this.selectWithPagination(dataMap);
+        String rawDate = (String) result.get("COMMUNITY_DATE");
+        String formattedDate = commons.formatDate(rawDate);
+        result.put("FORMATTED_COMMUNITY_DATE", formattedDate);
         return result;
     
     }    
@@ -67,8 +71,22 @@ public class CommunityService {
         result.putAll((Map) this.selectPostComment(COMMUNITY_ID, dataMap)); //map 형태로 바꿔줌
         return result;
     }
-
-    
+    // 댓글 삭제하기
+    public Object deletecomment(Map dataMap) {
+        String sqlMapId = "commu.deleteComment";
+        String commentId = (String) dataMap.get("COMMENT_ID");
+         Object result = sharedDao.delete(sqlMapId, commentId);
+        return result;
+    }
+        public Object deleteandselectcomment(Map dataMap) {
+        HashMap result = new HashMap<>();
+        result.put("delete", this.deletecomment(dataMap));
+        result.putAll(this.selectcomment(dataMap));
+        return result;
+        // String sqlMapId = "commu.deleteComment";
+        // String commentId = (String) dataMap.get("COMMENT_ID");
+        //  bject result = sharedDao.delete(sqlMapId, commentId);
+    }
     //커뮤니티 테이블 리스트    
         public Map selectCommunity(Map dataMap) {
         // Object getOne(String sqlMapId, Object dataMap)

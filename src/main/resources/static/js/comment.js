@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }),
         }) // fetch 함수를 사용해 서버에 POST 요청을 보냅니다. 이 때, 댓글 내용과 함께 게시물의 ID를 URL에 포함시킵니다.
         .then(response => response.json()) //서버로부터의 응답을 JSON 형태로 변환
-        // .then(data => {  // 데이터를 처리
+        .then(data => {  // 데이터를 처리
             const resultList = data.commentresult.resultList;
             // 'commentresult' 안에 'resultList'를 찾습니다.
         
@@ -64,3 +64,4 @@ document.addEventListener("DOMContentLoaded", function() {
             commentInput.value = '';
         });
     });
+});

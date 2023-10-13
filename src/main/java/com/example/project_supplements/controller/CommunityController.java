@@ -59,7 +59,7 @@ public class CommunityController {
         String communityTitle = params.get("TITLE"); // 모달에서 전달된 제목 값
         String communityContent = params.get("CONTENT"); // 모달에서 전달된 내용 값
         String userId = commons.getUserID(); // user_id 받기
-
+        
         dataMap.put("USER_ID", userId);
         dataMap.put("CATEGORY_ID", categoryId);
         dataMap.put("COMMUNITY_TITLE", communityTitle);
@@ -68,6 +68,7 @@ public class CommunityController {
         // communityService.insert 메서드의 파라미터를 dataMap으로 변경하고 호출합니다.
         Object result = communityService.insert(dataMap);
         // 여기에 추가
+      
 
         // 모델에 필요한 데이터를 추가합니다.
         modelAndView.addObject("params", params); // 모달에서 전달된 원래의 params 맵
@@ -112,6 +113,16 @@ public class CommunityController {
         Object result = communityService.insertAndSelectcomment(COMMUNITY_ID, params);
         // 응답을 Map 형식으로 반환합니다.
         return (Map<String, Object>) result;
+    }
+    // 댓글 삭제
+    @GetMapping("/deleteAndSelectSearch/{COMMENT_ID}")
+    public ModelAndView deleteAndSelectSearch(@RequestParam Map params, @PathVariable String COMMENT_ID, ModelAndView modelAndView) {
+        Object result = communityService.deleteandselectcomment(params); // 호출
+        modelAndView.addObject("params", params); // modelAndView 객체에 params와 result를 추가
+        modelAndView.addObject("result", result);
+
+        modelAndView.setViewName("/WEB-INF/views/community/community_post_comment.jsp");
+        return modelAndView;
     }
 
 
