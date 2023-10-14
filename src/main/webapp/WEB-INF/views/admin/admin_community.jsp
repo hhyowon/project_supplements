@@ -2,7 +2,12 @@
 <%@ page import="java.util.HashMap, java.util.ArrayList, com.example.project_supplements.utils.Paginations"%>
 <!DOCTYPE html>
 <html lang="en">
-
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Google Charts API -->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    </head>
 <body>
 <form action="/resources/static/css/maintool.css" method="get">
     <%@ include file= "/WEB-INF/views/etc/Header.jsp" %> <!-- header-->
@@ -12,13 +17,21 @@
                     HashMap params=(HashMap)request.getAttribute("params"); 
                     String searchStr=(String)params.getOrDefault("search", ""); 
                     HashMap result=(HashMap)request.getAttribute("result"); %>
-
+        <% 
+                    String jsonData = (String) request.getAttribute("dataArray");// JSON 데이터 가져오기 
+                    String jsonData2 = (String) request.getAttribute("dataArray2");
+                    
+        %>
         <div class="col-9 p-0 mb-5 ms-5">
                 <div style="text-align:center;">
                     <h1 class="h3 mb-3 fw-normal">커뮤니티 관리</h1>
                 </div>
                 <br>
                 <div class="container">
+                    <h5 style="color: #5B9BD5; font-weight: bold; margin-top: 30px;"> 커뮤니티 통계</h5>
+                        <div id="lineChart" style="width: 100%; height: 400px;"></div>           
+                    <br>
+                    <h5 style="color: #5B9BD5; font-weight: bold; margin-top: 30px;"> 전체 커뮤니티 관리</h5>
                     <form action="" method="GET">
                                     <div class="d-flex justify-content-center align-items-center input-group mb-3">
                                         <div class="d-flex align-items-center">
@@ -107,3 +120,40 @@
 </body>
 
 </html>
+<script type='text/javascript'>
+    // Load the Visualization API and the corechart package
+    google.charts.load('current', { 'packages': ['corechart'] });
+  
+
+        // Set a callback to run when the Google Visualization API is loaded
+        google.charts.setOnLoadCallback(drawCharts)
+
+       
+  
+    // Function to draw the charts
+    function drawCharts() {
+
+        var comuCNT = JSON.parse('<%= jsonData %>'); // JSON 데이터를 가져옴
+        console.log(comuCNT);  
+         // Data for Line Chart  월별로 커뮤니티 게시글 수
+         let lineData = new google.visualization.DataTable();
+            lineData.addColumn('string', '연도_월');
+            lineData.addColumn('number', '게시글_수');
+
+            for (var i = 0; i < comuCNT.length; i++) {
+                 lineData.addRow([comuCNT[i].연도_월, parseInt(comuCNT[i].게시글_수)]);
+                  }
+
+            let lineOptions = {
+                title: '월별 게시글 수',
+                curveType: 'function',
+                legend: { position: 'bottom' }
+            };
+
+      // Draw the charts
+      let lineChart = new google.visualization.LineChart(document.querySelector('#lineChart'));
+            lineChart.draw(lineData, lineOptions);
+
+
+    }
+</script>

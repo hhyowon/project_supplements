@@ -107,4 +107,20 @@ public class AdminCommunityService {
         return result;
     }
 
+    public Object CommCount(Map dataMap) {
+        String sqlMapId = "AdminCommunity.CommCount";
+    
+        Object CommCNT = sharedDao.getList(sqlMapId, dataMap); // 데이터맵을 사용하여 데이터를 가져옵니다.
+        
+        return CommCNT; // 가져온 데이터를 바로 반환합니다.
+    }
+    
+    public Object CommcoronaCount(Map dataMap) {
+        String sqlMapId = "AdminCommunity.Commcorona";
+    
+       Object coronaCNT = sharedDao.getList(sqlMapId, dataMap); // 데이터맵을 사용하여 데이터를 가져옵니다.
+        
+        return coronaCNT; // 가져온 데이터를 바로 반환합니다.
+    }
+
 }

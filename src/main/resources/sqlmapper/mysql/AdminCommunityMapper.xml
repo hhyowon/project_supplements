@@ -3,8 +3,6 @@
 <mapper namespace="AdminCommunity">
 
 
-    
-
     <!-- 관리자 게시글관리  -->
 	    <select id="admincommunity" parameterType="Map" resultType="Map">
         SELECT CO.COMMUNITY_ID, CA.CATEGORY, CO.COMMUNITY_TITLE,  CO.COMMUNITY_DATE, CO.USER_ID
@@ -72,5 +70,40 @@
         limit #{pageBegin}, #{pageScale} 
         ;
 	</select>
+
+<!-- 차트용-->
+    <!-- 월별로 커뮤니티 게시글 수 파악 (ex.2019.10)/라인 차드 쿼리 -->
+        <select id="CommCount" parameterType="Map" resultType="Map">
+            SELECT 
+                CONCAT(YEAR(COMMUNITY_DATE), '-', LPAD(MONTH(COMMUNITY_DATE), 2, '0')) AS 연도_월,
+                COUNT(COMMUNITY_TITLE) AS 게시글_수
+            FROM community
+            WHERE COMMUNITY_DATE IS NOT NULL
+            GROUP BY CONCAT(YEAR(COMMUNITY_DATE), '-', LPAD(MONTH(COMMUNITY_DATE), 2, '0'))
+            ORDER BY 연도_월;
+        </select>
+
+
+ <!-- 코로나 전/후 관심도 비교 2019을 기준으로 /bar차트  -->
+        <select id="Commcorona" parameterType="Map" resultType="Map">
+        SELECT
+                CASE
+                WHEN YEAR(COMMUNITY_DATE) <![CDATA[<]]> 2020 THEN '코로나 전'
+                ELSE '코로나 후'
+                END AS 코로나_전후,
+                COUNT(COMMUNITY_TITLE) AS 데이터_수
+            FROM community
+            WHERE YEAR(COMMUNITY_DATE) <![CDATA[>=]]> 2019
+            GROUP BY CASE
+                    WHEN YEAR(COMMUNITY_DATE) <![CDATA[<]]> 2020 THEN '코로나 전'
+                    ELSE '코로나 후'
+                    END;
+        </select>
+
+
+
+
+
+
 
 </mapper>
