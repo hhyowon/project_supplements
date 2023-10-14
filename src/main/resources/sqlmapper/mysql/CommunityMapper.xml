@@ -81,7 +81,7 @@
                 AND USER_ID LIKE CONCAT('%', #{words}, '%')
             </when>
         </choose> 
-        order by COMMUNITY_DATE DESC
+        ORDER BY DATE(COMMUNITY_DATE) DESC, TIME(COMMUNITY_DATE) DESC
         limit #{pageBegin}, #{pageScale} 
         ;
 	</select>
