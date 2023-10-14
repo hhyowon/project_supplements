@@ -43,7 +43,7 @@
             WHEN '정상' THEN 2
             WHEN '과체중' THEN 3
             WHEN '비만' THEN 4
-            END;0
+            END;
 </select>
 
 <select id="BMI_TYPE_female" parameterType="Map" resultType="Map">

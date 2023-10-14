@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.project_supplements.service.SignService;
 
 @Controller
-@CrossOrigin(origins = "http://localhost:8080") 
+@CrossOrigin(origins = "*") 
 @RequestMapping("/signup")
 
 public class SignController {
@@ -29,21 +29,21 @@ public class SignController {
         return modelAndView;
     }
 
-    @RequestMapping(value = " ", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
         public ModelAndView insertForm(@RequestParam Map params, ModelAndView modelAndView) {
             modelAndView.setViewName("/WEB-INF/views/login/signup.jsp");
             return modelAndView;
         }
 
 
-
-    @PostMapping("/checkDuplicateId")
-    public ResponseEntity<?> checkDuplicateId(@RequestParam Map<String, String> params) {
-    Object result = signService.checkID(params);
-    Map<String, Object> responseMap = new HashMap<>();
-    responseMap.put("result", result);
-    return ResponseEntity.ok(responseMap);
-}
+        @PostMapping("/checkDuplicateId")
+        public ResponseEntity<?> checkDuplicateId(@RequestBody Map<String, String> dataMap) {
+            Object result = signService.checkID(dataMap);
+            System.out.println("CheckID result: " + result); // 로그 출력
+            Map<String, Object> responseMap = new HashMap<>();
+            responseMap.put("result", result);
+            return ResponseEntity.ok(responseMap);
+        }
 
 
         

@@ -40,27 +40,11 @@ public class BMIController {
         return modelAndView;
     }
     
-    // // 그래프 데이터 생성 메서드
-    // private List<List<Object>> createChartData() {
-    //     List<List<Object>> chartData = new ArrayList<>();
-        
-    //     // 그래프 데이터 생성 로직을 여기에 추가합니다.
-    //     // 예시 데이터:
-    //     chartData.add(Arrays.asList("Age", "Weight"));
-    //     chartData.add(Arrays.asList(8, 12));
-    //     chartData.add(Arrays.asList(4, 5.5));
-    //     chartData.add(Arrays.asList(11, 14));
-    //     chartData.add(Arrays.asList(4, 5));
-    //     chartData.add(Arrays.asList(3, 3.5));
-    //     chartData.add(Arrays.asList(6.5, 7));
-        
-    //     return chartData;
-    // }
     // BMI 계산 메서드
     private double calculateBMI(double height, double weight) {
         // BMI 계산 로직을 여기에 추가합니다.
         // BMI = 체중(kg) / (신장(m) * 신장(m))
-        double heightInMeters = height / 100.0; // cm를 m로 변환
+        double heightInMeters = height / 100.0; // cm를 m로 변환s
         double bmi = weight / (heightInMeters * heightInMeters);
         return bmi;
     }

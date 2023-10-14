@@ -39,6 +39,7 @@
               <button type="submit" style="width:280px;" class="btn btn-main" formaction="/bmi/insertBMI">계산하기</button>
             </div>   
           </form>
+          
         </div> 
       </div>
     </div>

@@ -59,12 +59,20 @@ public class SignService {
 
 
     //ID중복확인용
-    public Object checkID(Map dataMap) {
-    
+    public Map<String, Object> checkID(Map dataMap) {
         String sqlMapId = "Sign.checkID";    
         Object result = sharedDao.getOne(sqlMapId, dataMap);
-
-        // 결과가 null인 경우 스페이스(" ") 반환
-        return result != null ? result : " ";
+        Map<String, Object> response = new HashMap<>();
+    
+        if (result != null) {
+            response.put("isDuplicate", true);
+            response.put("message", "이미 사용 중인 아이디입니다.");
+        } else {
+            response.put("isDuplicate", false);
+            response.put("message", "사용 가능한 아이디입니다.");
+        }
+    
+        return response;
     }
 }
+

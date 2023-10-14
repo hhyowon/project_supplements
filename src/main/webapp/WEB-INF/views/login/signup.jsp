@@ -27,7 +27,7 @@
       <div class="px-5">
 
         <div class="py-2">
-          <lable class="form-label" for="name">이름</lable>
+          <label class="form-label" for="name">이름</label>
           <input class="form-control" type="text" placeholder="이름을 입력하세요" name="NAME" id="name" style="width: 500px;">
         </div>
 
@@ -43,13 +43,11 @@
         <div>
 
         <!--아이디 작성(효원추가)-->
-        <form>
-          <div class="form-group">
-              <label class="form-label" for="userid">아이디</label>
-              <input class="form-control" type="id" name="USER_ID" id="userid" placeholder="ID를 입력하세요" style="width: 500px;">
-              <button onclick="preCheckID(event)" class="btn btn-secondary" id="checkDuplicate" style="margin-top: 10px;">중복 확인</button>
-          </div>
-      </form>
+        <div class="form-group">
+          <label class="form-label" for="userid">아이디</label>
+          <input class="form-control" type="id" name="USER_ID" id="userid" placeholder="ID를 입력하세요" style="width: 500px;">
+          <button type="button" onclick="preCheckID(event)" class="btn btn-secondary" id="checkDuplicate" style="margin-top: 10px;">중복 확인</button>
+      </div>
       <div id="idMessage"></div>
 
 

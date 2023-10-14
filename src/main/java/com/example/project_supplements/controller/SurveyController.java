@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.project_supplements.service.SurveyResultService;
 import com.example.project_supplements.service.SurveyService;
 import com.example.project_supplements.utils.Commons;
+import com.google.gson.Gson;
 
 
 @Controller
@@ -22,8 +24,14 @@ public class SurveyController {
     @Autowired
     SurveyService surveyService;
     
+    @Autowired 
+    SurveyResultService surveyResultService;
+    
     @Autowired
     Commons commons;
+
+    @Autowired
+    private Gson gson;
 
     @GetMapping({" "})
     public ModelAndView main(ModelAndView modelAndView){
@@ -74,7 +82,20 @@ public class SurveyController {
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
         modelAndView.setViewName("/WEB-INF/views/survey/result_survey_yes.jsp");
-    
+      
+        // 서비스에서 데이터를 가져오고 JSON으로 변환하여 JSP로 전달
+        Map<String, Object> avgBMIMap = new HashMap<>(); // 새로운 맵 생성
+        Object resultProduct = surveyResultService.surveyresultProduct(avgBMIMap); // 빈 맵 전달
+        String jsonData = gson.toJson(resultProduct);
+        modelAndView.addObject("dataArray", jsonData);
+
+        
+        // 서비스에서 데이터를 가져오고 JSON으로 변환하여 JSP로 전달
+        Map<String, Object> maleBMIMap = new HashMap<>(); // 새로운 맵 생성
+        Object resultCause = surveyResultService.surveyresultCause(maleBMIMap); // 빈 맵 전달
+        String jsonData2 = gson.toJson(resultCause);
+        modelAndView.addObject("dataArray2", jsonData2);
+        
         return modelAndView;
     }
 

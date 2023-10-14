@@ -152,7 +152,8 @@
       </tbody>
     </table>
   </div>
-
+  <%@ include file="/WEB-INF/views/etc/Footer.jsp" %>
+</body>
   <script type='text/javascript'>
     // Load the Visualization API and the corechart package
     google.charts.load('current', { 'packages': ['corechart'] });

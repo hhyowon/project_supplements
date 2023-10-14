@@ -29,8 +29,31 @@
    ;
 	</select> 
 
+   <!-- 설문 통계: 다이어트 보조제별 count -pie chart -->
+    <select id="surveyresult_product" parameterType="Map" resultType="Map">
+      SELECT  SO.SURVEY_OPT,COUNT(SO.SURVEY_OPT) AS SURVEY_OPT_COUNT 
+      FROM SURVEYRESULT AS SR
+      INNER JOIN SURVEY AS S
+      ON SR.SURVEY_UID = S.SURVEY_UID
+      INNER JOIN SURVEY_OPT AS SO
+      ON S.SURVEY_OPT_ID = SO.SURVEY_OPT_ID
+      WHERE S.SURVEY_QUESTION_ID = 'Q-06'
+      GROUP BY SO.SURVEY_OPT
+      ;
+	</select> 
 
-  
+  <!-- 설문 통계: 보조제 복용 원인 count -pie chart -->
+   <select id="surveyresult_cause" parameterType="Map" resultType="Map">
+      SELECT SO.SURVEY_OPT,COUNT(SO.SURVEY_OPT) AS SURVEY_OPT_COUNT
+      FROM SURVEYRESULT AS SR
+      INNER JOIN SURVEY AS S
+      ON SR.SURVEY_UID = S.SURVEY_UID
+      INNER JOIN SURVEY_OPT AS SO
+      ON S.SURVEY_OPT_ID = SO.SURVEY_OPT_ID
+      WHERE S.SURVEY_QUESTION_ID = 'Q-09'
+      GROUP BY SO.SURVEY_OPT
+      ;
+	</select> 
     
 </mapper>
 

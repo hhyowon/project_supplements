@@ -38,6 +38,23 @@ public class SurveyResultService {
     //     return result;
     // }
 
+    //설문결과 페이지에 차트 구현위한 서비스
+    public Object surveyresultProduct(Map dataMap) {
+        String sqlMapId = "SurveyResult.surveyresult_product";
+        
+        Object surveyresultProduct = sharedDao.getList(sqlMapId, dataMap); 
+        
+        return surveyresultProduct; 
+    }
+
+   public Object surveyresultCause(Map dataMap) {
+        String sqlMapId = "SurveyResult.surveyresult_cause";
+    
+        Object surveyresultCause = sharedDao.getList(sqlMapId, dataMap); 
+        
+        return surveyresultCause;
+    }
+    
 }
 
 
