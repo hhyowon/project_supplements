@@ -5,10 +5,9 @@ import java.util.Date;
 import java.util.UUID;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 
 @Configuration
 
@@ -52,20 +51,5 @@ public class Commons {
         return username;
 
         }
-        public String formatDate(String inputDate) {
-                try {
-                    SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                    SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd");
-        
-                    Date date = inputFormat.parse(inputDate);
-                    return outputFormat.format(date);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return inputDate; // 변환에 실패하면 원래 문자열 반환
-                }
-            }
-    
-        
-    
 
 }

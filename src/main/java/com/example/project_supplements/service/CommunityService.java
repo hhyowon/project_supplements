@@ -36,8 +36,6 @@ public class CommunityService {
         Object result_1 = sharedDao.insert(sqlMapId, dataMap);
         HashMap result = (HashMap) this.selectWithPagination(dataMap);
         String rawDate = (String) result.get("COMMUNITY_DATE");
-        String formattedDate = commons.formatDate(rawDate);
-        result.put("FORMATTED_COMMUNITY_DATE", formattedDate);
         return result;
     
     }    

@@ -77,7 +77,11 @@ public class CommunityController {
         modelAndView.addObject("params", params); // 모달에서 전달된 원래의 params 맵
         modelAndView.addObject("result", result); // 삽입 결과
 
-        // 뷰 정보를 설정하고 ModelAndView 객체를 반환합니다.
+        modelAndView.setViewName("redirect:/community");
+        return modelAndView;
+    }
+    @GetMapping("/community")
+    public ModelAndView communityPage(ModelAndView modelAndView) {
         modelAndView.setViewName("/WEB-INF/views/community/community.jsp");
         return modelAndView;
     }
