@@ -63,20 +63,29 @@ public class SurveyController {
     // }
 
     
-        //설문 결과 INSERT(복용한자)
-        @GetMapping("/insertAndSelectSurvey")
-        public ModelAndView insertAndSelectSurvey( @RequestParam Map params,
-                ModelAndView modelAndView) {
-            Object result = surveyService.insertAndSelectSurvey_YesResult(params);
-            String userId = commons.getUserID();
-            modelAndView.addObject("params", params);
-            modelAndView.addObject("result", result);
-            modelAndView.setViewName("/WEB-INF/views/survey/result_survey_yes.jsp"); // 통계가 보이게금 설정
+    
+    @GetMapping("/insertAndSelectSurveyResult")
+    public ModelAndView insertAndSelectSurvey(@RequestParam("SURVEY_TYPE_ID") String surveyTypeId, 
+                                              @RequestParam Map params,
+                                              ModelAndView modelAndView) {
+        params.put("SURVEY_TYPE_ID", surveyTypeId); 
+        Object result = surveyService.insertAndSelectSurveyResult(params);
+        String userId = commons.getUserID(); 
+        modelAndView.addObject("params", params);
+        modelAndView.addObject("result", result);
+        modelAndView.setViewName("/WEB-INF/views/survey/result_survey_yes.jsp");
+    
+        return modelAndView;
+    }
 
-            return modelAndView;
+        // uuid    
+        public String generateUUID() {
+            return UUID.randomUUID().toString();
         }
 
 
+
+        // //원래꺼 
         // //설문 결과 INSERT(복용안한자)
         // @GetMapping("/insertAndSelectSurveyResult")
         // public ModelAndView insertAndSelectSurvey(@RequestParam Map params,
@@ -102,11 +111,6 @@ public class SurveyController {
 
         //     return modelAndView;
         // }
-
-        // uuid    
-        public String generateUUID() {
-            return UUID.randomUUID().toString();
-        }
 
 
 }

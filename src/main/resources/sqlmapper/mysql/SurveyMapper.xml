@@ -43,7 +43,7 @@ ORDER BY O.OPT_ORDER;
     </insert>
     
     <!-- 설문조사 결과 insert(자식테이블)-->
-    <insert id="insertsurvey" parameterType="Map">
+    <insert id="insertsurvey" parameterType="Map" >
     INSERT INTO survey (SURVEY_TYPE_ID, SURVEY_QUESTION_ID, SURVEY_ID, SURVEY_OPT_ID, SURVEY_UID)
     VALUES   
     <foreach collection="surveyMapList" item="questionAnswerMap" index="index" separator=",">

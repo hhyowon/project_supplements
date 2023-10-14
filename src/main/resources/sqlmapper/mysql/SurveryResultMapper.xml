@@ -15,6 +15,7 @@
    ;
 	</select>
 
+   <!--yes통계만 필요함 설문통계페이지에서는!-->
     <select id="surveyresult_yes" parameterType="Map" resultType="Map">
    SELECT T_SURVEY_QUESTION.SURVEY_QUESTION, T_SURVEY_OPT.SURVEY_OPT, COUNT(*)
    FROM SURVEY_QUESTION AS T_SURVEY_QUESTION
