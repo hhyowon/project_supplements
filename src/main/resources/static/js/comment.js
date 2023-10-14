@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const commentForm = document.getElementById("commentForm"); //JSP ID 값 : commentForm, 댓글 입력하고 전송요소 
-    const commentInput = document.getElementById("commentInput"); //JSP ID 값 :commentInput, 댓글 입력하는 텍스트 필드
-    let COMMUNITY_ID = document.getElementById('communityIdHidden').value;// 특정 커뮤니티 게시물의 ID를 가져옵니다. 이 ID는 폼 안의 숨겨진 필드에서 가져옵니다.
+    const commentForm = document.getElementById("commentForm");
+    const commentInput = document.getElementById("commentInput");
+    let COMMUNITY_ID = document.getElementById('communityIdHidden').value;
 
-    commentForm.addEventListener("submit", function(e) { //commentForm이 제출될 때 실행될 코드를 정의합니다.
-        e.preventDefault(); // form이 제출될 때 기본적으로 페이지 리로드되는 동작 막음
+    commentForm.addEventListener("submit", function(e) {
+        e.preventDefault(); 
             
-        let commentText = commentInput.value; 
+        let commentText = commentInput.value;
 
         fetch(`/community/comment/${COMMUNITY_ID}`, {
             method: "POST",
@@ -16,13 +16,15 @@ document.addEventListener("DOMContentLoaded", function() {
             body: JSON.stringify({
                 COMMENT: commentText
             }),
-        }) // fetch 함수를 사용해 서버에 POST 요청을 보냅니다. 이 때, 댓글 내용과 함께 게시물의 ID를 URL에 포함시킵니다.
-        .then(response => response.json()) //서버로부터의 응답을 JSON 형태로 변환
-        .then(data => {  // 데이터를 처리
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(data => {
             const resultList = data.commentresult.resultList;
-            // 'commentresult' 안에 'resultList'를 찾습니다.
-        
-            // 컨테이너 초기화 (기존 댓글 삭제)
             const container = document.getElementById("commentTableContainer");
             container.innerHTML = '';
         
@@ -30,12 +32,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 const COMMENT_USER_ID = item.COMMENT_USER_ID;
                 const COMMENT = item.COMMENT;
                 const COMMENTDATE = item.COMMENTDATE;
-        
+
+                let deleteButton = `
+                <td style="width: 20%;">
+                    <button class="deleteCommentButton" data-comment-id="${item.COMMENT_ID}" data-community-id="${item.COMMUNITY_ID}">삭제</button>
+                </td>
+                `;
+
                 let newComment = document.createElement("table");
                 newComment.className = "tb tb_row";
                 newComment.style.border = "1px solid #ececec";
                 newComment.style.width = "100%";
-        
+
                 let content = `
                 <colgroup>
                         <col style="width: 20%;" />
@@ -53,15 +61,44 @@ document.addEventListener("DOMContentLoaded", function() {
                             <td style="width: 20%;">
                                ${COMMENTDATE}
                             </td>
+                            ${deleteButton} 
                         </tr>
                     </tbody>
                 `;
-        
+
                 newComment.innerHTML = content;
                 container.appendChild(newComment);
             });
             
             commentInput.value = '';
+        })
+        .catch(error => {
+            console.error('Fetch error: ', error);
+            alert("댓글 추가 중 오류가 발생했습니다. 다시 시도해 주세요.");
         });
+    });
+
+    document.addEventListener('click', function(event) {
+        if(event.target.matches('.deleteCommentButton')) {
+            let commentId = event.target.getAttribute('data-comment-id');
+            let communityId = event.target.getAttribute('data-community-id');
+
+            if (confirm("댓글을 정말 삭제하시겠습니까?")) {
+                fetch(`/community/deleteAndSelectSearch/${commentId}/${communityId}`, {
+                    method: "DELETE"
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    event.target.closest('table').remove();
+                    window.location.reload();
+                })
+                
+            }
+        }
     });
 });

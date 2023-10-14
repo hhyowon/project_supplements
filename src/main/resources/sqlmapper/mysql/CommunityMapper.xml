@@ -18,7 +18,7 @@
 
     <!-- 댓글 읽어오기 -->
     <select id="selectcomment" parameterType="Map" resultType="Map">
-        SELECT a.COMMENT, a.COMMENTDATE, a.COMMENT_USER_ID, b.USER_ID, b.COMMUNITY_TITLE, b.COMMUNITY_CONTENT, b.COMMUNITY_DATE, b.COMMUNITY_ID
+        SELECT a.COMMENT, a.COMMENTDATE, a.COMMENT_USER_ID, a.COMMENT_ID, b.USER_ID, b.COMMUNITY_TITLE, b.COMMUNITY_CONTENT, b.COMMUNITY_DATE, b.COMMUNITY_ID
         FROM comment AS a
         INNER JOIN community AS b 
         ON a.COMMUNITY_ID = b.COMMUNITY_ID 
@@ -26,11 +26,11 @@
     </select>
 
     <!-- 댓글 삭제 하기-->
-    <!-- <delete id="deletecomment" parameterType="Map" resultType="Map">
+    <delete id="deletecomment" parameterType="Map">
         delete 
-        from `comment`
+        from comment
         where COMMENT_ID = #{COMMENT_ID};
-    </delete> -->
+    </delete>
 
     <!-- 해당 게시글 보기-->
     <select id="communityPost" parameterType="Map" resultType="Map">

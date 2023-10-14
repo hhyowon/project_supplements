@@ -6,12 +6,11 @@
     <body>
 
       <%@ include file="/WEB-INF/views/etc/Header.jsp" %>
-
         <% HashMap params=(HashMap)request.getAttribute("params"); 
         String searchStr=(String)params.getOrDefault("search", "" ); 
         HashMap result=(HashMap)request.getAttribute("result");
         HashMap commentresult=(HashMap)result.get("commentresult"); 
-        ArrayList<HashMap<String, Object>> commentList = (ArrayList<HashMap<String, Object>>) commentresult.get("resultList");
+        ArrayList<HashMap<String, Object>> commentresultList = (ArrayList<HashMap<String, Object>>) commentresult.get("resultList");
         
             ArrayList resultList = (ArrayList)result.get("resultList");
             if (resultList != null && !resultList.isEmpty()) {
@@ -60,10 +59,10 @@
                 <!-- 댓글 목록 렌더링 -->
                 <input type="hidden" id="communityIdHidden" value="<%= record.get("COMMUNITY_ID") %>">
                 <div id="commentTableContainer">
-                  <% for (int i=0; i < commentList.size(); i++) { 
-                    HashMap CommentList=(HashMap)commentList.get(i); 
-                    String commentUserId = (String) CommentList.get("COMMENT_USER_ID"); 
-                    
+                  <% for (int i=0; i < commentresultList.size(); i++) { 
+                    HashMap<String, Object> commentItem = (HashMap<String, Object>)commentresultList.get(i);
+                    String commentUserId = (String) commentItem.get("COMMENT_USER_ID");
+                    String username = (String) commentresult.get("username");
                  %>
                   <table class="tb tb_row" style="border: 1px solid #ececec; width: 100%;">
                     <colgroup>
@@ -74,18 +73,22 @@
                     <tbody>
                       <tr style="border: 1px solid #ececec;">
                         <th scope="row" style="background-color: #eeeeee; text-align: center; width: 20%;">
-                          <%= CommentList.get("COMMENT_USER_ID") %>
+                          <%= commentItem.get("COMMENT_USER_ID")%>
                         </th>
                         <td style="width: 60%;">
-                          <%= CommentList.get("COMMENT") %>
+                          <%= commentItem.get("COMMENT") %>
                         </td>
                         <td style="width: 20%;">
-                          <%= CommentList.get("COMMENTDATE") %>
+                          <%= commentItem.get("COMMENTDATE") %>
                         </td>
                         <td style="width: 20%;">
-                          
-                          <% if (commentUserId.equals(commentUserId)) { %>
-                            <button class="deleteCommentButton" data-comment-id="<%= CommentList.get("COMMENT_ID") %>">삭제</button>
+
+                          <% if (commentUserId.equals(username)) { %>
+                            <button class="deleteCommentButton" 
+                                    data-comment-id="<%= commentItem.get("COMMENT_ID") %>" 
+                                    data-community-id="<%= commentItem.get("COMMUNITY_ID") %>">
+                                삭제
+                            </button>
                            <% } %>
                         </td>
                       </tr>
@@ -111,6 +114,8 @@
             </div>
           
     </body>
-    <script src="/js/comment.js"></script>
     
+    <script src="/js/comment.js"></script>
+  
+
     </html>

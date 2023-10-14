@@ -4,7 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -114,16 +117,37 @@ public class CommunityController {
         // 응답을 Map 형식으로 반환합니다.
         return (Map<String, Object>) result;
     }
-    // 댓글 삭제
-    @GetMapping("/deleteAndSelectSearch/{COMMENT_ID}")
-    public ModelAndView deleteAndSelectSearch(@RequestParam Map params, @PathVariable String COMMENT_ID, ModelAndView modelAndView) {
-        Object result = communityService.deleteandselectcomment(params); // 호출
-        modelAndView.addObject("params", params); // modelAndView 객체에 params와 result를 추가
-        modelAndView.addObject("result", result);
+    // 댓글삭제
+     @DeleteMapping("/deleteAndSelectSearch/{COMMENT_ID}/{COMMUNITY_ID}")
+    public ResponseEntity<Map<String, Object>> deleteAndSelectSearch(@RequestParam Map params, 
+        @PathVariable String COMMENT_ID,  @PathVariable String COMMUNITY_ID) {
+           
+        params.put("COMMENT_ID", COMMENT_ID);
+        params.put("COMMUNITY_ID", COMMUNITY_ID); 
+        Object result = communityService.deleteandselectcomment(params, COMMENT_ID, COMMUNITY_ID);
 
-        modelAndView.setViewName("/WEB-INF/views/community/community_post_comment.jsp");
-        return modelAndView;
+        // 삭제 성공적으로 수행되었을 경우의 응답
+        Map<String, Object> responseMap = new HashMap<>();
+        responseMap.put("status", "success");
+        responseMap.put("message", "Comment deleted successfully");
+
+        return new ResponseEntity<>(responseMap, HttpStatus.OK);
     }
+
+    // 기존 댓글 삭제
+    // @DeleteMapping("/deleteAndSelectSearch/{COMMENT_ID}/{COMMUNITY_ID}")
+    // public ModelAndView deleteAndSelectSearch(@RequestParam Map params, 
+    //     @PathVariable String COMMENT_ID,  @PathVariable String COMMUNITY_ID, ModelAndView modelAndView) {
+           
+    //     params.put("COMMENT_ID", COMMENT_ID); // COMMENT_ID를 dataMap에 추가
+    //     params.put("COMMUNITY_ID", COMMUNITY_ID); 
+    //     Object result = communityService.deleteandselectcomment(params, COMMENT_ID, COMMUNITY_ID); // 호출
+    //     modelAndView.addObject("params", params); // modelAndView 객체에 params와 result를 추가
+    //     modelAndView.addObject("result", result);
+
+    //     modelAndView.setViewName("/WEB-INF/views/community/community_post_comment.jsp");
+    //     return modelAndView;
+    // }
 
 
 }

@@ -61,6 +61,7 @@ public class CommunityService {
         // Object getOne(String sqlMapId, Object dataMap)
         String sqlMapId = "Commu.selectcomment";
         HashMap result = new HashMap<>();
+        result.put("username", commons.getUserID());
         result.put("resultList", sharedDao.getList(sqlMapId, dataMap));
         return result;
     }
@@ -72,16 +73,17 @@ public class CommunityService {
         return result;
     }
     // 댓글 삭제하기
-    public Object deletecomment(Map dataMap) {
-        String sqlMapId = "commu.deleteComment";
-        String commentId = (String) dataMap.get("COMMENT_ID");
-         Object result = sharedDao.delete(sqlMapId, commentId);
+    public Object deletecomment(Map dataMap, String COMMENT_ID) {
+        String sqlMapId = "Commu.deletecomment";
+         Object result = sharedDao.delete(sqlMapId, dataMap);
         return result;
     }
-        public Object deleteandselectcomment(Map dataMap) {
+        public Object deleteandselectcomment(Map dataMap, String COMMENT_ID, String COMMUNITY_ID) {
+        dataMap.put("COMMENT_ID", COMMENT_ID); // COMMENT_ID를 dataMap에 추가
+        dataMap.put("COMMUNITY_ID", COMMUNITY_ID); // COMMENT_ID를 dataMap에 추가
         HashMap result = new HashMap<>();
-        result.put("delete", this.deletecomment(dataMap));
-        result.putAll(this.selectcomment(dataMap));
+        result.put("delete", this.deletecomment(dataMap, COMMUNITY_ID));
+        result.put("commentresult", this.selectcomment(dataMap));
         return result;
         // String sqlMapId = "commu.deleteComment";
         // String commentId = (String) dataMap.get("COMMENT_ID");
