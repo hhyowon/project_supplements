@@ -5,32 +5,34 @@ function preCheckID(event) {
 
     const requestBody = { USER_ID: userId }; // JSON 데이터를 객체로 생성
 
-    fetch(`http://localhost:8080/signup/checkDuplicateId`, {
+    fetch(`/signup/checkDuplicateId`, {
     method: 'POST', // 여기를 POST로 설정
     headers: {
         'Content-Type': 'application/json'
     },
     body: JSON.stringify(requestBody) // JSON 데이터를 문자열로 변환하여 본문에 추가
     })
-    .then((result) => {
-        if (!result.ok) {
-        throw new Error('Network response was not ok');
+    
+    .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
         }
-        return result.json();
-    })
+        return response.json();
+      })
     .then(data => {
         console.log('파싱된 데이터:', data);
         const idMessage = document.getElementById('idMessage');
         
         if (data.result === " ") {
-        // 중복된 아이디 처리
-        idMessage.textContent = '이미 사용 중인 아이디입니다.';
-        idMessage.style.color = 'red';
+            // 사용 가능한 아이디 처리
+            idMessage.textContent = '사용 가능한 아이디입니다.';
+            idMessage.style.color = 'green';
         } else {
-        // 사용 가능한 아이디 처리
-        idMessage.textContent = '사용 가능한 아이디입니다.';
-        idMessage.style.color = 'green';
+            // 중복된 아이디 처리
+            idMessage.textContent = '이미 사용 중인 아이디입니다.';
+            idMessage.style.color = 'red';
         }
+        
     })
     .catch(error => {
         console.error('오류 발생: ', error);

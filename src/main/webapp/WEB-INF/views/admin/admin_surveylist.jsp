@@ -11,6 +11,10 @@
             <div style="text-align:center;">
                 <h1 class="h3 mb-3 fw-normal">설문조사 관리</h1>
             </div>
+            <div>
+                <a href="/rank" style="background-color: transparent; color: #454546; font-weight: bold; text-decoration: none; padding: 10px 20px; border: 2px solid #454546; border-radius: 5px; display: inline-block; margin-top: 30px;">전체 통계 관리하기</a>
+            </div>
+
             <br>
             <% 
             HashMap params=(HashMap)request.getAttribute("params"); 

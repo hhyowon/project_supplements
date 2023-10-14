@@ -24,6 +24,16 @@
       HashMap params = (HashMap) request.getAttribute("params"); 
       HashMap result = (HashMap) request.getAttribute("result"); 
       %>
+      <% 
+      
+      String jsonData = (String) request.getAttribute("dataArray");// JSON 데이터 가져오기 
+      String jsonData2 = (String) request.getAttribute("dataArray2");
+      String jsonData3 = (String) request.getAttribute("dataArray3");
+             
+      %>
+      <!-- <pre><%= jsonData %></pre>
+      <pre><%= jsonData2 %></pre>
+      <pre><%= jsonData3 %></pre>  jsonData값 나오는거 확인함-->
 
       <% if (result != null) { %>
         <%
@@ -147,64 +157,75 @@
     // Load the Visualization API and the corechart package
     google.charts.load('current', { 'packages': ['corechart'] });
   
-    // Set a callback to run when the Google Visualization API is loaded
-    google.charts.setOnLoadCallback(drawCharts);
+
+        // Set a callback to run when the Google Visualization API is loaded
+        google.charts.setOnLoadCallback(drawCharts)
+
+       
   
     // Function to draw the charts
     function drawCharts() {
-      // Data for Bar Chart
-      var barData = google.visualization.arrayToDataTable([
-          ['Category', '남성', '여성'],
-          ['BMI 평균', 10, 20],
-      ]);
+       // Data for barChart BMIavg
+      var BMiavg = JSON.parse('<%= jsonData %>'); // JSON 데이터를 가져옴
+      console.log(BMiavg);  
+      var barData = new google.visualization.DataTable();
+      barData.addColumn('string', 'GENDER');
+      barData.addColumn('number', 'AVG_BMI');
 
-      // Options for Bar Chart
-      var barOptions = {
-          title: '여성/남성별 BMI평균',
-          colors: ['#79b7fd', '#FFC0CB'], // 남성: 파란색, 여성: 핑크색
-          bar: {
-            groupWidth: '60%'
-        },
+      for (var i = 0; i < BMiavg.length; i++) {
+        barData.addRow([BMiavg[i].GENDER, parseFloat(BMiavg[i].AVG_BMI)]);
+      }
+
+        var barOptions = {
+            title: '여성/남성별 BMI평균',
+            titleTextStyle: {
+                fontSize: 25  // 여기서 숫자는 원하는 글꼴 크기로 조정할 수 있습니다.
+            },
+            colors: ['#FFB6C1'],
+            legend: 'none' 
+
+        };
+
+      // Data for Pie Chart 남성 타입별 
+      var BMImale = JSON.parse('<%= jsonData2 %>'); // JSON 데이터를 가져옴
+      console.log(BMImale);  
+      var pieData1 = new google.visualization.DataTable();
+      pieData1.addColumn('string', 'BMI_TYPE');
+      pieData1.addColumn('number', 'BMI_TYPE_COUNT');
+
+      for (var i = 0; i < BMImale.length; i++) {
+        pieData1.addRow([BMImale[i].BMI_TYPE, parseInt(BMImale[i].BMI_TYPE_COUNT)]);
+      }
+      // Options for Pie Chart1 남성 타입별 
+      var pieOptions1 = {
+        title: '남성 BMI',
         titleTextStyle: {
         fontSize: 25  // 여기서 숫자는 원하는 글꼴 크기로 조정할 수 있습니다.
-        }
-        };
-        
-      // Data for Pie Chart 1
-      var pieData1 = google.visualization.arrayToDataTable([
-        ['Fruit', 'Quantity'],
-        ['Apple', 30],
-        ['Banana', 20],
-        ['Orange', 50]
-      ]);
-  
-      // Options for Pie Chart 1
-      var pieOptions1 = {
+        },
+        width: 600,   // 원하는 너비로 설정
+        height: 400,   // 원하는 높이로 설정
+        colors: ['#c2c2c2', '#b2e9ff', '#8db1ff','#79b7fd']
+      };
+
+      // Data for Pie Chart2 여성 타입별 
+      var BMIfemale = JSON.parse('<%= jsonData3 %>'); // JSON 데이터를 가져옴
+      console.log(BMIfemale);  
+      var pieData2 = new google.visualization.DataTable();
+      pieData2.addColumn('string', 'BMI_TYPE');
+      pieData2.addColumn('number', 'BMI_TYPE_COUNT');
+
+      for (var i = 0; i < BMIfemale.length; i++) {
+        pieData2.addRow([BMIfemale[i].BMI_TYPE, parseInt(BMIfemale[i].BMI_TYPE_COUNT)]);
+      }
+      // Options for Pie Chart1 여성 타입별 
+      var pieOptions2 = {
         title: '여성 BMI',
         titleTextStyle: {
         fontSize: 25  // 여기서 숫자는 원하는 글꼴 크기로 조정할 수 있습니다.
         },
         width: 600,   // 원하는 너비로 설정
-        height: 400   // 원하는 높이로 설정
-        
-      };
-
-      // Data for Pie Chart 2
-      var pieData2 = google.visualization.arrayToDataTable([
-        ['Fruit', 'Quantity'],
-        ['Grapes', 15],
-        ['Strawberry', 25],
-        ['Blueberry', 60]
-      ]);
-
-      // Options for Pie Chart 2
-      var pieOptions2 = {
-        title: '남성 BMI ',
-        titleTextStyle: {
-        fontSize: 25  // 여기서 숫자는 원하는 글꼴 크기로 조정할 수 있습니다.
-        },
-        width: 600,   // 원하는 너비로 설정
-       height: 400   // 원하는 높이로 설정
+        height: 400,   // 원하는 높이로 설정
+        colors: ['#c2c2c2', '#b2e9ff', '#8db1ff','#79b7fd']
       };
 
       // Draw the charts

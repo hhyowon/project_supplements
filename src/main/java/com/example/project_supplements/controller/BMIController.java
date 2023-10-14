@@ -40,7 +40,7 @@ public class BMIController {
         return modelAndView;
     }
     
-    // // 그래프 데이터 생성 메서드ㄴ
+    // // 그래프 데이터 생성 메서드
     // private List<List<Object>> createChartData() {
     //     List<List<Object>> chartData = new ArrayList<>();
         
@@ -114,12 +114,29 @@ public class BMIController {
     modelAndView.addObject("params", params);
     modelAndView.addObject("result", resultModel); // 수정된 부분
 
-          // 서비스에서 데이터를 가져오고 JSON으로 변환하여 JSP로 전달
-            Map<String, Object> result = bmiService.getAvgBMI();
-            String jsonData = gson.toJson(result);
-            modelAndView.addObject("dataArray", jsonData);
+    // 서비스에서 데이터를 가져오고 JSON으로 변환하여 JSP로 전달
+    Map<String, Object> avgBMIMap = new HashMap<>(); // 새로운 맵 생성
+    Object result = bmiService.getAvgBMI(avgBMIMap); // 빈 맵 전달
+    String jsonData = gson.toJson(result);
+    modelAndView.addObject("dataArray", jsonData);
+
+    
+    // 서비스에서 데이터를 가져오고 JSON으로 변환하여 JSP로 전달
+    Map<String, Object> maleBMIMap = new HashMap<>(); // 새로운 맵 생성
+    Object result2 = bmiService.maleBMItype(maleBMIMap); // 빈 맵 전달
+    String jsonData2 = gson.toJson(result2);
+    modelAndView.addObject("dataArray2", jsonData2);
+
+    
+    // 서비스에서 데이터를 가져오고 JSON으로 변환하여 JSP로 전달
+    Map<String, Object> femaleBMIMap = new HashMap<>(); // 새로운 맵 생성
+    Object result3 = bmiService.femaleBMItype(femaleBMIMap); // 빈 맵 전달
+    String jsonData3 = gson.toJson(result3);
+    modelAndView.addObject("dataArray3", jsonData3);
 
     modelAndView.setViewName("/WEB-INF/views/bmi/bmi_result.jsp");
+    // System.out.println(result);
+    // System.out.println(avgBMIMap); 확인용
 
     return modelAndView;
 }

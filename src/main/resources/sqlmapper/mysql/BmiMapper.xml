@@ -22,7 +22,7 @@
 </select>
 
 <!--차트용-->
-<select id="BMI_avg" parameterType="Map" resultType="String">
+<select id="BMI_avg" parameterType="Map" resultType="Map">
     SELECT G.GENDER, ROUND(AVG(B.BMI_RESULT), 2) AS AVG_BMI
     FROM GENDER AS G
     INNER JOIN BMI AS B
@@ -31,8 +31,8 @@
 </select>
 
 
-<select id="BMI_TYPE_male" parameterType="Map" resultType="String">
-    SELECT COUNT(B.BMI_TYPE) AS BMI_TYPE_COUNT, B.BMI_TYPE
+<select id="BMI_TYPE_male" parameterType="Map" resultType="Map">
+    SELECT  B.BMI_TYPE, COUNT(B.BMI_TYPE) AS BMI_TYPE_COUNT
     FROM GENDER AS G
     INNER JOIN BMI AS B
     ON G.GENDER_UID = B.GENDER_UID
@@ -46,8 +46,8 @@
             END;
 </select>
 
-<select id="BMI_TYPE_female" parameterType="Map" resultType="String">
-   SELECT COUNT(B.BMI_TYPE) AS BMI_TYPE_COUNT, B.BMI_TYPE
+<select id="BMI_TYPE_female" parameterType="Map" resultType="Map">
+   SELECT  B.BMI_TYPE, COUNT(B.BMI_TYPE) AS BMI_TYPE_COUNT
     FROM GENDER AS G
     INNER JOIN BMI AS B
     ON G.GENDER_UID = B.GENDER_UID

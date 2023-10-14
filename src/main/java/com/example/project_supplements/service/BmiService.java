@@ -68,23 +68,30 @@ public class BmiService {
         }
 
         //차트구현을 위한 데이터를 가져오는 서비스
-        public Map<String, Object> getAvgBMI() {
+        public Object getAvgBMI(Map dataMap) {
             String sqlMapId = "BMI.BMI_avg";
             
-            Map<String, Object> result = new HashMap<>();
-            result.put("resultList", sharedDao.getList(sqlMapId, null));
+            Object avgBMI = sharedDao.getList(sqlMapId, dataMap); // 데이터맵을 사용하여 데이터를 가져옵니다.
             
-            return result;
+            return avgBMI; // 가져온 데이터를 바로 반환합니다.
         }
 
-    public Map<String, Object> getBMIDistributionByGender(String gender) {
-        String sqlMapId = gender.equals("남성") ? "BMI.BMI_TYPE_male" : "BMI.BMI_TYPE_female";
-
-        Map<String, Object> result = new HashMap<>();
-        result.put("resultList", sharedDao.getList(sqlMapId, null));
+       public Object maleBMItype(Map dataMap) {
+            String sqlMapId = "BMI.BMI_TYPE_male";
         
-        return result;
-    }
+            Object maleBMI = sharedDao.getList(sqlMapId, dataMap); // 데이터맵을 사용하여 데이터를 가져옵니다.
+            
+            return maleBMI; // 가져온 데이터를 바로 반환합니다.
+        }
+        
+        public Object femaleBMItype(Map dataMap) {
+            String sqlMapId = "BMI.BMI_TYPE_female";
+        
+           Object femaleBMI = sharedDao.getList(sqlMapId, dataMap); // 데이터맵을 사용하여 데이터를 가져옵니다.
+            
+            return femaleBMI; // 가져온 데이터를 바로 반환합니다.
+        }
+        
 }
 
    

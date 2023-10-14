@@ -36,12 +36,15 @@ public class SignController {
         }
 
 
-        @PostMapping("/checkDuplicateId")
-        public ResponseEntity checkDuplicateId(@RequestParam Map params, ModelAndView modelAndView) {
-            // 중복 확인 로직을 구현하고 결과 반환
-            Object result = signService.checkID(params);
-            return ResponseEntity.ok(result);
-        }
+
+    @PostMapping("/checkDuplicateId")
+    public ResponseEntity<?> checkDuplicateId(@RequestParam Map<String, String> params) {
+    Object result = signService.checkID(params);
+    Map<String, Object> responseMap = new HashMap<>();
+    responseMap.put("result", result);
+    return ResponseEntity.ok(responseMap);
+}
+
 
         
 }
