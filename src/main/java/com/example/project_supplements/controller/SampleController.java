@@ -13,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.project_supplements.service.SampleService;
 
-
 @Controller
 
 @RequestMapping("/main")
@@ -22,8 +21,8 @@ public class SampleController {
     @Autowired
     SampleService DietService;
 
-    @GetMapping({" ", "/home"})
-    public ModelAndView main(ModelAndView modelAndView){
+    @GetMapping({ " ", "/home" })
+    public ModelAndView main(ModelAndView modelAndView) {
         modelAndView.addObject("name", "Yojulab!");
         modelAndView.setViewName("/WEB-INF/views/main.jsp");
         return modelAndView;
@@ -64,31 +63,33 @@ public class SampleController {
     }
     // // INSERT
     // @PostMapping("/insert")
-    // public ModelAndView insert(@RequestParam Map params, ModelAndView modelAndView) {
-    //     Object result = DietService.insert(params);
+    // public ModelAndView insert(@RequestParam Map params, ModelAndView
+    // modelAndView) {
+    // Object result = DietService.insert(params);
 
-    //     modelAndView.addObject("params", params);
-    //     modelAndView.addObject("result", result);
-    //     modelAndView.setViewName("/WEB-INF/views/mainpage/main.jsp");
-    //     return modelAndView;
+    // modelAndView.addObject("params", params);
+    // modelAndView.addObject("result", result);
+    // modelAndView.setViewName("/WEB-INF/views/mainpage/main.jsp");
+    // return modelAndView;
     // }
 
     // @GetMapping("/insertForm")
-    // public ModelAndView insertForm(@RequestParam Map params, ModelAndView modelAndView) {
-    //     modelAndView.setViewName("/WEB-INF/views/InsertForm.jsp");
-    //     return modelAndView;
+    // public ModelAndView insertForm(@RequestParam Map params, ModelAndView
+    // modelAndView) {
+    // modelAndView.setViewName("/WEB-INF/views/InsertForm.jsp");
+    // return modelAndView;
     // }
 
     // @PostMapping("/insertAndSelectSearch")
     // public ModelAndView insertAndSelectSearch(@RequestParam Map params,
-    //         ModelAndView modelAndView) {
-    //     Object result = DietService.insertAndSelectSearch(params);
+    // ModelAndView modelAndView) {
+    // Object result = DietService.insertAndSelectSearch(params);
 
-    //     modelAndView.addObject("params", params);
-    //     modelAndView.addObject("result", result);
-    //     modelAndView.setViewName("/WEB-INF/views/main.jsp");
+    // modelAndView.addObject("params", params);
+    // modelAndView.addObject("result", result);
+    // modelAndView.setViewName("/WEB-INF/views/main.jsp");
 
-    //     return modelAndView;
+    // return modelAndView;
     // }
 
     // UPDATE
@@ -121,8 +122,8 @@ public class SampleController {
         modelAndView.setViewName("/WEB-INF/views/DetailForm.jsp");
         return modelAndView;
     }
-    
-        @PostMapping("/signAndList")
+
+    @PostMapping("/signAndList")
     public ModelAndView signAndList(@RequestParam Map params,
             ModelAndView modelAndView) {
         Object result = DietService.insertAndSelectSearch(params);
@@ -133,19 +134,17 @@ public class SampleController {
 
         return modelAndView;
     }
-    
 
+}
 
-    }
-
-    // 상세정보
-    //     @PostMapping("/selectDetail/{COMMON_CODE_ID}")
-    // public ModelAndView selectDetail(@PathVariable String COMMON_CODE_ID, @RequestParam Map params,
-    //         ModelAndView modelAndView) {
-    //     Object result = carInforsService.selectDetail(COMMON_CODE_ID, params);
-    //     modelAndView.addObject("params", params);
-    //     modelAndView.addObject("result", result);
-    //     modelAndView.setViewName("/WEB-INF/views/DetailForm.jsp");
-    //     return modelAndView;
-    // }
-    
+// 상세정보
+// @PostMapping("/selectDetail/{COMMON_CODE_ID}")
+// public ModelAndView selectDetail(@PathVariable String COMMON_CODE_ID,
+// @RequestParam Map params,
+// ModelAndView modelAndView) {
+// Object result = carInforsService.selectDetail(COMMON_CODE_ID, params);
+// modelAndView.addObject("params", params);
+// modelAndView.addObject("result", result);
+// modelAndView.setViewName("/WEB-INF/views/DetailForm.jsp");
+// return modelAndView;
+// }

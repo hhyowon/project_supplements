@@ -1,6 +1,7 @@
 package com.example.project_supplements.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 
-import java.util.Arrays;
 @Controller
 
 @RequestMapping("/admin")
@@ -18,7 +18,7 @@ public class ChartsController {
     @Autowired
     private Gson gson;
 
-    @RequestMapping(value = "/charts/google_charts_scatter", method = RequestMethod.GET)  
+    @RequestMapping(value = "/charts/google_charts_scatter", method = RequestMethod.GET)
     public ModelAndView edit(ModelAndView modelAndView) {
         ArrayList datas = new ArrayList();
         // ['Age', 'Weight'],[8, 12],[4, 5.5],[11, 14],[4, 5],[3, 3.5],[6.5, 7];
@@ -33,11 +33,9 @@ public class ChartsController {
         dataArray.add(datas);
 
         modelAndView.addObject("dataArray", gson.toJson(datas));
-        
-        modelAndView.setViewName("/WEB-INF/views/admin/charts_google_various.jsp"); 
+
+        modelAndView.setViewName("/WEB-INF/views/admin/charts_google_various.jsp");
         return modelAndView;
     }
-    
+
 }
-
-

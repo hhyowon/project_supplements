@@ -5,14 +5,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.example.project_supplements.service.AdminService;
 import com.example.project_supplements.utils.Commons;
-
 
 @Controller
 
@@ -25,7 +23,7 @@ public class AdminController {
     @Autowired
     Commons commons;
 
-    @GetMapping({"/"})
+    @GetMapping({ "/" })
     public ModelAndView main(@RequestParam Map<String, String> params, ModelAndView modelAndView) {
         Object result = adminService.selectWithPagination(params); // params 맵을 인자로 전달하여 검색 결과를 가져 옴
 
@@ -34,8 +32,5 @@ public class AdminController {
         modelAndView.setViewName("/WEB-INF/views/admin/admin_userList.jsp"); // 모델과 뷰 정보를 포함한 ModelAndView 객체를 반환
         return modelAndView;
     }
-
-    
-    
 
 }
