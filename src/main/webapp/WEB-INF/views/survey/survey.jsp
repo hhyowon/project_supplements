@@ -71,7 +71,7 @@
                 <img src="/html/img/person.png" alt="" height="150">
                 <div class="text-center mt-4 mb-4">
                   <sec:authorize access="isAuthenticated()">     <!--로그인상태확인-->
-                  <button type="submit"  formaction="/survey/both" class="btn btn-outline-secondary " style="border-radius: 20px;" name="SURVEY_TYPE_ID" value="F-02"  >설문조사 하러가기</button>
+                  <button type="submit"  formaction="/survey/both" class="btn btn-outline-secondary " style="border-radius: 20px;" name="SURVEY_TYPE_ID" value="F-02">설문조사 하러가기</button>
                   </sec:authorize>
                   <sec:authorize access="isAnonymous()"> <!--로그아웃상태확인-->
                   <button type="button" class="btn btn-white btn-main" data-bs-toggle="modal" data-bs-target="#myModal2"> 설문조사 하러가기</button>
