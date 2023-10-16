@@ -31,7 +31,7 @@
                     <a data-bs-toggle="modal" href="#modalTarget-center">
                         <button class="btn mx-2  mb-2 float-end submit btn-outline-secondary">작성하기</button></a>
                     <!-- 모달 창 -->
-                    <form id="modalForm" method="GET" action="" > 
+                    <form id="modalForm" method="GET" action="/community/communityModal" > 
                         <div class="modal" id="modalTarget-center">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
@@ -49,8 +49,8 @@
                                     </div>
                     
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-white btn-outline-secondary" formaction="/community/communityModal">입력</button>
-                                    </div>
+                                        <button type="submit" id="submitButton" class="btn btn-white btn-outline-secondary" formaction="/community/communityModal">입력</button>
+                                     </div>
                                 </div>
                             </div>
                         </div>
@@ -161,8 +161,5 @@
     </form>
     
 </body>
-
-
-
 
 </html>
