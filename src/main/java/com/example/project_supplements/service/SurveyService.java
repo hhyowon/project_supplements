@@ -27,12 +27,16 @@ public class SurveyService {
     @Autowired
     SurveyResultService surveyResultService;
     // 중복 제거 문항
+
+  
     public Map selectsurveyopt(Map dataMap) {
-    dataMap.put("USER_ID", commons.getUserID());
-    String sqlMapId = "SurveyService.usersupplist";
-    HashMap result = new HashMap<>();
-    result.put("result", sharedDao.getList(sqlMapId, dataMap));
-    return result;
+        String surveyOpt = (String) dataMap.get("SURVEY_OPT");
+        dataMap.put("SURVEY_OPT", surveyOpt);
+        dataMap.put("USER_ID", commons.getUserID());
+        String sqlMapId = "SurveyService.usersupplist";
+        HashMap result = new HashMap<>();
+        result.put("result", sharedDao.getList(sqlMapId, dataMap));
+        return result;
     }
     // 설문조사 내역 가져오기(둘다)
     public Map surveyboth(Map dataMap) {
