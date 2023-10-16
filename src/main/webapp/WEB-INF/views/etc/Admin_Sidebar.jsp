@@ -11,11 +11,11 @@
           <div class="text-decoration-none nav-link fs-5 fw-bold">관리자페이지</div>
         </li>
 
-        <li class="d-flex align-items-center">
+        <!-- <li class="d-flex align-items-center">
           <a href="/admin/adminCharts" class="text-decoration-none nav-link">
             통계 관리
           </a>  
-        </li>
+        </li> -->
 
         <li class="d-flex align-items-center">
           <a href="/admin/" class="text-decoration-none nav-link">

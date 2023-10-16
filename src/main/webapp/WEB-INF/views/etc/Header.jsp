@@ -34,8 +34,11 @@
                                 로그인중입니다&#x1F60A
                             </li>
                             <sec:authorize access="hasRole('ROLE_ADMIN')">
-                            <div>
+                            <!-- <div>
                                 <a class="nav-link" href="/admin/adminCharts" style="color:black">관리자전용</a>
+                            </div> -->
+                            <div>
+                                <a class="nav-link" href="/admin/" style="color:black">관리자전용</a>
                             </div>
                             </sec:authorize>
                         </sec:authorize>
