@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="java.util.HashMap, java.util.ArrayList, com.example.project_supplements.utils.Paginations"%>
-    <!DOCTYPE html>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.text.ParseException" %> 
+<%@ page import="com.example.project_supplements.utils.Paginations" %>
+
+<!DOCTYPE html>
+   
+<!DOCTYPE html>
     <html lang="en">
         <link href="" rel="stylesheet" type="text/css">
         <%@ include file= "/WEB-INF/views/etc/Header.jsp" %>
@@ -13,7 +20,7 @@
             String searchStr=(String)params.getOrDefault("search", ""); 
             HashMap result=(HashMap)request.getAttribute("result"); 
             %>
-
+      
         <div class="container "> 
             <h2 class="ui teal image header text-center">
                 커뮤니티
@@ -79,15 +86,28 @@
                                     </tr>
                                 </thead>
                                 <tbody id="list">
-                                    <% ArrayList resultList=(ArrayList)result.get("resultList"); 
-                                            for(int i=0; i < resultList.size(); i=i+1){
-                                                HashMap record=(HashMap)resultList.get(i); %>
+                                    <% 
+                                    ArrayList resultList=(ArrayList)result.get("resultList"); 
+                                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd"); // dateFormat 객체 선언 추가
+                                    for(int i=0; i < resultList.size(); i=i+1){
+                                        HashMap record=(HashMap)resultList.get(i); 
+                    
+                                        String dateString = (String) record.get("COMMUNITY_DATE");
+                                        String formattedDate = ""; 
+                                        
+                                        try {
+                                            java.util.Date parsedDate = dateFormat.parse(dateString);
+                                            formattedDate = dateFormat.format(parsedDate);
+                                        } catch (ParseException e) {
+                                            e.printStackTrace();
+                                        }
+                                    %>
                                     <tr>
                                         <td><%= i+1 %></td>
                                         <td><%= record.get("CATEGORY") %></td>
                                         <td><a style=" color:black; text-decoration: none;" href="/community/communityPost/<%= record.get("COMMUNITY_ID") %>"><%= record.get("COMMUNITY_TITLE") %></a></td>
                                         <td><%= record.get("USER_ID") %></td>
-                                        <td><%= record.get("COMMUNITY_DATE") %></td>
+                                        <td><%= formattedDate %></td>
                                     </tr>
                                     <% } %>
                                 </tbody>
