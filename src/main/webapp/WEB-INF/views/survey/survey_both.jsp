@@ -21,9 +21,7 @@
     String searchStr = (String) params.getOrDefault("search", ""); 
     HashMap result = (HashMap) request.getAttribute("result");
     ArrayList resultList = (ArrayList) result.get("resultList");
-    HashMap selectsurveyopt=(HashMap) result.get("selectsurveyopt"); 
-    ArrayList selectsurveyoptresultList=(ArrayList) selectsurveyopt.get("result"); 
-
+   
     
     if (!resultList.isEmpty()) {
         HashMap firstRecord = (HashMap) resultList.get(0);
