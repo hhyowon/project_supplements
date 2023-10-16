@@ -93,7 +93,7 @@
       </div>
       <p>
         
-        <label for="auth" class="sr-only"></label>
+        <!-- <label for="auth" class="sr-only"></label>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="auth" id="SYSTEM_MANAGER" value="SYSTEM_MANAGER">
             <label class="form-check-label" for="ROLE_MANAGER">SYSTEM MANAGER</label>
@@ -106,13 +106,17 @@
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="auth" id="USER" value="ROLE_USER">
             <label class="form-check-label" for="USER">USER</label>
-          </div>
+          </div> -->
         </p>
           <hr class="mb-4" />
-          <div class="custom-control custom-checkbox">
+          <!-- <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="aggrement" name="PRIVACY_INFO" required />
             <label class="custom-control-label" for="aggrement">개인정보 수집 및 이용에 동의합니다.</label>
-          </div>
+          </div> -->
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="auth" id="USER" value="ROLE_USER">
+            <label class="form-check-label" for="USER">개인정보 수집 및 이용에 동의합니다.</label>
+          </div> 
           <P></P>
           <div class="row">
             <div class="col-md-6">

@@ -2,7 +2,7 @@
   <%@ page import="java.util.HashMap, java.util.ArrayList, com.example.project_supplements.utils.Paginations" %>
     <!DOCTYPE html>
     <html lang="en">
-
+    
     <body>
 
       <%@ include file="/WEB-INF/views/etc/Header.jsp" %>
@@ -84,7 +84,7 @@
                         <td style="width: 20%;">
 
                           <% if (commentUserId.equals(username)) { %>
-                            <button class="deleteCommentButton" 
+                            <button class="deleteCommentButton btn-main btn-block"  
                                     data-comment-id="<%= commentItem.get("COMMENT_ID") %>" 
                                     data-community-id="<%= commentItem.get("COMMUNITY_ID") %>">
                                 삭제
