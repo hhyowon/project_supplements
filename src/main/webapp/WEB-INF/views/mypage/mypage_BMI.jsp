@@ -17,14 +17,12 @@
               HashMap result=(HashMap)request.getAttribute("result"); %>
 
     <div class="col-9 p-0 mb-5 ms-5">
-      <div style="text-align:center;">
-          <h1 class="h3 mb-3 fw-normal">나의 BMI 관리</h1>
-      </div>
       <br>
       <br>
       <div class="container">
   
       <div class="container">
+        <h1 style="color: #123658; font-weight: bold;">나의 BMI 관리</h1>
         <h3 style="color: #5B9BD5; font-weight: bold; margin-top: 30px;">나의 BMI 그래프</h2>
           <canvas id="myChart"></canvas>
 
