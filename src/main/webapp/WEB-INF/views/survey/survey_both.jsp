@@ -35,7 +35,7 @@
             <form method="get">
                 <input type="hidden" name="SURVEY_TYPE_ID" value="<%= surveyTypeId %>">
                 <div class="container mx-auto"
-                    style="border: 2px solid rgb(91, 155, 213); padding: 20px; border-radius: 10px; text-align: center; width: 50%;">
+                    style="margin-top: 50px; border: 2px solid rgb(91, 155, 213); padding: 20px; border-radius: 10px; text-align: center; width: 50%;">
                     <tbody id="surveyboth">
                         <div class="top-margin text-center">
                             <img class="mt-4 mb-4" src="/html/img/logo.PNG" alt width="240" height="100"
@@ -43,9 +43,9 @@
                         </div>
                         <h3>
                             <% if ("F-01".equals(surveyTypeId)) { %>
-                                다이어트 보조제 복용 경험이 없는 사람의 설문조사
+                                다이어트 보조제 미복용자 설문조사
                                 <% } else if ("F-02".equals(surveyTypeId)) { %>
-                                    다이어트 보조제 복용 경험이 있는 사람의 설문조사
+                                    다이어트 보조제 복용자 설문조사
                                     <% } %>
                         </h3>
                         <% String compare="" ; 

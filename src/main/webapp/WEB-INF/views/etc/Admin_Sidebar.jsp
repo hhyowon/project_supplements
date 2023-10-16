@@ -12,7 +12,7 @@
         </li>
 
         <li class="d-flex align-items-center">
-          <a href="/admin/charts/google_charts_scatter" class="text-decoration-none nav-link">
+          <a href="/admin/adminCharts" class="text-decoration-none nav-link">
             통계 관리
           </a>  
         </li>

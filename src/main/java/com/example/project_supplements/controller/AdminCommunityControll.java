@@ -57,12 +57,6 @@ public class AdminCommunityControll {
         String jsonData = gson.toJson(resultComu);
         modelAndView.addObject("dataArray", jsonData);
 
-        // 서비스에서 데이터를 가져오고 JSON으로 변환하여 JSP로 전달
-        Map<String, Object> maleBMIMap = new HashMap<>(); // 새로운 맵 생성
-        Object resultCorona = adminCommunityService.CommcoronaCount(maleBMIMap); // 빈 맵 전달
-        String jsonData2 = gson.toJson(resultCorona);
-        modelAndView.addObject("dataArray2", jsonData2);
-
         return modelAndView;
     }
 
