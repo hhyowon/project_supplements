@@ -20,6 +20,7 @@
         HashMap params=(HashMap)request.getAttribute("params"); 
         String searchStr=(String)params.getOrDefault("search", ""); 
         HashMap result=(HashMap)request.getAttribute("result");
+        result.getAttribute(s)
     %>
     <div style="text-align: center;">
         <img class="mb-4" src="/html/img/logo.PNG" alt width="240" height="100"
