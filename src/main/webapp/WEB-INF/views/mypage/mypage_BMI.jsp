@@ -17,15 +17,15 @@
               HashMap result=(HashMap)request.getAttribute("result"); %>
 
     <div class="col-9 p-0 mb-5 ms-5">
-      <div style="text-align:center;">
-          <h1 class="h3 mb-3 fw-normal">나의 BMI 관리</h1>
-      </div>
       <br>
       <br>
       <div class="container">
-    
-     
+  
       <div class="container">
+        <h1 style="color: #123658; font-weight: bold;">나의 BMI 관리</h1>
+        <h3 style="color: #5B9BD5; font-weight: bold; margin-top: 30px;">나의 BMI 그래프</h2>
+          <canvas id="myChart"></canvas>
+
         <h3 style="color: #5B9BD5; font-weight: bold; margin-top: 30px;">나의 BMI 표</h2>
           <table class="ui celled table table text-center table-bordered table-hover">
               <thead>
@@ -39,26 +39,58 @@
                   </tr>
               </thead>
               <tbody id="list">
-                <% ArrayList resultList=(ArrayList)result.get("resultList"); 
-                for(int i=0; i < resultList.size(); i=i+1){
-                  int number = i+1;
-                    HashMap record=(HashMap)resultList.get(i); %>
+                <% ArrayList<HashMap> resultList = (ArrayList<HashMap>) result.get("resultList"); 
+                for(int i = 0; i < resultList.size(); i++) {
+                  int number = i + 1;
+                  HashMap<String, Object> record = resultList.get(i);
+                %>
                 <tr>
-                  <td style="width: 7%;" ><%= number %></td>
+                  <td style="width: 7%;"><%= number %></td>
                   <td><%= record.get("DATE") %></td> 
                   <td><%= record.get("HEIGHT") %></td>
-                    <td><%= record.get("WEIGHT") %></td>
-                    <td><%= record.get("BMI_RESULT") %></td>
-                    <td><%= record.get("BMI_TYPE") %></td>
+                  <td><%= record.get("WEIGHT") %></td>
+                  <td><%= record.get("BMI_RESULT") %></td>
+                  <td><%= record.get("BMI_TYPE") %></td>
                 </tr> 
                 <% }  %>
-            </tbody>
+              </tbody>
           </table>
       </div>
     </main>
 </body>
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script>
+    var dateData = [<% for(HashMap record: resultList) { %> "<%= record.get("DATE") %>", <% } %>];
+    var bmiData = [<% for(HashMap record: resultList) { %> <%= record.get("BMI_RESULT") %>, <% } %>];
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myLineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: dateData,
+            datasets: [{
+                label: 'BMI',
+                data: bmiData,
+                borderColor: 	'#F6CEE3',
+                fill: false
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                  type: 'time',
+                    time: {
+                        unit: 'day', // 날짜 형식을 'day'로 설정 (YY-MM-DD)
+                        tooltipFormat: 'YY-MM-DD', // 툴팁에 표시되는 날짜 형식
+                        displayFormats: {
+                            day: 'YY-MM-DD'
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>
 
 </html>

@@ -66,7 +66,7 @@
                             <td><%= record.get("PHONENUMBER") %></td>
                             <td><%= record.get("ADDRESS") %></td>
                             <td style="width: 120px;"><%= record.get("EMAIL") %></td>
-                            <td><%= record.get("DORMANT_UID") %></td>
+                            <td><%= record.get("DORMANT") %></td>
                         </tr>
                        <% } %>
                         </tbody>

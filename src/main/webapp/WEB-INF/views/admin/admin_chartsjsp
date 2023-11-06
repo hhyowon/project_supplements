@@ -1,0 +1,103 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.util.HashMap, java.util.ArrayList, com.example.project_supplements.utils.Paginations"%>
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <!-- Google Charts API -->
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        </head>
+
+        
+        <body>
+            <%@ include file= "/WEB-INF/views/etc/Header.jsp" %>
+        <div class="row g-0 vh-100">
+              <%@ include file= "/WEB-INF/views/etc/Admin_Sidebar.jsp" %><!-- 관리자페이지 옆-->
+              <% 
+              HashMap params=(HashMap)request.getAttribute("params"); 
+              String searchStr=(String)params.getOrDefault("search", ""); 
+              HashMap result=(HashMap)request.getAttribute("result"); %>
+              <% 
+              String jsonData = (String) request.getAttribute("dataArray");// JSON 데이터 가져오기 
+              String jsonData2 = (String) request.getAttribute("dataArray2");
+              
+              %>
+
+              <div class="col-9 p-0 mb-5 ms-5">
+                <div class="container mt-4">
+                    <div class="row">
+                        <!-- Pie Chart and Line Chart -->
+                        <div class="col" id="barChart"></div>
+                        <div class="col" id="pieChart1"></div>
+                    </div>
+            
+                </div>
+            </div>
+        </div>   
+
+
+ <!-- JavaScript Code -->
+ <script type='text/javascript'>
+    // Load the Visualization API and the corechart package
+    google.charts.load('current', { 'packages': ['corechart'] });
+  
+    // Set a callback to run when the Google Visualization API is loaded
+    google.charts.setOnLoadCallback(drawCharts)
+
+    // Data for Pie Chart 리뷰의 긍/부정의 갯수 
+      var reviews = JSON.parse('<%= jsonData %>'); // JSON 데이터를 가져옴
+      console.log(reviews);  
+      var pieData1 = new google.visualization.DataTable();
+      pieData1.addColumn('string', 'sentiment');
+      pieData1.addColumn('number', 'CNT');
+
+      for (var i = 0; i < reviews.length; i++) {
+        pieData1.addRow([parseInt(reviews[i].sentiment), parseInt(reviews[i].CNT)]);
+      }
+      // Options for Pie Chart 리뷰의 긍/부정의 갯수
+      var pieOptions1 = {
+        title: '리뷰의 긍/부정의 갯수',
+        titleTextStyle: {
+        fontSize: 25  // 여기서 숫자는 원하는 글꼴 크기로 조정할 수 있습니다.
+        },
+        width: 600,   // 원하는 너비로 설정
+        height: 400,   // 원하는 높이로 설정
+        colors: ['#c2c2c2', '#b2e9ff']
+      };
+
+    // Function to draw the charts 코로나 전/후 관심도 비교 2019을 기준
+    function drawCharts() {
+       // Data for barChart 코로나 전/후 관심도 비교 2019을 기준
+      var coronaCNT = JSON.parse('<%= jsonData2 %>'); // JSON 데이터를 가져옴
+      console.log(coronaCNT);  
+      var barData = new google.visualization.DataTable();
+      barData.addColumn('string', '코로나_전후');
+      barData.addColumn('number', '데이터_수');
+
+      for (var i = 0; i < coronaCNT.length; i++) {
+        barData.addRow([coronaCNT[i].코로나_전후, parseFloat(coronaCNT[i].데이터_수)]);
+      }
+
+        var barOptions = {
+            title: '코로나 전/후 관심도 비교(2019기준)',
+            titleTextStyle: {
+                fontSize: 25  // 여기서 숫자는 원하는 글꼴 크기로 조정할 수 있습니다.
+            },
+            colors: ['#FFB6C1'],
+            legend: 'none' 
+
+        };
+
+    
+
+      
+      // Draw the charts
+      var barChart = new google.visualization.BarChart(document.querySelector('#barChart'));
+      barChart.draw(barData, barOptions);
+  
+      var pieChart1 = new google.visualization.PieChart(document.querySelector('#pieChart1'));
+      pieChart1.draw(pieData1, pieOptions1);
+        
+    }
+</script>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AdminChart">
+
+    <!-- 리뷰의 긍/부정의 갯수 (파이차트) -->
+    <select id="Commreviews" parameterType="Map">
+          SELECT sentiment, COUNT(*) AS CNT
+            FROM dummy_table_reviews
+            WHERE sentiment IN ('긍정', '부정')
+            GROUP BY sentiment;
+    </select>
+
+    <!-- 코로나 전/후 관심도 비교 2019을 기준으로 (bar차트) -->
+    <select id="Commcorona" parameterType="Map">
+        SELECT
+            CASE
+            WHEN YEAR(COMMUNITY_DATE) <![CDATA[<]]> 2020 THEN '코로나 전'
+            ELSE '코로나 후'
+            END AS 코로나_전후,
+            COUNT(COMMUNITY_TITLE) AS 데이터_수
+        FROM community
+        WHERE YEAR(COMMUNITY_DATE) <![CDATA[>=]]> 2019
+        GROUP BY CASE
+            WHEN YEAR(COMMUNITY_DATE) <![CDATA[<]]> 2020 THEN '코로나 전'
+            ELSE '코로나 후'
+            END;
+    </select>
+    
+</mapper>

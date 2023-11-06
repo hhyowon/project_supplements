@@ -9,7 +9,7 @@ VALUES
 -- DORMANT_ACCOUNTS
 INSERT INTO DORMANT_ACCOUNTS (DORMANT, DORMANT_UID)
 VALUES
-('NOT휴면', 'H_01'),
+('회원', 'H_01'),
 ('휴면', 'H_02');
 
 -- members 

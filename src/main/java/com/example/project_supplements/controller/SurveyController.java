@@ -42,7 +42,8 @@ public class SurveyController {
     public ModelAndView surveyboth(@RequestParam("SURVEY_TYPE_ID") String surveyTypeId, ModelAndView modelAndView) {
         Map<String, String> params = new HashMap<>();
         params.put("SURVEY_TYPE_ID", surveyTypeId); // surveyType 파라미터를 params Map에 추가
-        Object result = surveyService.surveyboth(params);
+        params.put("USER_ID", commons.getUserID());
+         Object result = surveyService.surveyboth(params);
         modelAndView.addObject("params", params);
         modelAndView.addObject("result", result);
         modelAndView.setViewName("/WEB-INF/views/survey/survey_both.jsp");
