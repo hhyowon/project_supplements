@@ -1,4 +1,3 @@
-![image](https://github.com/hhyowon/project_supplements/assets/132967458/5c555673-3a98-44e0-93f9-0ba16ca8733c)# 
 
 <div style="text-align: center;">
   <img src="src/main/resources/static/html/img/logo.PNG" width="300" alt="Logo">
