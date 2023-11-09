@@ -8,8 +8,6 @@
 ## 📃콘텐츠 : 다이어트 보조제 추천 사이트 
  <strong>홈페이지 이용객의 설문조사를 기반하여 다이어트 보조제를 추천해주는 웹 사이트 입니다.</strong>
 
-### 웹 사이트 주소
-- url
 ### 프로젝트 발표
 - 수주제안서 : https://drive.google.com/file/d/1YmUQKVRzeXReqGQ6nQSMrjkwI1SmuzNg/view?usp=drive_link
 - 프로젝트 최종 발표 : https://drive.google.com/file/d/1mFkEl9tV1wHMJ0vzZ83fXcrRsaOoLc9t/view?usp=drive_link
@@ -25,12 +23,6 @@
 - 과거 설문정보 등 나의 기록을 저장하는 마이페이지
 - 보조제 홈페이지를 원활하게 관리하는 관리자페이지
 
-
-
-
-### ✔️사용 기술
-
-<img src="https://img.shields.io/badge/Java-3178C6?style=flat&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white"/> <img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=flat&logo=Spring Boot&logoColor=white"/> <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white"/> <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat&logo=Bootstrap&logoColor=white"/> <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white"/> <img src="https://img.shields.io/badge/CSS-1572B6?style=flat&logo=CSS3&logoColor=white"/> <img src="https://img.shields.io/badge/MyBatis-4479A1?style=flat&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/JSP Servlet-C5E99B?style=flat&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/GoormIDE-D4DFE6?style=flat&logo=&logoColor=white"/>
 
 ### ✔️개발 기간
 총 2개월 
@@ -49,6 +41,12 @@
 
 ### ✔️ERD
 - [ERD](https://github.com/hhyowon/project_supplements/blob/main/Docs/Databases/ERD.png) 
+
+
+### ✔️사용 기술
+
+<img src="https://img.shields.io/badge/Java-3178C6?style=flat&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white"/> <img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=flat&logo=Spring Boot&logoColor=white"/> <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white"/> <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat&logo=Bootstrap&logoColor=white"/> <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white"/> <img src="https://img.shields.io/badge/CSS-1572B6?style=flat&logo=CSS3&logoColor=white"/> <img src="https://img.shields.io/badge/MyBatis-4479A1?style=flat&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/JSP Servlet-C5E99B?style=flat&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/GoormIDE-D4DFE6?style=flat&logo=&logoColor=white"/>
+
 
 ### ✔️팀원 및 구현 기능
 
