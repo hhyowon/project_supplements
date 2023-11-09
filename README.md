@@ -1,4 +1,4 @@
-# '9998' Final Project
+![image](https://github.com/hhyowon/project_supplements/assets/132967458/5c555673-3a98-44e0-93f9-0ba16ca8733c)# '9998' Final Project
 
 <div style="text-align: center;">
   <img src="src/main/resources/static/html/img/logo.PNG" width="300" alt="Logo">
@@ -40,7 +40,7 @@
 
 ### ✔️구현 영상
 
-- [다이어트 보조제 구현 영상](https://youtu.be/7zkeFdLxRlw?si=PAENISywPwgAXDNj)
+- [다이어트 보조제 구현 영상](https://youtu.be/ITC1kb3Hb-8?si=xJxQXpiQGpfbyK9M)
 
 ### ✔️구현 화면
 
