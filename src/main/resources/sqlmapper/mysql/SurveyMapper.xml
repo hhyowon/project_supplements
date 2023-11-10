@@ -14,20 +14,13 @@
         ORDER BY O.OPT_ORDER;
  </select>
 
- <!-- 약 복용시 중복처리 -->
+ <!-- 질문자 약 복용 -->
  <select id="usersupplist" parameterType="Map" resultType="Map">
-   SELECT DISTINCT SO.SURVEY_OPT
-    FROM SURVEY_OPT AS SO
-    WHERE SO.SURVEY_QUESTION_ID = 'Q-06' 
-    AND SO.SURVEY_OPT != #{SURVEY_OPT}
-    AND SO.SURVEY_OPT_ID NOT IN 
-    (
-        SELECT DISTINCT S.SURVEY_OPT_ID
-        FROM SURVEYRESULT AS SR
-        INNER JOIN SURVEY AS S ON SR.SURVEY_UID = S.SURVEY_UID
-        WHERE S.SURVEY_QUESTION_ID = 'Q-06' AND SR.USER_ID = #{USER_ID}
-    )
-ORDER BY SO.SURVEY_OPT;
+    SELECT so.SURVEY_OPT
+    FROM surveyresult sr
+    JOIN survey s ON sr.SURVEY_UID = s.SURVEY_UID
+    JOIN survey_opt so ON s.SURVEY_OPT_ID = so.SURVEY_OPT_ID
+    WHERE s.SURVEY_QUESTION_ID = 'Q-06' AND sr.USER_ID = #{USER_ID};  
 </select>
 
  <!-- 질문과 답항을 뽑아오는 쿼리(복용x)  

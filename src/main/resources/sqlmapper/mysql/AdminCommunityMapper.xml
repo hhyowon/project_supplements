@@ -82,12 +82,4 @@
             GROUP BY CONCAT(YEAR(COMMUNITY_DATE), '-', LPAD(MONTH(COMMUNITY_DATE), 2, '0'))
             ORDER BY 연도_월;
         </select>
-
-
-
-
-
-
-
-
 </mapper>

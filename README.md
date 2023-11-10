@@ -1,4 +1,3 @@
-# '9998' Final Project
 
 <div style="text-align: center;">
   <img src="src/main/resources/static/html/img/logo.PNG" width="200" alt="Logo">
@@ -6,7 +5,6 @@
 
 ## 📃콘텐츠 : 다이어트 보조제 추천 사이트 
  <strong>홈페이지 이용객의 설문조사를 기반하여 다이어트 보조제를 추천해주는 웹 사이트 입니다.</strong>
-
 
 ### 프로젝트 발표
 - 수주제안서 : https://drive.google.com/file/d/1YmUQKVRzeXReqGQ6nQSMrjkwI1SmuzNg/view?usp=drive_link
@@ -24,20 +22,14 @@
 - BMI 페이지 : BMI 계산, 통계보기 기능 
 
 
-
-
-### ✔️사용 기술
-
-<img src="https://img.shields.io/badge/Java-3178C6?style=flat&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white"/> <img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=flat&logo=Spring Boot&logoColor=white"/> <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white"/> <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat&logo=Bootstrap&logoColor=white"/> <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white"/> <img src="https://img.shields.io/badge/CSS-1572B6?style=flat&logo=CSS3&logoColor=white"/> <img src="https://img.shields.io/badge/MyBatis-4479A1?style=flat&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/JSP Servlet-C5E99B?style=flat&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/GoormIDE-D4DFE6?style=flat&logo=&logoColor=white"/>
-
 ### ✔️개발 기간
-
-- 1차 : 2023년 7월 7일~ 2023년 7월 31일
-- 2차 : 2023년 9월 18일 ~ 2023년 10월 16일
+총 2개월 
+- 1차 : 2023년 7월 7일~ 2023년 7월 31일 
+- 2차 : 2023년 9월 ~ 2023년 10월
 
 ### ✔️구현 영상
 
-- [다이어트 보조제 구현 영상](https://youtu.be/ITC1kb3Hb-8?si=_estLUgooDP86akP)
+- [다이어트 보조제 구현 영상](https://youtu.be/ITC1kb3Hb-8?si=xJxQXpiQGpfbyK9M)
 
 ### ✔️구현 화면
 
@@ -46,8 +38,12 @@
 
 
 ### ✔️ERD
-- [ERD](https://github.com/hhyowon/project_supplements/blob/main/Docs/Databases/ERD.png) 
+<img src="Docs\Databases\ERD_9998_final.png" width="800"> 
 
+
+### ✔️사용 기술
+
+<img src="https://img.shields.io/badge/Java-3178C6?style=flat&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white"/> <img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=flat&logo=Spring Boot&logoColor=white"/> <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white"/> <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat&logo=Bootstrap&logoColor=white"/> <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white"/> <img src="https://img.shields.io/badge/CSS-1572B6?style=flat&logo=CSS3&logoColor=white"/> <img src="https://img.shields.io/badge/MyBatis-4479A1?style=flat&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/JSP Servlet-C5E99B?style=flat&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/GoormIDE-D4DFE6?style=flat&logo=&logoColor=white"/>
 
 
 ### ✔️팀원 및 구현 기능
