@@ -40,9 +40,8 @@
 //        return modelAndView;
 //       }
      
-     
+// 사용하지 않아도 surveycontroller에서 select까지 해줘서 reslut 폼으로 넘어가기 때문에 
+// 굳이 필요업음      
 
 // }
 
-// 사용하지 않아도 surveycontroller에서 select까지 해줘서 reslut 폼으로 넘어가기 때문에 
-// 굳이 필요업음 

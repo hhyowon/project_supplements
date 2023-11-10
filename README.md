@@ -1,16 +1,13 @@
 # '9998' Final Project
 
 <div style="text-align: center;">
-  <img src="src/main/resources/static/html/img/logo.PNG" width="300" alt="Logo">
+  <img src="src/main/resources/static/html/img/logo.PNG" width="200" alt="Logo">
 </div>
 
-
- 
 ## 📃콘텐츠 : 다이어트 보조제 추천 사이트 
  <strong>홈페이지 이용객의 설문조사를 기반하여 다이어트 보조제를 추천해주는 웹 사이트 입니다.</strong>
 
-### 웹 사이트 주소
-- url
+
 ### 프로젝트 발표
 - 수주제안서 : https://drive.google.com/file/d/1YmUQKVRzeXReqGQ6nQSMrjkwI1SmuzNg/view?usp=drive_link
 - 프로젝트 최종 발표 : https://drive.google.com/file/d/1mFkEl9tV1wHMJ0vzZ83fXcrRsaOoLc9t/view?usp=drive_link
@@ -20,11 +17,11 @@
 
 #### 📌 프로젝트 주요 기능 
 - 설문조사를 기반한 보조제 추천 랭킹 
-
 - 제형 및 효과별 보조제 검색 기능
 - 질문, 후기 및 추천글 공유가 가능한 커뮤니티
 - 과거 설문정보 등 나의 기록을 저장하는 마이페이지
 - 보조제 홈페이지를 원활하게 관리하는 관리자페이지
+- BMI 페이지 : BMI 계산, 통계보기 기능 
 
 
 
@@ -36,11 +33,11 @@
 ### ✔️개발 기간
 
 - 1차 : 2023년 7월 7일~ 2023년 7월 31일
-- 2차 : 2023년 9월 ~ 2023년 10월
+- 2차 : 2023년 9월 18일 ~ 2023년 10월 16일
 
 ### ✔️구현 영상
 
-- [다이어트 보조제 구현 영상](https://youtu.be/7zkeFdLxRlw?si=PAENISywPwgAXDNj)
+- [다이어트 보조제 구현 영상](https://youtu.be/ITC1kb3Hb-8?si=_estLUgooDP86akP)
 
 ### ✔️구현 화면
 
@@ -51,12 +48,41 @@
 ### ✔️ERD
 - [ERD](https://github.com/hhyowon/project_supplements/blob/main/Docs/Databases/ERD.png) 
 
+
+
 ### ✔️팀원 및 구현 기능
+### 1차
+| 김명곤 | 송명주 | 조효원 | 오가배 |
+| ------- | ------- | ----------- | --------- |
+| - Sample Code | - 설문조사 통계 | - 메인페이지 | - 설문조사 진행 페이지 |
+| - 로그인 | - 랭킹 | - BMI 페이지 | - 마이페이지 회원정보 수정 |
+| - 권한 설정 | - 마이페이지 설문 이력 | - 다이어트 보조제 검색 | - 마이페이지 커뮤니티 관리 |
+| | - 관리자 페이지 설문 이력 | - 커뮤니티 | - 관리자 페이지 커뮤니트 관리 |
+| | | - 관리자 페이지 회원 관리 | - 관리자 페이지 보조제 관리 |
+
+### 2차
+### 📊 분석 : 오가배 , 송명주 / 💻응용 : 조효원 , 김명곤 
+
+  | 오가배                | 송명주               | 조효원              | 김명곤               |
+  | ----------------- | ----------------- | ----------------- | ----------------- |
+ | 데이터 수집 및 통합 전처리 | 데이터 수집 및 전처리 | 팀원 업무분장 및 관리 | 회원관리페이지        |
+ | LDA 토픽 모델링을 통한 토픽 추출 | 머신러닝 모델링 통한 감성분석 | 회원가입 유지보수 | 랭크페이지 유지보수 |
+ | 인사이트 도출 및 보고서 작성 | 인사이트 도출 및 보고서 작성 | BMI페이지(계산, 결과, 마이페이지) | 댓글 구현 |
+   | 통계 쿼리 작성    | 통계 쿼리 작성    | 설문조사페이지  | 권한 관리        |
+|  | | 통계 그래프 차트 구현   |
+
+
+
+
+
+
+
 
 ### 👩‍💻 김명곤
 
-<details>
-<summary>Sample Code</summary>
+
+</details>
+<details><summary>Sample Code</summary>
 
 - [SecurityConfiguration.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/configs/SecurityConfiguration.java)
 - [SampleController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/SampleController.java)
@@ -84,7 +110,10 @@
  - [AuthsService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/AuthsService.java)
  - [SecurityConfiguraion.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/configs/SecurityConfiguration.java)
   
-</details>
+</details> 
+
+
+
 
 
 ### 👩‍💻 송명주
@@ -131,15 +160,6 @@
 <summary>메인페이지</summary>
 
 - [MainController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/MainController.java)
-
-</details>
-
-<details>
-<summary>BMI 페이지</summary>
-
-- [BmiMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/BmiMapper.xml)
-- [BMIController.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/controller/BMIController.java)
-- [BmiSerivce.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/BmiSerivce.java)
 
 </details>
 
@@ -219,98 +239,7 @@
 
 
 ### ✔️주요코드 및 진행 통해 느낀 점
-
-### 👍 김명곤
-
-```
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<sec:authorize access="isAuthenticated()">
-<sec:authorize access="hasRole('ROLE_ADMIN')">
-<sec:authorize access="isAuthenticated()">
-@Configuration
-@EnableWebSecurity
-public class SecurityConfiguration {
-    @Bean
-        public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-                // None using csrf protection
-                httpSecurity.csrf().disable();
-                // 권한에 대한 부분 : url & roles : user url & roles
-                // url, roles from Dao
-                httpSecurity.authorizeHttpRequests() // 로그인
-                .requestMatchers("/manager*").hasAnyRole("ADMIN", "MANAGER")
-                .requestMatchers("/admin*/*").hasRole("ADMIN")
-                .requestMatchers("/main").authenticated() //로그인한 대상자
-                .requestMatchers("/carInfor/map/*").hasRole("USER")
-                        .anyRequest().permitAll() //그외 전체 대상
-                ;
-                httpSecurity.formLogin(login -> login.loginPage("/loginForm") //로그인 하지 않은 사람이 로그인한 후에 접근 가능한 페이지를 눌렀을때 로그인 폼을 띄어라
-                                .failureUrl("/loginForm?fail=true") 
-                                .loginProcessingUrl("/login") 
-                                .defaultSuccessUrl("/")); //로그인 하고 나면 메인으로 간다
-                httpSecurity.logout(logout -> logout
-                                .logoutSuccessUrl("/home")
-                                .invalidateHttpSession(true)
-                                .deleteCookies("JSESSIONID"));
-
-                return httpSecurity.build();
-        }
-                 @Bean
-        public BCryptPasswordEncoder encoderPasswordEncoder() {
-                return new BCryptPasswordEncoder();
-        }       
-```
-        코드의 중요함 보다 팀원들을 믿고 나아가는 저를 보면서 힘든 프로젝트를 진행 할 수 있겠다 라는 힘을 얻었습니다.
-        PM을 필두로 팀원과 원활한 소통과 협업을 통해 효율적으로 프로젝트를 진행 할 수 있었고, 9998의 팀 이름처럼 나이 차이가 났지만 
-        어느 누구 의견하나도 놓치지 않고 수용하여 결국 완성을 하였습니다.
-        이번 프로젝트에서 Back End Sample CODE가 제 임무였고 코드 진행에 있어서 많은 이해도가 증가 되었습니다.
-        특히 MVC 모델, 관리자 권한인 AUTH 부분, CRUD, 회원 정보 암호화 등등 그동안 배웠던 부분을 모두 사용했다고 생각합니다.
-        마지막으로 힘든 일정에 지치지 않고 으쌰으쌰 힘내준 우리 팀원들에게 감사인사 올립니다.
-        
-### 👍 송명주
-
-```
-      SELECT T_SURVEYOPT.SURVEY_OPT_URL AS SURVEY_RANK_FIRST
-    FROM (
-    SELECT T_SURVEY.SURVEY_UID
-    FROM SURVEY AS T_SURVEY
-    INNER JOIN SURVEYRESULT AS T_SURVEYRESULT ON T_SURVEY.SURVEY_UID = T_SURVEYRESULT.SURVEY_UID
-    WHERE T_SURVEY.SURVEY_OPT_ID = 'O-54'
-    ) AS T_SURVEYUID
-    INNER JOIN SURVEY AS T_SURVEY2 ON T_SURVEYUID.SURVEY_UID = T_SURVEY2.SURVEY_UID
-    INNER JOIN SURVEY_OPT AS T_SURVEYOPT ON T_SURVEYOPT.SURVEY_OPT_ID = T_SURVEY2.SURVEY_OPT_ID
-    WHERE T_SURVEY2.SURVEY_QUESTION_ID = 'Q-06'
-    GROUP BY T_SURVEYOPT.SURVEY_OPT_URL
-    ORDER BY COUNT(*) DESC
-    LIMIT 3;
-
-    // 관리자 부모테이블 설문조사 삭제
-    public Object delete(Map dataMap) {
-        String sqlMapId = "Adminsurvey.surveydelete";
-        Object result = sharedDao.delete(sqlMapId, dataMap);
-        return result;
-        }
-    // 관리자 자식테이블 설문조사 삭제
-    public Object resultdelete(Map dataMap) {
-        String sqlMapId = "Adminsurvey.surveyresultdelete";
-        Object result = sharedDao.delete(sqlMapId, dataMap);
-        return result;
-        }
-    // 관리자 설문조사 삭제 및 select
-    public Object deleteAndSelectSearch(String SURVEY_UID, Map dataMap) {
-        dataMap.put("SURVEY_UID", SURVEY_UID);
-        HashMap result = new HashMap<>();
-        result.put("deleteCount", this.delete(dataMap));
-        result.put("deleteCount", this.resultdelete(dataMap));
-        result.putAll(this.selectWithPagination(dataMap));
-        return result;
-        }   
-```
-    랭킹을 구현하기 위한 쿼리문을 작성하는데 있어서 
-
-
-----
-
-### 👍 조효원
+### 👍 1차 
 
 ```
         <% Paginations paginations=(Paginations)result.get("paginations"); %>
@@ -363,49 +292,23 @@ public class SecurityConfiguration {
 이번 프로젝트를 통해 시스템 흐름도에 따라 어떻게 흘러가고 작동되는지 자세히 이해하게 되었습니다. 또한 수주-의뢰 방식의 프로젝트 경험 덕에 저의 개발역량을 향상시키는데 도움이 되었습니다.
 
 ---
-### 👍 오가배
 
-```
-        List surveyMapList = new ArrayList<Map>();
-        for (String questionId : dataMap.keySet()) {
-            Map<String, String> questionAnswerMap = new HashMap<>();
-            String answerId = (String) dataMap.get(questionId);
-            questionAnswerMap.put("QuestionId", questionId);
-            questionAnswerMap.put("AnswerId", answerId);
-            questionAnswerMap.put("SURVEY_ID", this.generateUUID());
-            surveyMapList.add(questionAnswerMap);
-        }
-        dataMap.put("surveyMapList", surveyMapList);
-        // 부모테이블 값 insert 먼저 시키기 
-        String SURVEY_UID = UUID.randomUUID().toString(); 
-        dataMap.put("USER_ID", commons.getUserID()); // user_id 받기
-        dataMap.put("SURVEY_UID", SURVEY_UID);
-        dataMap.put("DATE_TIME", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-        String sqlMapId = "SurveyService.insertsurveyresult";
-        Object result01 = sharedDao.insert(sqlMapId, dataMap);
-
-        // 자식테이블 insert
-
-        dataMap.put("SURVEY_TYPE_ID", "F-01");
-        sqlMapId = "SurveyService.insertsurvey";
-        Object resultMap = sharedDao.insert(sqlMapId, dataMap);
-        //String uuid = this.generateUUID();
-        return dataMap;
-
-```
-코드를 작성하기 이전에 소통이 가장 중요하다는 것을 느끼게 되었습니다. 하루마다 각자의 할당량을 끝냈을 경우 PM에게 보고함과 동시에 팀원들과 공유하면서 다른 업무를 맡고 보다 효율적으로 프로젝트를 진행해나갔습니다. 더불어 아무리 내가 원하는 방향이 있다고 해도 의뢰팀이 원하는 방향으로 프로젝트가 완성이 되어야하고, 의뢰팀의 만족을 해야하기 때문에 PM을 통해 꾸준히 의뢰팀과도 소통하면서 올바른 방향으로 프로젝트가 이루어질 수 있었습니다. 팀원분들과 원활한 소통과 협업 덕분에 조금 더 빠르고 효율적으로 프로젝트를 진행해 나갈수 있었습니다. 
-
-설문조사 결과값을 DB에 넣는 과정에서 NAME과 VALUE값을 효율적으로 연결하는 법과 DB에 INSERT를 시키기 위해서는 
-부모테이블을 먼저 insert를 시켜야 자식테이블에 insert가 가능하다는 점을 확실히 인지하였습니다. 
-더불어 참조 받은 fk값인 SURVEY_UID는 UUID로 받는데 동일한 UUID임을 인지시켜줘야 부모테이블 및 자식테이블이 insert가 된다는 점을 통해 
-ERD를 명확하게 이해해야 나머지 코드를 조금 더 수월하게 진행해 나갈 수 있음을 알게 되었습니다. 
-
-해당 프로젝트로 인해 고객이 입력하는 데이터가 DB까지 가는 부분의 흐름도를 직접 코드를 풀어나가면서 이해할 수 있었습니다. 마지막으로 부모와 자식테이블의 관계의 중요성을 확실히 깨닫게 된 프로젝트였습니다. 
+### 👍 2차 
 
 
+### 🙋🏻‍♂️🙋🏻‍♀️ 분석팀 & 응용팀 협업사항
+
+|  분석                   | 분석결과 | 협업사항                             |
+| ---------------| ------------------ | ----------------------------------- |
+| 크롤링 리뷰 분석 | 사용자가 효능을 가장 중요시 여김 | - 검색 페이지 : 보조제에서 효능 뱃지 색깔 변경   |
+|                   |     | - 랭킹페이지 : 효능 별 랭킹 구현                |
+| 공공데이터 분석  | 남녀 BMI 평균  | Bar chart : BMI 평균 구현 
+|                 | 남녀별 BMI 구분 | Pie chart :  남녀별 BMI TYPE 퍼센트 구현 
+| 커뮤니티 게시글 분석  | 게시글 작성으로 월별 이용자 수 확인 | Line Chart : 월별 게시글 작성 수 구현 
+| 설문조사 결과 분석 | 설문조사 결과를 통해 결과 시각화 필요 | Pie Chart : 설문조사 보조제별 , 복용원인별  퍼센트 구현  
+| 사이트 분석 | 설문조사 내역 중 보조제 선택 문항의 보기가 계속해서 증가할 것 예상 | 복용자 설문조사 페이지 : 라디오버튼 방식의 선택에서 보조제 선택 문항만 드롭다운으로 변경
 
 ---
-
 ### 🏠 9998팀 문화 
 ### 1. 데일리 미팅
 - 매일 아침 각자 그 날 해야하는 작업에대해 공유하기
