@@ -109,47 +109,6 @@
 </details> 
 
 
-
-
-
-### 👩‍💻 송명주
-
-<details>
-<summary>설문조사 통계</summary>
-
-- [SurveryResultMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/SurveryResultMapper.xml)
-- [SurveyResultController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/LoginController.java)
-- [SurveyResultService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/SurveyResultService.java)
-
-</details>
-
-<details>
-<summary>랭킹</summary>
-
-- [SurveyRankMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/SurveyRankMapper.xml)
-- [RankController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/RegisterController.java)
-- [RankService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/RankService.java)
-
-</details>
-
-<details>
-<summary>마이페이지 설문 이력</summary>
-
-- [UserInfoAdminMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/UserInfoAdminMapper.xml)
-- [UserInfoAdminController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/UserInfoAdminController.java)
-- [UserInfoAdminService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/UserInfoAdminService.java)
-
-</details>
-
-<details>
-<summary>관리자 페이지 설문 이력</summary>
-
-- [UserInfoAdminMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/UserInfoAdminMapper.xml)
-- [UserInfoAdminController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/UserInfoAdminController.java)
-- [UserInfoAdminService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/UserInfoAdminService.java)
-
-</details>
-
 ### 👩‍💻 조효원
 
 <details>
@@ -194,6 +153,47 @@
 </details>
 
 
+### 👩‍💻 송명주
+
+<details>
+<summary>설문조사 통계</summary>
+
+- [SurveryResultMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/SurveryResultMapper.xml)
+- [SurveyResultController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/LoginController.java)
+- [SurveyResultService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/SurveyResultService.java)
+
+</details>
+
+<details>
+<summary>랭킹</summary>
+
+- [SurveyRankMapper.xml](https://github.com/hhyowon/project_supplements/blob/main/src/main/resources/sqlmapper/mysql/SurveyRankMapper.xml)
+- [RankController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/RegisterController.java)
+- [RankService.java](https://github.com/hhyowon/project_supplements/blob/main/src/main/java/com/example/project_supplements/service/RankService.java)
+
+</details>
+
+<details>
+<summary>마이페이지 설문 이력</summary>
+
+- [UserInfoAdminMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/UserInfoAdminMapper.xml)
+- [UserInfoAdminController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/UserInfoAdminController.java)
+- [UserInfoAdminService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/UserInfoAdminService.java)
+
+</details>
+
+<details>
+<summary>관리자 페이지 설문 이력</summary>
+
+- [UserInfoAdminMapper.xml](https://github.com/HNNNY35/final_retoree/blob/master/src/main/resources/sqlmapper/mysql/UserInfoAdminMapper.xml)
+- [UserInfoAdminController.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/controller/UserInfoAdminController.java)
+- [UserInfoAdminService.java](https://github.com/HNNNY35/final_retoree/blob/master/src/main/java/com/project/final_retoree/services/UserInfoAdminService.java)
+
+</details>
+
+
+
+
 ### 👩‍💻 오가배 
 
 <details>
@@ -235,7 +235,7 @@
 
 
 ### ✔️주요코드 및 진행 통해 느낀 점
-### 👍 1차 
+### 👍 1차 <개발 경험>
 
 ```
         <% Paginations paginations=(Paginations)result.get("paginations"); %>
@@ -289,7 +289,58 @@
 
 ---
 
-### 👍 2차 
+### 👍 2차 <유지 보수 경험>
+```
+function preCheckID(event) {
+    event.preventDefault(); // 기본 동작 방지
+
+    const userId = document.getElementById('userid').value; // 입력한 아이디 값 가져오기
+
+    const requestBody = { USER_ID: userId }; // JSON 데이터를 객체로 생성
+
+    fetch(`/signup/checkDuplicateId`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+   
+.then(data => {
+    console.log('파싱된 데이터:', data);
+    const idMessage = document.getElementById('idMessage');
+    
+    if (data.result.isDuplicate === true) {
+        // 중복된 아이디 처리
+        idMessage.textContent = '이미 사용 중인 아이디입니다.';
+        idMessage.style.color = 'red';
+    } else {
+        // 사용 가능한 아이디 처리
+        idMessage.textContent = '사용 가능한 아이디입니다.';
+        idMessage.style.color = 'green';
+    }
+    
+})
+    .catch(error => {
+        console.error('오류 발생: ', error);
+    });
+
+}
+
+```
+2차 프로젝트에서는 새로운 기획이 아닌, 기존 시스템의 효율적인 유지보수에 초점을 맞추었습니다. 이 과정에서 회원 데이터의 효율적인 관리가 중요하다고 판단되어, 회원 관리 폼을 개선하는 작업을 진행하였습니다.
+
+특히, 아이디 중복 처리 부분에서는 1차 프로젝트의 기존 구조를 벗어나, 자바스크립트를 활용하여 새롭게 구현하였습니다. 웹 브라우저에서 서버로의 HTTP 요청을 위해 Fetch API를 사용하여, 사용자가 입력한 아이디가 이미 존재하는지를 실시간으로 확인할 수 있도록 하였습니다. 이는 서버에 POST 요청을 보내고, 그에 따른 응답을 비동기적으로 처리하는 방식을 통해 이루어졌습니다.
+
+이러한 개선을 통해 사용자는 실시간으로 아이디의 사용 가능 여부를 확인할 수 있게 되었고, 이는 서버에 불필요한 부하를 줄이는 효과를 가져왔습니다. 사용자가 최종적으로 가입 버튼을 누르기 전에 아이디 중복 여부를 미리 확인함으로써, 중복된 아이디로 인한 불필요한 가입 요청을 줄일 수 있었습니다.
+
+이 경험을 통해 기존 시스템의 유지보수가 새로운 시스템을 구축하는 것만큼 중요하다는 것을 깨달았습니다. 앞으로도 이를 바탕으로 시스템의 효율성과 사용자 경험을 더욱 향상시킬 수 있는 방안을 모색하고자 합니다.
 
 
 ### 🙋🏻‍♂️🙋🏻‍♀️ 분석팀 & 응용팀 협업사항
