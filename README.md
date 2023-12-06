@@ -8,7 +8,8 @@
 
 ### 프로젝트 발표
 - 수주제안서 : https://drive.google.com/file/d/1YmUQKVRzeXReqGQ6nQSMrjkwI1SmuzNg/view?usp=drive_link
-- 프로젝트 최종 발표 : https://drive.google.com/file/d/1mFkEl9tV1wHMJ0vzZ83fXcrRsaOoLc9t/view?usp=drive_link
+- 1차 프로젝트 발표 : https://drive.google.com/file/d/1mFkEl9tV1wHMJ0vzZ83fXcrRsaOoLc9t/view?usp=drive_link
+- 2차 프로젝트 발표 : https://drive.google.com/file/d/1VYwT7yaTjNO7uYtD_xxQsFjex1oNDGmZ/view?usp=sharing
  
 ### ✔️프로젝트 설명
 코로나 이후 다이어트에대한 관심도가 증가하면서 다이어트 보조제에대한 관심도 또한 증가하였습니다. 이에 기반하여 다이어트 보조제 추천 사이트를 만들고 싶어하는 의뢰팀의 프로젝트를 담당하게 되어 구현한 사이트입니다. 일반적인 추천 사이트와 다르게 사이트 이용객의 설문조사를 기반으로 보조제를 추천해 주는 사이트로 더욱 신뢰도 높은 보조제를 추천 받을 수 있습니다. 
@@ -24,8 +25,9 @@
 
 ### ✔️개발 기간
 총 2개월 
-- 1차 : 2023년 7월 7일~ 2023년 7월 31일 
-- 2차 : 2023년 9월 ~ 2023년 10월
+- 1차 : 2023.07.07 ~ 07.31 
+- 2차 : 2023.09.18 ~ 10.17 
+
 
 ### ✔️구현 영상
 
