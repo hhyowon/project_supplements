@@ -77,7 +77,7 @@
  | JAVA | 성속, 다형성, 인터페이스, 컬력션 프레임워크 등 |  
  | JSP ,Html , css| JSP 웹 프로그래밍 구현 , Html+CSS View 구현 |
  |JavaScript| FetchAPI 사용, 구글 차트 라이브러리 활용 가능 |
- | SQL | My-SQL CRUD 활용 가능 | 
+ | SQL | MySQL 활용, CRUD 쿼리 작성 가능 | 
  | Spring Boot | MVC2 패턴 사용 | 
  
  
